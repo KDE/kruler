@@ -21,6 +21,7 @@
 #include <kcursor.h>
 #include <kdebug.h>
 #include <kglobal.h>
+#include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <kimageeffect.h>
 #include <klocale.h>
@@ -299,18 +300,7 @@ void KLineal::reLength(int percentOfScreen) {
   if (percentOfScreen < 10) {
     return;
   }
-  QRect r;
-  KConfig gc("kdeglobals", false, false);
-  gc.setGroup("Windows");
-
-  if (QApplication::desktop()->isVirtualDesktop() &&
-      gc.readBoolEntry("XineramaEnabled", true) &&
-      gc.readBoolEntry("XineramaPlacementEnabled", true)) {
-    int scnum = QApplication::desktop()->screenNumber(this);
-    r = QApplication::desktop()->screenGeometry(scnum);
-  } else {
-    r = QApplication::desktop()->geometry();
-  }
+  QRect r = KGlobalSettings::desktopGeometry(this);
 
   if (mOrientation == North || mOrientation == South) {
     mLongEdgeLen = r.width() * percentOfScreen / 100;
@@ -340,18 +330,7 @@ void KLineal::setFullLength() {
   reLength(100);
 }
 void KLineal::choseColor() {
-  QRect r;
-  KConfig gc("kdeglobals", false, false);
-  gc.setGroup("Windows");
-
-  if (QApplication::desktop()->isVirtualDesktop() &&
-      gc.readBoolEntry("XineramaEnabled", true) &&
-      gc.readBoolEntry("XineramaPlacementEnabled", true)) {
-    int scnum = QApplication::desktop()->screenNumber(this);
-    r = QApplication::desktop()->screenGeometry(scnum);
-  } else {
-    r = QApplication::desktop()->geometry();
-  }
+  QRect r = KGlobalSettings::desktopGeometry(this);
 
   QPoint pos = QCursor::pos();
   if (pos.x() + mColorSelector.width() > r.width()) {
