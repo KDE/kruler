@@ -173,7 +173,7 @@ left (West) of the ruler</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns the ruler 45 Degrees to the right.  For example, if it is oriented
+<para>Turns the ruler 90 Degrees to the right.  For example, if it is oriented
 South, it will rotate to be oriented West.</para>
 </listitem>
 </varlistentry>
@@ -188,7 +188,7 @@ South, it will rotate to be oriented West.</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns the ruler 45 Degrees to the left.  For example, if it is oriented
+<para>Turns the ruler 90 Degrees to the left.  For example, if it is oriented
 West, it will rotate to be oriented South.</para>
 </listitem>
 </varlistentry>
