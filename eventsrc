@@ -2,6 +2,7 @@
 IconName=kruler
 Comment=KDE Screen Ruler
 Comment[az]=KDE Ekran Xətkeşi
+Comment[cs]=Obrazovkové pravítko
 Comment[da]=KDE Skærmlineal
 Comment[de]=KDE-Bildschirmlineal
 Comment[el]=Χάρακας Οθόνης KDE
@@ -33,6 +34,7 @@ Comment[zh_TW.Big5]=KDE 螢幕量尺
 [cursormove]
 Name=Moved by Cursor Keys
 Name[az]=İstiqamət düymələri ilə hərəkət etdirildi
+Name[cs]=Přesunutý kurzorovými klávesami
 Name[da]=Flyttet med markørtaster
 Name[de]=Durch Cursortasten verschoben
 Name[eo]=Movata de la direktoklavoj
@@ -62,6 +64,7 @@ Name[uk]=Пересунуто клавішами курсора
 Name[zh_CN.GB2312]=用光标键移动
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[az]=Cədvəl piksel piksel istiqamət düymələri ilə hərəkət etdirildi
+Comment[cs]=Pravítko bylo kurzorovými klávesami posunuto o několik bodů
 Comment[da]=Linealen er flyttet en piksel af gangen med piletasterne
 Comment[de]=Das Lineal wurde durch die Cursortasten um einige Pixel verschoben
 Comment[eo]=La liniilo estas movita popunkte uzante la direktoklavojn
