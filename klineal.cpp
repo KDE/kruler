@@ -562,7 +562,7 @@ void KLineal::mousePressEvent(QMouseEvent *inEvent) {
   mDragOffset = mLastClickPos - QPoint(gr.left(), gr.top());
   if (inEvent->button() == LeftButton) {
     if (!mDragging) {
-      grabMouse(KCursor::handCursor());
+      grabMouse(KCursor::sizeAllCursor());
       mDragging = TRUE;
     }
   } else if (inEvent->button() == MidButton) {
