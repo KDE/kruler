@@ -41,6 +41,7 @@ Comment[vi]=Thước đo màn hình KDE
 Comment[xh]=Umlawuli wekhusi le KDE
 Comment[xx]=xx
 Comment[zh_CN]=KDE 屏幕标尺
+Comment[zh_TW]=KDE 螢幕丈量尺
 Comment[zu]=Umlawuli Wesikrini se KDE
 
 [cursormove]
@@ -85,6 +86,7 @@ Name[vi]=BềEdi chuyển bởi Phím Con TrềE
 Name[xh]=Ishukunyiswa zizitshixo zesalathisi
 Name[xx]=xx
 Name[zh_CN]=用光标键移动
+Name[zh_TW]=用游標鍵移動
 Name[zu]=Inyakaziswe Izikhiye Ze Cursor
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[af]=die liniaal het verskuif beeldelement-gewys te gebruik die plekaanduier sleutels
