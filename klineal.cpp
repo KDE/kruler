@@ -46,6 +46,7 @@
 #define CFG_KEY_SCALE_FONT "ScaleFont"
 #define CFG_KEY_LENGTH "Length"
 #define CFG_GROUP_SETTINGS "StoredSettings"
+#define DEFAULT_RULER_COLOR QColor(255, 200, 80)
 /**
 * this is our cursor bitmap:
 * a line 48 pixels long with an arrow pointing down
@@ -91,7 +92,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   setMinimumSize(60,60);
   setMaximumSize(8000,8000);
   KConfig *cfg = kapp->config();
-  QColor defaultColor(255, 200, 80);
+  QColor defaultColor = DEFAULT_RULER_COLOR;
   QFont defaultFont(KGlobalSettings::generalFont().family(), 8);
   defaultFont.setPixelSize(8);
   if (cfg) {
@@ -341,8 +342,9 @@ void KLineal::choseColor() {
   }
   mStoredColor = mColor;
   mColorSelector.move(pos);
-  mColorSelector.show();
   mColorSelector.setColor(mColor);
+  mColorSelector.setDefaultColor( DEFAULT_RULER_COLOR );
+  mColorSelector.show();
 
   connect(&mColorSelector, SIGNAL(okClicked()), this, SLOT(setColor()));
   connect(&mColorSelector, SIGNAL(yesClicked()), this, SLOT(setColor()));
@@ -389,6 +391,8 @@ void KLineal::setColor() {
 */
 void KLineal::setColor(const QColor &color) {
   mColor = color;
+  if ( !mColor.isValid() )
+    mColor = DEFAULT_RULER_COLOR;
   setupBackground();
 }
 
