@@ -250,8 +250,19 @@ void KLineal::setOrientation(int inOrientation) {
    } else {
      center = r.topLeft()+QPoint(width()/2, height()/2);
    }
-
+   
   rotateRect(r, center, nineties);
+
+  QRect desktop = KGlobalSettings::desktopGeometry(this);
+  if (r.top() < desktop.top())
+     r.moveTop( desktop.top() );
+  if (r.bottom() > desktop.bottom())
+     r.moveBottom( desktop.bottom() );
+  if (r.left() < desktop.left())
+     r.moveLeft( desktop.left() );
+  if (r.right() > desktop.right())
+     r.moveRight( desktop.right() );
+
   setGeometry(r);
   mOrientation = (inOrientation + 4) % 4;
   switch(mOrientation) {
