@@ -8,8 +8,12 @@ kruler_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kruler_LDADD   = $(LIB_KDEUI)
 kruler_SOURCES = klineal.cpp main.cpp 
 
-lnkdir = $(kde_appsdir)/Graphics
+lnkdir = $(kde_appsdir)/Graphics/More
 lnk_DATA = kruler.desktop
+
+install-data-local: uninstall.desktop
+	$(mkinstalldirs) $(kde_appsdir)/Graphics
+	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(kde_appsdir)/Graphics/kruler.desktop
 
 appdir = $(kde_datadir)/kruler
 app_DATA = eventsrc move.wav
