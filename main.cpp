@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
   KAboutData aboutData( "kruler", I18N_NOOP("KDE Screen Ruler"),
     VERSION,
-		I18N_NOOP("A screen ruler for the K Desktop Environment."),
+		I18N_NOOP("A screen ruler for the K Desktop Environment"),
 		KAboutData::License_GPL,
     "(c) 2000, Till Krech",
 		freeFormText,
