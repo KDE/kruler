@@ -8,11 +8,9 @@ kruler_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kruler_LDADD   = $(LIB_KDEUI)
 kruler_SOURCES = klineal.cpp main.cpp 
 
-DISTCLEANFILES = $(kruler_METASOURCES)
-
-
 lnkdir = $(kde_appsdir)/Graphics
 lnk_DATA = kruler.desktop
 
 messages:
-	$(XGETTEXT) -C -ki18n -x $(kde_includes)/kde.pot $(kruler_SOURCES) -o $(podir)/kruler.pot
+	$(XGETTEXT) $(kruler_SOURCES) -o $(podir)/kruler.pot
+
