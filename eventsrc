@@ -11,6 +11,7 @@ Comment[lv]=KDE Ekrāna Mērjosla
 Comment[ro]=Riglă ecran pentru KDE
 Comment[ru]=Экранная линейка KDE
 Comment[sv]=KDE skärmlinjal
+Comment[ta]=KDEý ¾¢¨Ã «Ç×§¸¡ø¸û
 Comment[zh_TW.Big5]=KDE 螢幕量尺
 
 [cursormove]
@@ -23,6 +24,7 @@ Name[is]=Fært með örvalyklum
 Name[ko]=방향 글쇠로 옮겼습니다
 Name[lv]=Pārvietots ar Kursora Taustiņiem
 Name[ro]=Mutare cu taste cursor
+Name[ta]=ÍðÊô¦À¡ò¾¡ý¸Ç¡ø «¨ºì¸ôÀð¼Ð
 Name[tr]=Yön tuşlarıyla hareket ettirildi
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[da]=Linealen er flyttet en piksel af gangen med piletasterne
@@ -33,6 +35,7 @@ Comment[is]=Reglustikan hefur verið færð um e-a punkta með örvalyklunum
 Comment[ko]=방향 글쇠로 자대를 옮겼습니다
 Comment[lv]=Mērjosla pārvietota pikseļavirzienā izmantojot kursora taustiņus.
 Comment[ro]=Rigla a fost mutată pixel cu pixel utilizînd tastele cursor
+Comment[ta]=«Ç×§¸¡Ä¡ÉÐ ÍðÊ¦À¡ò¾¡ý¸Ç¡øÀ¼òÐÏìÌ¸û «ÇÅ¢ø «¨ºì¸ôÀðÎûÇÐ
 Comment[tr]=Cetvel piksel piksel yön tuşlarıyla hareket ettirildi
 default_sound=move.wav
 default_presentation=1
