@@ -174,7 +174,7 @@ South, it will rotate to be oriented West.</para>
 <term>
 <menuchoice>
 <shortcut>
-<keycap>R</keycap>
+<keycap>L</keycap>
 </shortcut>
 <guisubmenu>Orientation</guisubmenu>
 <guimenuitem>Turn Left</guimenuitem>
