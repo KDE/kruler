@@ -8,8 +8,7 @@ kruler_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kruler_LDADD   = $(LIB_KDEUI)
 kruler_SOURCES = klineal.cpp main.cpp 
 
-lnkdir = $(kde_appsdir)/Graphics/More
-lnk_DATA = kruler.desktop
+xdg_apps_DATA = kruler.desktop
 
 install-data-local: uninstall.desktop
 	$(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/Graphics
