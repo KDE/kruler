@@ -13,8 +13,6 @@ static const char homePageURL[] =
 	"http://www.snafu.de/~till/";
 static const char freeFormText[] =
 	"\"May the source be with you.\"";
-static const char bugsEmailAddress[] =
-	"till@snafu.de";
 
 
 
@@ -34,8 +32,7 @@ int main(int argc, char *argv[])
 		KAboutData::License_GPL,
     "(c) 2000, Till Krech",
 		freeFormText,
-		homePageURL,
-		bugsEmailAddress);
+		homePageURL);
   aboutData.addAuthor("Till Krech",I18N_NOOP("Programming"), "till@snafu.de");
   aboutData.addCredit("Gunnstein Lye",I18N_NOOP("Initial port to KDE 2"), "gl@ez.no");
   KCmdLineArgs::init( argc, argv, &aboutData );
