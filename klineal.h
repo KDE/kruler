@@ -23,6 +23,7 @@
 #include <kmainwindow.h>
 
 #include <kcolordialog.h>
+#include <kfontdialog.h>
 
 #include <qlabel.h>
 #include <qpainter.h>
@@ -49,7 +50,9 @@ protected:
   void mouseMoveEvent(QMouseEvent *e);
   void paintEvent(QPaintEvent *e); 
   void enterEvent(QEvent *e); 
-  void leaveEvent(QEvent *e); 
+  void leaveEvent(QEvent *e);
+  void setupBackground();
+
 
 private:
   void drawScale(QPainter &painter);
@@ -65,6 +68,7 @@ private:
   int mLongEdgeLen;
   int mShortEdgeLen;
   KPopupMenu *mMenu;
+  QColor mColor;
   QColor mStoredColor;
   QCursor mCurrentCursor;
   QCursor mNorthCursor;
@@ -73,6 +77,7 @@ private:
   QCursor mSouthCursor;
   QCursor mDragCursor;
   KColorDialog mColorSelector;
+  QFont mScaleFont;
 	bool _clicked;
 public slots:
   void setOrientation(int);
@@ -91,9 +96,11 @@ public slots:
   void setTallLength();
   void setFullLength();
   void setColor();
+  void setFont(QFont &);
   void setColor(const QColor &color);
   void choseColor();
+  void choseFont();
   void restoreColor();
-  void saveColor();
+  void saveSettings();
 };
 #endif

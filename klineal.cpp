@@ -29,6 +29,8 @@
 #include <kstandarddirs.h>
 #include <qpixmap.h>
 #include <qiconset.h>
+#include <qimage.h>
+#include <kimageeffect.h>
 #include <knotifyclient.h>
 
 #include <qdialog.h>
@@ -39,6 +41,8 @@
 #include "klineal.h"
 
 #define CFG_KEY_BGCOLOR "BgColor"
+#define CFG_KEY_SCALE_FONT "ScaleFont"
+#define CFG_KEY_LENGTH "Length"
 #define CFG_GROUP_SETTINGS "StoredSettings"
 /**
 * this is our cursor bitmap:
@@ -73,7 +77,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
 	}
   KWin::setType(winId(), NET::Override);   // or NET::Normal
   KWin::setState(winId(), NET::StaysOnTop);
-
+  setPaletteBackgroundColor(black);
   QWhatsThis::add(this,
   i18n(
   	"This is a tool to measure pixel distances and colors on the screen. "
@@ -95,17 +99,24 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   setMaximumSize(8000,8000);
   KConfig *cfg = kapp->config();
   QColor defaultColor(255, 200, 80);
+  QFont defaultFont("Helvetica", 8);
+  defaultFont.setPixelSize(8);
   if (cfg) {
   		cfg->setGroup(CFG_GROUP_SETTINGS);
-      setBackgroundColor(cfg->readColorEntry(CFG_KEY_BGCOLOR, &defaultColor));
+      mColor = cfg->readColorEntry(CFG_KEY_BGCOLOR, &defaultColor);
+      mScaleFont = cfg->readFontEntry(CFG_KEY_SCALE_FONT, &defaultFont);
+      mLongEdgeLen = cfg->readNumEntry(CFG_KEY_LENGTH, 600);
     } else {
-  		setBackgroundColor(defaultColor);
+  		mColor = defaultColor;
+      mScaleFont = defaultFont;
+      mLongEdgeLen = 400;
   }
+  kdDebug() << "mLongEdgeLen=" << mLongEdgeLen << endl;
   mShortEdgeLen = 70;
 
   mLabel = new QLabel(this);
   mLabel->setGeometry(0,height()-12,32,12);
-  mLabel->setBackgroundColor(backgroundColor());
+  mLabel->setBackgroundOrigin(ParentOrigin);
   QFont labelFont("Helvetica", 10);
   labelFont.setPixelSize(10);
   mLabel->setFont(labelFont);
@@ -115,7 +126,8 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   	));
 	mColorLabel = new QLabel(this);
   mColorLabel->resize(45,12);
-  mColorLabel->setBackgroundColor(backgroundColor());
+  mColorLabel->setPaletteBackgroundColor(mColor);
+  mColorLabel->hide();
   QFont colorFont("fixed", 10);
   colorFont.setPixelSize(10);
   mColorLabel->setFont(colorFont);
@@ -132,7 +144,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mDragging = FALSE;
   mOrientation = South;
   setOrientation(South);
-  setMediumLength();
+  // setMediumLength();
   mMenu = new KPopupMenu();
   mMenu->insertTitle(i18n("K-Ruler"));
   KPopupMenu *oriMenu = new KPopupMenu(this);
@@ -150,6 +162,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   lenMenu->insertItem(i18n("Full Screen Width"), this, SLOT(setFullLength()), CTRL+Key_F);
   mMenu->insertItem(i18n("Length"), lenMenu);
   mMenu->insertItem(i18n("Choose Color..."), this, SLOT(choseColor()), CTRL+Key_C);
+  mMenu->insertItem(I18N_NOOP("Choose Font..."), this, SLOT(choseFont()), Key_F);
   mMenu->insertSeparator();
   mMenu->insertItem(i18n("Help"), helpMenu());
   mMenu->insertSeparator();
@@ -157,6 +170,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
 	mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 	_clicked = false;
 }
+
 KLineal::~KLineal(){
 }
 
@@ -169,7 +183,7 @@ void KLineal::move(const QPoint &p) {
 }
 
 QPoint KLineal::pos() {
-  QRect r = geometry();
+  QRect r = frameGeometry();
   return r.topLeft();
 }
 int KLineal::x() {
@@ -200,8 +214,38 @@ static void rotateRect(QRect &r, QPoint center, int nineties) {
   r.moveBy(center.x(), center.y());
 }
 
+void KLineal::setupBackground() {
+  QColor a, b, bg = mColor;
+  KImageEffect::GradientType gradType;
+  switch (mOrientation) {
+    case North:
+      a = bg.light(120);
+      b = bg.dark(130);
+      gradType = KImageEffect::VerticalGradient;
+      break;
+    case South:
+      b = bg.light(120);
+      a = bg.dark(130);
+      gradType = KImageEffect::VerticalGradient;
+      break;
+    case West:
+      a = bg.light(120);
+      b = bg.dark(130);
+      gradType = KImageEffect::HorizontalGradient;
+      break;
+    case East:
+      b = bg.light(120);
+      a = bg.dark(130);
+      gradType = KImageEffect::HorizontalGradient;
+      break;
+  }
+  QPixmap bgPixmap = QPixmap(KImageEffect::gradient(size(), a, b, gradType));
+  setErasePixmap(bgPixmap);
+  mLabel->setErasePixmap(bgPixmap);
+}
+
 void KLineal::setOrientation(int inOrientation) {
-  QRect r = geometry();
+  QRect r = frameGeometry();
   int nineties = (int)inOrientation - (int)mOrientation;
 	QPoint center = mLastClickPos;
 	
@@ -238,6 +282,7 @@ void KLineal::setOrientation(int inOrientation) {
     break;
   }
   setCursor(mCurrentCursor);
+  setupBackground();
   repaint();
 }
 void KLineal::setNorth() {
@@ -276,6 +321,7 @@ void KLineal::reLength(int percentOfScreen) {
   if (y()+height() < 10) {
     move (x(), 10);
   }
+  saveSettings();
 }
 void KLineal::setShortLength() {
   reLength(30);
@@ -298,10 +344,10 @@ void KLineal::choseColor() {
 	if (pos.y() + mColorSelector.height() > screen.height()) {
 		pos.setY(screen.height() - mColorSelector.height());
 	}
-  mStoredColor = backgroundColor();
+  mStoredColor = mColor;
   mColorSelector.move(pos);
   mColorSelector.show();
-  mColorSelector.setColor(backgroundColor());
+  mColorSelector.setColor(mColor);
 
 
   connect(&mColorSelector, SIGNAL(okClicked()), this, SLOT(setColor()));
@@ -316,30 +362,53 @@ void KLineal::choseColor() {
 }
 
 /**
+* slot to choose a font
+*/
+void KLineal::choseFont() {
+  QFont font = mScaleFont;
+  int result = KFontDialog::getFont(font, false, this);
+  if (result == KFontDialog::Accepted) {
+    setFont(font);
+  }
+}
+
+/**
+* set the ruler color to the previously selected color
+*/
+void KLineal::setFont(QFont &font) {
+	mScaleFont = font;
+	saveSettings();
+  repaint();
+}
+
+
+/**
 * set the ruler color to the previously selected color
 */
 void KLineal::setColor() {
 	setColor(mColorSelector.color());
-	saveColor();
+	saveSettings();
 }
 
 /**
-* set the rulere color to some color
+* set the ruler color to some color
 */
 void KLineal::setColor(const QColor &color) {
-  setBackgroundColor(color);
-  mLabel->setBackgroundColor(color);
+  mColor = color;
+  setupBackground();
 }
 
 /**
 * save the ruler color to the config file
 */
-void KLineal::saveColor() {
+void KLineal::saveSettings() {
   KConfig *cfg = kapp->config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
   if (cfg) {
-      QColor color = backgroundColor();
+      QColor color = mColor;
       cfg->setGroup(CFG_GROUP_SETTINGS);
     	cfg->writeEntry(QString(CFG_KEY_BGCOLOR), color);
+    	cfg->writeEntry(QString(CFG_KEY_SCALE_FONT), mScaleFont);
+    	cfg->writeEntry(QString(CFG_KEY_LENGTH), mLongEdgeLen);
       cfg->sync();
   }
 }
@@ -404,16 +473,16 @@ void KLineal::adjustLabel() {
   QPoint cpos = QCursor::pos();
   switch (mOrientation) {
   case North:
-    s.sprintf("%d", cpos.x()-x());
+    s.sprintf("%d px", cpos.x()-x());
     break;
   case East:
-    s.sprintf("%d", cpos.y()-y());
+    s.sprintf("%d px", cpos.y()-y());
     break;
   case West:
-    s.sprintf("%d", cpos.y()-y());
+    s.sprintf("%d px", cpos.y()-y());
     break;
   case South:
-    s.sprintf("%d", cpos.x()-x());
+    s.sprintf("%d px", cpos.x()-x());
     break;
   }
   mLabel->setText(s);
@@ -471,7 +540,7 @@ void KLineal::mouseMoveEvent(QMouseEvent * /*inEvent*/) {
     int h, s, v;
     color.hsv(&h, &s, &v);
  		mColorLabel->setText(color.name().upper());
-  	mColorLabel->setBackgroundColor(color);
+  	mColorLabel->setPaletteBackgroundColor(color);
   	if (v < 255/2) {
   		v = 255;
   	} else {
@@ -521,77 +590,114 @@ void KLineal::mouseReleaseEvent(QMouseEvent * /*inEvent*/) {
 */
 void KLineal::drawScale(QPainter &painter) {
   painter.setPen(black);
-  QFont scaleFont("Helvetica", 8);
-  scaleFont.setPixelSize(8);
-  painter.setFont(scaleFont);
+  QFont font = mScaleFont;
+  // font.setPixelSize(9);
+  painter.setFont(font);
   QFontMetrics metrics = painter.fontMetrics();
   int longCoo;
   int longLen;
   int shortStart;
+  int w = width();
+  int h = height();
+
+  // draw a frame around the whole thing
+  // (for some unknown reason, this doesn't show up anymore)
   switch (mOrientation) {
   case North:
   default:
     shortStart = 0;
-    longLen = width();
-    painter.drawLine(0, 0, 0, height()-1);
-    painter.drawLine(0, height()-1, width()-1, height()-1);
-    painter.drawLine(width()-1, height()-1, width()-1, 0);
+    longLen = w;
+    painter.drawLine(0, 0, 0, h-1);
+    painter.drawLine(0, h-1, w-1, h-1);
+    painter.drawLine(w-1, h-1, w-1, 0);
     // painter.drawLine(width()-1, 0, 0, 0);
     break;
   case East:
-    shortStart = width();
-    longLen = height();
-    painter.drawLine(0, 0, 0, height()-1);
-    painter.drawLine(0, height()-1, width()-1, height()-1);
+    shortStart = w;
+    longLen = h;
+    painter.drawLine(0, 0, 0, h-1);
+    painter.drawLine(0, h-1, w-1, h-1);
     // painter.drawLine(width()-1, height()-1, width()-1, 0);
-    painter.drawLine(width()-1, 0, 0, 0);
+    painter.drawLine(w-1, 0, 0, 0);
     break;
   case South:
-    shortStart = height();
-    longLen = width();
-    painter.drawLine(0, 0, 0, height()-1);
+    shortStart = h;
+    longLen = w;
+    painter.drawLine(0, 0, 0, h-1);
     // painter.drawLine(0, height()-1, width()-1, height()-1);
-    painter.drawLine(width()-1, height()-1, width()-1, 0);
-    painter.drawLine(width()-1, 0, 0, 0);
+    painter.drawLine(w-1, h-1, w-1, 0);
+    painter.drawLine(w-1, 0, 0, 0);
     break;
   case West:
     shortStart = 0;
-    longLen = height();
+    longLen = h;
     // painter.drawLine(0, 0, 0, height()-1);
-    painter.drawLine(0, height()-1, width()-1, height()-1);
-    painter.drawLine(width()-1, height()-1, width()-1, 0);
-    painter.drawLine(width()-1, 0, 0, 0);
+    painter.drawLine(0, h-1, w-1, h-1);
+    painter.drawLine(w-1, h-1, w-1, 0);
+    painter.drawLine(w-1, 0, 0, 0);
     break;
   }
-
+  int ten = 10, twenty = 20, fourty = 40, hundred = 100;
   for (longCoo = 0; longCoo < longLen; longCoo+=2) {
-    int len;
-    if (!(longCoo % 10)) {
-      if (!(longCoo % 20)) {
-      	len = 15;
+    int len = 6;
+    if (ten == 10) {
+      if (twenty == 20) {
+        /**/
+        if (hundred == 100) {
+          font.setBold(true);
+          painter.setFont(font);
+          len = 18;
+        } else {
+      	  len = 15;
+        }
       	QString units;
-      	units.sprintf("%d", longCoo);
+        int digits;
+        if (hundred == 100 || mOrientation == West || mOrientation == East) {
+          digits = longCoo;
+        } else {
+          digits = longCoo % 100;
+        }
+      	units.sprintf("%d", digits);
       	QSize textSize = metrics.size(SingleLine, units);
-      	switch (mOrientation) {
-      	case North:
-      	default:
-      	  painter.drawText(longCoo - textSize.width()/2, shortStart + len + textSize.height(), units);
-      	  break;
-      	case South:
-      	  painter.drawText(longCoo - textSize.width()/2, shortStart - len - 2, units);
-      	  break;
-      	case East:
-      	  painter.drawText(shortStart - len - textSize.width() - 2, longCoo + textSize.height()/2 - 2, units);
-      	  break;
-      	case West:
-      	  painter.drawText(shortStart + len + 2, longCoo + textSize.height()/2 - 2, units);
-      	  break;
-      	}
+        int tw = textSize.width();
+        int th = textSize.height();
+       	switch (mOrientation) {
+       	case North:
+           if (digits < 1000  || fourty == 40 || hundred == 100) {
+            if (longCoo != 0) {
+       	      painter.drawText(longCoo - tw/2, shortStart + len + th, units);
+            } else {
+              painter.drawText(1, shortStart + len + th, units);
+            }
+           }
+       	  break;
+       	case South:
+           if (digits < 1000  || fourty == 40 || hundred == 100) {
+            if (longCoo != 0) {
+       	      painter.drawText(longCoo - tw/2, shortStart - len - 2, units);
+            } else {
+       	      painter.drawText(1, shortStart - len - 2, units);
+            }
+           }
+       	  break;
+       	case East:
+          if (longCoo != 0) {
+       	    painter.drawText(shortStart - len - tw - 2, longCoo + th/2 - 2, units);
+          } else {
+       	    painter.drawText(shortStart - len - tw - 2, th-2, units);
+          }
+       	  break;
+       	case West:
+          if (longCoo != 0) {
+       	    painter.drawText(shortStart + len + 2, longCoo + th/2 - 2, units);
+          } else {
+       	    painter.drawText(shortStart + len + 2, th-2, units);
+          }
+       	  break;
+       	}
       } else {
        	len = 10;
       }
-    } else {
-      len = 6;
     }
     switch(mOrientation) {
     case North:
@@ -606,6 +712,16 @@ void KLineal::drawScale(QPainter &painter) {
     case West:
       painter.drawLine(shortStart, longCoo, shortStart+len, longCoo);
       break;
+    }
+    ten = (ten == 10) ? 2: ten + 2;
+    twenty = (twenty == 20) ? 2: twenty + 2;
+    fourty = (fourty == 40) ? 2: fourty + 2;
+    if (hundred == 100) {
+      hundred = 2;
+      font.setBold(false);
+      painter.setFont(font);
+    } else {
+      hundred += 2;
     }
   }
 }
