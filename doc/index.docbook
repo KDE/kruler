@@ -3,8 +3,6 @@
   <!ENTITY kappname "&kruler;">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
-  
-  
 ]>
 
 <book lang="&language;">
@@ -17,7 +15,7 @@
 <firstname>Lauri</firstname>
 <surname>Watts</surname>
 <affiliation>
-<address><email>vampyr@atconnex.net</email></address>
+<address><email>lauri@kde.org</email></address>
 </affiliation>
 </author>
 
@@ -353,7 +351,7 @@ information.</action></para></listitem>
 &kde; 2</para>
 
 <para>Documentation Copyright Lauri Watts
-<email>vampyr@atconnex.net</email></para>
+<email>lauri@kde.org</email></para>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;
