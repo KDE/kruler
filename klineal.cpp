@@ -30,6 +30,7 @@
 #include <kpopupmenu.h>
 #include <kstandarddirs.h>
 #include <kwin.h>
+#include <kstdguiitem.h>
 
 #include <qbitmap.h>
 #include <qcursor.h>
@@ -159,7 +160,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu->insertItem(i18n("&Choose Color..."), this, SLOT(choseColor()), CTRL+Key_C);
   mMenu->insertItem(i18n("Choose &Font..."), this, SLOT(choseFont()), Key_F);
   mMenu->insertSeparator();
-  mMenu->insertItem(SmallIcon( "help" ), i18n("&Help"), helpMenu());
+  mMenu->insertItem(SmallIcon( "help" ), KStdGuiItem::help().text(), helpMenu());
   mMenu->insertSeparator();
   mMenu->insertItem(SmallIcon( "exit" ), i18n("&Quit"), kapp, SLOT(quit()), CTRL+Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
