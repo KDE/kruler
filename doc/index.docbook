@@ -59,7 +59,7 @@ Please respect the format of the date (DD/MM/YYYY) and of the version
 <para>&kruler; is a very simple application, with only one aim in life.  To
 measure distances on your screen.</para>
 
-<para>To start &kruler, choose <menuchoice><guimenu>Graphics</guimenu> 
+<para>To start &kruler;, choose <menuchoice><guimenu>Graphics</guimenu> 
 <guimenuitem><!-- TODO find this out --></guimenuitem></menuchoice> from your
 <guimenu>K</guimenu> menu.</para>
 
@@ -67,7 +67,7 @@ measure distances on your screen.</para>
 enable you to drag &kruler; around the screen.</para>
 
 <para>When you move the mouse over &kruler;, your cursor will turn into an
-elongated arrow, with a circle at one end.  As you move the cursor, &kruler will
+elongated arrow, with a circle at one end.  As you move the cursor, &kruler; will
 display how far from the point marked <guilabel>0</guilabel> the circle on the
 end of the cursor currently is.  &kruler; will also display the
 <acronym>HTML</acronym> color code of the color currently under the circle.
@@ -110,7 +110,7 @@ entries:</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns &kruler so the ruler is horizontal, and the measurements are on the
+<para>Turns &kruler; so the ruler is horizontal, and the measurements are on the
 top (North) of the ruler</para>
 </listitem>
 </varlistentry>
@@ -125,7 +125,7 @@ top (North) of the ruler</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns &kruler so the ruler is vertical, and the measurements are on the
+<para>Turns &kruler; so the ruler is vertical, and the measurements are on the
 right (East) of the ruler</para>
 </listitem>
 </varlistentry>
@@ -140,7 +140,7 @@ right (East) of the ruler</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns &kruler so the ruler is horizontal, and the measurements are on the
+<para>Turns &kruler; so the ruler is horizontal, and the measurements are on the
 bottom (South) of the ruler</para>
 </listitem>
 </varlistentry>
@@ -155,7 +155,7 @@ bottom (South) of the ruler</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns &kruler so the ruler is horizontal, and the measurements are on the
+<para>Turns &kruler; so the ruler is horizontal, and the measurements are on the
 left (West) of the ruler</para>
 </listitem>
 </varlistentry>
@@ -213,7 +213,7 @@ West, it will rotate to be oriented South.</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Makes &kruler short - about 385 pixels long.</para>
+<para>Makes &kruler; short - about 385 pixels long.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -227,7 +227,7 @@ West, it will rotate to be oriented South.</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Makes &kruler a medium length - about 640 pixels long.</para>
+<para>Makes &kruler; a medium length - about 640 pixels long.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -241,7 +241,7 @@ West, it will rotate to be oriented South.</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Makes &kruler long - about 960 pixels in length.</para>
+<para>Makes &kruler; long - about 960 pixels in length.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -255,7 +255,7 @@ West, it will rotate to be oriented South.</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Makes &kruler the same size as your screen width.</para>
+<para>Makes &kruler; the same size as your screen width.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -332,7 +332,7 @@ information.</action></para></listitem>
 </menuchoice>
 </term>
 <listitem>
-<para><action>Quits</action> &kruler</para>
+<para><action>Quits</action> &kruler;</para>
 </listitem>
 </varlistentry>
 </variablelist>
