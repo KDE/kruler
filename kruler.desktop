@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 GenericName=Screen Ruler
-GenericName[af]=skerm liniaal
+GenericName[af]=Skerm Liniaal
 GenericName[ar]=مسطرة الشاشة
 GenericName[bg]=Екранна линийка
 GenericName[bs]=Ekranski linijar
@@ -44,7 +44,7 @@ GenericName[zh_TW]=螢幕丈量尺
 GenericName[zu]=Umlawuli Wesikrini
 BinaryPattern=
 Name=KRuler
-Name[af]=k-lineaal
+Name[af]=K-lineaal
 Name[ar]=المسطرة
 Name[bg]=KЛинийка
 Name[eo]=Liniilo
