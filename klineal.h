@@ -18,7 +18,7 @@
 #ifndef KLINEAL_H
 #define KLINEAL_H
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <kpopupmenu.h>
 #include <kmainwindow.h>
 
