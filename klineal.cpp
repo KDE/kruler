@@ -133,7 +133,8 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mOrientation = South;
   setOrientation(South);
   setMediumLength();
-  mMenu = new KPopupMenu(i18n("K-Ruler"));
+  //mMenu = new KPopupMenu(i18n("K-Ruler")); // disabled because it crashed in KPopupMenu::setTitle()
+  mMenu = new KPopupMenu();
   KPopupMenu *oriMenu = new KPopupMenu(this);
   oriMenu->insertItem(menuIcon("kruler-north"), i18n("North"), this, SLOT(setNorth()), Key_N);
   oriMenu->insertItem(menuIcon("kruler-east"), i18n("East"), this, SLOT(setEast()), Key_E);
