@@ -105,7 +105,9 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mLabel = new QLabel(this);
   mLabel->setGeometry(0,height()-12,32,12);
   mLabel->setBackgroundColor(backgroundColor());
-  mLabel->setFont(QFont("Helvetica", 10));
+  QFont labelFont("Helvetica", 10);
+  labelFont.setPixelSize(10);
+  mLabel->setFont(labelFont);
   QWhatsThis::add(mLabel,
   	i18n(
   		"This is the current distance measured in pixels"
@@ -113,7 +115,9 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
 	mColorLabel = new QLabel(this);
   mColorLabel->resize(45,12);
   mColorLabel->setBackgroundColor(backgroundColor());
-  mColorLabel->setFont(QFont("fixed", 10));
+  QFont colorFont("fixed", 10);
+  colorFont.setPixelSize(10);
+  mColorLabel->setFont(colorFont);
   mColorLabel->move(mLabel->pos() + QPoint(0, 20));
   QWhatsThis::add(mColorLabel,
   	i18n(
@@ -513,7 +517,9 @@ void KLineal::mouseReleaseEvent(QMouseEvent * /*inEvent*/) {
 */
 void KLineal::drawScale(QPainter &painter) {
   painter.setPen(black);
-  painter.setFont(QFont("Helvetica", 8));
+  QFont scaleFont("Helvetica", 8);
+  scaleFont.setPixelSize(8);
+  painter.setFont(scaleFont);
   QFontMetrics metrics = painter.fontMetrics();
   int longCoo;
   int longLen;
