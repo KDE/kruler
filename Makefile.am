@@ -12,8 +12,8 @@ lnkdir = $(kde_appsdir)/Graphics/More
 lnk_DATA = kruler.desktop
 
 install-data-local: uninstall.desktop
-	$(mkinstalldirs) $(kde_appsdir)/Graphics
-	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(kde_appsdir)/Graphics/kruler.desktop
+	$(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/Graphics
+	$(INSTALL_DATA) $(srcdir)/uninstall.desktop $(DESTDIR)$(kde_appsdir)/Graphics/kruler.desktop
 
 appdir = $(kde_datadir)/kruler
 app_DATA = eventsrc move.wav
