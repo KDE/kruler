@@ -135,6 +135,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   setMouseTracking(TRUE);
   mDragging = FALSE;
   mOrientation = South;
+  _clicked = false;
   setOrientation(South);
   // setMediumLength();
   mMenu = new KPopupMenu();
@@ -159,8 +160,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu->insertItem(SmallIcon( "help" ), i18n("&Help"), helpMenu());
   mMenu->insertSeparator();
   mMenu->insertItem(SmallIcon( "exit" ), i18n("&Quit"), kapp, SLOT(quit()), CTRL+Key_Q);
-	mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
-	_clicked = false;
+  mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
 KLineal::~KLineal(){
@@ -239,14 +239,14 @@ void KLineal::setupBackground() {
 void KLineal::setOrientation(int inOrientation) {
   QRect r = frameGeometry();
   int nineties = (int)inOrientation - (int)mOrientation;
-	QPoint center = mLastClickPos;
+  QPoint center = mLastClickPos;
 	
-	if (_clicked) {
-		center = mLastClickPos;
-		_clicked = false;
-	} else {
-		center = r.topLeft()+QPoint(width()/2, height()/2);
-	}
+  if (_clicked) {
+    center = mLastClickPos;
+    _clicked = false;
+   } else {
+     center = r.topLeft()+QPoint(width()/2, height()/2);
+   }
 	
   rotateRect(r, center, nineties);
   setGeometry(r);
