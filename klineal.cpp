@@ -141,15 +141,10 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu = new KPopupMenu();
   mMenu->insertTitle(i18n("KRuler"));
   KPopupMenu *oriMenu = new KPopupMenu(this);
-// disabled for now the icons because it crashes :-(
-//  oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Key_N);
-//  oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Key_E);
-//  oriMenu->insertItem(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Key_S);
-//  oriMenu->insertItem(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Key_W);
-  oriMenu->insertItem(i18n("&North"), this, SLOT(setNorth()), Key_N);
-  oriMenu->insertItem(i18n("&East"), this, SLOT(setEast()), Key_E);
-  oriMenu->insertItem(i18n("&South"), this, SLOT(setSouth()), Key_S);
-  oriMenu->insertItem(i18n("&West"), this, SLOT(setWest()), Key_W);
+  oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Key_N);
+  oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Key_E);
+  oriMenu->insertItem(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Key_S);
+  oriMenu->insertItem(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Key_W);
   oriMenu->insertItem(i18n("&Turn Right"), this, SLOT(turnRight()), Key_R);
   oriMenu->insertItem(i18n("Turn &Left"), this, SLOT(turnLeft()), Key_L);
   mMenu->insertItem(i18n("&Orientation"), oriMenu);
