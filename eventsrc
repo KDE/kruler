@@ -21,6 +21,7 @@ Comment[zh_TW.Big5]=KDE 螢幕量尺
 
 [cursormove]
 Name=Moved by Cursor Keys
+Name[az]=İstiqamət düymələri ilə hərəkət etdirildi
 Name[da]=Flyttet med markørtaster
 Name[es]=Movido por las teclas de cursor
 Name[he]=םיצחה ישקמ ידי לע הזזה
@@ -35,6 +36,7 @@ Name[ta]=ÍðÊô¦À¡ò¾¡ý¸Ç¡ø «¨ºì¸ôÀð¼Ð
 Name[tr]=Yön tuşlarıyla hareket ettirildi
 Name[zh_CN.GB2312]=用光标键移动
 Comment=The ruler has moved pixelwise using the cursor keys
+Comment[az]=Cədvəl piksel piksel istiqamət düymələri ilə hərəkət etdirildi
 Comment[da]=Linealen er flyttet en piksel af gangen med piletasterne
 Comment[es]=La regla se ha movido algunos pixels utilizando los teclas de las flechas
 Comment[he]=םיצחה ישקמ תועצמאב זזוה לגרסה
