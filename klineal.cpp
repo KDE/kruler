@@ -262,10 +262,12 @@ void KLineal::reLength(int percentOfScreen) {
   if (percentOfScreen < 10) {
     return;
   }
-  mLongEdgeLen = QApplication::desktop()->width() * percentOfScreen / 100;
+  int scnum = QApplication::desktop()->screenNumber(this);
   if (mOrientation == North || mOrientation == South) {
+    mLongEdgeLen = QApplication::desktop()->screenGeometry(scnum).width() * percentOfScreen / 100;
     resize(mLongEdgeLen, height());
   } else {
+    mLongEdgeLen = QApplication::desktop()->screenGeometry(scnum).height() * percentOfScreen / 100;
     resize(width(), mLongEdgeLen);
   }
   if (x()+width() < 10) {
