@@ -56,7 +56,7 @@ static const uchar cursorBits[] = {
 QIconSet KLineal::menuIcon(const char *name)
 {
     QString path = KGlobal::dirs()->findResource("data", "kruler/" + QString(name) + ".png");
-    kdDebug() << "found: " << path << endl;
+    // kdDebug() << "found: " << path << endl;
     return QIconSet(QPixmap(path));
 }
 /**
