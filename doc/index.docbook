@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kruler;">
+  <!ENTITY package "kdegraphics">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -29,14 +30,8 @@
 <holder>Lauri Watts</holder>
 </copyright>
 
-<!-- Date and version information of the documentation
-Don't forget to include this last date and this last revision number, we
-need them for translation coordination !
-Please respect the format of the date (DD/MM/YYYY) and of the version
-(Major.minor.lesser), it could be used by automation scripts -->
-
-<date>2001-02-12</date>
-<releaseinfo>2.10.00</releaseinfo>
+<date>2002-01-09</date>
+<releaseinfo>2.91.00</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -85,8 +80,8 @@ next chapter.</para>
 <chapter id="menu-reference">
 <title>Menu Reference</title>
 
-<para>&RMB; clicking on the ruler will pop up a context menu, with the following
-entries:</para>
+<para>&RMB; clicking on the ruler will pop up a context menu, with the
+following entries:</para>
 
 <variablelist>
 <varlistentry>
@@ -285,7 +280,7 @@ background color for &kruler;.</para>
 <term>
 <menuchoice>
 <guisubmenu>Help</guisubmenu>
-<guimenuitem><accel>C</accel>ontents</guimenuitem>
+<guimenuitem>Contents</guimenuitem>
 </menuchoice>
 </term>
 <listitem><para>This invokes the &kde; help system starting at the &kruler; help
@@ -295,7 +290,7 @@ pages (this document).</para> </listitem>
 <term>
 <menuchoice>
 <guisubmenu>Help</guisubmenu>
-<guimenuitem>What's <accel>T</accel>his?</guimenuitem>
+<guimenuitem>What's This?</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>This changes the mouse cursor to a combination arrow and
 question mark.</action> Clicking on items within &kruler; with this arrow will
@@ -306,7 +301,7 @@ function.</para></listitem>
 <term>
 <menuchoice>
 <guisubmenu>Help</guisubmenu>
-<guimenuitem><accel>A</accel>bout KRuler</guimenuitem>
+<guimenuitem>About KRuler</guimenuitem>
 </menuchoice>
 </term> 
 <listitem>
@@ -317,10 +312,10 @@ function.</para></listitem>
 <term>
 <menuchoice>
 <guimenu>Help</guimenu>
-<guimenuitem>About <accel>K</accel>DE</guimenuitem>
+<guimenuitem>About KDE</guimenuitem>
 </menuchoice>
 </term>
-<listitem><para><action>This displays the KDE version and other basic
+<listitem><para><action>This displays the &kde; version and other basic
 information.</action></para></listitem>
 </varlistentry>
 </variablelist>
@@ -352,12 +347,22 @@ information.</action></para></listitem>
 
 <para>Documentation Copyright Lauri Watts
 <email>lauri@kde.org</email></para>
+
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;
 &underGPL;
 
 </chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+&install.intro.documentation;
+
+&install.compile.documentation;
+
+</appendix>
 
 &documentation.index; 
 </book>
