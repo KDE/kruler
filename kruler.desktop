@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=A screen ruler and color measurement tool
+Comment[de]=Ein Bildschirmlineal und Farbmesser
+BinaryPattern=
+Name=KDE Screen Ruler
+Name[de]=Bildschirmlineal
+MimeType=
+Exec=kruler %i %m
+TerminalOptions=
+Type=Application
+Path=
+Icon=kruler
+Terminal=0
+MapNotify=true
