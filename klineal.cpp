@@ -91,7 +91,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   setMaximumSize(8000,8000);
   KConfig *cfg = kapp->config();
   QColor defaultColor(255, 200, 80);
-  QFont defaultFont("Helvetica", 8);
+  QFont defaultFont(KGlobalSettings::generalFont().family(), 8);
   defaultFont.setPixelSize(8);
   if (cfg) {
       cfg->setGroup(CFG_GROUP_SETTINGS);
@@ -109,7 +109,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mLabel = new QLabel(this);
   mLabel->setGeometry(0,height()-12,32,12);
   mLabel->setBackgroundOrigin(ParentOrigin);
-  QFont labelFont("Helvetica", 10);
+  QFont labelFont(KGlobalSettings::generalFont().family(), 10);
   labelFont.setPixelSize(10);
   mLabel->setFont(labelFont);
   QWhatsThis::add(mLabel,
@@ -120,7 +120,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mColorLabel->resize(45,12);
   mColorLabel->setPaletteBackgroundColor(mColor);
   mColorLabel->hide();
-  QFont colorFont("fixed", 10);
+  QFont colorFont(KGlobalSettings::fixedFont().family(), 10);
   colorFont.setPixelSize(10);
   mColorLabel->setFont(colorFont);
   mColorLabel->move(mLabel->pos() + QPoint(0, 20));
