@@ -26,7 +26,7 @@
 #include <klocale.h>
 #include <kmainwindow.h>
 #include <qwhatsthis.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <qpixmap.h>
 #include <qiconset.h>
 #include <knotifyclient.h>
