@@ -29,6 +29,7 @@
 #include <kpopupmenu.h>
 #include <kstandarddirs.h>
 #include <kwin.h>
+#include <kglobalsettings.h>
 
 #include <qbitmap.h>
 #include <qcursor.h>
