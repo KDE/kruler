@@ -241,14 +241,14 @@ void KLineal::setOrientation(int inOrientation) {
   QRect r = frameGeometry();
   int nineties = (int)inOrientation - (int)mOrientation;
   QPoint center = mLastClickPos;
-	
+
   if (_clicked) {
     center = mLastClickPos;
     _clicked = false;
    } else {
      center = r.topLeft()+QPoint(width()/2, height()/2);
    }
-	
+
   rotateRect(r, center, nineties);
   setGeometry(r);
   mOrientation = (inOrientation + 4) % 4;
@@ -498,7 +498,7 @@ void KLineal::keyPressEvent(QKeyEvent *e) {
   	dist *= 10;
   }
   move(pos()+dist);
-  KNotifyClient::event("cursormove");
+  KNotifyClient::event(0, "cursormove",  QString::null);
 }
 /**
 * overwritten to handle the line cursor which is a seperate widget outside the main
@@ -511,13 +511,13 @@ void KLineal::mouseMoveEvent(QMouseEvent * /*inEvent*/) {
   	QPoint p = QCursor::pos();
   	switch (mOrientation) {
     case North:
-    	p.setY(p.y()-46);    	
+    	p.setY(p.y()-46);
       break;
     case East:
-    	p.setX(p.x()+46);    	   	
+    	p.setX(p.x()+46);
       break;
     case West:
-    	p.setX(p.x()-46);    	   	
+    	p.setX(p.x()-46);
       break;
     case South:
     	p.setY(p.y()+46);
@@ -534,7 +534,7 @@ void KLineal::mouseMoveEvent(QMouseEvent * /*inEvent*/) {
   	} else {
   		v = 0;
    	}
-   	color.setHsv(h, s, v);		
+   	color.setHsv(h, s, v);
   	QPalette palette = mColorLabel->palette();
   	palette.setColor(QColorGroup::Foreground, color);
   	mColorLabel->setPalette(palette);
