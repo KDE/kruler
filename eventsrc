@@ -1,6 +1,7 @@
 [!Global!]
 IconName=kruler
 Comment=KDE Screen Ruler
+Comment[af]=kde skerm liniaal
 Comment[az]=KDE Ekran Xətkeşi
 Comment[bg]=Екранна линийка на KDE
 Comment[cs]=Obrazovkové pravítko
@@ -40,6 +41,7 @@ Comment[zh_TW.Big5]=KDE 螢幕量尺
 
 [cursormove]
 Name=Moved by Cursor Keys
+Name[af]=verskuif deur plekaanduier sleutels
 Name[az]=İstiqamət düymələri ilə hərəkət etdirildi
 Name[bg]=Придвижване на курсор
 Name[cs]=Přesunutý kurzorovými klávesami
@@ -74,6 +76,7 @@ Name[uk]=Пересунуто клавішами курсора
 Name[vi]=BềEdi chuyển bởi Phím Con TrềE
 Name[zh_CN.GB2312]=用光标键移动
 Comment=The ruler has moved pixelwise using the cursor keys
+Comment[af]=die liniaal het verskuif beeldelement-gewys te gebruik die plekaanduier sleutels
 Comment[az]=Cədvəl piksel piksel istiqamət düymələri ilə hərəkət etdirildi
 Comment[bg]=Линийка за преместване с пиксели използвайки курсора.
 Comment[cs]=Pravítko bylo kurzorovými klávesami posunuto o několik bodů
