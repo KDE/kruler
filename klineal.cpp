@@ -162,7 +162,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu->insertSeparator();
   mMenu->insertItem(SmallIcon( "help" ), KStdGuiItem::help().text(), helpMenu());
   mMenu->insertSeparator();
-  mMenu->insertItem(SmallIcon( "exit" ), i18n("&Quit"), kapp, SLOT(quit()), CTRL+Key_Q);
+  mMenu->insertItem(SmallIcon( "exit" ), KStdGuiItem::quit().text(), kapp, SLOT(quit()), CTRL+Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
