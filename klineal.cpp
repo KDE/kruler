@@ -114,7 +114,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mLabel->setFont(labelFont);
   QWhatsThis::add(mLabel,
   	i18n(
-  		"This is the current distance measured in pixels"
+  		"This is the current distance measured in pixels."
   	));
 	mColorLabel = new QLabel(this);
   mColorLabel->resize(45,12);
@@ -482,6 +482,9 @@ void KLineal::adjustLabel() {
 void KLineal::keyPressEvent(QKeyEvent *e) {
 	QPoint dist(0,0);
 	switch (e->key()) {
+	case Key_F1:
+    	kapp->invokeHelp();
+ 			break;
   	case Key_Left:
     	dist.setX(-1);
  			break;
