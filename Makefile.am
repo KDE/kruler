@@ -18,7 +18,8 @@ install-data-local: uninstall.desktop
 appdir = $(kde_datadir)/kruler
 app_DATA = eventsrc
 
-kde_sound_DATA = move.wav
+sounddir = $(kde_datadir)/kruler/sounds
+sound_DATA = move.wav
 
 messages:
 	$(XGETTEXT) $(kruler_SOURCES) -o $(podir)/kruler.pot
