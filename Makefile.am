@@ -11,6 +11,9 @@ kruler_SOURCES = klineal.cpp main.cpp
 lnkdir = $(kde_appsdir)/Graphics
 lnk_DATA = kruler.desktop
 
+appdir = $(kde_datadir)/kruler
+app_DATA = eventsrc move.wav
+
 messages:
 	$(XGETTEXT) $(kruler_SOURCES) -o $(podir)/kruler.pot
 

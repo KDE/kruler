@@ -29,6 +29,7 @@
 #include <kstddirs.h>
 #include <qpixmap.h>
 #include <qiconset.h>
+#include <knotifyclient.h>
 
 #include <qdialog.h>
 #include <qpainter.h>
@@ -36,6 +37,8 @@
 
 #include "klineal.h"
 
+#define CFG_KEY_BGCOLOR "BgColor"
+#define CFG_GROUP_SETTINGS "StoredSettings"
 /**
 * this is our cursor bitmap:
 * a line 48 pixels long with an arrow pointing down
@@ -92,7 +95,8 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   KConfig *cfg = kapp->config();
   QColor defaultColor(255, 200, 80);
   if (cfg) {
-      setBackgroundColor(cfg->readEntry("BackgroundColor", defaultColor.name()));
+  		cfg->setGroup(CFG_GROUP_SETTINGS);
+      setBackgroundColor(cfg->readColorEntry(CFG_KEY_BGCOLOR, &defaultColor));
     } else {
   		setBackgroundColor(defaultColor);
   }
@@ -107,9 +111,9 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   		"This is the current distance measured in pixels"
   	));
 	mColorLabel = new QLabel(this);
-  mColorLabel->resize(38,12);
+  mColorLabel->resize(45,12);
   mColorLabel->setBackgroundColor(backgroundColor());
-  mColorLabel->setFont(QFont("Clean", 10));
+  mColorLabel->setFont(QFont("fixed", 10));
   mColorLabel->move(mLabel->pos() + QPoint(0, 20));
   QWhatsThis::add(mColorLabel,
   	i18n(
@@ -302,23 +306,36 @@ void KLineal::choseColor() {
   connect(&mColorSelector, SIGNAL(okPressed()), this, SLOT(saveColor()));
   */
 }
+
+/**
+* set the ruler color to the previously selected color
+*/
 void KLineal::setColor() {
 	setColor(mColorSelector.color());
 	saveColor();
 }
 
+/**
+* set the rulere color to some color
+*/
 void KLineal::setColor(const QColor &color) {
   setBackgroundColor(color);
   mLabel->setBackgroundColor(color);
 }
+
+/**
+* save the ruler color to the config file
+*/
 void KLineal::saveColor() {
   KConfig *cfg = kapp->config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
   if (cfg) {
-  		// cerr << "saving color " << backgroundColor().name() << endl;
-    	cfg->writeEntry("BackgroundColor", backgroundColor().name());
+      QColor color = backgroundColor();
+      cfg->setGroup(CFG_GROUP_SETTINGS);
+    	cfg->writeEntry(QString(CFG_KEY_BGCOLOR), color);
       cfg->sync();
   }
 }
+
 /**
 * restores the color
 */
@@ -341,11 +358,7 @@ void KLineal::showMenu() {
 	}
   mMenu->move(pos);
 }
-/**
-* does nothing (why ???)
-*/
-void KLineal::configure() {
-}
+
 /**
 * overwritten to switch the value label and line cursor on
 */
@@ -397,7 +410,31 @@ void KLineal::adjustLabel() {
   }
   mLabel->setText(s);
 }
-
+void KLineal::keyPressEvent(QKeyEvent *e) {
+	QPoint dist(0,0);
+	switch (e->key()) {
+  	case Key_Left:
+    	dist.setX(-1);
+ 			break;
+  	case Key_Right:
+    	dist.setX(1);
+ 			break;
+  	case Key_Up:
+    	dist.setY(-1);
+ 			break;
+  	case Key_Down:
+    	dist.setY(1);
+ 			break;
+  	default:
+    	KMainWindow::keyPressEvent(e);
+      return;
+ 	}
+	if (e->state() & ShiftButton) {
+  	dist *= 10;
+  }
+  move(pos()+dist);
+  KNotifyClient::event("cursormove");
+}
 /**
 * overwritten to handle the line cursor which is a seperate widget outside the main
 * window. Also used for dragging.

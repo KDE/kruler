@@ -42,7 +42,8 @@ public:
   int x();
   int y();
 protected:
-  void mousePressEvent(QMouseEvent *e); 
+	void keyPressEvent(QKeyEvent *e);
+  void mousePressEvent(QMouseEvent *e);
   void mouseReleaseEvent(QMouseEvent *e); 
   void mouseMoveEvent(QMouseEvent *e);
   void paintEvent(QPaintEvent *e); 
@@ -81,7 +82,6 @@ public slots:
   void turnLeft();
   void turnRight();
   void showMenu();
-  void configure();
   void hideLabel();
   void showLabel();
   void adjustLabel();

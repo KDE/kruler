@@ -1,0 +1,9 @@
+[!Global!]
+IconName=kruler
+Comment=KDE Screen Ruler
+
+[cursormove]
+Name=Moved by Cursor Keys
+Comment=The ruler has moved pixelwise using the cursor keys
+default_sound=move.wav
+default_presentation=1
