@@ -1,9 +1,38 @@
 [!Global!]
 IconName=kruler
 Comment=KDE Screen Ruler
+Comment[cs]=Obrazovkové pravítko
+Comment[da]=KDE Skærmlineal
+Comment[he]=KDE לש ךסמה לגרס
+Comment[hu]=Képernyővonalzó
+Comment[is]=Reglustika
+Comment[ko]=KDE용 화면 자
+Comment[lv]=KDE Ekrāna Mērjosla
+Comment[ro]=Riglă ecran pentru KDE
+Comment[ru]=Экранная линейка KDE
+Comment[sv]=KDE skärmlinjal
+Comment[zh_TW.Big5]=KDE 螢幕量尺
 
 [cursormove]
 Name=Moved by Cursor Keys
+Name[da]=Flyttet med markørtaster
+Name[es]=Movido por las teclas de cursor
+Name[he]=םיצחה ישקמ ידי לע הזזה
+Name[hu]=A vonalzó elmozgatva a kurzorbillentyűkkel
+Name[is]=Fært með örvalyklum
+Name[ko]=방향 글쇠로 옮겼습니다
+Name[lv]=Pārvietots ar Kursora Taustiņiem
+Name[ro]=Mutare cu taste cursor
+Name[tr]=Yön tuşlarıyla hareket ettirildi
 Comment=The ruler has moved pixelwise using the cursor keys
+Comment[da]=Linealen er flyttet en piksel af gangen med piletasterne
+Comment[es]=La regla se ha movido algunos pixels utilizando los teclas de las flechas
+Comment[he]=םיצחה ישקמ תועצמאב זזוה לגרסה
+Comment[hu]=A vonalzó elmozgatva képpontonként a kurzorbillentyűkkel
+Comment[is]=Reglustikan hefur verið færð um e-a punkta með örvalyklunum
+Comment[ko]=방향 글쇠로 자대를 옮겼습니다
+Comment[lv]=Mērjosla pārvietota pikseļavirzienā izmantojot kursora taustiņus.
+Comment[ro]=Rigla a fost mutată pixel cu pixel utilizînd tastele cursor
+Comment[tr]=Cetvel piksel piksel yön tuşlarıyla hareket ettirildi
 default_sound=move.wav
 default_presentation=1
