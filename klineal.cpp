@@ -15,28 +15,29 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <iostream.h>
+#include <iostream>
+
 #include <kconfig.h>
-#include <kwin.h>
 #include <kcursor.h>
 #include <kdebug.h>
 #include <kglobal.h>
-#include <kpopupmenu.h>
 #include <kiconloader.h>
+#include <kimageeffect.h>
 #include <klocale.h>
 #include <kmainwindow.h>
-#include <qwhatsthis.h>
+#include <knotifyclient.h>
+#include <kpopupmenu.h>
 #include <kstandarddirs.h>
-#include <qpixmap.h>
+#include <kwin.h>
+
+#include <qbitmap.h>
+#include <qcursor.h>
+#include <qdialog.h>
 #include <qiconset.h>
 #include <qimage.h>
-#include <kimageeffect.h>
-#include <knotifyclient.h>
-
-#include <qdialog.h>
-#include <qcursor.h>
 #include <qpainter.h>
-#include <qbitmap.h>
+#include <qpixmap.h>
+#include <qwhatsthis.h>
 
 #include "klineal.h"
 
