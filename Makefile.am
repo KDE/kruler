@@ -1,3 +1,5 @@
+SUBDIRS = pics
+
 INCLUDES= $(all_includes)
 
 bin_PROGRAMS = kruler
@@ -8,10 +10,6 @@ kruler_SOURCES = klineal.cpp main.cpp
 
 DISTCLEANFILES = $(kruler_METASOURCES)
 
-KDE_ICON = kruler
-
-pixdir = $(kde_datadir)/kruler
-pix_DATA = kruler-east.png kruler-north.png kruler-south.png kruler-west.png
 
 lnkdir = $(kde_appsdir)/Graphics
 lnk_DATA = kruler.desktop
