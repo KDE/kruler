@@ -37,7 +37,7 @@ Comment[tr]=KDE Ekran Cetveli
 Comment[vi]=Thước đo màn hình KDE 
 Comment[xxx]=xx
 Comment[zh_CN.GB2312]=KDE 屏幕标尺
-Comment[zh_TW.Big5]=KDE 螢幕量尺
+Comment[zh_TW.Big5]=KDE 螢幕丈量尺
 
 [cursormove]
 Name=Moved by Cursor Keys
@@ -75,6 +75,7 @@ Name[tr]=Yön tuşlarıyla hareket ettirildi
 Name[vi]=BềEdi chuyển bởi Phím Con TrềE
 Name[xxx]=xx
 Name[zh_CN.GB2312]=用光标键移动
+Name[zh_TW.Big5]=用游標鍵移動
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[af]=die liniaal het verskuif beeldelement-gewys te gebruik die plekaanduier sleutels
 Comment[ara]=تم تحريك المسطرو بكسليا باستخدام مفاتيح الفأرة
