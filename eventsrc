@@ -4,17 +4,21 @@ Comment=KDE Screen Ruler
 Comment[cs]=Obrazovkové pravítko
 Comment[da]=KDE Skærmlineal
 Comment[hu]=Képernyővonalzó
+Comment[ko]=KDE용 화면 자
 Comment[lv]=KDE Ekrāna Mērjosla
+Comment[sv]=KDE skärmlinjal
 
 [cursormove]
 Name=Moved by Cursor Keys
 Name[da]=Flyttet med markørtaster
 Name[hu]=A vonalzó elmozgatva a kurzorbillentyűkkel
+Name[ko]=방향 글쇠로 옮겼습니다
 Name[lv]=Pārvietots ar Kursora Taustiņiem
 Name[tr]=Yön tuşlarıyla hareket ettirildi
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[da]=Linealen er flyttet en piksel af gangen med piletasterne
 Comment[hu]=A vonalzó elmozgatva képpontonként a kurzorbillentyűkkel
+Comment[ko]=방향 글쇠로 자대를 옮겼습니다
 Comment[lv]=Mērjosla pārvietota pikseļavirzienā izmantojot kursora taustiņus.
 Comment[tr]=Cetvel piksel piksel yön tuşlarıyla hareket ettirildi
 default_sound=move.wav
