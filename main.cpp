@@ -9,11 +9,11 @@
 
 #include "klineal.h"
 
-static const char *homePageURL =
+static const char homePageURL[] =
 	"http://www.snafu.de/~till/";
-static const char *freeFormText =
+static const char freeFormText[] =
 	"\"May the source be with you.\"";
-static const char *bugsEmailAddress =
+static const char bugsEmailAddress[] =
 	"till@snafu.de";
 
 
