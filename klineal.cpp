@@ -154,7 +154,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   lenMenu->insertItem(i18n("Full Screen Width"), this, SLOT(setFullLength()), CTRL+Key_F);
   mMenu->insertItem(i18n("Length"), lenMenu);
   mMenu->insertItem(i18n("Choose Color..."), this, SLOT(choseColor()), CTRL+Key_C);
-  mMenu->insertItem(I18N_NOOP("Choose Font..."), this, SLOT(choseFont()), Key_F);
+  mMenu->insertItem(i18n("Choose Font..."), this, SLOT(choseFont()), Key_F);
   mMenu->insertSeparator();
   mMenu->insertItem(SmallIcon( "help" ), i18n("&Help"), helpMenu());
   mMenu->insertSeparator();
