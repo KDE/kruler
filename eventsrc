@@ -2,7 +2,7 @@
 IconName=kruler
 Comment=KDE Screen Ruler
 Comment[af]=Kde Skerm Liniaal
-Comment[ar]=مسطرة الشاشة
+Comment[ar]=مسطرة شاشة KDE
 Comment[az]=KDE Ekran Xətkeşi
 Comment[bg]=Линийка за екрана
 Comment[bs]=KDE ekranski linijar
@@ -111,7 +111,7 @@ Name[zh_TW]=用游標鍵移動
 Name[zu]=Inyakaziswe Izikhiye Ze Cursor
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[af]=Die liniaal het verskuif beeldelement-gewys te gebruik Die plekaanduier sleutels
-Comment[ar]=تم تحريك المسطرو بكسليا باستخدام مفاتيح الفأرة
+Comment[ar]=تم تحريك المسطرة بكسليا باستخدام مفاتيح الفأرة
 Comment[az]=Cədvəl piksel piksel istiqamət düymələri ilə hərəkət etdirildi
 Comment[bg]=Преместване чрез клавиатурата
 Comment[bs]=Linijar se pomjera u pixelima koristeći kursorske tipke
