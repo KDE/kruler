@@ -60,7 +60,7 @@ Please respect the format of the date (DD/MM/YYYY) and of the version
 measure distances on your screen.</para>
 
 <para>To start &kruler;, choose <menuchoice><guimenu>Graphics</guimenu> 
-<guimenuitem><!-- TODO find this out --></guimenuitem></menuchoice> from your
+<guimenuitem>KDE Screen Ruler</guimenuitem></menuchoice> from your
 <guimenu>K</guimenu> menu.</para>
 
 <para>&LMB; clicking on the &kruler; will turn the cursor into a hand icon, and
