@@ -416,16 +416,7 @@ void KLineal::restoreColor() {
 */
 void KLineal::showMenu() {
 	QPoint pos = QCursor::pos();
-	QSize screen(QApplication::desktop()->size());
-  mMenu->move(pos);
-  mMenu->show();
-	if (pos.x() + mMenu->width() > screen.width()) {
-		pos.setX(screen.width() - mMenu->width());
-	}
-	if (pos.y() + mMenu->height() > screen.height()) {
-		pos.setY(screen.height() - mMenu->height());
-	}
-  mMenu->move(pos);
+	mMenu->popup(pos);
 }
 
 /**
