@@ -73,7 +73,7 @@ elongated arrow, with a circle at one end.  As you move the cursor, &kruler; wil
 display how far from the point marked <guilabel>0</guilabel> the circle on the
 end of the cursor currently is.  &kruler; will also display the
 <acronym>HTML</acronym> color code of the color currently under the circle.
-This is very useful for picking out colours from an image.  If you move the
+This is very useful for picking out colors from an image.  If you move the
 mouse far enough that the arrow cursor is no longer touching &kruler;, the
 cursor will revert to normal, allowing you to carry on working with your other
 applications.</para>
