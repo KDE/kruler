@@ -32,6 +32,7 @@
 #include <knotifyclient.h>
 
 #include <qdialog.h>
+#include <qcursor.h>
 #include <qpainter.h>
 #include <qbitmap.h>
 

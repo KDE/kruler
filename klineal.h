@@ -27,6 +27,7 @@
 #include <qlabel.h>
 #include <qpainter.h>
 #include <qwidget.h>
+#include <qcursor.h>
 
 class KLineal : public KMainWindow {
   Q_OBJECT 
