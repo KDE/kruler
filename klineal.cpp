@@ -48,6 +48,7 @@
 #define CFG_KEY_LENGTH "Length"
 #define CFG_GROUP_SETTINGS "StoredSettings"
 #define DEFAULT_RULER_COLOR QColor(255, 200, 80)
+#define FULLSCREENID 23
 /**
 * this is our cursor bitmap:
 * a line 48 pixels long with an arrow pointing down
@@ -70,6 +71,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
 	if (!name) {
 		name = "klineal";
 	}
+  mLenMenu=0;
   KWin::setType(winId(), NET::Override);   // or NET::Normal
   KWin::setState(winId(), NET::StaysOnTop);
   setPaletteBackgroundColor(black);
@@ -151,12 +153,12 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   oriMenu->insertItem(i18n("&Turn Right"), this, SLOT(turnRight()), Key_R);
   oriMenu->insertItem(i18n("Turn &Left"), this, SLOT(turnLeft()), Key_L);
   mMenu->insertItem(i18n("&Orientation"), oriMenu);
-  KPopupMenu *lenMenu = new KPopupMenu(this);
-  lenMenu->insertItem(i18n("&Short"), this, SLOT(setShortLength()), CTRL+Key_S);
-  lenMenu->insertItem(i18n("&Medium"), this, SLOT(setMediumLength()), CTRL+Key_M);
-  lenMenu->insertItem(i18n("&Tall"), this, SLOT(setTallLength()), CTRL+Key_T);
-  lenMenu->insertItem(i18n("&Full Screen Width"), this, SLOT(setFullLength()), CTRL+Key_F);
-  mMenu->insertItem(i18n("&Length"), lenMenu);
+  mLenMenu = new KPopupMenu(this);
+  mLenMenu->insertItem(i18n("&Short"), this, SLOT(setShortLength()), CTRL+Key_S);
+  mLenMenu->insertItem(i18n("&Medium"), this, SLOT(setMediumLength()), CTRL+Key_M);
+  mLenMenu->insertItem(i18n("&Tall"), this, SLOT(setTallLength()), CTRL+Key_T);
+  mLenMenu->insertItem(i18n("&Full Screen Width"), this, SLOT(setFullLength()), CTRL+Key_F, FULLSCREENID);
+  mMenu->insertItem(i18n("&Length"), mLenMenu);
   mMenu->insertItem(i18n("&Choose Color..."), this, SLOT(choseColor()), CTRL+Key_C);
   mMenu->insertItem(i18n("Choose &Font..."), this, SLOT(choseFont()), Key_F);
   mMenu->insertSeparator();
@@ -276,6 +278,8 @@ void KLineal::setOrientation(int inOrientation) {
     mCurrentCursor = mWestCursor;
     break;
   }
+  if (mLenMenu)
+    mLenMenu->changeItem(FULLSCREENID, mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
   setCursor(mCurrentCursor);
   setupBackground();
   repaint();

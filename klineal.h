@@ -31,8 +31,8 @@
 #include <qcursor.h>
 
 class KLineal : public KMainWindow {
-  Q_OBJECT 
-public: 
+  Q_OBJECT
+public:
   enum { North=0, West=1, South=2, East=3 };
   /** constructor */
   KLineal(QWidget*parent=0,const char* name=0);
@@ -46,10 +46,10 @@ public:
 protected:
 	void keyPressEvent(QKeyEvent *e);
   void mousePressEvent(QMouseEvent *e);
-  void mouseReleaseEvent(QMouseEvent *e); 
+  void mouseReleaseEvent(QMouseEvent *e);
   void mouseMoveEvent(QMouseEvent *e);
-  void paintEvent(QPaintEvent *e); 
-  void enterEvent(QEvent *e); 
+  void paintEvent(QPaintEvent *e);
+  void enterEvent(QEvent *e);
   void leaveEvent(QEvent *e);
   void setupBackground();
 
@@ -67,6 +67,7 @@ private:
   int mLongEdgeLen;
   int mShortEdgeLen;
   KPopupMenu *mMenu;
+  KPopupMenu *mLenMenu;
   QColor mColor;
   QColor mStoredColor;
   QCursor mCurrentCursor;
