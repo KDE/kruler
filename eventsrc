@@ -143,6 +143,7 @@ Comment[vi]=Thước đo đã dùng phím con trềEđềEdi chuyển pixelwise
 Comment[xh]=Umlawuli ushukume jikelele kwipixel esebenzisa izitshixi zesalathisi
 Comment[xx]=xx
 Comment[zh_CN]=标尺已经用光标键按像素移动
+Comment[zh_TW]=使用游標鍵移動尺規單一個像素
 Comment[zu]=Umlawuli unyakazise jikelele kwipixel esebenzisa izikhiye ze cursor
 default_sound=move.wav
 default_presentation=1
