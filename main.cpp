@@ -16,11 +16,11 @@ static const char *freeFormText =
 static const char *bugsEmailAddress =
 	"till@snafu.de";
 
-	
-	
+
+
 static KCmdLineOptions options[] =
 {
-  { 0, 0, 0 }
+  KCmdLineLastOption
   // INSERT YOUR COMMANDLINE OPTIONS HERE
 };
 
