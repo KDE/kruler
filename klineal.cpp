@@ -299,12 +299,24 @@ void KLineal::reLength(int percentOfScreen) {
   if (percentOfScreen < 10) {
     return;
   }
-  int scnum = QApplication::desktop()->screenNumber(this);
+  QRect r;
+  KConfig gc("kdeglobals", false, false);
+  gc.setGroup("Windows");
+
+  if (QApplication::desktop()->isVirtualDesktop() &&
+      gc.readBoolEntry("XineramaEnabled", true) &&
+      gc.readBoolEntry("XineramaPlacementEnabled", true)) {
+    int scnum = QApplication::desktop()->screenNumber(this);
+    r = QApplication::desktop()->screenGeometry(scnum);
+  } else {
+    r = QApplication::desktop()->geometry();
+  }
+
   if (mOrientation == North || mOrientation == South) {
-    mLongEdgeLen = QApplication::desktop()->screenGeometry(scnum).width() * percentOfScreen / 100;
+    mLongEdgeLen = r.width() * percentOfScreen / 100;
     resize(mLongEdgeLen, height());
   } else {
-    mLongEdgeLen = QApplication::desktop()->screenGeometry(scnum).height() * percentOfScreen / 100;
+    mLongEdgeLen = r.height() * percentOfScreen / 100;
     resize(width(), mLongEdgeLen);
   }
   if (x()+width() < 10) {
@@ -328,19 +340,30 @@ void KLineal::setFullLength() {
   reLength(100);
 }
 void KLineal::choseColor() {
-	QPoint pos = QCursor::pos();
-	QSize screen(QApplication::desktop()->size());
-	if (pos.x() + mColorSelector.width() > screen.width()) {
-		pos.setX(screen.width() - mColorSelector.width());
-	}
-	if (pos.y() + mColorSelector.height() > screen.height()) {
-		pos.setY(screen.height() - mColorSelector.height());
-	}
+  QRect r;
+  KConfig gc("kdeglobals", false, false);
+  gc.setGroup("Windows");
+
+  if (QApplication::desktop()->isVirtualDesktop() &&
+      gc.readBoolEntry("XineramaEnabled", true) &&
+      gc.readBoolEntry("XineramaPlacementEnabled", true)) {
+    int scnum = QApplication::desktop()->screenNumber(this);
+    r = QApplication::desktop()->screenGeometry(scnum);
+  } else {
+    r = QApplication::desktop()->geometry();
+  }
+
+  QPoint pos = QCursor::pos();
+  if (pos.x() + mColorSelector.width() > r.width()) {
+    pos.setX(r.width() - mColorSelector.width());
+  }
+  if (pos.y() + mColorSelector.height() > r.height()) {
+    pos.setY(r.height() - mColorSelector.height());
+  }
   mStoredColor = mColor;
   mColorSelector.move(pos);
   mColorSelector.show();
   mColorSelector.setColor(mColor);
-
 
   connect(&mColorSelector, SIGNAL(okClicked()), this, SLOT(setColor()));
   connect(&mColorSelector, SIGNAL(yesClicked()), this, SLOT(setColor()));
