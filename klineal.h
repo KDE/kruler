@@ -58,7 +58,6 @@ private:
   void drawScale(QPainter &painter);
   void reLength(int percentOfScreen);
   bool mDragging;
-	QIconSet menuIcon(const char *name);
   QPoint mLastClickPos;
   QPoint mDragOffset;
   QLabel *mLabel;

@@ -60,15 +60,6 @@ static const uchar cursorBits[] = {
 };
 
 /**
-* load an icon from our data dir
-*/
-QIconSet KLineal::menuIcon(const char *name)
-{
-    QString path = KGlobal::dirs()->findResource("data", "kruler/" + QString(name) + ".png");
-    // kdDebug() << "found: " << path << endl;
-    return QIconSet(QPixmap(path));
-}
-/**
 * create the thingy with no borders and set up
 * its members
 */
@@ -149,10 +140,10 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu = new KPopupMenu();
   mMenu->insertTitle(i18n("K-Ruler"));
   KPopupMenu *oriMenu = new KPopupMenu(this);
-  oriMenu->insertItem(menuIcon("kruler-north"), i18n("North"), this, SLOT(setNorth()), Key_N);
-  oriMenu->insertItem(menuIcon("kruler-east"), i18n("East"), this, SLOT(setEast()), Key_E);
-  oriMenu->insertItem(menuIcon("kruler-south"), i18n("South"), this, SLOT(setSouth()), Key_S);
-  oriMenu->insertItem(menuIcon("kruler-west"), i18n("West"), this, SLOT(setWest()), Key_W);
+  oriMenu->insertItem(UserIconSet("kruler-north"), i18n("North"), this, SLOT(setNorth()), Key_N);
+  oriMenu->insertItem(UserIconSet("kruler-east"), i18n("East"), this, SLOT(setEast()), Key_E);
+  oriMenu->insertItem(UserIconSet("kruler-south"), i18n("South"), this, SLOT(setSouth()), Key_S);
+  oriMenu->insertItem(UserIconSet("kruler-west"), i18n("West"), this, SLOT(setWest()), Key_W);
   oriMenu->insertItem(i18n("Turn Right"), this, SLOT(turnRight()), Key_R);
   oriMenu->insertItem(i18n("Turn Left"), this, SLOT(turnLeft()), Key_L);
   mMenu->insertItem(i18n("Orientation"), oriMenu);
@@ -165,9 +156,9 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu->insertItem(i18n("Choose Color..."), this, SLOT(choseColor()), CTRL+Key_C);
   mMenu->insertItem(I18N_NOOP("Choose Font..."), this, SLOT(choseFont()), Key_F);
   mMenu->insertSeparator();
-  mMenu->insertItem(i18n("Help"), helpMenu());
+  mMenu->insertItem(SmallIcon( "help" ), i18n("&Help"), helpMenu());
   mMenu->insertSeparator();
-  mMenu->insertItem(i18n("Quit"), kapp, SLOT(quit()), CTRL+Key_Q);
+  mMenu->insertItem(SmallIcon( "exit" ), i18n("&Quit"), kapp, SLOT(quit()), CTRL+Key_Q);
 	mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 	_clicked = false;
 }
@@ -217,7 +208,7 @@ static void rotateRect(QRect &r, QPoint center, int nineties) {
 
 void KLineal::setupBackground() {
   QColor a, b, bg = mColor;
-  KImageEffect::GradientType gradType;
+  KImageEffect::GradientType gradType = KImageEffect::HorizontalGradient;
   switch (mOrientation) {
     case North:
       a = bg.light(120);
