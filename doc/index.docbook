@@ -151,7 +151,7 @@ bottom (South) of the ruler</para>
 </menuchoice>
 </term>
 <listitem>
-<para>Turns &kruler; so the ruler is horizontal, and the measurements are on the
+<para>Turns &kruler; so the ruler is vertical, and the measurements are on the
 left (West) of the ruler</para>
 </listitem>
 </varlistentry>
@@ -177,7 +177,7 @@ South, it will rotate to be oriented West.</para>
 <keycap>R</keycap>
 </shortcut>
 <guisubmenu>Orientation</guisubmenu>
-<guimenuitem>Turn Right</guimenuitem>
+<guimenuitem>Turn Left</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
@@ -280,7 +280,7 @@ background color for &kruler;.</para>
 <term>
 <menuchoice>
 <guisubmenu>Help</guisubmenu>
-<guimenuitem>Contents</guimenuitem>
+<guimenuitem>KRuler Handbook</guimenuitem>
 </menuchoice>
 </term>
 <listitem><para>This invokes the &kde; help system starting at the &kruler; help
