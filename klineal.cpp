@@ -141,7 +141,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   _clicked = false;
   setOrientation(South);
   // setMediumLength();
-  mMenu = new KPopupMenu();
+  mMenu = new KPopupMenu(this);
   mMenu->insertTitle(i18n("KRuler"));
   KPopupMenu *oriMenu = new KPopupMenu(this);
   oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Key_N);
