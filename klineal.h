@@ -29,6 +29,11 @@
 #include <qpainter.h>
 #include <qwidget.h>
 #include <qcursor.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QKeyEvent>
+#include <QEvent>
+#include <QPaintEvent>
 
 class KLineal : public KMainWindow {
   Q_OBJECT
@@ -62,7 +67,6 @@ private:
   QPoint mDragOffset;
   QLabel *mLabel;
   QLabel *mColorLabel;
-  QFrame *mColorRect;
   int mOrientation;
   int mLongEdgeLen;
   int mShortEdgeLen;

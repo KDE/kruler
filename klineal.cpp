@@ -35,11 +35,17 @@
 #include <qbitmap.h>
 #include <qcursor.h>
 #include <qdialog.h>
-#include <qiconset.h>
+#include <qicon.h>
 #include <qimage.h>
 #include <qpainter.h>
 #include <qpixmap.h>
-#include <qwhatsthis.h>
+
+//Added by qt3to4:
+#include <QPaintEvent>
+#include <QKeyEvent>
+#include <QEvent>
+#include <QLabel>
+#include <QMouseEvent>
 
 #include "klineal.h"
 
@@ -74,14 +80,14 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mLenMenu=0;
   KWin::setType(winId(), NET::Override);   // or NET::Normal
   KWin::setState(winId(), NET::StaysOnTop);
-  setPaletteBackgroundColor(black);
-  QWhatsThis::add(this,
+  setPaletteBackgroundColor(Qt::black);
+  this->setWhatsThis(
   i18n(
   	"This is a tool to measure pixel distances and colors on the screen. "
   	"It is useful for working on layouts of dialogs, web pages etc."
   ));
   QBitmap bim = QBitmap(QSize(8, 48), cursorBits);
-  QWMatrix m;
+  QMatrix m;
   m.rotate(90.0);
   mNorthCursor = QCursor(bim, bim, 3, 47);
   bim = bim.xForm(m);
@@ -117,7 +123,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   QFont labelFont(KGlobalSettings::generalFont().family(), 10);
   labelFont.setPixelSize(10);
   mLabel->setFont(labelFont);
-  QWhatsThis::add(mLabel,
+  mLabel->setWhatsThis(
   	i18n(
   		"This is the current distance measured in pixels."
   	));
@@ -129,7 +135,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   colorFont.setPixelSize(10);
   mColorLabel->setFont(colorFont);
   mColorLabel->move(mLabel->pos() + QPoint(0, 20));
-  QWhatsThis::add(mColorLabel,
+  mColorLabel->setWhatsThis(
   	i18n(
   		"This is the current color in hexadecimal rgb representation as you may use it in HTML or as a QColor name. "
   		"The rectangles background shows the color of the pixel inside the "
@@ -146,25 +152,25 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu = new KPopupMenu(this);
   mMenu->insertTitle(i18n("KRuler"));
   KPopupMenu *oriMenu = new KPopupMenu(this);
-  oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Key_N);
-  oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Key_E);
-  oriMenu->insertItem(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Key_S);
-  oriMenu->insertItem(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Key_W);
-  oriMenu->insertItem(i18n("&Turn Right"), this, SLOT(turnRight()), Key_R);
-  oriMenu->insertItem(i18n("Turn &Left"), this, SLOT(turnLeft()), Key_L);
+  oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
+  oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
+  oriMenu->insertItem(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
+  oriMenu->insertItem(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Qt::Key_W);
+  oriMenu->insertItem(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
+  oriMenu->insertItem(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
   mMenu->insertItem(i18n("&Orientation"), oriMenu);
   mLenMenu = new KPopupMenu(this);
-  mLenMenu->insertItem(i18n("&Short"), this, SLOT(setShortLength()), CTRL+Key_S);
-  mLenMenu->insertItem(i18n("&Medium"), this, SLOT(setMediumLength()), CTRL+Key_M);
-  mLenMenu->insertItem(i18n("&Tall"), this, SLOT(setTallLength()), CTRL+Key_T);
-  mLenMenu->insertItem(i18n("&Full Screen Width"), this, SLOT(setFullLength()), CTRL+Key_F, FULLSCREENID);
+  mLenMenu->insertItem(i18n("&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
+  mLenMenu->insertItem(i18n("&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
+  mLenMenu->insertItem(i18n("&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
+  mLenMenu->insertItem(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F, FULLSCREENID);
   mMenu->insertItem(i18n("&Length"), mLenMenu);
-  mMenu->insertItem(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), CTRL+Key_C);
-  mMenu->insertItem(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Key_F);
+  mMenu->insertItem(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
+  mMenu->insertItem(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
   mMenu->insertSeparator();
   mMenu->insertItem(SmallIcon( "help" ), KStdGuiItem::help().text(), helpMenu());
   mMenu->insertSeparator();
-  mMenu->insertItem(SmallIcon( "exit" ), KStdGuiItem::quit().text(), kapp, SLOT(quit()), CTRL+Key_Q);
+  mMenu->insertItem(SmallIcon( "exit" ), KStdGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
@@ -495,26 +501,26 @@ void KLineal::adjustLabel() {
 void KLineal::keyPressEvent(QKeyEvent *e) {
 	QPoint dist(0,0);
 	switch (e->key()) {
-	case Key_F1:
+	case Qt::Key_F1:
     	kapp->invokeHelp();
  			break;
-  	case Key_Left:
+  	case Qt::Key_Left:
     	dist.setX(-1);
  			break;
-  	case Key_Right:
+  	case Qt::Key_Right:
     	dist.setX(1);
  			break;
-  	case Key_Up:
+  	case Qt::Key_Up:
     	dist.setY(-1);
  			break;
-  	case Key_Down:
+  	case Qt::Key_Down:
     	dist.setY(1);
  			break;
   	default:
     	KMainWindow::keyPressEvent(e);
       return;
  	}
-	if (e->state() & ShiftButton) {
+	if (e->state() & Qt::ShiftButton) {
   	dist *= 10;
   }
   move(pos()+dist);
@@ -571,15 +577,15 @@ void KLineal::mousePressEvent(QMouseEvent *inEvent) {
 
   QRect gr = geometry();
   mDragOffset = mLastClickPos - QPoint(gr.left(), gr.top());
-  if (inEvent->button() == LeftButton) {
+  if (inEvent->button() == Qt::LeftButton) {
     if (!mDragging) {
       grabMouse(KCursor::sizeAllCursor());
       mDragging = TRUE;
     }
-  } else if (inEvent->button() == MidButton) {
+  } else if (inEvent->button() == Qt::MidButton) {
 		_clicked = true;
     turnLeft();
-  } else if (inEvent->button() == RightButton) {
+  } else if (inEvent->button() == Qt::RightButton) {
     showMenu();
   }
 }
@@ -597,7 +603,7 @@ void KLineal::mouseReleaseEvent(QMouseEvent * /*inEvent*/) {
 * draws the scale according to the orientation
 */
 void KLineal::drawScale(QPainter &painter) {
-  painter.setPen(black);
+  painter.setPen(Qt::black);
   QFont font = mScaleFont;
   // font.setPixelSize(9);
   painter.setFont(font);
@@ -666,7 +672,7 @@ void KLineal::drawScale(QPainter &painter) {
           digits = longCoo % 100;
         }
       	units.sprintf("%d", digits);
-      	QSize textSize = metrics.size(SingleLine, units);
+      	QSize textSize = metrics.size(Qt::SingleLine, units);
         int tw = textSize.width();
         int th = textSize.height();
        	switch (mOrientation) {
