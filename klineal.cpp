@@ -151,7 +151,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   setOrientation(South);
   // setMediumLength();
   mMenu = new KMenu(this);
-  mMenu->insertTitle(i18n("KRuler"));
+  mMenu->addTitle(i18n("KRuler"));
   KMenu *oriMenu = new KMenu(this);
   oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
   oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
