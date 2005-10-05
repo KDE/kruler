@@ -19,7 +19,7 @@
 #define KLINEAL_H
 
 #include <kapplication.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kmainwindow.h>
 
 #include <kcolordialog.h>
@@ -70,8 +70,8 @@ private:
   int mOrientation;
   int mLongEdgeLen;
   int mShortEdgeLen;
-  KPopupMenu *mMenu;
-  KPopupMenu *mLenMenu;
+  KMenu *mMenu;
+  KMenu *mLenMenu;
   QColor mColor;
   QColor mStoredColor;
   QCursor mCurrentCursor;

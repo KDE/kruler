@@ -27,7 +27,7 @@
 #include <klocale.h>
 #include <kmainwindow.h>
 #include <knotifyclient.h>
-#include <kpopupmenu.h>
+#include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kwin.h>
 #include <kstdguiitem.h>
@@ -46,6 +46,7 @@
 #include <QEvent>
 #include <QLabel>
 #include <QMouseEvent>
+#include <ktoolinvocation.h>
 
 #include "klineal.h"
 
@@ -149,9 +150,9 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   _clicked = false;
   setOrientation(South);
   // setMediumLength();
-  mMenu = new KPopupMenu(this);
+  mMenu = new KMenu(this);
   mMenu->insertTitle(i18n("KRuler"));
-  KPopupMenu *oriMenu = new KPopupMenu(this);
+  KMenu *oriMenu = new KMenu(this);
   oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
   oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
   oriMenu->insertItem(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
@@ -159,7 +160,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   oriMenu->insertItem(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
   oriMenu->insertItem(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
   mMenu->insertItem(i18n("&Orientation"), oriMenu);
-  mLenMenu = new KPopupMenu(this);
+  mLenMenu = new KMenu(this);
   mLenMenu->insertItem(i18n("&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
   mLenMenu->insertItem(i18n("&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
   mLenMenu->insertItem(i18n("&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
@@ -502,7 +503,7 @@ void KLineal::keyPressEvent(QKeyEvent *e) {
 	QPoint dist(0,0);
 	switch (e->key()) {
 	case Qt::Key_F1:
-    	kapp->invokeHelp();
+    	KToolInvocation::invokeHelp();
  			break;
   	case Qt::Key_Left:
     	dist.setX(-1);
