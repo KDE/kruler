@@ -673,7 +673,7 @@ void KLineal::drawScale(QPainter &painter) {
           digits = longCoo % 100;
         }
       	units.sprintf("%d", digits);
-      	QSize textSize = metrics.size(Qt::SingleLine, units);
+      	QSize textSize = metrics.size(Qt::TextSingleLine, units);
         int tw = textSize.width();
         int th = textSize.height();
        	switch (mOrientation) {
