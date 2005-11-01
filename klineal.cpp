@@ -101,7 +101,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mCurrentCursor = mNorthCursor;
   setMinimumSize(60,60);
   setMaximumSize(8000,8000);
-  KConfig *cfg = kapp->config();
+  KConfig *cfg = KGlobal::config();
   QColor defaultColor = DEFAULT_RULER_COLOR;
   QFont defaultFont(KGlobalSettings::generalFont().family(), 8);
   defaultFont.setPixelSize(8);
@@ -423,7 +423,7 @@ void KLineal::setColor(const QColor &color) {
 * save the ruler color to the config file
 */
 void KLineal::saveSettings() {
-  KConfig *cfg = kapp->config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
+  KConfig *cfg = KGlobal::config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
   if (cfg) {
       QColor color = mColor;
       cfg->setGroup(CFG_GROUP_SETTINGS);
