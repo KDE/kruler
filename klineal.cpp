@@ -521,7 +521,7 @@ void KLineal::keyPressEvent(QKeyEvent *e) {
     	KMainWindow::keyPressEvent(e);
       return;
  	}
-	if (e->state() & Qt::ShiftButton) {
+	if (e->state() & Qt::ShiftModifier) {
   	dist *= 10;
   }
   move(pos()+dist);
