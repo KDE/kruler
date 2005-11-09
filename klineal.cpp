@@ -554,7 +554,7 @@ void KLineal::mouseMoveEvent(QMouseEvent * /*inEvent*/) {
     QColor color = KColorDialog::grabColor(p);
     int h, s, v;
     color.hsv(&h, &s, &v);
- 		mColorLabel->setText(color.name().upper());
+ 		mColorLabel->setText(color.name().toUpper());
   	mColorLabel->setPaletteBackgroundColor(color);
   	if (v < 255/2) {
   		v = 255;
