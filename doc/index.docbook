@@ -56,11 +56,12 @@
 measure distances on your screen.</para>
 
 <para>To start &kruler;, choose <menuchoice><guimenu>Graphics</guimenu> 
+<guisubmenu>More Applications</guisubmenu>
 <guimenuitem>KDE Screen Ruler</guimenuitem></menuchoice> from your
 <guimenu>K</guimenu> menu.</para>
 
-<para>&LMB; clicking on the &kruler; will turn the cursor into a hand icon, and
-enable you to drag &kruler; around the screen.</para>
+<para>Clicking with the &LMB; on the &kruler; will turn the cursor to a cross
+with four arrows and enables you to drag &kruler; around the screen.</para>
 
 <para>When you move the mouse over &kruler;, your cursor will turn into an
 elongated arrow, with a circle at one end.  As you move the cursor, &kruler; will
@@ -80,7 +81,7 @@ next chapter.</para>
 <chapter id="menu-reference">
 <title>Menu Reference</title>
 
-<para>&RMB; clicking on the ruler will pop up a context menu, with the
+<para>Clicking with the &RMB; on the ruler will pop up a context menu, with the
 following entries:</para>
 
 <variablelist>
@@ -201,8 +202,8 @@ West, it will rotate to be oriented South.</para>
 <varlistentry>
 <term>
 <menuchoice>
-<shortcut>
-&Ctrl;<keycap>S</keycap>
+<shortcut><keycombo action="simul">&Ctrl;
+<keycap>S</keycap></keycombo>
 </shortcut>
 <guisubmenu>Length</guisubmenu>
 <guimenuitem>Short</guimenuitem>
@@ -216,7 +217,7 @@ West, it will rotate to be oriented South.</para>
 <term>
 <menuchoice>
 <shortcut>
-&Ctrl;<keycap>M</keycap>
+<keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>
 </shortcut>
 <guisubmenu>Length</guisubmenu>
 <guimenuitem>Medium</guimenuitem>
@@ -230,7 +231,7 @@ West, it will rotate to be oriented South.</para>
 <term>
 <menuchoice>
 <shortcut>
-&Ctrl;<keycap>T</keycap>
+<keycombo action="simul">&Ctrl;<keycap>T</keycap></keycombo>
 </shortcut>
 <guisubmenu>Length</guisubmenu>
 <guimenuitem>Tall</guimenuitem>
@@ -244,7 +245,7 @@ West, it will rotate to be oriented South.</para>
 <term>
 <menuchoice>
 <shortcut>
-&Ctrl;<keycap>F</keycap>
+<keycombo action="simul">&Ctrl;<keycap>F</keycap></keycombo>
 </shortcut>
 <guisubmenu>Length</guisubmenu>
 <guimenuitem>Full Screen Width</guimenuitem>
@@ -260,70 +261,53 @@ West, it will rotate to be oriented South.</para>
 <varlistentry>
 <term>
 <menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>C</keycap></keycombo>
+</shortcut>
 <guimenuitem>Choose Color...</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
-<para>Opens a normal &kde; color picker dialog, where you can choose the
+<para>Displays the standard &kde; color picker dialog, where you can choose the
 background color for &kruler;.</para>
 </listitem>
 </varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>F</keycap></keycombo>
+</shortcut>
+<guimenuitem>Choose Font...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>Displays the standard &kde; font dialog where you can choose the font for
+&kruler;.</para>
+</listitem>
+</varlistentry>
+
 <varlistentry>
 <term>
 <menuchoice>
 <guisubmenu>Help</guisubmenu>
 </menuchoice>
-</term>
+</term> 
 <listitem>
+&help.menu.documentation;
+<para><action>This will displays version and author information.</action></para>
+</listitem>
+</varlistentry>
+</variablelist>
+
 <variablelist>
 <varlistentry>
 <term>
 <menuchoice>
-<guisubmenu>Help</guisubmenu>
-<guimenuitem>KRuler Handbook</guimenuitem>
-</menuchoice>
-</term>
-<listitem><para>This invokes the &kde; help system starting at the &kruler; help
-pages (this document).</para> </listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guisubmenu>Help</guisubmenu>
-<guimenuitem>What's This?</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>This changes the mouse cursor to a combination arrow and
-question mark.</action> Clicking on items within &kruler; with this arrow will
-open a help window (if one exists for the particular item) explaining the item's
-function.</para></listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guisubmenu>Help</guisubmenu>
-<guimenuitem>About KRuler</guimenuitem>
-</menuchoice>
-</term> 
-<listitem>
-<para><action>This will displays version and author information.</action></para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guimenu>Help</guimenu>
-<guimenuitem>About KDE</guimenuitem>
-</menuchoice>
-</term>
-<listitem><para><action>This displays the &kde; version and other basic
-information.</action></para></listitem>
-</varlistentry>
-</variablelist>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</shortcut>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice>
 </term>
