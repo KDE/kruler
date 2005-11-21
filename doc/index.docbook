@@ -16,7 +16,7 @@
 <firstname>Lauri</firstname>
 <surname>Watts</surname>
 <affiliation>
-<address><email>lauri@kde.org</email></address>
+<address><email>&Lauri.Watts.mail;</email></address>
 </affiliation>
 </author>
 
@@ -27,7 +27,7 @@
 
 <copyright>
 <year>2001</year>
-<holder>Lauri Watts</holder>
+<holder>&Lauri.Watts;</holder>
 </copyright>
 
 <date>2003-09-27</date>
@@ -67,7 +67,7 @@ with four arrows and enables you to drag &kruler; around the screen.</para>
 elongated arrow, with a circle at one end.  As you move the cursor, &kruler; will
 display how far from the point marked <guilabel>0</guilabel> the circle on the
 end of the cursor currently is.  &kruler; will also display the
-<acronym>HTML</acronym> color code of the color currently under the circle.
+&HTML; color code of the color currently under the circle.
 This is very useful for picking out colors from an image.  If you move the
 mouse far enough that the arrow cursor is no longer touching &kruler;, the
 cursor will revert to normal, allowing you to carry on working with your other
@@ -296,7 +296,6 @@ background color for &kruler;.</para>
 </term> 
 <listitem>
 &help.menu.documentation;
-<para><action>This will displays version and author information.</action></para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -329,8 +328,8 @@ background color for &kruler;.</para>
 <para>Thanks to Gunnstein Lye <email>gl@ez.no</email> for the initial port to
 &kde; 2</para>
 
-<para>Documentation Copyright Lauri Watts
-<email>lauri@kde.org</email></para>
+<para>Documentation Copyright &Lauri.Watts;
+&Lauri.Watts.mail;</para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
