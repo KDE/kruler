@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
 	KApplication a;
 
   KLineal *ruler = new KLineal();
-  a.setMainWidget(ruler);
   ruler->show();
 
   return a.exec();

@@ -72,6 +72,7 @@ private:
   int mShortEdgeLen;
   KMenu *mMenu;
   KMenu *mLenMenu;
+  QAction *mFullScreenAction;
   QColor mColor;
   QColor mStoredColor;
   QCursor mCurrentCursor;

@@ -26,7 +26,7 @@
 #include <kimageeffect.h>
 #include <klocale.h>
 #include <kmainwindow.h>
-#include <knotifyclient.h>
+#include <knotification.h>
 #include <kmenu.h>
 #include <kstandarddirs.h>
 #include <kwin.h>
@@ -81,21 +81,20 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mLenMenu=0;
   KWin::setType(winId(), NET::Override);   // or NET::Normal
   KWin::setState(winId(), NET::StaysOnTop);
-  setPaletteBackgroundColor(Qt::black);
   this->setWhatsThis(
   i18n(
   	"This is a tool to measure pixel distances and colors on the screen. "
   	"It is useful for working on layouts of dialogs, web pages etc."
   ));
-  QBitmap bim = QBitmap(QSize(8, 48), cursorBits);
+  QBitmap bim = QBitmap::fromData(QSize(8, 48), cursorBits, QImage::Format_Mono);
   QMatrix m;
   m.rotate(90.0);
   mNorthCursor = QCursor(bim, bim, 3, 47);
-  bim = bim.xForm(m);
+  bim = bim.transformed(m);
   mEastCursor = QCursor(bim, bim, 0, 3);
-  bim = bim.xForm(m);
+  bim = bim.transformed(m);
   mSouthCursor = QCursor(bim, bim, 4, 0);
-  bim = bim.xForm(m);
+  bim = bim.transformed(m);
   mWestCursor = QCursor(bim, bim, 47, 4);
 
   mCurrentCursor = mNorthCursor;
@@ -107,9 +106,9 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   defaultFont.setPixelSize(8);
   if (cfg) {
       cfg->setGroup(CFG_GROUP_SETTINGS);
-      mColor = cfg->readColorEntry(CFG_KEY_BGCOLOR, &defaultColor);
-      mScaleFont = cfg->readFontEntry(CFG_KEY_SCALE_FONT, &defaultFont);
-      mLongEdgeLen = cfg->readNumEntry(CFG_KEY_LENGTH, 600);
+      mColor = cfg->readEntry(CFG_KEY_BGCOLOR, defaultColor);
+      mScaleFont = cfg->readEntry(CFG_KEY_SCALE_FONT, defaultFont);
+      mLongEdgeLen = cfg->readEntry(CFG_KEY_LENGTH, 600);
     } else {
   		mColor = defaultColor;
       mScaleFont = defaultFont;
@@ -120,7 +119,6 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
 
   mLabel = new QLabel(this);
   mLabel->setGeometry(0,height()-12,32,12);
-  mLabel->setBackgroundOrigin(ParentOrigin);
   QFont labelFont(KGlobalSettings::generalFont().family(), 10);
   labelFont.setPixelSize(10);
   mLabel->setFont(labelFont);
@@ -129,8 +127,8 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   		"This is the current distance measured in pixels."
   	));
 	mColorLabel = new QLabel(this);
+  mColorLabel->setAutoFillBackground(true);
   mColorLabel->resize(45,12);
-  mColorLabel->setPaletteBackgroundColor(mColor);
   mColorLabel->hide();
   QFont colorFont(KGlobalSettings::fixedFont().family(), 10);
   colorFont.setPixelSize(10);
@@ -153,25 +151,27 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu = new KMenu(this);
   mMenu->addTitle(i18n("KRuler"));
   KMenu *oriMenu = new KMenu(this);
-  oriMenu->insertItem(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
-  oriMenu->insertItem(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
-  oriMenu->insertItem(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
-  oriMenu->insertItem(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Qt::Key_W);
-  oriMenu->insertItem(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
-  oriMenu->insertItem(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
-  mMenu->insertItem(i18n("&Orientation"), oriMenu);
+  oriMenu->addAction(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
+  oriMenu->addAction(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
+  oriMenu->addAction(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
+  oriMenu->addAction(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Qt::Key_W);
+  oriMenu->addAction(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
+  oriMenu->addAction(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
+  oriMenu->setTitle(i18n("&Orientation"));
+  mMenu->addMenu(oriMenu);
   mLenMenu = new KMenu(this);
-  mLenMenu->insertItem(i18n("&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
-  mLenMenu->insertItem(i18n("&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
-  mLenMenu->insertItem(i18n("&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
-  mLenMenu->insertItem(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F, FULLSCREENID);
-  mMenu->insertItem(i18n("&Length"), mLenMenu);
-  mMenu->insertItem(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
-  mMenu->insertItem(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
-  mMenu->insertSeparator();
-  mMenu->insertItem(SmallIcon( "help" ), KStdGuiItem::help().text(), helpMenu());
-  mMenu->insertSeparator();
-  mMenu->insertItem(SmallIcon( "exit" ), KStdGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
+  mLenMenu->addAction(i18n("&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
+  mLenMenu->addAction(i18n("&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
+  mLenMenu->addAction(i18n("&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
+  mFullScreenAction = mLenMenu->addAction(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F);
+  mLenMenu->setTitle(i18n("&Length"));
+  mMenu->addMenu(mLenMenu);
+  mMenu->addAction(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
+  mMenu->addAction(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
+  mMenu->addSeparator();
+  mMenu->addMenu(helpMenu());
+  mMenu->addSeparator();
+  mMenu->addAction(SmallIcon( "exit" ), KStdGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
@@ -206,16 +206,16 @@ static void rotateRect(QRect &r, QPoint center, int nineties) {
     nineties = -nineties+4;
   }
   i = nineties % 4;
-  r.moveBy(-center.x(), -center.y());
-  r.coords(&x1, &y1, &x2, &y2);
+  r.translate(-center.x(), -center.y());
+  r.getCoords(&x1, &y1, &x2, &y2);
   r.setCoords(
 	      x1 * costab[i] + y1 * sintab[i],
 	      -x1 * sintab[i] + y1 * costab[i],
 	      x2 * costab[i] + y2 * sintab[i],
 	      -x2 * sintab[i] + y2 * costab[i]
 	      );
-  r = r.normalize();
-  r.moveBy(center.x(), center.y());
+  r = r.normalized();
+  r.translate(center.x(), center.y());
 }
 
 void KLineal::setupBackground() {
@@ -243,9 +243,10 @@ void KLineal::setupBackground() {
       gradType = KImageEffect::HorizontalGradient;
       break;
   }
-  QPixmap bgPixmap = QPixmap(KImageEffect::gradient(size(), a, b, gradType));
-  setErasePixmap(bgPixmap);
-  mLabel->setErasePixmap(bgPixmap);
+  QPixmap bgPixmap = QPixmap::fromImage(KImageEffect::gradient(size(), a, b, gradType));
+  QPalette p = palette();
+  p.setBrush(backgroundRole(), QBrush(bgPixmap));
+  setPalette(p);
 }
 
 void KLineal::setOrientation(int inOrientation) {
@@ -296,8 +297,10 @@ void KLineal::setOrientation(int inOrientation) {
     mCurrentCursor = mWestCursor;
     break;
   }
-  if (mLenMenu)
-    mLenMenu->changeItem(FULLSCREENID, mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
+  if (mLenMenu) {
+    if (mFullScreenAction)
+        mFullScreenAction->setText( mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
+  }
   setCursor(mCurrentCursor);
   setupBackground();
   repaint();
@@ -521,11 +524,11 @@ void KLineal::keyPressEvent(QKeyEvent *e) {
     	KMainWindow::keyPressEvent(e);
       return;
  	}
-	if (e->state() & Qt::ShiftModifier) {
+	if (e->modifiers() & Qt::ShiftModifier) {
   	dist *= 10;
   }
   move(pos()+dist);
-  KNotifyClient::event(0, "cursormove",  QString::null);
+  KNotification::event(0, "cursormove",  QString());
 }
 /**
 * overwritten to handle the line cursor which is a seperate widget outside the main
@@ -553,18 +556,18 @@ void KLineal::mouseMoveEvent(QMouseEvent * /*inEvent*/) {
     // cerr << p.x()-x() << "," << p.y()-y() << ": " << KColorDialog::grabColor(p).name() << endl;
     QColor color = KColorDialog::grabColor(p);
     int h, s, v;
-    color.hsv(&h, &s, &v);
- 		mColorLabel->setText(color.name().toUpper());
-  	mColorLabel->setPaletteBackgroundColor(color);
+    color.getHsv(&h, &s, &v);
+    mColorLabel->setText(color.name().toUpper());
+    QPalette palette = mColorLabel->palette();
+    palette.setColor(mColorLabel->backgroundRole(), color);
   	if (v < 255/2) {
   		v = 255;
   	} else {
   		v = 0;
    	}
-   	color.setHsv(h, s, v);
-  	QPalette palette = mColorLabel->palette();
-  	palette.setColor(QColorGroup::Foreground, color);
-  	mColorLabel->setPalette(palette);
+    color.setHsv(h, s, v);
+    palette.setColor(mColorLabel->foregroundRole(), color);
+    mColorLabel->setPalette(palette);
     adjustLabel();
   }
 }
