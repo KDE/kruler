@@ -114,7 +114,7 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
       mScaleFont = defaultFont;
       mLongEdgeLen = 400;
   }
-  kdDebug() << "mLongEdgeLen=" << mLongEdgeLen << endl;
+  kDebug() << "mLongEdgeLen=" << mLongEdgeLen << endl;
   mShortEdgeLen = 70;
 
   mLabel = new QLabel(this);
