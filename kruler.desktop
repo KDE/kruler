@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 GenericName=Screen Ruler
+GenericName[fr]=Règle d'écran
 GenericName[x-test]=xxScreen Rulerxx
 Name=KRuler
 Name[x-test]=xxKRulerxx
