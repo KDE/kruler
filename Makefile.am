@@ -20,6 +20,4 @@ app_DATA = eventsrc
 sounddir = $(kde_datadir)/kruler/sounds
 sound_DATA = move.wav
 
-messages:
-	$(XGETTEXT) $(kruler_SOURCES) -o $(podir)/kruler.pot
 
