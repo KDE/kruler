@@ -1,4 +1,3 @@
-kde4_header()
 project(kruler)
 
 add_subdirectory( pics ) 
@@ -32,7 +31,6 @@ install(FILES uninstall.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}${APPLNK_INST
 #   $(INSTALL_DATA) $(srcdir)/uninstall.desktop $(DESTDIR)$(kde_appsdir)/Graphics/kruler.desktop
 #
 
-kde4_footer()
 
 
 

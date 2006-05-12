@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -9,7 +8,6 @@ install_files( ${DATA_INSTALL_DIR}/kruler/pics FILES kruler-east.png kruler-nort
 
 kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
 
-kde4_footer()
 
 
 
