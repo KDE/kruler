@@ -24,8 +24,6 @@ install_files( ${XDG_APPS_DIR} FILES kruler.desktop )
 install_files( ${DATA_INSTALL_DIR}/kruler FILES eventsrc )
 install_files( ${DATA_INSTALL_DIR}/kruler/sounds FILES move.wav )
 
-install(FILES uninstall.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}${APPLNK_INSTALL_DIR}/Graphics/ RENAME kruler.desktop)
-
 #install-data-local: uninstall.desktop
 #   $(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/Graphics
 #   $(INSTALL_DATA) $(srcdir)/uninstall.desktop $(DESTDIR)$(kde_appsdir)/Graphics/kruler.desktop
