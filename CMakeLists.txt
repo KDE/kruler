@@ -20,9 +20,9 @@ install_targets(/bin kruler )
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES kruler.desktop )
-install_files( ${DATA_INSTALL_DIR}/kruler FILES eventsrc )
-install_files( ${DATA_INSTALL_DIR}/kruler/sounds FILES move.wav )
+install( FILES kruler.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES eventsrc  DESTINATION  ${DATA_INSTALL_DIR}/kruler )
+install( FILES move.wav  DESTINATION  ${DATA_INSTALL_DIR}/kruler/sounds )
 
 #install-data-local: uninstall.desktop
 #   $(mkinstalldirs) $(DESTDIR)$(kde_appsdir)/Graphics
