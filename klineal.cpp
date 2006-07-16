@@ -23,6 +23,7 @@
 #include <kglobal.h>
 #include <kglobalsettings.h>
 #include <kiconloader.h>
+#include <khelpmenu.h>
 #include <kimageeffect.h>
 #include <klocale.h>
 #include <kmainwindow.h>
@@ -74,10 +75,7 @@ static const uchar cursorBits[] = {
 * create the thingy with no borders and set up
 * its members
 */
-KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
-	if (!name) {
-		name = "klineal";
-	}
+KLineal::KLineal(QWidget*parent):QWidget(parent){
   mLenMenu=0;
   KWin::setType(winId(), NET::Override);   // or NET::Normal
   KWin::setState(winId(), NET::StaysOnTop);
@@ -169,7 +167,8 @@ KLineal::KLineal(QWidget*parent,const char* name):KMainWindow(parent,name){
   mMenu->addAction(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
   mMenu->addAction(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
   mMenu->addSeparator();
-  mMenu->addMenu(helpMenu());
+  mMenu->addMenu((new KHelpMenu(this, KGlobal::instance()->aboutData(),
+true))->menu());
   mMenu->addSeparator();
   mMenu->addAction(SmallIcon( "exit" ), KStdGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
@@ -521,7 +520,7 @@ void KLineal::keyPressEvent(QKeyEvent *e) {
     	dist.setY(1);
  			break;
   	default:
-    	KMainWindow::keyPressEvent(e);
+    	QWidget::keyPressEvent(e);
       return;
  	}
 	if (e->modifiers() & Qt::ShiftModifier) {

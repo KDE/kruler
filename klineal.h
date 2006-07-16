@@ -35,12 +35,12 @@
 #include <QEvent>
 #include <QPaintEvent>
 
-class KLineal : public KMainWindow {
+class KLineal : public QWidget {
   Q_OBJECT
 public:
   enum { North=0, West=1, South=2, East=3 };
   /** constructor */
-  KLineal(QWidget*parent=0,const char* name=0);
+  KLineal(QWidget*parent=0);
   /** destructor */
   ~KLineal();
   void move(int x, int y);
