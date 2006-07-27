@@ -18,22 +18,12 @@
 #ifndef KLINEAL_H
 #define KLINEAL_H
 
-#include <kapplication.h>
-#include <kmenu.h>
-#include <kmainwindow.h>
+#include <QWidget>
 
 #include <kcolordialog.h>
-#include <kfontdialog.h>
 
-#include <qlabel.h>
-#include <qpainter.h>
-#include <qwidget.h>
-#include <qcursor.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QEvent>
-#include <QPaintEvent>
+class QLabel;
+class KMenu;
 
 class KLineal : public QWidget {
   Q_OBJECT
@@ -49,7 +39,7 @@ public:
   int x();
   int y();
 protected:
-	void keyPressEvent(QKeyEvent *e);
+  void keyPressEvent(QKeyEvent *e);
   void mousePressEvent(QMouseEvent *e);
   void mouseReleaseEvent(QMouseEvent *e);
   void mouseMoveEvent(QMouseEvent *e);
@@ -83,7 +73,7 @@ private:
   QCursor mDragCursor;
   KColorDialog mColorSelector;
   QFont mScaleFont;
-	bool _clicked;
+  bool _clicked;
 public slots:
   void setOrientation(int);
   void setNorth();
