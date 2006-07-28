@@ -120,8 +120,8 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
         "little square at the end of the line cursor."));
 
   resize(QSize(mLongEdgeLen, mShortEdgeLen));
-  setMouseTracking(TRUE);
-  mDragging = FALSE;
+  setMouseTracking(true);
+  mDragging = false;
   mOrientation = South;
   _clicked = false;
   setOrientation(South);
@@ -508,7 +508,7 @@ void KLineal::keyPressEvent(QKeyEvent *e) {
   KNotification::event(0, "cursormove",  QString());
 }
 /**
-* overwritten to handle the line cursor which is a seperate widget outside the main
+* overwritten to handle the line cursor which is a separate widget outside the main
 * window. Also used for dragging.
 */
 void KLineal::mouseMoveEvent(QMouseEvent * /*inEvent*/) {
@@ -561,7 +561,7 @@ void KLineal::mousePressEvent(QMouseEvent *inEvent) {
   if (inEvent->button() == Qt::LeftButton) {
     if (!mDragging) {
       grabMouse(KCursor::sizeAllCursor());
-      mDragging = TRUE;
+      mDragging = true;
     }
   } else if (inEvent->button() == Qt::MidButton) {
     _clicked = true;
@@ -575,7 +575,7 @@ void KLineal::mousePressEvent(QMouseEvent *inEvent) {
 */
 void KLineal::mouseReleaseEvent(QMouseEvent * /*inEvent*/) {
   if (mDragging) {
-    mDragging = FALSE;
+    mDragging = false;
     releaseMouse();
   }
   showLabel();
