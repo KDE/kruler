@@ -1,15 +1,15 @@
-[!Global!]
+[Global]
 IconName=kruler
 Comment=KDE Screen Ruler
 Comment[fr]=Règle d'écran pour KDE
 Comment[x-test]=xxKDE Screen Rulerxx
 
-[cursormove]
+[Event/cursormove]
 Name=Moved by Cursor Keys
 Name[fr]=Déplacée par les touches fléchées
 Name[x-test]=xxMoved by Cursor Keysxx
 Comment=The ruler has moved pixelwise using the cursor keys
 Comment[fr]=La règle s'est déplacée sous l'action des touches fléchées
 Comment[x-test]=xxThe ruler has moved pixelwise using the cursor keysxx
-default_sound=move.wav
-default_presentation=1
+Sound=move.wav
+Action=Sound
