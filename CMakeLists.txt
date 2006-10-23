@@ -6,7 +6,7 @@ add_subdirectory( pics )
 
 set(kruler_SRCS klineal.cpp main.cpp)
 
-kde4_automoc(kruler ${kruler_SRCS})
+kde4_automoc(${kruler_SRCS})
 
 kde4_add_executable(kruler ${kruler_SRCS})
 
