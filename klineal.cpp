@@ -64,8 +64,10 @@ static const uchar cursorBits[] = {
 */
 KLineal::KLineal(QWidget*parent):QWidget(parent){
   mLenMenu=0;
+#ifndef Q_OS_WIN  
   KWin::setType(winId(), NET::Override);   // or NET::Normal
   KWin::setState(winId(), NET::KeepAbove);
+#endif  
   this->setWhatsThis(
   i18n("This is a tool to measure pixel distances and colors on the screen. "
        "It is useful for working on layouts of dialogs, web pages etc."));
