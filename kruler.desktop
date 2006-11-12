@@ -13,5 +13,5 @@ Path=
 Icon=kruler
 Terminal=false
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Graphics;X-KDE-More;
