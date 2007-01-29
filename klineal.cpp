@@ -85,7 +85,7 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mCurrentCursor = mNorthCursor;
   setMinimumSize(60,60);
   setMaximumSize(8000,8000);
-  KConfig *cfg = KGlobal::config();
+  KSharedConfig::Ptr cfg = KGlobal::config();
   QColor defaultColor = DEFAULT_RULER_COLOR;
   QFont defaultFont(KGlobalSettings::generalFont().family(), 8);
   defaultFont.setPixelSize(8);
@@ -149,7 +149,7 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mMenu->addAction(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
   mMenu->addAction(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
   mMenu->addSeparator();
-  mMenu->addMenu((new KHelpMenu(this, KGlobal::instance()->aboutData(), true))->menu());
+  mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
   mMenu->addAction(SmallIcon( "exit" ), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
@@ -405,7 +405,7 @@ void KLineal::setColor(const QColor &color) {
 * save the ruler color to the config file
 */
 void KLineal::saveSettings() {
-  KConfig *cfg = KGlobal::config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
+  KSharedConfig::Ptr cfg = KGlobal::config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
   if (cfg) {
       QColor color = mColor;
       cfg->setGroup(CFG_GROUP_SETTINGS);
