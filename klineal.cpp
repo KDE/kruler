@@ -151,7 +151,7 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mMenu->addSeparator();
   mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
-  mMenu->addAction(SmallIcon( "exit" ), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
+  mMenu->addAction(SmallIcon( "application-exit" ), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
