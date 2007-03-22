@@ -14,11 +14,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <kapplication.h>
+#include <kdeversion.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <klocale.h>
@@ -37,7 +34,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char *argv[])
 {
   KAboutData aboutData( "kruler", I18N_NOOP("KDE Screen Ruler"),
-    VERSION,
+    KDE_VERSION_STRING,
     I18N_NOOP("A screen ruler for the K Desktop Environment"),
     KAboutData::License_GPL,
     "(c) 2000, Till Krech",
