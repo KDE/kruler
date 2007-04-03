@@ -28,7 +28,7 @@
 #include <kimageeffect.h>
 #include <klocale.h>
 #include <knotification.h>
-#include <kwin.h>
+#include <kwm.h>
 #include <KStandardGuiItem>
 #include <ktoolinvocation.h>
 #include <kfontdialog.h>
@@ -65,8 +65,8 @@ static const uchar cursorBits[] = {
 KLineal::KLineal(QWidget*parent):QWidget(parent){
   mLenMenu=0;
 #ifndef Q_OS_WIN  
-  KWin::setType(winId(), NET::Override);   // or NET::Normal
-  KWin::setState(winId(), NET::KeepAbove);
+  KWM::setType(winId(), NET::Override);   // or NET::Normal
+  KWM::setState(winId(), NET::KeepAbove);
 #endif  
   this->setWhatsThis(
   i18n("This is a tool to measure pixel distances and colors on the screen. "
@@ -562,7 +562,7 @@ void KLineal::mousePressEvent(QMouseEvent *inEvent) {
   mDragOffset = mLastClickPos - QPoint(gr.left(), gr.top());
   if (inEvent->button() == Qt::LeftButton) {
     if (!mDragging) {
-      grabMouse(KCursor::sizeAllCursor());
+      grabMouse(Qt::SizeAllCursor);
       mDragging = true;
     }
   } else if (inEvent->button() == Qt::MidButton) {
