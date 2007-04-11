@@ -90,10 +90,10 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   QFont defaultFont(KGlobalSettings::generalFont().family(), 8);
   defaultFont.setPixelSize(8);
   if (cfg) {
-      cfg->setGroup(CFG_GROUP_SETTINGS);
-      mColor = cfg->readEntry(CFG_KEY_BGCOLOR, defaultColor);
-      mScaleFont = cfg->readEntry(CFG_KEY_SCALE_FONT, defaultFont);
-      mLongEdgeLen = cfg->readEntry(CFG_KEY_LENGTH, 600);
+      KConfigGroup cfgcg(cfg, CFG_GROUP_SETTINGS);
+      mColor = cfgcg.readEntry(CFG_KEY_BGCOLOR, defaultColor);
+      mScaleFont = cfgcg.readEntry(CFG_KEY_SCALE_FONT, defaultFont);
+      mLongEdgeLen = cfgcg.readEntry(CFG_KEY_LENGTH, 600);
     } else {
       mColor = defaultColor;
       mScaleFont = defaultFont;
@@ -131,10 +131,10 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mMenu = new KMenu(this);
   mMenu->addTitle(i18n("KRuler"));
   KMenu *oriMenu = new KMenu(this);
-  oriMenu->addAction(UserIconSet("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
-  oriMenu->addAction(UserIconSet("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
-  oriMenu->addAction(UserIconSet("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
-  oriMenu->addAction(UserIconSet("kruler-west"), i18n("&West"), this, SLOT(setWest()), Qt::Key_W);
+  oriMenu->addAction(KIcon("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
+  oriMenu->addAction(KIcon("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
+  oriMenu->addAction(KIcon("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
+  oriMenu->addAction(KIcon("kruler-west"), i18n("&West"), this, SLOT(setWest()), Qt::Key_W);
   oriMenu->addAction(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
   oriMenu->addAction(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
   oriMenu->setTitle(i18n("&Orientation"));
@@ -146,12 +146,12 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mFullScreenAction = mLenMenu->addAction(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F);
   mLenMenu->setTitle(i18n("&Length"));
   mMenu->addMenu(mLenMenu);
-  mMenu->addAction(SmallIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
-  mMenu->addAction(SmallIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
+  mMenu->addAction(KIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
+  mMenu->addAction(KIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
   mMenu->addSeparator();
   mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
-  mMenu->addAction(SmallIcon( "application-exit" ), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
+  mMenu->addAction(KIcon( "application-exit" ), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
@@ -408,10 +408,10 @@ void KLineal::saveSettings() {
   KSharedConfig::Ptr cfg = KGlobal::config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
   if (cfg) {
       QColor color = mColor;
-      cfg->setGroup(CFG_GROUP_SETTINGS);
-      cfg->writeEntry(QString(CFG_KEY_BGCOLOR), color);
-      cfg->writeEntry(QString(CFG_KEY_SCALE_FONT), mScaleFont);
-      cfg->writeEntry(QString(CFG_KEY_LENGTH), mLongEdgeLen);
+      KConfigGroup cfgcg(cfg, CFG_GROUP_SETTINGS);
+      cfgcg.writeEntry(QString(CFG_KEY_BGCOLOR), color);
+      cfgcg.writeEntry(QString(CFG_KEY_SCALE_FONT), mScaleFont);
+      cfgcg.writeEntry(QString(CFG_KEY_LENGTH), mLongEdgeLen);
       cfg->sync();
   }
 }
