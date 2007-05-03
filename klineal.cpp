@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "klineal.h"
+
 #include <QBitmap>
 #include <QPainter>
 #include <QMouseEvent>
@@ -34,8 +36,6 @@
 #include <kfontdialog.h>
 #include <kmenu.h>
 #include <kapplication.h>
-
-#include "klineal.h"
 
 #define CFG_KEY_BGCOLOR "BgColor"
 #define CFG_KEY_SCALE_FONT "ScaleFont"
