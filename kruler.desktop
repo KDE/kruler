@@ -2,7 +2,6 @@
 Encoding=UTF-8
 GenericName=Screen Ruler
 GenericName[af]=Skerm Liniaal
-GenericName[ar]=مسطرة الشاشة
 GenericName[ca]=Regla de pantalla
 GenericName[cs]=Obrazovkové pravítko
 GenericName[cy]=Mesurydd Sgrîn
@@ -53,7 +52,6 @@ GenericName[zh_HK]=螢幕尺規
 GenericName[zh_TW]=螢幕尺規
 Name=KRuler
 Name[af]=K-lineaal
-Name[ar]=المسطرة (KRuler)
 Name[cy]=KMesurydd
 Name[eo]=Liniilo
 Name[hr]=Ravnalo
