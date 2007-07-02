@@ -25,24 +25,20 @@
 static const char homePageURL[] = "http://www.snafu.de/~till/";
 static const char freeFormText[] = "\"May the source be with you.\"";
 
-static KCmdLineOptions options[] =
-{
-  KCmdLineLastOption
-  // INSERT YOUR COMMANDLINE OPTIONS HERE
-};
-
 int main(int argc, char *argv[])
 {
-  KAboutData aboutData( "kruler", I18N_NOOP("KDE Screen Ruler"),
+  KAboutData aboutData( "kruler", 0, ki18n("KDE Screen Ruler"),
     KDE_VERSION_STRING,
-    I18N_NOOP("A screen ruler for the K Desktop Environment"),
+    ki18n("A screen ruler for the K Desktop Environment"),
     KAboutData::License_GPL,
-    "(c) 2000, Till Krech",
-    freeFormText,
+    ki18n("(c) 2000, Till Krech"),
+    ki18n(freeFormText),
     homePageURL);
-  aboutData.addAuthor("Till Krech",I18N_NOOP("Programming"), "till@snafu.de");
-  aboutData.addCredit("Gunnstein Lye",I18N_NOOP("Initial port to KDE 2"), "gl@ez.no");
+  aboutData.addAuthor(ki18n("Till Krech"),ki18n("Programming"), "till@snafu.de");
+  aboutData.addCredit(ki18n("Gunnstein Lye"),ki18n("Initial port to KDE 2"), "gl@ez.no");
   KCmdLineArgs::init( argc, argv, &aboutData );
+
+  KCmdLineOptions options;
   KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
 
   KApplication a;
