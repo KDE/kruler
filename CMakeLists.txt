@@ -16,6 +16,6 @@ install(TARGETS kruler DESTINATION ${BIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install( FILES kruler.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kruler.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kruler.notifyrc  DESTINATION  ${DATA_INSTALL_DIR}/kruler )
 install( FILES move.wav  DESTINATION  ${DATA_INSTALL_DIR}/kruler/sounds )
