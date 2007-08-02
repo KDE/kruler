@@ -99,7 +99,7 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
       mScaleFont = defaultFont;
       mLongEdgeLen = 400;
   }
-  kDebug() << "mLongEdgeLen=" << mLongEdgeLen << endl;
+  kDebug() << "mLongEdgeLen=" << mLongEdgeLen;
   mShortEdgeLen = 70;
 
   mLabel = new QLabel(this);
