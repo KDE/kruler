@@ -18,6 +18,7 @@
 #include "klineal.h"
 
 #include <QBitmap>
+#include <QBrush>
 #include <QPainter>
 #include <QMouseEvent>
 #include <QLabel>
@@ -27,7 +28,6 @@
 #include <kglobalsettings.h>
 #include <kiconloader.h>
 #include <khelpmenu.h>
-#include <kimageeffect.h>
 #include <klocale.h>
 #include <knotification.h>
 #include <kwindowsystem.h>
@@ -199,32 +199,33 @@ static void rotateRect(QRect &r, QPoint center, int nineties) {
 
 void KLineal::setupBackground() {
   QColor a, b, bg = mColor;
-  KImageEffect::GradientType gradType = KImageEffect::HorizontalGradient;
+  QLinearGradient gradient;
   switch (mOrientation) {
     case North:
       a = bg.light(120);
       b = bg.dark(130);
-      gradType = KImageEffect::VerticalGradient;
+      gradient = QLinearGradient(1, 0, 1, height());
       break;
     case South:
       b = bg.light(120);
       a = bg.dark(130);
-      gradType = KImageEffect::VerticalGradient;
+      gradient = QLinearGradient(1, 0, 1, height());
       break;
     case West:
       a = bg.light(120);
       b = bg.dark(130);
-      gradType = KImageEffect::HorizontalGradient;
+      gradient = QLinearGradient(0, 1, width(), 1);
       break;
     case East:
       b = bg.light(120);
       a = bg.dark(130);
-      gradType = KImageEffect::HorizontalGradient;
+      gradient = QLinearGradient(0, 1, width(), 1);
       break;
   }
-  QPixmap bgPixmap = QPixmap::fromImage(KImageEffect::gradient(size(), a, b, gradType));
+  gradient.setColorAt(0, a);
+  gradient.setColorAt(1, b);
   QPalette p = palette();
-  p.setBrush(backgroundRole(), QBrush(bgPixmap));
+  p.setBrush(backgroundRole(), QBrush(gradient));
   setPalette(p);
 }
 
