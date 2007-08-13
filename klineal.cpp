@@ -1,9 +1,9 @@
 /***************************************************************************
                           klineal.cpp  -  description
                              -------------------
-    begin                : Fri Oct 13 2000
-    copyright            : (C) 2000 by Till Krech
-    email                : till@snafu.de
+    Begin                : Fri Oct 13 2000
+    Copyright            : 2000 by Till Krech
+    Email                : till@snafu.de
  ***************************************************************************/
 
 /***************************************************************************
@@ -131,18 +131,18 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mMenu = new KMenu(this);
   mMenu->addTitle(i18n("KRuler"));
   KMenu *oriMenu = new KMenu(this);
-  oriMenu->addAction(KIcon("kruler-north"), i18n("&North"), this, SLOT(setNorth()), Qt::Key_N);
-  oriMenu->addAction(KIcon("kruler-east"), i18n("&East"), this, SLOT(setEast()), Qt::Key_E);
-  oriMenu->addAction(KIcon("kruler-south"), i18n("&South"), this, SLOT(setSouth()), Qt::Key_S);
-  oriMenu->addAction(KIcon("kruler-west"), i18n("&West"), this, SLOT(setWest()), Qt::Key_W);
+  oriMenu->addAction(KIcon("kruler-north"), i18nc("Turn Kruler North", "&North"), this, SLOT(setNorth()), Qt::Key_N);
+  oriMenu->addAction(KIcon("kruler-east"), i18nc("Turn Kruler East", "&East"), this, SLOT(setEast()), Qt::Key_E);
+  oriMenu->addAction(KIcon("kruler-south"), i18nc("Turn Kruler South", "&South"), this, SLOT(setSouth()), Qt::Key_S);
+  oriMenu->addAction(KIcon("kruler-west"), i18nc("Turn Kruler West", "&West"), this, SLOT(setWest()), Qt::Key_W);
   oriMenu->addAction(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
   oriMenu->addAction(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
   oriMenu->setTitle(i18n("&Orientation"));
   mMenu->addMenu(oriMenu);
   mLenMenu = new KMenu(this);
-  mLenMenu->addAction(i18n("&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
-  mLenMenu->addAction(i18n("&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
-  mLenMenu->addAction(i18n("&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
+  mLenMenu->addAction(i18nc("Make Kruler Height Short", "&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
+  mLenMenu->addAction(i18nc("Make Kruler Height Medium", "&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
+  mLenMenu->addAction(i18nc("Make Kruler Height Tall", "&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
   mFullScreenAction = mLenMenu->addAction(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F);
   mLenMenu->setTitle(i18n("&Length"));
   mMenu->addMenu(mLenMenu);
@@ -151,7 +151,7 @@ KLineal::KLineal(QWidget*parent):QWidget(parent){
   mMenu->addSeparator();
   mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
-  mMenu->addAction(KIcon( "application-exit" ), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
+  mMenu->addAction(KIcon("application-exit"), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
@@ -279,7 +279,7 @@ void KLineal::setOrientation(int inOrientation) {
   }
   if (mLenMenu) {
     if (mFullScreenAction)
-        mFullScreenAction->setText( mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
+        mFullScreenAction->setText(mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
   }
   setCursor(mCurrentCursor);
   setupBackground();
