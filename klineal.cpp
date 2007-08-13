@@ -177,7 +177,7 @@ int KLineal::y() {
   return pos().y();
 }
 
-static void rotateRect(QRect &r, QPoint center, int nineties) {
+static void rotateRect(QRect &r, const QPoint &center, int nineties) {
   static int sintab[4] = {0,1,0,-1};
   static int costab[4] = {1,0,-1,0};
   int i=0;
