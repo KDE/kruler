@@ -64,10 +64,8 @@ static const uchar cursorBits[] = {
 */
 KLineal::KLineal(QWidget*parent):QWidget(parent){
   mLenMenu=0;
-#ifndef Q_OS_WIN  
   KWindowSystem::setType(winId(), NET::Override);   // or NET::Normal
   KWindowSystem::setState(winId(), NET::KeepAbove);
-#endif  
   this->setWhatsThis(
   i18n("This is a tool to measure pixel distances and colors on the screen. "
        "It is useful for working on layouts of dialogs, web pages etc."));
@@ -352,10 +350,7 @@ void KLineal::choseColor() {
   mColorSelector.setDefaultColor( DEFAULT_RULER_COLOR );
   mColorSelector.show();
 
-  connect(&mColorSelector, SIGNAL(okClicked()), this, SLOT(setColor()));
-  connect(&mColorSelector, SIGNAL(yesClicked()), this, SLOT(setColor()));
   connect(&mColorSelector, SIGNAL(closeClicked()), this, SLOT(setColor()));
-  connect(&mColorSelector, SIGNAL(defaultClicked()), this, SLOT(setColor()));
   connect(&mColorSelector, SIGNAL(colorSelected(const QColor&)), this, SLOT(setColor(const QColor&)));
 	/*
   connect(&mColorSelector, SIGNAL(cancelPressed()), this, SLOT(restoreColor()));
