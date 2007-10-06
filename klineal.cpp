@@ -35,6 +35,7 @@
 #include <ktoolinvocation.h>
 #include <kfontdialog.h>
 #include <kmenu.h>
+#include <kdebug.h>
 #include <kapplication.h>
 
 #define CFG_KEY_BGCOLOR "BgColor"
