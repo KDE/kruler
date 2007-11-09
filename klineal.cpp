@@ -64,7 +64,7 @@ static const uchar cursorBits[] = {
 * create the thingy with no borders and set up
 * its members
 */
-KLineal::KLineal(QWidget*parent):QWidget(parent){
+KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
   mLenMenu=0;
   KWindowSystem::setType(winId(), NET::Override);   // or NET::Normal
   KWindowSystem::setState(winId(), NET::KeepAbove);
