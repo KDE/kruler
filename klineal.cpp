@@ -197,7 +197,7 @@ static void rotateRect(QRect &r, const QPoint &center, int nineties) {
   r.translate(center.x(), center.y());
 }
 
-void KLineal::setupBackground() {
+void KLineal::drawBackground(QPainter& painter) {
   QColor a, b, bg = mColor;
   QLinearGradient gradient;
   switch (mOrientation) {
@@ -224,9 +224,7 @@ void KLineal::setupBackground() {
   }
   gradient.setColorAt(0, a);
   gradient.setColorAt(1, b);
-  QPalette p = palette();
-  p.setBrush(backgroundRole(), QBrush(gradient));
-  setPalette(p);
+  painter.fillRect(rect(), QBrush(gradient));
 }
 
 void KLineal::setOrientation(int inOrientation) {
@@ -282,7 +280,6 @@ void KLineal::setOrientation(int inOrientation) {
         mFullScreenAction->setText(mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
   }
   setCursor(mCurrentCursor);
-  setupBackground();
   repaint();
 }
 void KLineal::setNorth() {
@@ -396,7 +393,6 @@ void KLineal::setColor(const QColor &color) {
   mColor = color;
   if ( !mColor.isValid() )
     mColor = DEFAULT_RULER_COLOR;
-  setupBackground();
 }
 
 /**
@@ -726,6 +722,7 @@ void KLineal::drawScale(QPainter &painter) {
 void KLineal::paintEvent(QPaintEvent * /*inEvent*/) {
   QPainter painter;
   painter.begin(this);
+  drawBackground(painter);
   drawScale(painter);
   painter.end();
 }

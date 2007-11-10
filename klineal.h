@@ -46,11 +46,11 @@ protected:
   void paintEvent(QPaintEvent *e);
   void enterEvent(QEvent *e);
   void leaveEvent(QEvent *e);
-  void setupBackground();
 
 
 private:
   void drawScale(QPainter &painter);
+  void drawBackground(QPainter &painter);
   void reLength(int percentOfScreen);
   bool mDragging;
   QPoint mLastClickPos;
