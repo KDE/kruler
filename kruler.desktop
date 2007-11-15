@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 GenericName=Screen Ruler
 GenericName[af]=Skerm Liniaal
 GenericName[bg]=Линийка за екрана
@@ -73,7 +72,6 @@ X-DocPath=kruler/index.html
 MimeType=
 Exec=kruler
 Type=Application
-Path=
 Icon=kruler
 Terminal=false
 X-KDE-StartupNotify=true
