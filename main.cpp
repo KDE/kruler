@@ -22,18 +22,13 @@
 
 #include "klineal.h"
 
-static const char homePageURL[] = "http://www.snafu.de/~till/";
-static const char freeFormText[] = "\"May the source be with you.\"";
-
 int main(int argc, char *argv[])
 {
   KAboutData aboutData( "kruler", 0, ki18n("KDE Screen Ruler"),
     KDE_VERSION_STRING,
     ki18n("A screen ruler for the K Desktop Environment"),
     KAboutData::License_GPL,
-    ki18n("(c) 2000, Till Krech"),
-    ki18n(freeFormText),
-    homePageURL);
+    ki18n("(c) 2000, Till Krech"));
   aboutData.addAuthor(ki18n("Till Krech"),ki18n("Programming"), "till@snafu.de");
   aboutData.addCredit(ki18n("Gunnstein Lye"),ki18n("Initial port to KDE 2"), "gl@ez.no");
   KCmdLineArgs::init( argc, argv, &aboutData );

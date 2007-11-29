@@ -146,8 +146,8 @@ KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
   mFullScreenAction = mLenMenu->addAction(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F);
   mLenMenu->setTitle(i18n("&Length"));
   mMenu->addMenu(mLenMenu);
-  mMenu->addAction(KIcon("colorscm"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
-  mMenu->addAction(KIcon("font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
+  mMenu->addAction(KIcon("preferences-desktop-color"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
+  mMenu->addAction(KIcon("preferences-desktop-font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
   mMenu->addSeparator();
   mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
