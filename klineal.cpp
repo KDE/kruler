@@ -135,8 +135,8 @@ KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
   oriMenu->addAction(KIcon("kruler-east"), i18nc("Turn Kruler East", "&East"), this, SLOT(setEast()), Qt::Key_E);
   oriMenu->addAction(KIcon("kruler-south"), i18nc("Turn Kruler South", "&South"), this, SLOT(setSouth()), Qt::Key_S);
   oriMenu->addAction(KIcon("kruler-west"), i18nc("Turn Kruler West", "&West"), this, SLOT(setWest()), Qt::Key_W);
-  oriMenu->addAction(i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
-  oriMenu->addAction(i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
+  oriMenu->addAction(KIcon("object-rotate-right"), i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
+  oriMenu->addAction(KIcon("object-rotate-left"), i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
   oriMenu->setTitle(i18n("&Orientation"));
   mMenu->addMenu(oriMenu);
   mLenMenu = new KMenu(this);
