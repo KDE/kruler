@@ -393,6 +393,8 @@ void KLineal::setColor(const QColor &color) {
   mColor = color;
   if ( !mColor.isValid() )
     mColor = DEFAULT_RULER_COLOR;
+
+  repaint();
 }
 
 /**
