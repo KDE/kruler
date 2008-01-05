@@ -97,5 +97,6 @@ public slots:
   void choseFont();
   void restoreColor();
   void saveSettings();
+  void slotQuit();
 };
 #endif
