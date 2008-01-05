@@ -22,6 +22,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QShortcut>
 
 #include <kconfig.h>
 #include <kcursor.h>
@@ -137,6 +138,12 @@ KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
   oriMenu->addAction(KIcon("kruler-west"), i18nc("Turn Kruler West", "&West"), this, SLOT(setWest()), Qt::Key_W);
   oriMenu->addAction(KIcon("object-rotate-right"), i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
   oriMenu->addAction(KIcon("object-rotate-left"), i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
+  new QShortcut( Qt::Key_N, this, SLOT(setNorth()));
+  new QShortcut(Qt::Key_E,this,SLOT(setEast()));
+  new QShortcut(Qt::Key_S,this, SLOT(setSouth()));
+  new QShortcut(Qt::Key_W,this, SLOT(setWest()));
+  new QShortcut(Qt::Key_R,this, SLOT(turnRight()));
+  new QShortcut(Qt::Key_L,this, SLOT(turnLeft()));
   oriMenu->setTitle(i18n("&Orientation"));
   mMenu->addMenu(oriMenu);
   mLenMenu = new KMenu(this);
@@ -144,18 +151,30 @@ KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
   mLenMenu->addAction(i18nc("Make Kruler Height Medium", "&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
   mLenMenu->addAction(i18nc("Make Kruler Height Tall", "&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
   mFullScreenAction = mLenMenu->addAction(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F);
+  new QShortcut(Qt::CTRL+Qt::Key_S,this, SLOT(setShortLength()));
+  new QShortcut(Qt::CTRL+Qt::Key_M,this, SLOT(setMediumLength()));
+  new QShortcut(Qt::CTRL+Qt::Key_T,this, SLOT(setTallLength()));
+  new QShortcut(Qt::CTRL+Qt::Key_F,this, SLOT(setFullLength()));
   mLenMenu->setTitle(i18n("&Length"));
   mMenu->addMenu(mLenMenu);
   mMenu->addAction(KIcon("preferences-desktop-color"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
   mMenu->addAction(KIcon("preferences-desktop-font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
+  new QShortcut(Qt::CTRL+Qt::Key_C,this, SLOT(choseColor()));
+  new QShortcut(Qt::Key_F,this, SLOT(choseFont()));
   mMenu->addSeparator();
   mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
   mMenu->addAction(KIcon("application-exit"), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
+  new QShortcut(Qt::CTRL+Qt::Key_Q,this, SLOT(slotQuit()));
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
 KLineal::~KLineal(){
+}
+
+void KLineal::slotQuit()
+{
+   kapp->quit();
 }
 
 void KLineal::move(int x, int y) {
