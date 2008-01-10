@@ -38,7 +38,6 @@
 #include <kmenu.h>
 #include <kdebug.h>
 #include <kapplication.h>
-#include <kdebug.h>
 
 #define CFG_KEY_BGCOLOR "BgColor"
 #define CFG_KEY_SCALE_FONT "ScaleFont"
