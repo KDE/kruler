@@ -11,7 +11,7 @@ kde4_add_executable(kruler ${kruler_SRCS})
 
 target_link_libraries(kruler ${KDE4_KDEUI_LIBS})
 
-install(TARGETS kruler DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS kruler ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### install files ###############
