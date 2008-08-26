@@ -30,8 +30,8 @@
 <holder>&Lauri.Watts;</holder>
 </copyright>
 
-<date>2005-12-10</date>
-<releaseinfo>3.5</releaseinfo>
+<date>2008-08-26</date>
+<releaseinfo>4.1.1</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -55,10 +55,22 @@
 <para>&kruler; is a very simple application, with only one aim in life.  To
 measure distances on your screen.</para>
 
-<para>To start &kruler;, choose <menuchoice><guimenu>Graphics</guimenu> 
+<para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Graphics</guisubmenu> 
 <guisubmenu>More Applications</guisubmenu>
-<guimenuitem>KDE Screen Ruler</guimenuitem></menuchoice> from your
-<guimenu>K</guimenu> menu.</para>
+<guimenuitem>Screen Ruler</guimenuitem></menuchoice> from your
+&kmenu;.</para>
+
+<screenshot>
+<screeninfo>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG" />
+</imageobject>
+<textobject>
+<phrase>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
 
 <para>Clicking with the &LMB; on the &kruler; will turn the cursor to a cross
 with four arrows and enables you to drag &kruler; around the screen.</para>
