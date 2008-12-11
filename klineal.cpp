@@ -195,26 +195,6 @@ int KLineal::y() {
   return pos().y();
 }
 
-static void rotateRect(QRect &r, const QPoint &center, int nineties) {
-  static int sintab[4] = {0,1,0,-1};
-  static int costab[4] = {1,0,-1,0};
-  int i=0;
-  int x1, y1, x2, y2;
-  if (nineties < 0) {
-    nineties = -nineties+4;
-  }
-  i = nineties % 4;
-  r.translate(-center.x(), -center.y());
-  r.getCoords(&x1, &y1, &x2, &y2);
-  r.setCoords(
-            x1 * costab[i] + y1 * sintab[i],
-            -x1 * sintab[i] + y1 * costab[i],
-            x2 * costab[i] + y2 * sintab[i],
-            -x2 * sintab[i] + y2 * costab[i]);
-  r = r.normalized();
-  r.translate(center.x(), center.y());
-}
-
 void KLineal::drawBackground(QPainter& painter) {
   QColor a, b, bg = mColor;
   QLinearGradient gradient;
@@ -248,7 +228,7 @@ void KLineal::drawBackground(QPainter& painter) {
 void KLineal::setOrientation(int inOrientation) {
   QRect r = frameGeometry();
   int nineties = (int)inOrientation - (int)mOrientation;
-  QPoint center = mLastClickPos;
+  QPoint center = mLastClickPos, newTopLeft;
 
   if (_clicked) {
     center = mLastClickPos;
@@ -257,7 +237,16 @@ void KLineal::setOrientation(int inOrientation) {
      center = r.topLeft()+QPoint(width()/2, height()/2);
    }
 
-  rotateRect(r, center, nineties);
+  if (nineties % 2) {
+    newTopLeft = QPoint(center.x() - height() / 2, center.y() - width() / 2);
+  } else {
+    newTopLeft = r.topLeft();
+  }
+
+  QTransform transform;
+  transform.rotate(qAbs(nineties) * 90);
+  r = transform.mapRect(r);
+  r.moveTo(newTopLeft);
 
   QRect desktop = KGlobalSettings::desktopGeometry(this);
   if (r.top() < desktop.top())
