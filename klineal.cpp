@@ -227,70 +227,83 @@ void KLineal::drawBackground(QPainter& painter) {
   painter.fillRect(rect(), QBrush(gradient));
 }
 
-void KLineal::setOrientation(int inOrientation) {
+void KLineal::setOrientation( int inOrientation ) {
   QRect r = frameGeometry();
   int nineties = (int)inOrientation - (int)mOrientation;
+  mOrientation = ( inOrientation + 4 ) % 4;
   QPoint center = mLastClickPos, newTopLeft;
 
-  if (_clicked) {
+  if ( _clicked ) {
     center = mLastClickPos;
     _clicked = false;
-   } else {
-     center = r.topLeft()+QPoint(width()/2, height()/2);
-   }
+  } else {
+    center = r.topLeft() + QPoint( width() / 2, height() / 2 );
+  }
 
-  if (nineties % 2) {
-    newTopLeft = QPoint(center.x() - height() / 2, center.y() - width() / 2);
+  if ( nineties % 2 ) {
+    newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
   } else {
     newTopLeft = r.topLeft();
   }
 
-  QTransform transform;
-  transform.rotate(qAbs(nineties) * 90);
-  r = transform.mapRect(r);
+  if ( mOrientation == North || mOrientation == South ) {
+    r.setSize( QSize( mLongEdgeLen, mShortEdgeLen ) );
+  } else {
+    r.setSize( QSize( mShortEdgeLen, mLongEdgeLen ) );
+  }
+
   r.moveTo(newTopLeft);
 
-  QRect desktop = KGlobalSettings::desktopGeometry(this);
-  if (r.top() < desktop.top())
-     r.moveTop( desktop.top() );
-  if (r.bottom() > desktop.bottom())
-     r.moveBottom( desktop.bottom() );
-  if (r.left() < desktop.left())
-     r.moveLeft( desktop.left() );
-  if (r.right() > desktop.right())
-     r.moveRight( desktop.right() );
+  QRect desktop = KGlobalSettings::desktopGeometry( this );
 
-  setGeometry(r);
-  mOrientation = (inOrientation + 4) % 4;
-  switch(mOrientation) {
+  if ( r.top() < desktop.top() ) {
+     r.moveTop( desktop.top() );
+  }
+
+  if ( r.bottom() > desktop.bottom() ) {
+     r.moveBottom( desktop.bottom() );
+  }
+
+  if ( r.left() < desktop.left() ) {
+     r.moveLeft( desktop.left() );
+  }
+
+  if ( r.right() > desktop.right() ) {
+    r.moveRight( desktop.right() );
+  }
+
+  setGeometry( r );
+  switch( mOrientation ) {
   case North:
-    mLabel->move(4, height()-mLabel->height()-4);
-    mColorLabel->move(mLabel->pos() + QPoint(0, -20));
+    mLabel->move( 4, height()-mLabel->height() - 4 );
+    mColorLabel->move( mLabel->pos() + QPoint( 0, -20 ) );
     mCurrentCursor = mNorthCursor;
     break;
   case South:
-    mLabel->move(4, 4);
-    mColorLabel->move(mLabel->pos() + QPoint(0, 20));
+    mLabel->move( 4, 4 );
+    mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
     mCurrentCursor = mSouthCursor;
     break;
   case East:
-    mLabel->move(4, 4);
-    mColorLabel->move(mLabel->pos() + QPoint(0, 20));
+    mLabel->move( 4, 4 );
+    mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
     mCurrentCursor = mEastCursor;
     break;
   case West:
-    mLabel->move(width()-mLabel->width()-4, 4);
-    mColorLabel->move(mLabel->pos() + QPoint(-5, 20));
+    mLabel->move( width()-mLabel->width() - 4, 4 );
+    mColorLabel->move( mLabel->pos() + QPoint( -5, 20 ) );
     mCurrentCursor = mWestCursor;
     break;
   }
-  if (mLenMenu) {
-    if (mFullScreenAction)
-        mFullScreenAction->setText(mOrientation % 2 ? i18n("&Full Screen Height") : i18n("&Full Screen Width"));
+  if ( mLenMenu ) {
+    if (mFullScreenAction) {
+      mFullScreenAction->setText( mOrientation % 2 ? i18n( "&Full Screen Height" ) : i18n( "&Full Screen Width" ) );
+    }
   }
-  setCursor(mCurrentCursor);
+  setCursor( mCurrentCursor );
   repaint();
 }
+
 void KLineal::setNorth() {
   setOrientation(North);
 }
