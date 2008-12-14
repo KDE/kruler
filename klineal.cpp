@@ -24,6 +24,7 @@
 #include <QLabel>
 #include <QShortcut>
 
+#include <KAction>
 #include <kconfig.h>
 #include <kcursor.h>
 #include <kglobalsettings.h>
@@ -32,6 +33,7 @@
 #include <klocale.h>
 #include <knotification.h>
 #include <kwindowsystem.h>
+#include <KStandardAction>
 #include <KStandardGuiItem>
 #include <ktoolinvocation.h>
 #include <kfontdialog.h>
@@ -163,8 +165,11 @@ KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
   mMenu->addSeparator();
   mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
   mMenu->addSeparator();
-  mMenu->addAction(KIcon("application-exit"), KStandardGuiItem::quit().text(), kapp, SLOT(quit()), Qt::CTRL+Qt::Key_Q);
-  new QShortcut(Qt::CTRL+Qt::Key_Q,this, SLOT(slotQuit()));
+
+  KAction *quit = KStandardAction::quit(kapp, SLOT(quit()), this);
+  mMenu->addAction(quit);
+  new QShortcut(quit->shortcut().primary(), this, SLOT(slotQuit()));
+
   mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
 }
 
