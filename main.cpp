@@ -28,9 +28,10 @@ int main(int argc, char *argv[])
     KDE_VERSION_STRING,
     ki18n("A screen ruler for the K Desktop Environment"),
     KAboutData::License_GPL,
-    ki18n("(c) 2000, Till Krech"));
-  aboutData.addAuthor(ki18n("Till Krech"),ki18n("Programming"), "till@snafu.de");
-  aboutData.addCredit(ki18n("Gunnstein Lye"),ki18n("Initial port to KDE 2"), "gl@ez.no");
+    ki18n( "(c) 2008, Mathias Soeken\n(c) 2000 - 2008, Till Krech" ) );
+  aboutData.addAuthor( ki18n( "Mathias Soeken" ), ki18n( "Maintainer" ), "msoeken@informatik.uni-bremen.de" );
+  aboutData.addAuthor( ki18n( "Till Krech" ), ki18n( "Former Maintainer/Developer"), "till@snafu.de" );
+  aboutData.addCredit( ki18n( "Gunnstein Lye" ), ki18n( "Initial port to KDE 2" ), "gl@ez.no" );
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   KCmdLineOptions options;

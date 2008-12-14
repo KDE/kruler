@@ -27,31 +27,32 @@ class KMenu;
 
 class KLineal : public QWidget {
   Q_OBJECT
+
 public:
-  enum { North=0, West=1, South=2, East=3 };
+  enum { North = 0, West, South, East };
   /** constructor */
-  KLineal(QWidget*parent=0);
+  KLineal( QWidget *parent = 0 );
   /** destructor */
   ~KLineal();
-  void move(int x, int y);
-  void move(const QPoint &p);
+  void move( int x, int y );
+  void move( const QPoint &p );
   QPoint pos();
   int x();
   int y();
-protected:
-  void keyPressEvent(QKeyEvent *e);
-  void mousePressEvent(QMouseEvent *e);
-  void mouseReleaseEvent(QMouseEvent *e);
-  void mouseMoveEvent(QMouseEvent *e);
-  void paintEvent(QPaintEvent *e);
-  void enterEvent(QEvent *e);
-  void leaveEvent(QEvent *e);
 
+protected:
+  void keyPressEvent( QKeyEvent *e );
+  void mousePressEvent( QMouseEvent *e );
+  void mouseReleaseEvent( QMouseEvent *e );
+  void mouseMoveEvent( QMouseEvent *e );
+  void paintEvent( QPaintEvent *e );
+  void enterEvent( QEvent *e );
+  void leaveEvent( QEvent *e );
 
 private:
-  void drawScale(QPainter &painter);
-  void drawBackground(QPainter &painter);
-  void reLength(int percentOfScreen);
+  void drawScale( QPainter &painter );
+  void drawBackground( QPainter &painter );
+  void reLength( int percentOfScreen );
   bool mDragging;
   QPoint mLastClickPos;
   QPoint mDragOffset;
@@ -74,8 +75,9 @@ private:
   KColorDialog mColorSelector;
   QFont mScaleFont;
   bool _clicked;
+
 public slots:
-  void setOrientation(int);
+  void setOrientation( int inOrientation );
   void setNorth();
   void setEast();
   void setSouth();
@@ -91,12 +93,13 @@ public slots:
   void setTallLength();
   void setFullLength();
   void setColor();
-  void setFont(QFont &);
-  void setColor(const QColor &color);
-  void choseColor();
-  void choseFont();
+  void setFont( const QFont &font );
+  void setColor( const QColor &color );
+  void chooseColor();
+  void chooseFont();
   void restoreColor();
   void saveSettings();
   void slotQuit();
 };
+
 #endif

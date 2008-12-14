@@ -133,7 +133,7 @@ KLineal::KLineal( QWidget*parent )
 
   mMenu = new KMenu( this );
   mMenu->addTitle( i18n( "KRuler" ) );
-  KMenu *oriMenu = new KMenu( i18n( "&Orientation"), this );
+  KMenu *oriMenu = new KMenu( i18n( "&Orientation" ), this );
   oriMenu->addAction( KIcon( "kruler-north" ),
                       i18nc( "Turn Kruler North", "&North" ),
                       this, SLOT( setNorth() ), Qt::Key_N );
@@ -176,13 +176,13 @@ KLineal::KLineal( QWidget*parent )
   new QShortcut( Qt::CTRL + Qt::Key_F, this, SLOT( setFullLength() ) );
   mMenu->addMenu( mLenMenu );
   mMenu->addAction( KIcon( "preferences-desktop-color" ),
-                    i18n( "&Choose Color..." ), this, SLOT( choseColor() ),
+                    i18n( "&Choose Color..." ), this, SLOT( chooseColor() ),
                     Qt::CTRL + Qt::Key_C );
   mMenu->addAction( KIcon( "preferences-desktop-font" ),
-                    i18n( "Choose &Font..." ), this, SLOT( choseFont() ),
+                    i18n( "Choose &Font..." ), this, SLOT( chooseFont() ),
                     Qt::Key_F );
-  new QShortcut(Qt::CTRL + Qt::Key_C, this, SLOT(choseColor() ) );
-  new QShortcut(Qt::Key_F, this, SLOT( choseFont() ) );
+  new QShortcut(Qt::CTRL + Qt::Key_C, this, SLOT(chooseColor() ) );
+  new QShortcut(Qt::Key_F, this, SLOT( chooseFont() ) );
   mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
   mMenu->addSeparator();
@@ -379,82 +379,85 @@ void KLineal::setTallLength() {
 void KLineal::setFullLength() {
   reLength(100);
 }
-void KLineal::choseColor() {
-  QRect r = KGlobalSettings::desktopGeometry(this);
+
+void KLineal::chooseColor()
+{
+  QRect r = KGlobalSettings::desktopGeometry( this );
 
   QPoint pos = QCursor::pos();
-  if (pos.x() + mColorSelector.width() > r.width()) {
-    pos.setX(r.width() - mColorSelector.width());
+  if ( pos.x() + mColorSelector.width() > r.width() ) {
+    pos.setX( r.width() - mColorSelector.width() );
   }
-  if (pos.y() + mColorSelector.height() > r.height()) {
-    pos.setY(r.height() - mColorSelector.height());
+  if ( pos.y() + mColorSelector.height() > r.height() ) {
+    pos.setY( r.height() - mColorSelector.height() );
   }
+
   mStoredColor = mColor;
-  mColorSelector.move(pos);
-  mColorSelector.setColor(mColor);
+  mColorSelector.move( pos );
+  mColorSelector.setColor( mColor );
   mColorSelector.setDefaultColor( DEFAULT_RULER_COLOR );
   mColorSelector.show();
 
-  connect(&mColorSelector, SIGNAL(closeClicked()), this, SLOT(setColor()));
-  connect(&mColorSelector, SIGNAL(colorSelected(const QColor&)), this, SLOT(setColor(const QColor&)));
-	/*
-  connect(&mColorSelector, SIGNAL(cancelPressed()), this, SLOT(restoreColor()));
-  connect(&mColorSelector, SIGNAL(okPressed()), this, SLOT(saveColor()));
-  */
+  connect( &mColorSelector, SIGNAL( closeClicked() ),
+           this, SLOT( setColor() ) );
+  connect( &mColorSelector, SIGNAL( colorSelected( const QColor& ) ),
+           this, SLOT( setColor( const QColor& ) ) );
 }
 
 /**
-* slot to choose a font
-*/
-void KLineal::choseFont() {
+ * slot to choose a font
+ */
+void KLineal::chooseFont()
+{
   QFont font = mScaleFont;
-  int result = KFontDialog::getFont(font, false, this);
-  if (result == KFontDialog::Accepted) {
-    setFont(font);
+  int result = KFontDialog::getFont( font, false, this );
+  if ( result == KFontDialog::Accepted ) {
+    setFont( font );
   }
 }
 
 /**
-* set the ruler color to the previously selected color
-*/
-void KLineal::setFont(QFont &font) {
-	mScaleFont = font;
-	saveSettings();
+ * set the ruler color to the previously selected color
+ */
+void KLineal::setFont(const QFont &font) {
+  mScaleFont = font;
+  saveSettings();
   repaint();
 }
 
 
 /**
-* set the ruler color to the previously selected color
-*/
+ * set the ruler color to the previously selected color
+ */
 void KLineal::setColor() {
-	setColor(mColorSelector.color());
-	saveSettings();
+  setColor( mColorSelector.color() );
+  saveSettings();
 }
 
 /**
-* set the ruler color to some color
-*/
+ * set the ruler color to some color
+ */
 void KLineal::setColor(const QColor &color) {
   mColor = color;
-  if ( !mColor.isValid() )
+  if ( !mColor.isValid() ) {
     mColor = DEFAULT_RULER_COLOR;
+  }
 
   repaint();
 }
 
 /**
-* save the ruler color to the config file
-*/
+ * save the ruler color to the config file
+ */
 void KLineal::saveSettings() {
   KSharedConfig::Ptr cfg = KGlobal::config(); // new KConfig(locateLocal("config", kapp->name()+"rc"));
-  if (cfg) {
-      QColor color = mColor;
-      KConfigGroup cfgcg(cfg, CFG_GROUP_SETTINGS);
-      cfgcg.writeEntry(QString(CFG_KEY_BGCOLOR), color);
-      cfgcg.writeEntry(QString(CFG_KEY_SCALE_FONT), mScaleFont);
-      cfgcg.writeEntry(QString(CFG_KEY_LENGTH), mLongEdgeLen);
-      cfg->sync();
+  if ( cfg ) {
+    QColor color = mColor;
+    KConfigGroup cfgcg( cfg, CFG_GROUP_SETTINGS );
+    cfgcg.writeEntry( QString( CFG_KEY_BGCOLOR ), color );
+    cfgcg.writeEntry( QString( CFG_KEY_SCALE_FONT ), mScaleFont );
+    cfgcg.writeEntry( QString( CFG_KEY_LENGTH ), mLongEdgeLen );
+    cfg->sync();
   }
 }
 
