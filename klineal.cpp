@@ -61,113 +61,137 @@ static const uchar cursorBits[] = {
 };
 
 /**
-* create the thingy with no borders and set up
-* its members
-*/
-KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
-  mLenMenu=0;
-  KWindowSystem::setType(winId(), NET::Override);   // or NET::Normal
-  KWindowSystem::setState(winId(), NET::KeepAbove);
-  this->setWhatsThis(
-  i18n("This is a tool to measure pixel distances and colors on the screen. "
-       "It is useful for working on layouts of dialogs, web pages etc."));
-  QBitmap bim = QBitmap::fromData(QSize(8, 48), cursorBits, QImage::Format_Mono);
-  QMatrix m;
-  m.rotate(90.0);
-  mNorthCursor = QCursor(bim, bim, 3, 47);
-  bim = bim.transformed(m);
-  mEastCursor = QCursor(bim, bim, 0, 3);
-  bim = bim.transformed(m);
-  mSouthCursor = QCursor(bim, bim, 4, 0);
-  bim = bim.transformed(m);
-  mWestCursor = QCursor(bim, bim, 47, 4);
-
-  mCurrentCursor = mNorthCursor;
+ * create the thingy with no borders and set up
+ * its members
+ */
+KLineal::KLineal( QWidget*parent )
+  : QWidget( parent ),
+    mDragging( false ),
+    mOrientation( South ),
+    mShortEdgeLen( 70 ),    
+    mLenMenu( 0 ),
+    mColorSelector( this ),
+    _clicked( false )
+{
+  KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
+  KWindowSystem::setState( winId(), NET::KeepAbove );
+  
   setMinimumSize(60,60);
   setMaximumSize(8000,8000);
+  setWhatsThis( i18n( "This is a tool to measure pixel distances and colors on the screen. "
+                      "It is useful for working on layouts of dialogs, web pages etc." ) );
+  setMouseTracking( true );
+ 
+  QBitmap bim = QBitmap::fromData( QSize( 8, 48 ), cursorBits, QImage::Format_Mono );
+  QMatrix m;
+  m.rotate( 90.0 );
+  mNorthCursor = QCursor( bim, bim, 3, 47 );
+  bim = bim.transformed( m );
+  mEastCursor = QCursor( bim, bim, 0, 3 );
+  bim = bim.transformed( m );
+  mSouthCursor = QCursor( bim, bim, 4, 0 );
+  bim = bim.transformed( m );
+  mWestCursor = QCursor( bim, bim, 47, 4 );
+
+  mCurrentCursor = mNorthCursor;
   KSharedConfig::Ptr cfg = KGlobal::config();
   QColor defaultColor = DEFAULT_RULER_COLOR;
-  QFont defaultFont(KGlobalSettings::generalFont().family(), 8);
-  defaultFont.setPixelSize(8);
-  if (cfg) {
-      KConfigGroup cfgcg(cfg, CFG_GROUP_SETTINGS);
-      mColor = cfgcg.readEntry(CFG_KEY_BGCOLOR, defaultColor);
-      mScaleFont = cfgcg.readEntry(CFG_KEY_SCALE_FONT, defaultFont);
-      mLongEdgeLen = cfgcg.readEntry(CFG_KEY_LENGTH, 600);
-    } else {
-      mColor = defaultColor;
-      mScaleFont = defaultFont;
-      mLongEdgeLen = 400;
+  QFont defaultFont( KGlobalSettings::generalFont().family(), 8 );
+  defaultFont.setPixelSize( 8 );
+  if ( cfg ) {
+    KConfigGroup cfgcg( cfg, CFG_GROUP_SETTINGS );
+    mColor = cfgcg.readEntry( CFG_KEY_BGCOLOR, defaultColor );
+    mScaleFont = cfgcg.readEntry( CFG_KEY_SCALE_FONT, defaultFont );
+    mLongEdgeLen = cfgcg.readEntry( CFG_KEY_LENGTH, 600 );
+  } else {
+    mColor = defaultColor;
+    mScaleFont = defaultFont;
+    mLongEdgeLen = 400;
   }
-  mShortEdgeLen = 70;
 
-  mLabel = new QLabel(this);
-  mLabel->setGeometry(0,height()-12,32,12);
-  QFont labelFont(KGlobalSettings::generalFont().family(), 10);
-  labelFont.setPixelSize(10);
-  mLabel->setFont(labelFont);
-  mLabel->setWhatsThis(i18n("This is the current distance measured in pixels."));
-  mColorLabel = new QLabel(this);
-  mColorLabel->setAutoFillBackground(true);
-  mColorLabel->resize(45,12);
+  mLabel = new QLabel( this );
+  mLabel->setGeometry( 0, height() - 12, 32, 12 );
+  QFont labelFont( KGlobalSettings::generalFont().family(), 10 );
+  labelFont.setPixelSize( 10 );
+  mLabel->setFont( labelFont );
+  mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
+  mColorLabel = new QLabel( this );
+  mColorLabel->setAutoFillBackground( true );
+  mColorLabel->resize( 45, 12 );
   mColorLabel->hide();
-  QFont colorFont(KGlobalSettings::fixedFont().family(), 10);
-  colorFont.setPixelSize(10);
-  mColorLabel->setFont(colorFont);
-  mColorLabel->move(mLabel->pos() + QPoint(0, 20));
-  mColorLabel->setWhatsThis(i18n(
-        "This is the current color in hexadecimal rgb representation as you may use it in HTML or as a QColor name. "
-        "The rectangles background shows the color of the pixel inside the "
-        "little square at the end of the line cursor."));
+  QFont colorFont( KGlobalSettings::fixedFont().family(), 10 );
+  colorFont.setPixelSize( 10 );
+  mColorLabel->setFont( colorFont );
+  mColorLabel->move( mLabel->pos() + QPoint(0, 20) );
+  mColorLabel->setWhatsThis(i18n("This is the current color in hexadecimal rgb representation"
+                                 " as you may use it in HTML or as a QColor name. "
+                                 "The rectangles background shows the color of the pixel inside the "
+                                 "little square at the end of the line cursor." ) );
 
-  resize(QSize(mLongEdgeLen, mShortEdgeLen));
-  setMouseTracking(true);
-  mDragging = false;
-  mOrientation = South;
-  _clicked = false;
-  setOrientation(South);
-  // setMediumLength();
-  mMenu = new KMenu(this);
-  mMenu->addTitle(i18n("KRuler"));
-  KMenu *oriMenu = new KMenu(this);
-  oriMenu->addAction(KIcon("kruler-north"), i18nc("Turn Kruler North", "&North"), this, SLOT(setNorth()), Qt::Key_N);
-  oriMenu->addAction(KIcon("kruler-east"), i18nc("Turn Kruler East", "&East"), this, SLOT(setEast()), Qt::Key_E);
-  oriMenu->addAction(KIcon("kruler-south"), i18nc("Turn Kruler South", "&South"), this, SLOT(setSouth()), Qt::Key_S);
-  oriMenu->addAction(KIcon("kruler-west"), i18nc("Turn Kruler West", "&West"), this, SLOT(setWest()), Qt::Key_W);
-  oriMenu->addAction(KIcon("object-rotate-right"), i18n("&Turn Right"), this, SLOT(turnRight()), Qt::Key_R);
-  oriMenu->addAction(KIcon("object-rotate-left"), i18n("Turn &Left"), this, SLOT(turnLeft()), Qt::Key_L);
-  new QShortcut( Qt::Key_N, this, SLOT(setNorth()));
-  new QShortcut(Qt::Key_E,this,SLOT(setEast()));
-  new QShortcut(Qt::Key_S,this, SLOT(setSouth()));
-  new QShortcut(Qt::Key_W,this, SLOT(setWest()));
-  new QShortcut(Qt::Key_R,this, SLOT(turnRight()));
-  new QShortcut(Qt::Key_L,this, SLOT(turnLeft()));
-  oriMenu->setTitle(i18n("&Orientation"));
-  mMenu->addMenu(oriMenu);
-  mLenMenu = new KMenu(this);
-  mLenMenu->addAction(i18nc("Make Kruler Height Short", "&Short"), this, SLOT(setShortLength()), Qt::CTRL+Qt::Key_S);
-  mLenMenu->addAction(i18nc("Make Kruler Height Medium", "&Medium"), this, SLOT(setMediumLength()), Qt::CTRL+Qt::Key_M);
-  mLenMenu->addAction(i18nc("Make Kruler Height Tall", "&Tall"), this, SLOT(setTallLength()), Qt::CTRL+Qt::Key_T);
-  mFullScreenAction = mLenMenu->addAction(i18n("&Full Screen Width"), this, SLOT(setFullLength()), Qt::CTRL+Qt::Key_F);
-  new QShortcut(Qt::CTRL+Qt::Key_S,this, SLOT(setShortLength()));
-  new QShortcut(Qt::CTRL+Qt::Key_M,this, SLOT(setMediumLength()));
-  new QShortcut(Qt::CTRL+Qt::Key_T,this, SLOT(setTallLength()));
-  new QShortcut(Qt::CTRL+Qt::Key_F,this, SLOT(setFullLength()));
-  mLenMenu->setTitle(i18n("&Length"));
-  mMenu->addMenu(mLenMenu);
-  mMenu->addAction(KIcon("preferences-desktop-color"), i18n("&Choose Color..."), this, SLOT(choseColor()), Qt::CTRL+Qt::Key_C);
-  mMenu->addAction(KIcon("preferences-desktop-font"), i18n("Choose &Font..."), this, SLOT(choseFont()), Qt::Key_F);
-  new QShortcut(Qt::CTRL+Qt::Key_C,this, SLOT(choseColor()));
-  new QShortcut(Qt::Key_F,this, SLOT(choseFont()));
+  resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
+  setOrientation( South );
+
+  mMenu = new KMenu( this );
+  mMenu->addTitle( i18n( "KRuler" ) );
+  KMenu *oriMenu = new KMenu( i18n( "&Orientation"), this );
+  oriMenu->addAction( KIcon( "kruler-north" ),
+                      i18nc( "Turn Kruler North", "&North" ),
+                      this, SLOT( setNorth() ), Qt::Key_N );
+  oriMenu->addAction( KIcon( "kruler-east" ),
+                      i18nc( "Turn Kruler East", "&East" ),
+                      this, SLOT( setEast() ), Qt::Key_E );
+  oriMenu->addAction( KIcon( "kruler-south" ),
+                      i18nc( "Turn Kruler South", "&South" ),
+                      this, SLOT( setSouth() ), Qt::Key_S );
+  oriMenu->addAction( KIcon( "kruler-west" ),
+                      i18nc( "Turn Kruler West", "&West" ),
+                      this, SLOT( setWest() ), Qt::Key_W );
+  oriMenu->addAction( KIcon( "object-rotate-right" ),
+                      i18n( "&Turn Right" ),
+                      this, SLOT( turnRight() ), Qt::Key_R );
+  oriMenu->addAction( KIcon( "object-rotate-left" ),
+                      i18n( "Turn &Left" ),
+                      this, SLOT( turnLeft() ), Qt::Key_L );
+
+  new QShortcut( Qt::Key_N, this, SLOT( setNorth() ) );
+  new QShortcut( Qt::Key_E, this, SLOT( setEast() ) );
+  new QShortcut( Qt::Key_S, this, SLOT( setSouth() ) );
+  new QShortcut( Qt::Key_W, this, SLOT( setWest() ) );
+  new QShortcut( Qt::Key_R, this, SLOT( turnRight() ) );
+  new QShortcut( Qt::Key_L, this, SLOT( turnLeft() ) );
+  mMenu->addMenu( oriMenu );
+  mLenMenu = new KMenu( i18n( "&Length" ), this );
+  mLenMenu->addAction( i18nc( "Make Kruler Height Short", "&Short" ),
+                       this, SLOT( setShortLength() ), Qt::CTRL + Qt::Key_S );
+  mLenMenu->addAction( i18nc( "Make Kruler Height Medium", "&Medium" ),
+                       this, SLOT( setMediumLength() ), Qt::CTRL + Qt::Key_M );
+  mLenMenu->addAction( i18nc( "Make Kruler Height Tall", "&Tall" ),
+                       this, SLOT( setTallLength() ), Qt::CTRL + Qt::Key_T );
+  mFullScreenAction = mLenMenu->addAction( i18n("&Full Screen Width"),
+                                           this, SLOT( setFullLength() ),
+                                           Qt::CTRL + Qt::Key_F );
+  new QShortcut( Qt::CTRL + Qt::Key_S, this, SLOT( setShortLength() ) );
+  new QShortcut( Qt::CTRL + Qt::Key_M, this, SLOT( setMediumLength() ) );
+  new QShortcut( Qt::CTRL + Qt::Key_T, this, SLOT( setTallLength() ) );
+  new QShortcut( Qt::CTRL + Qt::Key_F, this, SLOT( setFullLength() ) );
+  mMenu->addMenu( mLenMenu );
+  mMenu->addAction( KIcon( "preferences-desktop-color" ),
+                    i18n( "&Choose Color..." ), this, SLOT( choseColor() ),
+                    Qt::CTRL + Qt::Key_C );
+  mMenu->addAction( KIcon( "preferences-desktop-font" ),
+                    i18n( "Choose &Font..." ), this, SLOT( choseFont() ),
+                    Qt::Key_F );
+  new QShortcut(Qt::CTRL + Qt::Key_C, this, SLOT(choseColor() ) );
+  new QShortcut(Qt::Key_F, this, SLOT( choseFont() ) );
   mMenu->addSeparator();
-  mMenu->addMenu((new KHelpMenu(this, KGlobal::mainComponent().aboutData(), true))->menu());
+  mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
   mMenu->addSeparator();
 
-  KAction *quit = KStandardAction::quit(kapp, SLOT(quit()), this);
-  mMenu->addAction(quit);
-  new QShortcut(quit->shortcut().primary(), this, SLOT(slotQuit()));
+  KAction *quit = KStandardAction::quit( kapp, SLOT( quit() ), this );
+  mMenu->addAction( quit );
+  new QShortcut( quit->shortcut().primary(), this, SLOT(slotQuit() ) );
 
-  mLastClickPos = geometry().topLeft()+QPoint(width()/2, height()/2);
+  mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
 }
 
 KLineal::~KLineal(){
