@@ -20,7 +20,7 @@
 
 #include <QWidget>
 
-#include <kcolordialog.h>
+#include <KColorDialog>
 
 class QLabel;
 class KMenu;
