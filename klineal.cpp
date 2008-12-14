@@ -25,20 +25,19 @@
 #include <QShortcut>
 
 #include <KAction>
+#include <KApplication>
 #include <KConfig>
 #include <KCursor>
+#include <KFontDialog>
 #include <KGlobalSettings>
-#include <KIconLoader>
 #include <KHelpMenu>
+#include <KIconLoader>
 #include <KLocale>
+#include <KMenu>
 #include <KNotification>
-#include <KWindowSystem>
 #include <KStandardAction>
 #include <KToolInvocation>
-#include <KFontDialog>
-#include <KMenu>
-#include <KDebug>
-#include <KApplication>
+#include <KWindowSystem>
 
 #define CFG_KEY_BGCOLOR "BgColor"
 #define CFG_KEY_SCALE_FONT "ScaleFont"
@@ -100,7 +99,6 @@ KLineal::KLineal(QWidget*parent):QWidget(parent),mColorSelector(this){
       mScaleFont = defaultFont;
       mLongEdgeLen = 400;
   }
-  kDebug() << "mLongEdgeLen=" << mLongEdgeLen;
   mShortEdgeLen = 70;
 
   mLabel = new QLabel(this);
