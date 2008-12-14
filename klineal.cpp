@@ -25,21 +25,20 @@
 #include <QShortcut>
 
 #include <KAction>
-#include <kconfig.h>
-#include <kcursor.h>
-#include <kglobalsettings.h>
-#include <kiconloader.h>
-#include <khelpmenu.h>
-#include <klocale.h>
-#include <knotification.h>
-#include <kwindowsystem.h>
+#include <KConfig>
+#include <KCursor>
+#include <KGlobalSettings>
+#include <KIconLoader>
+#include <KHelpMenu>
+#include <KLocale>
+#include <KNotification>
+#include <KWindowSystem>
 #include <KStandardAction>
-#include <KStandardGuiItem>
-#include <ktoolinvocation.h>
-#include <kfontdialog.h>
-#include <kmenu.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <KToolInvocation>
+#include <KFontDialog>
+#include <KMenu>
+#include <KDebug>
+#include <KApplication>
 
 #define CFG_KEY_BGCOLOR "BgColor"
 #define CFG_KEY_SCALE_FONT "ScaleFont"
