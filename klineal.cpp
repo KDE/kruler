@@ -39,6 +39,8 @@
 #include <KToolInvocation>
 #include <KWindowSystem>
 
+#include "qautosizelabel.h"
+
 #define CFG_KEY_BGCOLOR "BgColor"
 #define CFG_KEY_SCALE_FONT "ScaleFont"
 #define CFG_KEY_LENGTH "Length"
@@ -47,10 +49,10 @@
 #define FULLSCREENID 23
 
 /**
-* this is our cursor bitmap:
-* a line 48 pixels long with an arrow pointing down
-* and a sqare with a one pixel hole at the top (end)
-*/
+ * this is our cursor bitmap:
+ * a line 48 pixels long with an arrow pointing down
+ * and a sqare with a one pixel hole at the top (end)
+ */
 static const uchar cursorBits[] = {
   0x38, 0x28, 0x38, 0x10, 0x10, 0x10, 0x10, 0x10,
   0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
@@ -109,15 +111,15 @@ KLineal::KLineal( QWidget *parent )
     mLongEdgeLen = 400;
   }
 
-  mLabel = new QLabel( this );
+  mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
   QFont labelFont( KGlobalSettings::generalFont().family(), 10 );
   labelFont.setPixelSize( 10 );
   mLabel->setFont( labelFont );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
-  mColorLabel = new QLabel( this );
+  mColorLabel = new QAutoSizeLabel( this );
   mColorLabel->setAutoFillBackground( true );
-  mColorLabel->resize( 45, 12 );
+  //mColorLabel->resize( 45, 12 );
   mColorLabel->hide();
   QFont colorFont( KGlobalSettings::fixedFont().family(), 10 );
   colorFont.setPixelSize( 10 );

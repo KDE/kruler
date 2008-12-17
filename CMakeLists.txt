@@ -4,7 +4,7 @@ add_subdirectory( pics )
 
 ########### next target ###############
 
-set(kruler_SRCS klineal.cpp main.cpp)
+set(kruler_SRCS qautosizelabel.cpp klineal.cpp main.cpp)
 
 
 kde4_add_executable(kruler ${kruler_SRCS})

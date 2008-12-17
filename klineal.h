@@ -22,7 +22,7 @@
 
 #include <KColorDialog>
 
-class QLabel;
+class QAutoSizeLabel;
 class KMenu;
 
 class KLineal : public QWidget {
@@ -57,8 +57,8 @@ private:
   bool mDragging;
   QPoint mLastClickPos;
   QPoint mDragOffset;
-  QLabel *mLabel;
-  QLabel *mColorLabel;
+  QAutoSizeLabel *mLabel;
+  QAutoSizeLabel *mColorLabel;
   int mOrientation;
   int mLongEdgeLen;
   int mShortEdgeLen;
