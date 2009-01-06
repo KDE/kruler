@@ -6,6 +6,7 @@ add_subdirectory( pics )
 
 set(kruler_SRCS klineal.cpp main.cpp)
 
+kde4_add_app_icon(kruler_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kruler.png")
 
 kde4_add_executable(kruler ${kruler_SRCS})
 
