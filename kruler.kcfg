@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kcfg SYSTEM 
+    "http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+<kcfg>
+  <kcfgfile name="krulerrc"/>
+  <include>KGlobalSettings</include>
+  <group name="StoredSettings">
+    <entry name="BgColor" type="Color">
+      <label>Background color of the ruler.</label>
+      <default code="true">QColor(255, 200, 80)</default>
+    </entry>
+    <entry name="Length" type="Int">
+      <label>Length of the ruler.</label>
+      <default>600</default>
+    </entry>
+    <entry name="ScaleFont" type="Font">
+      <label>Font of the text on the ruler scale.</label>
+      <default code="true">QFont( KGlobalSettings::generalFont().family(), 8 )</default>
+    </entry>
+  </group>
+</kcfg>

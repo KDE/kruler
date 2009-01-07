@@ -1,0 +1,4 @@
+File=kruler.kcfg
+ClassName=RulerSettings
+Singleton=true
+Mutators=true

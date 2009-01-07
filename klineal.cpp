@@ -39,13 +39,9 @@
 #include <KToolInvocation>
 #include <KWindowSystem>
 
+#include "kruler.h"
 #include "qautosizelabel.h"
 
-#define CFG_KEY_BGCOLOR "BgColor"
-#define CFG_KEY_SCALE_FONT "ScaleFont"
-#define CFG_KEY_LENGTH "Length"
-#define CFG_GROUP_SETTINGS "StoredSettings"
-#define DEFAULT_RULER_COLOR QColor(255, 200, 80)
 #define FULLSCREENID 23
 
 /**
@@ -96,20 +92,9 @@ KLineal::KLineal( QWidget *parent )
   mWestCursor = QCursor( bim, bim, 47, 4 );
 
   mCurrentCursor = mNorthCursor;
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  QColor defaultColor = DEFAULT_RULER_COLOR;
-  QFont defaultFont( KGlobalSettings::generalFont().family(), 8 );
-  defaultFont.setPixelSize( 8 );
-  if ( cfg ) {
-    KConfigGroup cfgcg( cfg, CFG_GROUP_SETTINGS );
-    mColor = cfgcg.readEntry( CFG_KEY_BGCOLOR, defaultColor );
-    mScaleFont = cfgcg.readEntry( CFG_KEY_SCALE_FONT, defaultFont );
-    mLongEdgeLen = cfgcg.readEntry( CFG_KEY_LENGTH, 600 );
-  } else {
-    mColor = defaultColor;
-    mScaleFont = defaultFont;
-    mLongEdgeLen = 400;
-  }
+  mColor = RulerSettings::self()->bgColor();
+  mScaleFont = RulerSettings::self()->scaleFont();
+  mLongEdgeLen = RulerSettings::self()->length();
 
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
@@ -177,6 +162,14 @@ KLineal::KLineal( QWidget *parent )
   new QShortcut( Qt::CTRL + Qt::Key_T, this, SLOT( setTallLength() ) );
   new QShortcut( Qt::CTRL + Qt::Key_F, this, SLOT( setFullLength() ) );
   mMenu->addMenu( mLenMenu );
+
+  /*KMenu* mScaleMenu = new KMenu( i18n( "&Scale" ), this );
+  mScaleMenu->addAction( i18n( "Right To Left" ), this, SLOT( switchDirection() ) );
+  mScaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ) );
+  mMenu->addMenu( mScaleMenu );
+
+  mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );*/
+
   mMenu->addAction( KIcon( "preferences-desktop-color" ),
                     i18n( "&Choose Color..." ), this, SLOT( chooseColor() ),
                     Qt::CTRL + Qt::Key_C );
@@ -437,7 +430,13 @@ void KLineal::chooseColor()
   mStoredColor = mColor;
   mColorSelector.move( pos );
   mColorSelector.setColor( mColor );
-  mColorSelector.setDefaultColor( DEFAULT_RULER_COLOR );
+
+  KConfigSkeletonItem *bgColorItem = RulerSettings::self()->findItem( "BgColor" );
+  if ( bgColorItem ) {
+    bgColorItem->swapDefault();
+    mColorSelector.setDefaultColor( RulerSettings::self()->bgColor() );
+    bgColorItem->swapDefault();
+  }
   mColorSelector.show();
 
   connect(&mColorSelector, SIGNAL(closeClicked()), this, SLOT(setColor()));
@@ -480,9 +479,16 @@ void KLineal::setColor()
  */
 void KLineal::setColor( const QColor &color )
 {
-  mColor = color;
-  if ( !mColor.isValid() )
-    mColor = DEFAULT_RULER_COLOR;
+  if ( color.isValid() ) {
+    mColor = color;
+  } else {
+    KConfigSkeletonItem *bgColorItem = RulerSettings::self()->findItem( "BgColor" );
+    if ( bgColorItem ) {
+      bgColorItem->swapDefault();
+      mColor = RulerSettings::self()->bgColor();
+      bgColorItem->swapDefault();
+    }
+  }
 
   repaint();
 }
@@ -492,15 +498,10 @@ void KLineal::setColor( const QColor &color )
  */
 void KLineal::saveSettings()
 {
-  KSharedConfig::Ptr cfg = KGlobal::config();
-  if (cfg) {
-    QColor color = mColor;
-    KConfigGroup cfgcg( cfg, CFG_GROUP_SETTINGS);
-    cfgcg.writeEntry( QString( CFG_KEY_BGCOLOR ), color);
-    cfgcg.writeEntry( QString( CFG_KEY_SCALE_FONT ), mScaleFont);
-    cfgcg.writeEntry( QString( CFG_KEY_LENGTH ), mLongEdgeLen);
-    cfg->sync();
-  }
+  RulerSettings::self()->setBgColor( mColor );
+  RulerSettings::self()->setScaleFont( mScaleFont );
+  RulerSettings::self()->setLength( mLongEdgeLen );
+  RulerSettings::self()->writeConfig();
 }
 
 /**
