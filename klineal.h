@@ -2,8 +2,8 @@
                           klineal.h  -  description
                              -------------------
     begin                : Fri Oct 13 2000
-    copyright            : (C) 2000 by Till Krech
-    email                : till@snafu.de
+    Copyright            : (C) 2000 - 2008 by Till Krech <till@snafu.de>
+                           (C) 2009        by Mathias Soeken <msoeken@tzi.de>
  ***************************************************************************/
 
 /***************************************************************************
