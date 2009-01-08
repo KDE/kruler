@@ -67,9 +67,14 @@ KLineal::KLineal( QWidget *parent )
     mDragging( false ),
     mOrientation( South ),
     mShortEdgeLen( 70 ),
-    mLenMenu( 0 ),
+    mLenMenu( 0 ),                // INFO This member could be eventually deleted
+                                  // since if mFullScreenAction is initialized
+                                  // mLenMenu should have been, too.
+    mFullScreenAction( 0 ),
+    mScaleDirectionAction( 0 ),
     mColorSelector( this ),
-    _clicked( false )
+    mClicked( false ),
+    mLeftToRight( true )
 {
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
@@ -116,7 +121,6 @@ KLineal::KLineal( QWidget *parent )
                                  "little square at the end of the line cursor." ) );
 
   resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
-  setOrientation( South );
 
   mMenu = new KMenu( this );
   mMenu->addTitle( i18n( "KRuler" ) );
@@ -163,12 +167,13 @@ KLineal::KLineal( QWidget *parent )
   new QShortcut( Qt::CTRL + Qt::Key_F, this, SLOT( setFullLength() ) );
   mMenu->addMenu( mLenMenu );
 
-  /*KMenu* mScaleMenu = new KMenu( i18n( "&Scale" ), this );
-  mScaleMenu->addAction( i18n( "Right To Left" ), this, SLOT( switchDirection() ) );
-  mScaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ) );
-  mMenu->addMenu( mScaleMenu );
+  KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
+  mScaleDirectionAction = scaleMenu->addAction( i18n( "Right To Left" ), this, SLOT( switchDirection() ), Qt::Key_D );
+  new QShortcut( Qt::Key_D, this, SLOT( switchDirection() ) );
+  //scaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ) );
+  mMenu->addMenu( scaleMenu );
 
-  mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );*/
+  /*mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );*/
 
   mMenu->addAction( KIcon( "preferences-desktop-color" ),
                     i18n( "&Choose Color..." ), this, SLOT( chooseColor() ),
@@ -187,6 +192,8 @@ KLineal::KLineal( QWidget *parent )
   new QShortcut( quit->shortcut().primary(), this, SLOT(slotQuit() ) );
 
   mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
+
+  setOrientation( South );
 }
 
 KLineal::~KLineal()
@@ -264,9 +271,9 @@ void KLineal::setOrientation( int inOrientation )
   mOrientation = ( inOrientation + 4 ) % 4;
   QPoint center = mLastClickPos, newTopLeft;
 
-  if ( _clicked ) {
+  if ( mClicked ) {
     center = mLastClickPos;
-    _clicked = false;
+    mClicked = false;
   } else {
     center = r.topLeft() + QPoint( width() / 2, height() / 2 );
   }
@@ -334,6 +341,8 @@ void KLineal::setOrientation( int inOrientation )
     mFullScreenAction->setText( mOrientation % 2 ? i18n( "&Full Screen Height" ) : i18n( "&Full Screen Width" ) );
   }
 
+  updateScaleDirectionMenuItem();
+
   setCursor( mCurrentCursor );
   repaint();
 }
@@ -395,6 +404,21 @@ void KLineal::reLength( int percentOfScreen )
   saveSettings();
 }
 
+void KLineal::updateScaleDirectionMenuItem()
+{
+  if ( !mScaleDirectionAction ) return;
+
+  QString label;
+
+  if ( mOrientation == North || mOrientation == South ) {
+    label = mLeftToRight ? i18n( "Right To Left" ) : i18n( "Left To Right" );
+  } else {
+    label = mLeftToRight ? i18n( "Bottom To Top" ) : i18n( "Top To Bottom" );
+  }
+
+  mScaleDirectionAction->setText( label );
+}
+
 void KLineal::setShortLength()
 {
   reLength( 30 );
@@ -413,6 +437,13 @@ void KLineal::setTallLength()
 void KLineal::setFullLength()
 {
   reLength( 100 );
+}
+
+void KLineal::switchDirection()
+{
+  mLeftToRight = !mLeftToRight;
+  updateScaleDirectionMenuItem();
+  repaint();
 }
 
 void KLineal::chooseColor()
@@ -694,7 +725,7 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
       mDragging = true;
     }
   } else if ( inEvent->button() == Qt::MidButton ) {
-    _clicked = true;
+    mClicked = true;
     turnLeft();
   } else if ( inEvent->button() == Qt::RightButton ) {
     showMenu();
@@ -769,7 +800,9 @@ void KLineal::drawScale( QPainter &painter )
   }
 
   int ten = 10, twenty = 20, fourty = 40, hundred = 100;
-  for ( longCoo = 0; longCoo < longLen; longCoo += 2 ) {
+  longCoo = mLeftToRight ? 0 : longLen;
+
+  while ( longCoo <= longLen && longCoo >= 0 ) {
     int len = 6;
     if (ten == 10) {
       if (twenty == 20) {
@@ -783,9 +816,9 @@ void KLineal::drawScale( QPainter &painter )
         QString units;
         int digits;
         if (hundred == 100 || mOrientation == West || mOrientation == East) {
-          digits = longCoo;
+          digits = mLeftToRight ? longCoo : ( longLen - longCoo );
         } else {
-          digits = longCoo % 100;
+          digits = mLeftToRight ? ( longCoo % 100 ) : ( ( longLen - longCoo ) % 100 );
         }
         units.sprintf( "%d", digits );
         QSize textSize = metrics.size( Qt::TextSingleLine, units );
@@ -794,37 +827,37 @@ void KLineal::drawScale( QPainter &painter )
         switch ( mOrientation ) {
         case North:
            if ( digits < 1000 || fourty == 40 || hundred == 100 ) {
-             if ( longCoo != 0 ) {
+             if ( digits != 0 ) {
                painter.drawText( longCoo - tw / 2, shortStart + len + th, units );
              } else {
-               painter.drawText( 1, shortStart + len + th, units );
+               painter.drawText( mLeftToRight ? 1 : ( longLen - 1 - tw ), shortStart + len + th, units );
              }
            }
            break;
 
         case South:
            if ( digits < 1000 || fourty == 40 || hundred == 100 ) {
-             if ( longCoo != 0 ) {
+             if ( digits != 0 ) {
                painter.drawText( longCoo - tw / 2, shortStart - len - 2, units );
              } else {
-               painter.drawText( 1, shortStart - len - 2, units );
+               painter.drawText( mLeftToRight ? 1 : ( longLen - 1 - tw ), shortStart - len - 2, units );
              }
            }
            break;
 
         case East:
-          if (longCoo != 0) {
+          if ( digits != 0 ) {
             painter.drawText( shortStart - len - tw - 2, longCoo + th / 2 - 2, units );
           } else {
-            painter.drawText( shortStart - len - tw - 2, th - 2, units );
+            painter.drawText( shortStart - len - tw - 2, mLeftToRight ? ( th - 2 ) : ( longLen + 9 - th ), units );
           }
         break;
 
         case West:
-          if ( longCoo != 0 ) {
+          if ( digits != 0 ) {
             painter.drawText( shortStart + len + 2, longCoo + th / 2 - 2, units );
           } else {
-            painter.drawText( shortStart + len + 2, th - 2, units );
+            painter.drawText( shortStart + len + 2, mLeftToRight ? ( th - 2 ) : ( longLen + 9 - th ), units );
           }
           break;
         }
@@ -858,6 +891,8 @@ void KLineal::drawScale( QPainter &painter )
     } else {
       hundred += 2;
     }
+
+    longCoo += mLeftToRight ? 2 : -2;
   }
 }
 

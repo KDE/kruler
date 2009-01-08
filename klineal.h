@@ -54,6 +54,8 @@ private:
   void drawScale( QPainter &painter );
   void drawBackground( QPainter &painter );
   void reLength( int percentOfScreen );
+  void updateScaleDirectionMenuItem();
+
   bool mDragging;
   QPoint mLastClickPos;
   QPoint mDragOffset;
@@ -65,6 +67,7 @@ private:
   KMenu *mMenu;
   KMenu *mLenMenu;
   QAction *mFullScreenAction;
+  QAction *mScaleDirectionAction;
   QColor mColor;
   QColor mStoredColor;
   QCursor mCurrentCursor;
@@ -75,7 +78,8 @@ private:
   QCursor mDragCursor;
   KColorDialog mColorSelector;
   QFont mScaleFont;
-  bool _clicked;
+  bool mClicked;
+  bool mLeftToRight;
 
 public slots:
   void setOrientation( int );
@@ -93,6 +97,7 @@ public slots:
   void setMediumLength();
   void setTallLength();
   void setFullLength();
+  void switchDirection();
   void setColor();
   void setFont( const QFont &font );
   void setColor( const QColor &color );
