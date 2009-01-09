@@ -19,6 +19,7 @@
 
 #include <QBitmap>
 #include <QBrush>
+#include <QInputDialog>
 #include <QPainter>
 #include <QMouseEvent>
 #include <QLabel>
@@ -74,13 +75,14 @@ KLineal::KLineal( QWidget *parent )
     mScaleDirectionAction( 0 ),
     mColorSelector( this ),
     mClicked( false ),
-    mLeftToRight( true )
+    mLeftToRight( true ),
+    mOffset( 0 )
 {
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
-  setMinimumSize(60,60);
-  setMaximumSize(8000,8000);
+  setMinimumSize( 60, 60 );
+  setMaximumSize( 8000, 8000 );
   setWhatsThis( i18n( "This is a tool to measure pixel distances and colors on the screen. "
                       "It is useful for working on layouts of dialogs, web pages etc." ) );
   setMouseTracking( true );
@@ -169,8 +171,12 @@ KLineal::KLineal( QWidget *parent )
 
   KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
   mScaleDirectionAction = scaleMenu->addAction( i18n( "Right To Left" ), this, SLOT( switchDirection() ), Qt::Key_D );
+  scaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ), Qt::Key_C );
+  scaleMenu->addAction( i18n( "Offset..." ), this, SLOT( slotOffset() ), Qt::Key_O );
+
   new QShortcut( Qt::Key_D, this, SLOT( switchDirection() ) );
-  //scaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ) );
+  new QShortcut( Qt::Key_C, this, SLOT( centerOrigin() ) );
+  new QShortcut( Qt::Key_O, this, SLOT( slotOffset() ) );
   mMenu->addMenu( scaleMenu );
 
   /*mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );*/
@@ -444,6 +450,28 @@ void KLineal::switchDirection()
   mLeftToRight = !mLeftToRight;
   updateScaleDirectionMenuItem();
   repaint();
+  adjustLabel();
+}
+
+void KLineal::centerOrigin()
+{
+  mOffset = -( mLongEdgeLen / 2 );
+  repaint();
+  adjustLabel();
+}
+
+void KLineal::slotOffset()
+{
+  bool ok;
+  int newOffset = QInputDialog::getInteger( this, i18n( "Scale offset" ),
+                                            i18n( "Offset:" ), mOffset,
+                                            -2147483647, 2147483647, 1, &ok );
+
+  if ( ok ) {
+    mOffset = newOffset;
+    repaint();
+    adjustLabel();
+  }
 }
 
 void KLineal::chooseColor()
@@ -602,23 +630,14 @@ void KLineal::adjustLabel()
   QString s;
   QPoint cpos = QCursor::pos();
 
-  switch ( mOrientation ) {
-  case North:
-    s.sprintf( "%d px", cpos.x() - x() );
-    break;
-
-  case East:
-    s.sprintf( "%d px", cpos.y() - y() );
-    break;
-
-  case West:
-    s.sprintf( "%d px", cpos.y() - y() );
-    break;
-
-  case South:
-    s.sprintf( "%d px", cpos.x() - x() );
-    break;
+  int digit = ( mOrientation == North || mOrientation == South ) ? cpos.x() - x() : cpos.y() - y();
+  if ( mLeftToRight ) {
+    digit += mOffset;
+  } else {
+    digit = mLongEdgeLen - digit + mOffset;
   }
+
+  s.sprintf( "%d px", digit );
   mLabel->setText( s );
 }
 
@@ -735,7 +754,7 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
 /**
  * overwritten for dragging
  */
-void KLineal::mouseReleaseEvent(QMouseEvent *inEvent)
+void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
 
@@ -747,6 +766,17 @@ void KLineal::mouseReleaseEvent(QMouseEvent *inEvent)
   showLabel();
 }
 
+void KLineal::wheelEvent( QWheelEvent *e )
+{
+  int numDegrees = e->delta() / 8;
+  int numSteps = numDegrees / 15;
+
+  mOffset += numSteps;
+
+  repaint();
+  adjustLabel();
+}
+
 /**
  * draws the scale according to the orientation
  */
@@ -756,7 +786,6 @@ void KLineal::drawScale( QPainter &painter )
   QFont font = mScaleFont;
   painter.setFont( font );
   QFontMetrics metrics = painter.fontMetrics();
-  int longCoo;
   int longLen;
   int shortStart;
   int w = width();
@@ -799,100 +828,65 @@ void KLineal::drawScale( QPainter &painter )
     break;
   }
 
-  int ten = 10, twenty = 20, fourty = 40, hundred = 100;
-  longCoo = mLeftToRight ? 0 : longLen;
+  int digit;
+  int len;
+  for ( int x = 0; x < longLen; ++x ) {
+    if ( mLeftToRight ) {
+      digit = x + mOffset;
+    } else {
+      digit = longLen - x + mOffset;
+    }
 
-  while ( longCoo <= longLen && longCoo >= 0 ) {
-    int len = 6;
-    if (ten == 10) {
-      if (twenty == 20) {
-        if (hundred == 100) {
-          font.setBold( true );
-          painter.setFont( font );
-          len = 18;
-        } else {
-          len = 15;
-        }
-        QString units;
-        int digits;
-        if (hundred == 100 || mOrientation == West || mOrientation == East) {
-          digits = mLeftToRight ? longCoo : ( longLen - longCoo );
-        } else {
-          digits = mLeftToRight ? ( longCoo % 100 ) : ( ( longLen - longCoo ) % 100 );
-        }
-        units.sprintf( "%d", digits );
-        QSize textSize = metrics.size( Qt::TextSingleLine, units );
-        int tw = textSize.width();
-        int th = textSize.height();
-        switch ( mOrientation ) {
-        case North:
-           if ( digits < 1000 || fourty == 40 || hundred == 100 ) {
-             if ( digits != 0 ) {
-               painter.drawText( longCoo - tw / 2, shortStart + len + th, units );
-             } else {
-               painter.drawText( mLeftToRight ? 1 : ( longLen - 1 - tw ), shortStart + len + th, units );
-             }
-           }
-           break;
+    if ( digit % 2 ) continue;
 
-        case South:
-           if ( digits < 1000 || fourty == 40 || hundred == 100 ) {
-             if ( digits != 0 ) {
-               painter.drawText( longCoo - tw / 2, shortStart - len - 2, units );
-             } else {
-               painter.drawText( mLeftToRight ? 1 : ( longLen - 1 - tw ), shortStart - len - 2, units );
-             }
-           }
-           break;
+    len = 6;
 
-        case East:
-          if ( digits != 0 ) {
-            painter.drawText( shortStart - len - tw - 2, longCoo + th / 2 - 2, units );
-          } else {
-            painter.drawText( shortStart - len - tw - 2, mLeftToRight ? ( th - 2 ) : ( longLen + 9 - th ), units );
-          }
+    if ( digit % 10 == 0 ) len = 10;
+    if ( digit % 20 == 0 ) len = 15;
+    if ( digit % 100 == 0 ) len = 18;
+
+    if ( digit % 20 == 0 ) {
+      font.setBold( digit % 100 == 0 );
+      painter.setFont( font );
+      QString units;
+      units.sprintf( "%d", digit );
+      QSize textSize = metrics.size( Qt::TextSingleLine, units );
+      int tw = textSize.width();
+      int th = textSize.height();
+
+      switch ( mOrientation ) {
+      case North:
+        painter.drawText( x - tw / 2, shortStart + len + th, units );
         break;
 
-        case West:
-          if ( digits != 0 ) {
-            painter.drawText( shortStart + len + 2, longCoo + th / 2 - 2, units );
-          } else {
-            painter.drawText( shortStart + len + 2, mLeftToRight ? ( th - 2 ) : ( longLen + 9 - th ), units );
-          }
-          break;
-        }
-      } else {
-        len = 10;
+      case South:
+        painter.drawText( x - tw / 2, shortStart - len - 2, units );
+        break;
+
+      case East:
+        painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
+        break;
+
+      case West:
+        painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
+        break;
       }
     }
 
     switch( mOrientation ) {
     case North:
-      painter.drawLine( longCoo, shortStart, longCoo, shortStart + len );
+      painter.drawLine( x, shortStart, x, shortStart + len );
       break;
     case South:
-      painter.drawLine( longCoo, shortStart, longCoo, shortStart - len );
+      painter.drawLine( x, shortStart, x, shortStart - len );
       break;
     case East:
-      painter.drawLine( shortStart, longCoo, shortStart - len, longCoo );
+      painter.drawLine( shortStart, x, shortStart - len, x );
       break;
     case West:
-      painter.drawLine( shortStart, longCoo, shortStart + len, longCoo );
+      painter.drawLine( shortStart, x, shortStart + len, x );
       break;
     }
-
-    ten = (ten == 10) ? 2 : ten + 2;
-    twenty = (twenty == 20) ? 2 : twenty + 2;
-    fourty = (fourty == 40) ? 2 : fourty + 2;
-    if ( hundred == 100 ) {
-      hundred = 2;
-      font.setBold( false );
-      painter.setFont( font );
-    } else {
-      hundred += 2;
-    }
-
-    longCoo += mLeftToRight ? 2 : -2;
   }
 }
 

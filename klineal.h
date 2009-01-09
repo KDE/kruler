@@ -45,6 +45,7 @@ protected:
   void mousePressEvent( QMouseEvent *e );
   void mouseReleaseEvent( QMouseEvent *e );
   void mouseMoveEvent( QMouseEvent *e );
+  void wheelEvent( QWheelEvent *e );
   void paintEvent( QPaintEvent *e );
   void enterEvent( QEvent *e );
   void leaveEvent( QEvent *e );
@@ -80,6 +81,7 @@ private:
   QFont mScaleFont;
   bool mClicked;
   bool mLeftToRight;
+  int mOffset;
 
 public slots:
   void setOrientation( int );
@@ -98,6 +100,8 @@ public slots:
   void setTallLength();
   void setFullLength();
   void switchDirection();
+  void centerOrigin();
+  void slotOffset();
   void setColor();
   void setFont( const QFont &font );
   void setColor( const QColor &color );
