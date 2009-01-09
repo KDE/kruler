@@ -43,8 +43,6 @@
 #include "kruler.h"
 #include "qautosizelabel.h"
 
-#define FULLSCREENID 23
-
 /**
  * this is our cursor bitmap:
  * a line 48 pixels long with an arrow pointing down
@@ -66,7 +64,6 @@ static const uchar cursorBits[] = {
 KLineal::KLineal( QWidget *parent )
   : QWidget( parent ),
     mDragging( false ),
-    mOrientation( South ),
     mShortEdgeLen( 70 ),
     mLenMenu( 0 ),                // INFO This member could be eventually deleted
                                   // since if mFullScreenAction is initialized
@@ -74,9 +71,7 @@ KLineal::KLineal( QWidget *parent )
     mFullScreenAction( 0 ),
     mScaleDirectionAction( 0 ),
     mColorSelector( this ),
-    mClicked( false ),
-    mLeftToRight( true ),
-    mOffset( 0 )
+    mClicked( false )
 {
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
@@ -114,7 +109,6 @@ KLineal::KLineal( QWidget *parent )
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
   mColorLabel = new QAutoSizeLabel( this );
   mColorLabel->setAutoFillBackground( true );
-  //mColorLabel->resize( 45, 12 );
   mColorLabel->hide();
   QFont colorFont( KGlobalSettings::fixedFont().family(), 10 );
   colorFont.setPixelSize( 10 );
