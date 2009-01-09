@@ -102,6 +102,9 @@ KLineal::KLineal( QWidget *parent )
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
   mLongEdgeLen = RulerSettings::self()->length();
+  mOrientation = RulerSettings::self()->orientation();
+  mLeftToRight = RulerSettings::self()->leftToRight();
+  mOffset = RulerSettings::self()->offset();
 
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
@@ -199,7 +202,7 @@ KLineal::KLineal( QWidget *parent )
 
   mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
 
-  setOrientation( South );
+  setOrientation( mOrientation );
 }
 
 KLineal::~KLineal()
@@ -351,6 +354,7 @@ void KLineal::setOrientation( int inOrientation )
 
   setCursor( mCurrentCursor );
   repaint();
+  saveSettings();
 }
 
 void KLineal::setNorth()
@@ -451,6 +455,7 @@ void KLineal::switchDirection()
   updateScaleDirectionMenuItem();
   repaint();
   adjustLabel();
+  saveSettings();
 }
 
 void KLineal::centerOrigin()
@@ -458,6 +463,7 @@ void KLineal::centerOrigin()
   mOffset = -( mLongEdgeLen / 2 );
   repaint();
   adjustLabel();
+  saveSettings();
 }
 
 void KLineal::slotOffset()
@@ -471,6 +477,7 @@ void KLineal::slotOffset()
     mOffset = newOffset;
     repaint();
     adjustLabel();
+    saveSettings();
   }
 }
 
@@ -560,6 +567,9 @@ void KLineal::saveSettings()
   RulerSettings::self()->setBgColor( mColor );
   RulerSettings::self()->setScaleFont( mScaleFont );
   RulerSettings::self()->setLength( mLongEdgeLen );
+  RulerSettings::self()->setOrientation( mOrientation );
+  RulerSettings::self()->setLeftToRight( mLeftToRight );
+  RulerSettings::self()->setOffset( mOffset );
   RulerSettings::self()->writeConfig();
 }
 
@@ -775,6 +785,7 @@ void KLineal::wheelEvent( QWheelEvent *e )
 
   repaint();
   adjustLabel();
+  saveSettings();
 }
 
 /**

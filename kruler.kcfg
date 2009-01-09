@@ -17,5 +17,17 @@
       <label>Font of the text on the ruler scale.</label>
       <default code="true">QFont( KGlobalSettings::generalFont().family(), 8 )</default>
     </entry>
+    <entry name="Orientation" type="Int">
+      <label>Orientation of the ruler</label>
+      <default>2</default>
+    </entry>
+    <entry name="LeftToRight" type="Bool">
+      <label>Direction of the ruler</label>
+      <default>true</default>
+    </entry>
+    <entry name="Offset" type="Int">
+      <label>Offset of the origin</label>
+      <default>0</default>
+    </entry>
   </group>
 </kcfg>
