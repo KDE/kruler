@@ -28,6 +28,7 @@
 
 #include <KAction>
 #include <KApplication>
+#include <KColorDialog>
 #include <KConfig>
 #include <KConfigDialog>
 #include <KCursor>
@@ -76,7 +77,6 @@ KLineal::KLineal( QWidget *parent )
     mScaleDirectionAction( 0 ),
     mCenterOriginAction( 0 ),
     mOffsetAction( 0 ),
-    mColorSelector( this ),
     mClicked( false )
 {
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal

@@ -20,8 +20,6 @@
 
 #include <QWidget>
 
-#include <KColorDialog>
-
 class QAutoSizeLabel;
 class KMenu;
 
@@ -50,7 +48,6 @@ protected:
   void enterEvent( QEvent *e );
   void leaveEvent( QEvent *e );
 
-
 private:
   void drawScale( QPainter &painter );
   void drawBackground( QPainter &painter );
@@ -78,7 +75,6 @@ private:
   QCursor mWestCursor;
   QCursor mSouthCursor;
   QCursor mDragCursor;
-  KColorDialog mColorSelector;
   QFont mScaleFont;
   bool mClicked;
   bool mLeftToRight;
