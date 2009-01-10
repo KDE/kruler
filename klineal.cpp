@@ -29,6 +29,7 @@
 #include <KAction>
 #include <KApplication>
 #include <KConfig>
+#include <KConfigDialog>
 #include <KCursor>
 #include <KFontDialog>
 #include <KGlobalSettings>
@@ -43,6 +44,8 @@
 
 #include "kruler.h"
 #include "qautosizelabel.h"
+
+#include "ui_cfg_appearance.h"
 
 /**
  * this is our cursor bitmap:
@@ -187,14 +190,7 @@ KLineal::KLineal( QWidget *parent )
   new QShortcut( Qt::Key_O, this, SLOT( slotOffset() ) );
   mMenu->addMenu( scaleMenu );
 
-  /*mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );*/
-
-  mMenu->addAction( KIcon( "preferences-desktop-color" ),
-                    i18n( "&Choose Color..." ), this, SLOT( chooseColor() ) );
-  mMenu->addAction( KIcon( "preferences-desktop-font" ),
-                    i18n( "Choose &Font..." ), this, SLOT( chooseFont() ),
-                    Qt::Key_F );
-  new QShortcut( Qt::Key_F, this, SLOT( chooseFont() ) );
+  mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );
   mMenu->addSeparator();
   KAction *copyColorAction = KStandardAction::copy( this, SLOT( copyColor() ), this );
   copyColorAction->setText( i18n( "Copy Color" ) );
@@ -489,6 +485,22 @@ void KLineal::slotOffset()
   }
 }
 
+void KLineal::slotPreferences()
+{
+  KConfigDialog *dialog = new KConfigDialog( this, "settings", RulerSettings::self() );
+
+  Ui::ConfigAppearance appearanceConfig;
+  QWidget *appearanceConfigWidget = new QWidget( dialog );
+  appearanceConfig.setupUi( appearanceConfigWidget );
+  dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), "preferences-desktop-default-applications" );
+
+  dialog->exec();
+  mColor = RulerSettings::self()->bgColor();
+  mScaleFont = RulerSettings::self()->scaleFont();
+  repaint();
+  saveSettings();
+}
+
 void KLineal::switchRelativeScale( bool checked )
 {
   mRelativeScale = checked;
@@ -499,84 +511,6 @@ void KLineal::switchRelativeScale( bool checked )
   repaint();
   adjustLabel();
   saveSettings();
-}
-
-void KLineal::chooseColor()
-{
-  QRect r = KGlobalSettings::desktopGeometry( this );
-
-  QPoint pos = QCursor::pos();
-  if ( pos.x() + mColorSelector.width() > r.width() ) {
-    pos.setX( r.width() - mColorSelector.width() );
-  }
-  if ( pos.y() + mColorSelector.height() > r.height() ) {
-    pos.setY( r.height() - mColorSelector.height() );
-  }
-
-  mStoredColor = mColor;
-  mColorSelector.move( pos );
-  mColorSelector.setColor( mColor );
-
-  KConfigSkeletonItem *bgColorItem = RulerSettings::self()->findItem( "BgColor" );
-  if ( bgColorItem ) {
-    bgColorItem->swapDefault();
-    mColorSelector.setDefaultColor( RulerSettings::self()->bgColor() );
-    bgColorItem->swapDefault();
-  }
-  mColorSelector.show();
-
-  connect(&mColorSelector, SIGNAL(closeClicked()), this, SLOT(setColor()));
-  connect(&mColorSelector, SIGNAL(colorSelected(const QColor&)), this, SLOT(setColor(const QColor&)));
-}
-
-/**
- * slot to choose a font
- */
-void KLineal::chooseFont()
-{
-  QFont font = mScaleFont;
-  int result = KFontDialog::getFont( font, false, this );
-  if ( result == KFontDialog::Accepted ) {
-    setFont( font );
-  }
-}
-
-/**
- * set the ruler color to the previously selected color
- */
-void KLineal::setFont( const QFont &font )
-{
-  mScaleFont = font;
-  saveSettings();
-  repaint();
-}
-
-/**
- * set the ruler color to the previously selected color
- */
-void KLineal::setColor()
-{
-  setColor( mColorSelector.color() );
-  saveSettings();
-}
-
-/**
- * set the ruler color to some color
- */
-void KLineal::setColor( const QColor &color )
-{
-  if ( color.isValid() ) {
-    mColor = color;
-  } else {
-    KConfigSkeletonItem *bgColorItem = RulerSettings::self()->findItem( "BgColor" );
-    if ( bgColorItem ) {
-      bgColorItem->swapDefault();
-      mColor = RulerSettings::self()->bgColor();
-      bgColorItem->swapDefault();
-    }
-  }
-
-  repaint();
 }
 
 /**
@@ -592,14 +526,6 @@ void KLineal::saveSettings()
   RulerSettings::self()->setOffset( mOffset );
   RulerSettings::self()->setRelativeScale( mRelativeScale );
   RulerSettings::self()->writeConfig();
-}
-
-/**
- * restores the color
- */
-void KLineal::restoreColor()
-{
-  setColor( mStoredColor );
 }
 
 void KLineal::copyColor()

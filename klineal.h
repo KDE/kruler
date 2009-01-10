@@ -72,7 +72,6 @@ private:
   QAction *mCenterOriginAction;
   QAction *mOffsetAction;
   QColor mColor;
-  QColor mStoredColor;
   QCursor mCurrentCursor;
   QCursor mNorthCursor;
   QCursor mEastCursor;
@@ -105,13 +104,8 @@ public slots:
   void switchDirection();
   void centerOrigin();
   void slotOffset();
+  void slotPreferences();
   void switchRelativeScale( bool checked );
-  void setColor();
-  void setFont( const QFont &font );
-  void setColor( const QColor &color );
-  void chooseColor();
-  void chooseFont();
-  void restoreColor();
   void copyColor();
   void saveSettings();
   void slotQuit();

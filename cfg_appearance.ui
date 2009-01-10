@@ -1,0 +1,61 @@
+<ui version="4.0" >
+ <author>Mathias Soeken</author>
+ <class>ConfigAppearance</class>
+ <widget class="QWidget" name="ConfigAppearance" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout" >
+   <property name="margin" >
+    <number>0</number>
+   </property>
+   <item row="0" column="0" >
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string>Background color:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" >
+    <widget class="KColorButton" name="kcfg_BgColor" />
+   </item>
+   <item row="1" column="0" >
+    <widget class="QLabel" name="label_2" >
+     <property name="text" >
+      <string>Font:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1" >
+    <widget class="KFontRequester" name="kcfg_ScaleFont" />
+   </item>
+  </layout>
+ </widget>
+ <layoutfunction spacing="KDialog::spacingHint" margin="KDialog::marginHint" />
+ <customwidgets>
+  <customwidget>
+   <class>KColorButton</class>
+   <extends>QPushButton</extends>
+   <header>kcolorbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KFontRequester</class>
+   <extends>QWidget</extends>
+   <header>kfontrequester.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>kcfg_BgColor</tabstop>
+ </tabstops>
+ <includes/>
+ <resources/>
+ <connections/>
+</ui>

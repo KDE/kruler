@@ -1,0 +1,12 @@
+TODO
+* non-model preferences dialog, so that you can see the result when
+   you change the color
+
+DONE
+* Center scale
+* Define scale offset
+* Define offset via mouse wheel event
+* Store last orientation and scale direction
+* Store scale offset
+* Relative scale (percent). Then ignoring offset?
+
