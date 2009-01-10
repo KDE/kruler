@@ -19,6 +19,7 @@
 
 #include <QBitmap>
 #include <QBrush>
+#include <QClipboard>
 #include <QInputDialog>
 #include <QPainter>
 #include <QMouseEvent>
@@ -189,13 +190,16 @@ KLineal::KLineal( QWidget *parent )
   /*mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );*/
 
   mMenu->addAction( KIcon( "preferences-desktop-color" ),
-                    i18n( "&Choose Color..." ), this, SLOT( chooseColor() ),
-                    Qt::CTRL + Qt::Key_C );
+                    i18n( "&Choose Color..." ), this, SLOT( chooseColor() ) );
   mMenu->addAction( KIcon( "preferences-desktop-font" ),
                     i18n( "Choose &Font..." ), this, SLOT( chooseFont() ),
                     Qt::Key_F );
-  new QShortcut(Qt::CTRL + Qt::Key_C, this, SLOT(chooseColor() ) );
-  new QShortcut(Qt::Key_F, this, SLOT( chooseFont() ) );
+  new QShortcut( Qt::Key_F, this, SLOT( chooseFont() ) );
+  mMenu->addSeparator();
+  KAction *copyColorAction = KStandardAction::copy( this, SLOT( copyColor() ), this );
+  copyColorAction->setText( i18n( "Copy Color" ) );
+  mMenu->addAction( copyColorAction );
+  new QShortcut( copyColorAction->shortcut().primary(), this, SLOT( copyColor() ) );
   mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
   mMenu->addSeparator();
@@ -597,6 +601,12 @@ void KLineal::restoreColor()
 {
   setColor( mStoredColor );
 }
+
+void KLineal::copyColor()
+{
+  QApplication::clipboard()->setText( mColorLabel->text() );
+}
+
 /**
  * lets the context menu appear at current cursor position
  */

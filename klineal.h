@@ -112,6 +112,7 @@ public slots:
   void chooseColor();
   void chooseFont();
   void restoreColor();
+  void copyColor();
   void saveSettings();
   void slotQuit();
 };
