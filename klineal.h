@@ -69,6 +69,8 @@ private:
   KMenu *mLenMenu;
   QAction *mFullScreenAction;
   QAction *mScaleDirectionAction;
+  QAction *mCenterOriginAction;
+  QAction *mOffsetAction;
   QColor mColor;
   QColor mStoredColor;
   QCursor mCurrentCursor;
@@ -82,6 +84,7 @@ private:
   bool mClicked;
   bool mLeftToRight;
   int mOffset;
+  bool mRelativeScale;
 
 public slots:
   void setOrientation( int );
@@ -102,6 +105,7 @@ public slots:
   void switchDirection();
   void centerOrigin();
   void slotOffset();
+  void switchRelativeScale( bool checked );
   void setColor();
   void setFont( const QFont &font );
   void setColor( const QColor &color );

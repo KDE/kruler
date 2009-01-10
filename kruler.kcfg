@@ -29,5 +29,9 @@
       <label>Offset of the origin</label>
       <default>0</default>
     </entry>
+    <entry name="RelativeScale" type="Bool">
+      <label>Is the scale of the ruler relative (percentage)</label>
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>

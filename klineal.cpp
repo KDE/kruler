@@ -70,6 +70,8 @@ KLineal::KLineal( QWidget *parent )
                                   // mLenMenu should have been, too.
     mFullScreenAction( 0 ),
     mScaleDirectionAction( 0 ),
+    mCenterOriginAction( 0 ),
+    mOffsetAction( 0 ),
     mColorSelector( this ),
     mClicked( false )
 {
@@ -100,6 +102,7 @@ KLineal::KLineal( QWidget *parent )
   mOrientation = RulerSettings::self()->orientation();
   mLeftToRight = RulerSettings::self()->leftToRight();
   mOffset = RulerSettings::self()->offset();
+  mRelativeScale = RulerSettings::self()->relativeScale();
 
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
@@ -168,8 +171,15 @@ KLineal::KLineal( QWidget *parent )
 
   KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
   mScaleDirectionAction = scaleMenu->addAction( i18n( "Right To Left" ), this, SLOT( switchDirection() ), Qt::Key_D );
-  scaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ), Qt::Key_C );
-  scaleMenu->addAction( i18n( "Offset..." ), this, SLOT( slotOffset() ), Qt::Key_O );
+  mCenterOriginAction = scaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ), Qt::Key_C );
+  mCenterOriginAction->setEnabled( !mRelativeScale );
+  mOffsetAction = scaleMenu->addAction( i18n( "Offset..." ), this, SLOT( slotOffset() ), Qt::Key_O );
+  mOffsetAction->setEnabled( !mRelativeScale );
+  scaleMenu->addSeparator();
+  QAction *relativeScaleAction = scaleMenu->addAction( i18n( "Percentage" ) );
+  relativeScaleAction->setCheckable( true );
+  relativeScaleAction->setChecked( mRelativeScale );
+  connect( relativeScaleAction, SIGNAL( toggled( bool ) ), this, SLOT( switchRelativeScale( bool ) ) );
 
   new QShortcut( Qt::Key_D, this, SLOT( switchDirection() ) );
   new QShortcut( Qt::Key_C, this, SLOT( centerOrigin() ) );
@@ -475,6 +485,18 @@ void KLineal::slotOffset()
   }
 }
 
+void KLineal::switchRelativeScale( bool checked )
+{
+  mRelativeScale = checked;
+
+  mCenterOriginAction->setEnabled( !mRelativeScale );
+  mOffsetAction->setEnabled( !mRelativeScale );
+
+  repaint();
+  adjustLabel();
+  saveSettings();
+}
+
 void KLineal::chooseColor()
 {
   QRect r = KGlobalSettings::desktopGeometry( this );
@@ -564,6 +586,7 @@ void KLineal::saveSettings()
   RulerSettings::self()->setOrientation( mOrientation );
   RulerSettings::self()->setLeftToRight( mLeftToRight );
   RulerSettings::self()->setOffset( mOffset );
+  RulerSettings::self()->setRelativeScale( mRelativeScale );
   RulerSettings::self()->writeConfig();
 }
 
@@ -635,13 +658,23 @@ void KLineal::adjustLabel()
   QPoint cpos = QCursor::pos();
 
   int digit = ( mOrientation == North || mOrientation == South ) ? cpos.x() - x() : cpos.y() - y();
-  if ( mLeftToRight ) {
-    digit += mOffset;
+
+  if ( !mRelativeScale ) {
+    if ( mLeftToRight ) {
+      digit += mOffset;
+    } else {
+      digit = mLongEdgeLen - digit + mOffset;
+    }
   } else {
-    digit = mLongEdgeLen - digit + mOffset;
+    // INFO: Perhaps use float also for displaying relative value
+    digit = (int)( ( digit * 100.f ) / mLongEdgeLen );
+
+    if ( !mLeftToRight ) {
+      digit = 100 - digit;
+    }
   }
 
-  s.sprintf( "%d px", digit );
+  s.sprintf( "%d%s", digit, ( mRelativeScale ? "%" : " px" ) );
   mLabel->setText( s );
 }
 
@@ -772,14 +805,18 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 
 void KLineal::wheelEvent( QWheelEvent *e )
 {
-  int numDegrees = e->delta() / 8;
-  int numSteps = numDegrees / 15;
+  if ( !mRelativeScale ) {
+    int numDegrees = e->delta() / 8;
+    int numSteps = numDegrees / 15;
 
-  mOffset += numSteps;
+    mOffset += numSteps;
 
-  repaint();
-  adjustLabel();
-  saveSettings();
+    repaint();
+    adjustLabel();
+    saveSettings();
+  }
+
+  QWidget::wheelEvent( e );
 }
 
 /**
@@ -833,64 +870,119 @@ void KLineal::drawScale( QPainter &painter )
     break;
   }
 
-  int digit;
-  int len;
-  for ( int x = 0; x < longLen; ++x ) {
-    if ( mLeftToRight ) {
-      digit = x + mOffset;
-    } else {
-      digit = longLen - x + mOffset;
-    }
+  if ( !mRelativeScale ) {
+    int digit;
+    int len;
+    for ( int x = 0; x < longLen; ++x ) {
+      if ( mLeftToRight ) {
+        digit = x + mOffset;
+      } else {
+        digit = longLen - x + mOffset;
+      }
 
-    if ( digit % 2 ) continue;
+      if ( digit % 2 ) continue;
 
-    len = 6;
+      len = 6;
 
-    if ( digit % 10 == 0 ) len = 10;
-    if ( digit % 20 == 0 ) len = 15;
-    if ( digit % 100 == 0 ) len = 18;
+      if ( digit % 10 == 0 ) len = 10;
+      if ( digit % 20 == 0 ) len = 15;
+      if ( digit % 100 == 0 ) len = 18;
 
-    if ( digit % 20 == 0 ) {
-      font.setBold( digit % 100 == 0 );
-      painter.setFont( font );
-      QString units;
-      units.sprintf( "%d", digit );
-      QSize textSize = metrics.size( Qt::TextSingleLine, units );
-      int tw = textSize.width();
-      int th = textSize.height();
+      if ( digit % 20 == 0 ) {
+        font.setBold( digit % 100 == 0 );
+        painter.setFont( font );
+        QString units;
+        units.sprintf( "%d", digit );
+        QSize textSize = metrics.size( Qt::TextSingleLine, units );
+        int tw = textSize.width();
+        int th = textSize.height();
 
-      switch ( mOrientation ) {
+        switch ( mOrientation ) {
+        case North:
+          painter.drawText( x - tw / 2, shortStart + len + th, units );
+          break;
+
+        case South:
+          painter.drawText( x - tw / 2, shortStart - len - 2, units );
+          break;
+
+        case East:
+          painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
+          break;
+
+        case West:
+          painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
+          break;
+        }
+      }
+
+      switch( mOrientation ) {
       case North:
-        painter.drawText( x - tw / 2, shortStart + len + th, units );
+        painter.drawLine( x, shortStart, x, shortStart + len );
         break;
-
       case South:
-        painter.drawText( x - tw / 2, shortStart - len - 2, units );
+        painter.drawLine( x, shortStart, x, shortStart - len );
         break;
-
       case East:
-        painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
+        painter.drawLine( shortStart, x, shortStart - len, x );
         break;
-
       case West:
-        painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
+        painter.drawLine( shortStart, x, shortStart + len, x );
         break;
       }
     }
+  } else {
+    float step = longLen / 100.f;
+    int len;
 
-    switch( mOrientation ) {
-    case North:
-      painter.drawLine( x, shortStart, x, shortStart + len );
-      break;
-    case South:
-      painter.drawLine( x, shortStart, x, shortStart - len );
-      break;
-    case East:
-      painter.drawLine( shortStart, x, shortStart - len, x );
-      break;
-    case West:
-      painter.drawLine( shortStart, x, shortStart + len, x );
-      break;
+    font.setBold( true );
+    painter.setFont( font );
+
+    for ( int i = 0; i <= 100; ++i ) {
+      int x = (int)( i * step );
+      len = ( i % 10 ) ? 6 : 15;
+
+      if ( i % 10 == 0 ) {
+        QString units;
+        int value = mLeftToRight ? i : ( 100 - i );
+        units.sprintf( "%d%%", value );
+        QSize textSize = metrics.size( Qt::TextSingleLine, units );
+        int tw = textSize.width();
+        int th = textSize.height();
+
+        switch ( mOrientation ) {
+        case North:
+          painter.drawText( x - tw / 2, shortStart + len + th, units );
+          break;
+
+        case South:
+          painter.drawText( x - tw / 2, shortStart - len - 2, units );
+          break;
+
+        case East:
+          painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
+          break;
+
+        case West:
+          painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
+          break;
+        }
+      }
+
+      switch( mOrientation ) {
+      case North:
+        painter.drawLine( x, shortStart, x, shortStart + len );
+        break;
+      case South:
+        painter.drawLine( x, shortStart, x, shortStart - len );
+        break;
+      case East:
+        painter.drawLine( shortStart, x, shortStart - len, x );
+        break;
+      case West:
+        painter.drawLine( shortStart, x, shortStart + len, x );
+        break;
+      }
     }
   }
 }
