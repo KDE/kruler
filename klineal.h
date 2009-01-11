@@ -100,6 +100,7 @@ public slots:
   void switchDirection();
   void centerOrigin();
   void slotOffset();
+  void slotLength();
   void slotPreferences();
   void switchRelativeScale( bool checked );
   void copyColor();

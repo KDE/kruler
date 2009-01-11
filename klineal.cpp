@@ -171,6 +171,8 @@ KLineal::KLineal( QWidget *parent )
   new QShortcut( Qt::CTRL + Qt::Key_M, this, SLOT( setMediumLength() ) );
   new QShortcut( Qt::CTRL + Qt::Key_T, this, SLOT( setTallLength() ) );
   new QShortcut( Qt::CTRL + Qt::Key_F, this, SLOT( setFullLength() ) );
+  mLenMenu->addSeparator();
+  mLenMenu->addAction( i18n( "Length..." ), this, SLOT( slotLength() ) );
   mMenu->addMenu( mLenMenu );
 
   KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
@@ -482,6 +484,20 @@ void KLineal::slotOffset()
     repaint();
     adjustLabel();
     saveSettings();
+  }
+}
+
+void KLineal::slotLength()
+{
+  bool ok;
+  QRect r = KGlobalSettings::desktopGeometry( this );
+  int width = ( ( mOrientation == North ) || ( mOrientation == South ) ) ? r.width() : r.height();
+  int newLength = QInputDialog::getInteger( this, i18n( "Ruler Length" ),
+                                            i18n( "Length:" ), mLongEdgeLen,
+                                            0, width, 1, &ok );
+
+  if ( ok ) {
+    reLength( ( newLength * 100.f ) / width );
   }
 }
 
