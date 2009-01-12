@@ -20,7 +20,6 @@
 #include <QBitmap>
 #include <QBrush>
 #include <QClipboard>
-#include <QInputDialog>
 #include <QPainter>
 #include <QMouseEvent>
 #include <QLabel>
@@ -36,6 +35,7 @@
 #include <KGlobalSettings>
 #include <KHelpMenu>
 #include <KIconLoader>
+#include <KInputDialog>
 #include <KLocale>
 #include <KMenu>
 #include <KNotification>
@@ -475,9 +475,9 @@ void KLineal::centerOrigin()
 void KLineal::slotOffset()
 {
   bool ok;
-  int newOffset = QInputDialog::getInteger( this, i18n( "Scale offset" ),
+  int newOffset = KInputDialog::getInteger( i18n( "Scale offset" ),
                                             i18n( "Offset:" ), mOffset,
-                                            -2147483647, 2147483647, 1, &ok );
+                                            -2147483647, 2147483647, 1, &ok, this );
 
   if ( ok ) {
     mOffset = newOffset;
@@ -492,9 +492,9 @@ void KLineal::slotLength()
   bool ok;
   QRect r = KGlobalSettings::desktopGeometry( this );
   int width = ( ( mOrientation == North ) || ( mOrientation == South ) ) ? r.width() : r.height();
-  int newLength = QInputDialog::getInteger( this, i18n( "Ruler Length" ),
+  int newLength = KInputDialog::getInteger( i18n( "Ruler Length" ),
                                             i18n( "Length:" ), mLongEdgeLen,
-                                            0, width, 1, &ok );
+                                            0, width, 1, &ok, this );
 
   if ( ok ) {
     reLength( ( newLength * 100.f ) / width );
