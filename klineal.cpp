@@ -22,19 +22,14 @@
 #include <QClipboard>
 #include <QPainter>
 #include <QMouseEvent>
-#include <QLabel>
 #include <QShortcut>
 
 #include <KAction>
-#include <KApplication>
 #include <KColorDialog>
 #include <KConfig>
 #include <KConfigDialog>
-#include <KCursor>
-#include <KFontDialog>
 #include <KGlobalSettings>
 #include <KHelpMenu>
-#include <KIconLoader>
 #include <KInputDialog>
 #include <KLocale>
 #include <KMenu>
@@ -42,6 +37,7 @@
 #include <KStandardAction>
 #include <KToolInvocation>
 #include <KWindowSystem>
+#include <KApplication>
 
 #include "kruler.h"
 #include "qautosizelabel.h"
