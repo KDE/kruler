@@ -101,6 +101,7 @@ public slots:
   void centerOrigin();
   void slotOffset();
   void slotLength();
+  void slotOpacity( int value );
   void slotPreferences();
   void switchRelativeScale( bool checked );
   void copyColor();

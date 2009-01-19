@@ -37,5 +37,9 @@
       <label>Is a tray icon used</label>
       <default>false</default>
     </entry>
+    <entry name="Opacity" type="Int">
+      <label>Opacity of the window</label>
+      <default>100</default>
+    </entry>
   </group>
 </kcfg>

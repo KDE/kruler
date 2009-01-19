@@ -23,6 +23,8 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QShortcut>
+#include <QSlider>
+#include <QWidgetAction>
 
 #include <KAction>
 #include <KColorDialog>
@@ -188,6 +190,20 @@ KLineal::KLineal( QWidget *parent )
   new QShortcut( Qt::Key_C, this, SLOT( centerOrigin() ) );
   new QShortcut( Qt::Key_O, this, SLOT( slotOffset() ) );
   mMenu->addMenu( scaleMenu );
+
+  setWindowOpacity( RulerSettings::self()->opacity() / 100.0 );
+  KMenu* opacityMenu = new KMenu( i18n( "O&pacity" ), this );
+  QWidgetAction *opacityAction = new QWidgetAction( this );
+  QSlider *slider = new QSlider( this );
+  slider->setMinimum( 10 );
+  slider->setMaximum( 100 );
+  slider->setSingleStep( 1 );
+  slider->setOrientation( Qt::Horizontal );
+  slider->setValue( int( windowOpacity() * 100 ) );
+  connect( slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotOpacity( int ) ) );
+  opacityAction->setDefaultWidget( slider );
+  opacityMenu->addAction( opacityAction );
+  mMenu->addMenu( opacityMenu );
 
   mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );
   mMenu->addSeparator();
@@ -512,6 +528,13 @@ void KLineal::slotLength()
   if ( ok ) {
     reLength( ( newLength * 100.f ) / width );
   }
+}
+
+void KLineal::slotOpacity( int value )
+{
+  setWindowOpacity( value / 100.0 );
+  RulerSettings::self()->setOpacity( value );
+  RulerSettings::self()->writeConfig();
 }
 
 void KLineal::slotPreferences()
