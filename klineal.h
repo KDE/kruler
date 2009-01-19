@@ -105,6 +105,7 @@ public slots:
   void switchRelativeScale( bool checked );
   void copyColor();
   void saveSettings();
+  void slotClose();
   void slotQuit();
 };
 #endif

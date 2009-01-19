@@ -35,6 +35,7 @@
 #include <KMenu>
 #include <KNotification>
 #include <KStandardAction>
+#include <KSystemTrayIcon>
 #include <KToolInvocation>
 #include <KWindowSystem>
 #include <KApplication>
@@ -198,6 +199,12 @@ KLineal::KLineal( QWidget *parent )
   mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
   mMenu->addSeparator();
 
+  if ( RulerSettings::self()->trayIcon() ) {
+    KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
+    mMenu->addAction( closeAction );
+    new QShortcut( closeAction->shortcut().primary(), this, SLOT( slotClose() ) );
+  }
+
   KAction *quit = KStandardAction::quit( kapp, SLOT( quit() ), this );
   mMenu->addAction( quit );
   new QShortcut( quit->shortcut().primary(), this, SLOT(slotQuit() ) );
@@ -205,10 +212,20 @@ KLineal::KLineal( QWidget *parent )
   mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
 
   setOrientation( mOrientation );
+
+  if ( RulerSettings::self()->trayIcon() ) {
+    KSystemTrayIcon *tray = new KSystemTrayIcon( KIcon( "kruler" ), this );
+    tray->show();
+  }
 }
 
 KLineal::~KLineal()
 {
+}
+
+void KLineal::slotClose()
+{
+  hide();
 }
 
 void KLineal::slotQuit()

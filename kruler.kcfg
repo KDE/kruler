@@ -33,5 +33,9 @@
       <label>Is the scale of the ruler relative (percentage)</label>
       <default>false</default>
     </entry>
+    <entry name="TrayIcon" type="Bool">
+      <label>Is a tray icon used</label>
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>

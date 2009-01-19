@@ -1,6 +1,10 @@
 TODO
 * non-model preferences dialog, so that you can see the result when
    you change the color
+* show/hide tray icon (and close action) when configuring tray icon
+* move tray icon to another page in configuration dialog
+* move some actions to tray icon context menu
+* close button (visible on hover) on the lineal
 
 DONE
 * Center scale
