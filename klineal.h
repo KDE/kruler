@@ -52,6 +52,7 @@ private:
   void drawScale( QPainter &painter );
   void drawBackground( QPainter &painter );
   void reLength( int percentOfScreen );
+  void reLengthAbsolute( int length );
   void updateScaleDirectionMenuItem();
 
   bool mDragging;

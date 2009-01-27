@@ -449,6 +449,32 @@ void KLineal::reLength( int percentOfScreen )
   saveSettings();
 }
 
+void KLineal::reLengthAbsolute( int length )
+{
+  if ( length < 100 ) {
+    return;
+  }
+
+  QRect r = KGlobalSettings::desktopGeometry( this );
+
+  mLongEdgeLen = length;
+  if ( mOrientation == North || mOrientation == South ) {
+    resize( mLongEdgeLen, height() );
+  } else {
+    resize( width(), mLongEdgeLen );
+  }
+
+  if ( x() + width() < 10 ) {
+    move( 10, y() );
+  }
+
+  if ( y() + height() < 10 ) {
+    move( x(), 10 );
+  }
+
+  saveSettings();
+}
+
 void KLineal::updateScaleDirectionMenuItem()
 {
   if ( !mScaleDirectionAction ) return;
@@ -526,7 +552,7 @@ void KLineal::slotLength()
                                             0, width, 1, &ok, this );
 
   if ( ok ) {
-    reLength( ( newLength * 100.f ) / width );
+    reLengthAbsolute( newLength );
   }
 }
 
@@ -793,15 +819,23 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 
 void KLineal::wheelEvent( QWheelEvent *e )
 {
-  if ( !mRelativeScale ) {
-    int numDegrees = e->delta() / 8;
-    int numSteps = numDegrees / 15;
+  int numDegrees = e->delta() / 8;
+  int numSteps = numDegrees / 15;
 
-    mOffset += numSteps;
+  // changing offset
+  if ( e->buttons() == Qt::LeftButton ) {
+    if ( !mRelativeScale ) {
+      mLabel->show();
+      mOffset += numSteps;
 
-    repaint();
-    adjustLabel();
-    saveSettings();
+      repaint();
+      mLabel->setText( i18n( "Offset: %1" ).arg( mOffset ) );
+      saveSettings();
+    }
+  } else { // changing length
+    int newLength = mLongEdgeLen + numSteps;
+    reLengthAbsolute( newLength );
+    mLabel->setText( i18n( "Length: %1 px" ).arg( newLength ) );
   }
 
   QWidget::wheelEvent( e );
