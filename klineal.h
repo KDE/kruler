@@ -21,6 +21,10 @@
 #include <QWidget>
 
 class QAutoSizeLabel;
+
+class KAction;
+class KActionCollection;
+class KIcon;
 class KMenu;
 
 class KLineal : public QWidget {
@@ -49,6 +53,9 @@ protected:
   void leaveEvent( QEvent *e );
 
 private:
+  KAction* addAction( KMenu *menu, KIcon icon, const QString& text,
+                      const QObject* receiver, const char* member,
+                      const QKeySequence &shortcut, const QString& name );
   void drawScale( QPainter &painter );
   void drawBackground( QPainter &painter );
   void reLength( int percentOfScreen );
@@ -81,6 +88,7 @@ private:
   bool mLeftToRight;
   int mOffset;
   bool mRelativeScale;
+  KActionCollection *mActionCollection;
 
 public slots:
   void setOrientation( int );
@@ -103,6 +111,7 @@ public slots:
   void slotOffset();
   void slotLength();
   void slotOpacity( int value );
+  void slotKeyBindings();
   void slotPreferences();
   void switchRelativeScale( bool checked );
   void copyColor();

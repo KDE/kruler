@@ -27,6 +27,7 @@
 #include <QWidgetAction>
 
 #include <KAction>
+#include <KActionCollection>
 #include <KColorDialog>
 #include <KConfig>
 #include <KConfigDialog>
@@ -36,6 +37,7 @@
 #include <KLocale>
 #include <KMenu>
 #include <KNotification>
+#include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KSystemTrayIcon>
 #include <KToolInvocation>
@@ -76,7 +78,8 @@ KLineal::KLineal( QWidget *parent )
     mScaleDirectionAction( 0 ),
     mCenterOriginAction( 0 ),
     mOffsetAction( 0 ),
-    mClicked( false )
+    mClicked( false ),
+    mActionCollection( 0 )
 {
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
@@ -127,68 +130,56 @@ KLineal::KLineal( QWidget *parent )
 
   resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
 
+  mActionCollection = new KActionCollection( this );
+  mActionCollection->setConfigGroup( "Actions" );
+
+  //BEGIN setup menu and actions
   mMenu = new KMenu( this );
   mMenu->addTitle( i18n( "KRuler" ) );
   KMenu *oriMenu = new KMenu( i18n( "&Orientation"), this );
-  oriMenu->addAction( KIcon( "kruler-north" ),
-                      i18nc( "Turn Kruler North", "&North" ),
-                      this, SLOT( setNorth() ), Qt::Key_N );
-  oriMenu->addAction( KIcon( "kruler-east" ),
-                      i18nc( "Turn Kruler East", "&East" ),
-                      this, SLOT( setEast() ), Qt::Key_E );
-  oriMenu->addAction( KIcon( "kruler-south" ),
-                      i18nc( "Turn Kruler South", "&South" ),
-                      this, SLOT( setSouth() ), Qt::Key_S );
-  oriMenu->addAction( KIcon( "kruler-west" ),
-                      i18nc( "Turn Kruler West", "&West" ),
-                      this, SLOT( setWest() ), Qt::Key_W );
-  oriMenu->addAction( KIcon( "object-rotate-right" ),
-                      i18n( "&Turn Right" ),
-                      this, SLOT( turnRight() ), Qt::Key_R );
-  oriMenu->addAction( KIcon( "object-rotate-left" ),
-                      i18n( "Turn &Left" ),
-                      this, SLOT( turnLeft() ), Qt::Key_L );
-
-  new QShortcut( Qt::Key_N, this, SLOT( setNorth() ) );
-  new QShortcut( Qt::Key_E, this, SLOT( setEast() ) );
-  new QShortcut( Qt::Key_S, this, SLOT( setSouth() ) );
-  new QShortcut( Qt::Key_W, this, SLOT( setWest() ) );
-  new QShortcut( Qt::Key_R, this, SLOT( turnRight() ) );
-  new QShortcut( Qt::Key_L, this, SLOT( turnLeft() ) );
+  addAction( oriMenu, KIcon( "kruler-north" ), i18nc( "Turn Kruler North", "&North" ),
+             this, SLOT( setNorth() ), Qt::Key_N, "turn_north" );
+  addAction( oriMenu, KIcon( "kruler-east" ), i18nc( "Turn Kruler East", "&East" ),
+             this, SLOT( setEast() ), Qt::Key_E, "turn_east" );
+  addAction( oriMenu, KIcon( "kruler-south" ), i18nc( "Turn Kruler South", "&South" ),
+             this, SLOT( setSouth() ), Qt::Key_S, "turn_south" );
+  addAction( oriMenu, KIcon( "kruler-west" ), i18nc( "Turn Kruler West", "&West" ),
+             this, SLOT( setWest() ), Qt::Key_W, "turn_west" );
+  addAction( oriMenu, KIcon( "object-rotate-right" ), i18n( "&Turn Right" ),
+             this, SLOT( turnRight() ), Qt::Key_R, "turn_right" );
+  addAction( oriMenu, KIcon( "object-rotate-left" ), i18n( "Turn &Left" ),
+             this, SLOT( turnLeft() ), Qt::Key_L, "turn_left" );
   mMenu->addMenu( oriMenu );
+
   mLenMenu = new KMenu( i18n( "&Length" ), this );
-  mLenMenu->addAction( i18nc( "Make Kruler Height Short", "&Short" ),
-                       this, SLOT( setShortLength() ), Qt::CTRL + Qt::Key_S );
-  mLenMenu->addAction( i18nc( "Make Kruler Height Medium", "&Medium" ),
-                       this, SLOT( setMediumLength() ), Qt::CTRL + Qt::Key_M );
-  mLenMenu->addAction( i18nc( "Make Kruler Height Tall", "&Tall" ),
-                       this, SLOT( setTallLength() ), Qt::CTRL + Qt::Key_T );
-  mFullScreenAction = mLenMenu->addAction( i18n("&Full Screen Width"),
-                                           this, SLOT( setFullLength() ),
-                                           Qt::CTRL + Qt::Key_F );
-  new QShortcut( Qt::CTRL + Qt::Key_S, this, SLOT( setShortLength() ) );
-  new QShortcut( Qt::CTRL + Qt::Key_M, this, SLOT( setMediumLength() ) );
-  new QShortcut( Qt::CTRL + Qt::Key_T, this, SLOT( setTallLength() ) );
-  new QShortcut( Qt::CTRL + Qt::Key_F, this, SLOT( setFullLength() ) );
+  addAction( mLenMenu, KIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
+             this, SLOT( setShortLength() ), Qt::CTRL + Qt::Key_S, "length_short" );
+  addAction( mLenMenu, KIcon(), i18nc( "Make Kruler Height Medium", "&Medium" ),
+             this, SLOT( setMediumLength() ), Qt::CTRL + Qt::Key_M, "length_medium" );
+  addAction( mLenMenu, KIcon(), i18nc( "Make Kruler Height Tall", "&Tall" ),
+             this, SLOT( setTallLength() ), Qt::CTRL + Qt::Key_T, "length_tall" );
+  addAction( mLenMenu, KIcon(), i18n("&Full Screen Width"),
+             this, SLOT( setFullLength() ), Qt::CTRL + Qt::Key_F, "length_full_length" );
   mLenMenu->addSeparator();
-  mLenMenu->addAction( i18n( "Length..." ), this, SLOT( slotLength() ) );
+  addAction( mLenMenu, KIcon(), i18n( "Length..." ),
+             this, SLOT( slotLength() ), QKeySequence(), "set_length" );
   mMenu->addMenu( mLenMenu );
 
   KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
-  mScaleDirectionAction = scaleMenu->addAction( i18n( "Right To Left" ), this, SLOT( switchDirection() ), Qt::Key_D );
-  mCenterOriginAction = scaleMenu->addAction( i18n( "Center origin" ), this, SLOT( centerOrigin() ), Qt::Key_C );
+  mScaleDirectionAction = addAction( scaleMenu, KIcon(), i18n( "Right To Left" ),
+                                     this, SLOT( switchDirection() ), Qt::Key_D, "right_to_left" );
+  mCenterOriginAction = addAction( scaleMenu, KIcon(), i18n( "Center origin" ),
+                                   this, SLOT( centerOrigin() ), Qt::Key_C, "center_origin" );
   mCenterOriginAction->setEnabled( !mRelativeScale );
-  mOffsetAction = scaleMenu->addAction( i18n( "Offset..." ), this, SLOT( slotOffset() ), Qt::Key_O );
+  mOffsetAction = addAction( scaleMenu, KIcon(), i18n( "Offset..." ),
+                             this, SLOT( slotOffset() ), Qt::Key_O, "set_offset" );
   mOffsetAction->setEnabled( !mRelativeScale );
   scaleMenu->addSeparator();
-  QAction *relativeScaleAction = scaleMenu->addAction( i18n( "Percentage" ) );
+  KAction *relativeScaleAction = addAction( scaleMenu, KIcon(), i18n( "Percentage" ),
+                                            0, 0, QKeySequence(), "toggle_percentage" );
   relativeScaleAction->setCheckable( true );
   relativeScaleAction->setChecked( mRelativeScale );
   connect( relativeScaleAction, SIGNAL( toggled( bool ) ), this, SLOT( switchRelativeScale( bool ) ) );
-
-  new QShortcut( Qt::Key_D, this, SLOT( switchDirection() ) );
-  new QShortcut( Qt::Key_C, this, SLOT( centerOrigin() ) );
-  new QShortcut( Qt::Key_O, this, SLOT( slotOffset() ) );
   mMenu->addMenu( scaleMenu );
 
   setWindowOpacity( RulerSettings::self()->opacity() / 100.0 );
@@ -205,10 +196,16 @@ KLineal::KLineal( QWidget *parent )
   opacityMenu->addAction( opacityAction );
   mMenu->addMenu( opacityMenu );
 
-  mMenu->addAction( KStandardAction::preferences( this, SLOT( slotPreferences() ), this ) );
+  KAction *keyBindings = KStandardAction::keyBindings( this, SLOT( slotKeyBindings() ), this );
+  mActionCollection->addAction( "key_bindings", keyBindings );
+  mMenu->addAction( keyBindings );
+  KAction *preferences = KStandardAction::preferences( this, SLOT( slotPreferences() ), this );
+  mActionCollection->addAction( "preferences", preferences );
+  mMenu->addAction( preferences );
   mMenu->addSeparator();
   KAction *copyColorAction = KStandardAction::copy( this, SLOT( copyColor() ), this );
   copyColorAction->setText( i18n( "Copy Color" ) );
+  mActionCollection->addAction( "copy_color", copyColorAction );
   mMenu->addAction( copyColorAction );
   new QShortcut( copyColorAction->shortcut().primary(), this, SLOT( copyColor() ) );
   mMenu->addSeparator();
@@ -217,13 +214,18 @@ KLineal::KLineal( QWidget *parent )
 
   if ( RulerSettings::self()->trayIcon() ) {
     KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
+    mActionCollection->addAction( "close", closeAction );
     mMenu->addAction( closeAction );
     new QShortcut( closeAction->shortcut().primary(), this, SLOT( slotClose() ) );
   }
 
   KAction *quit = KStandardAction::quit( kapp, SLOT( quit() ), this );
+  mActionCollection->addAction( "quit", quit );
   mMenu->addAction( quit );
   new QShortcut( quit->shortcut().primary(), this, SLOT(slotQuit() ) );
+
+  mActionCollection->associateWidget( this );
+  mActionCollection->readSettings();
 
   mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
 
@@ -237,6 +239,20 @@ KLineal::KLineal( QWidget *parent )
 
 KLineal::~KLineal()
 {
+}
+
+KAction* KLineal::addAction( KMenu *menu, KIcon icon, const QString& text,
+                             const QObject* receiver, const char* member,
+                             const QKeySequence &shortcut, const QString& name )
+{
+  KAction *action = new KAction( icon, text, mActionCollection );
+  action->setShortcut( shortcut );
+  if ( receiver ) {
+    connect( action, SIGNAL( triggered() ), receiver, member );
+  }
+  menu->addAction( action );
+  mActionCollection->addAction( name, action );
+  return action;
 }
 
 void KLineal::slotClose()
@@ -561,6 +577,11 @@ void KLineal::slotOpacity( int value )
   setWindowOpacity( value / 100.0 );
   RulerSettings::self()->setOpacity( value );
   RulerSettings::self()->writeConfig();
+}
+
+void KLineal::slotKeyBindings()
+{
+  KShortcutsDialog::configure( mActionCollection );
 }
 
 void KLineal::slotPreferences()
