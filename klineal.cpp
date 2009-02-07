@@ -84,6 +84,9 @@ KLineal::KLineal( QWidget *parent )
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
+  //setAttribute( Qt::WA_TranslucentBackground );
+  setWindowFlags( Qt::FramelessWindowHint );
+
   setMinimumSize( 60, 60 );
   setMaximumSize( 8000, 8000 );
   setWhatsThis( i18n( "This is a tool to measure pixel distances and colors on the screen. "
