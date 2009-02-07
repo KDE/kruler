@@ -84,7 +84,7 @@ KLineal::KLineal( QWidget *parent )
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
-  //setAttribute( Qt::WA_TranslucentBackground );
+  setAttribute( Qt::WA_TranslucentBackground );
   setWindowFlags( Qt::FramelessWindowHint );
 
   setMinimumSize( 60, 60 );
@@ -185,15 +185,15 @@ KLineal::KLineal( QWidget *parent )
   connect( relativeScaleAction, SIGNAL( toggled( bool ) ), this, SLOT( switchRelativeScale( bool ) ) );
   mMenu->addMenu( scaleMenu );
 
-  setWindowOpacity( RulerSettings::self()->opacity() / 100.0 );
+  mOpacity = RulerSettings::self()->opacity();
   KMenu* opacityMenu = new KMenu( i18n( "O&pacity" ), this );
   QWidgetAction *opacityAction = new QWidgetAction( this );
   QSlider *slider = new QSlider( this );
-  slider->setMinimum( 10 );
-  slider->setMaximum( 100 );
+  slider->setMinimum( 0 );
+  slider->setMaximum( 255 );
   slider->setSingleStep( 1 );
   slider->setOrientation( Qt::Horizontal );
-  slider->setValue( int( windowOpacity() * 100 ) );
+  slider->setValue( RulerSettings::self()->opacity() );
   connect( slider, SIGNAL( valueChanged( int ) ), this, SLOT( slotOpacity( int ) ) );
   opacityAction->setDefaultWidget( slider );
   opacityMenu->addAction( opacityAction );
@@ -322,6 +322,8 @@ void KLineal::drawBackground( QPainter& painter )
     gradient = QLinearGradient( 0, 1, width(), 1 );
     break;
   }
+  a.setAlpha( mOpacity );
+  b.setAlpha( mOpacity );
   gradient.setColorAt( 0, a );
   gradient.setColorAt( 1, b );
   painter.fillRect( rect(), QBrush( gradient ) );
@@ -577,7 +579,8 @@ void KLineal::slotLength()
 
 void KLineal::slotOpacity( int value )
 {
-  setWindowOpacity( value / 100.0 );
+  mOpacity = value;
+  repaint();
   RulerSettings::self()->setOpacity( value );
   RulerSettings::self()->writeConfig();
 }

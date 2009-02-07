@@ -89,6 +89,7 @@ private:
   int mOffset;
   bool mRelativeScale;
   KActionCollection *mActionCollection;
+  int mOpacity;
 
 public slots:
   void setOrientation( int );
