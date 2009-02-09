@@ -6,7 +6,7 @@ add_subdirectory( pics )
 
 set(kruler_SRCS qautosizelabel.cpp klineal.cpp main.cpp)
 
-kde4_add_ui_files(kruler_SRCS cfg_appearance.ui)
+kde4_add_ui_files(kruler_SRCS cfg_appearance.ui cfg_advanced.ui)
 
 kde4_add_kcfg_files(kruler_SRCS kruler.kcfgc)
 

@@ -44,10 +44,13 @@
 #include <KWindowSystem>
 #include <KApplication>
 
+#include <netwm.h>
+
 #include "kruler.h"
 #include "qautosizelabel.h"
 
 #include "ui_cfg_appearance.h"
+#include "ui_cfg_advanced.h"
 
 /**
  * this is our cursor bitmap:
@@ -617,6 +620,11 @@ void KLineal::slotPreferences()
   appearanceConfig.kcfg_CloseButtonVisible->setEnabled( appearanceConfig.kcfg_TrayIcon->isChecked() );
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), "preferences-desktop-default-applications" );
 
+  Ui::ConfigAdvanced advancedConfig;
+  QWidget *advancedConfigWidget = new QWidget( dialog );
+  advancedConfig.setupUi( advancedConfigWidget );
+  dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), "preferences-other" );
+
   dialog->exec();
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
@@ -835,7 +843,7 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
 
-  if ( mDragging && this == mouseGrabber() ) {
+  if ( mDragging && this == mouseGrabber() && !RulerSettings::self()->nativeMoving() ) {
     move( QCursor::pos() - mDragOffset );
   } else {
     QPoint p = QCursor::pos();
@@ -887,10 +895,20 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
   QRect gr = geometry();
   mDragOffset = mLastClickPos - QPoint( gr.left(), gr.top() );
   if ( inEvent->button() == Qt::LeftButton ) {
-    if ( !mDragging ) {
-      grabMouse( Qt::SizeAllCursor );
-      mDragging = true;
+#ifdef Q_WS_X11
+    if ( RulerSettings::self()->nativeMoving() ) {
+      XUngrabPointer( QX11Info::display(), QX11Info::appTime() );
+      NETRootInfo wm_root( QX11Info::display(), NET::WMMoveResize );
+      wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
+    } else {
+#endif
+      if ( !mDragging ) {
+        grabMouse( Qt::SizeAllCursor );
+        mDragging = true;
+      }
+#ifdef Q_WS_X11
     }
+#endif
   } else if ( inEvent->button() == Qt::MidButton ) {
     mClicked = true;
     turnLeft();
@@ -906,10 +924,19 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
 
-  if ( mDragging ) {
-    mDragging = false;
-    releaseMouse();
+#ifdef Q_WS_X11
+  if ( RulerSettings::self()->nativeMoving() ) {
+    NETRootInfo wm_root( QX11Info::display(), NET::WMMoveResize );
+    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
+  } else {
+#endif
+    if ( mDragging ) {
+      mDragging = false;
+      releaseMouse();
+    }
+#ifdef Q_WS_X11
   }
+#endif
 
   showLabel();
 }
