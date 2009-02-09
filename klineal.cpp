@@ -231,7 +231,7 @@ KLineal::KLineal( QWidget *parent )
  
     mCloseButton = new QToolButton( this );
     mCloseButton->setIcon( closeAction->icon() );
-    mCloseButton->setToolTip( closeAction->text().replace( '&', QString() ) );
+    mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
     connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
   }
 
@@ -926,13 +926,13 @@ void KLineal::wheelEvent( QWheelEvent *e )
       mOffset += numSteps;
 
       repaint();
-      mLabel->setText( i18n( "Offset: %1" ).arg( mOffset ) );
+      mLabel->setText( i18n( "Offset: %1", mOffset ) );
       saveSettings();
     }
   } else { // changing length
     int newLength = mLongEdgeLen + numSteps;
     reLengthAbsolute( newLength );
-    mLabel->setText( i18n( "Length: %1 px" ).arg( newLength ) );
+    mLabel->setText( i18n( "Length: %1 px", newLength ) );
   }
 
   QWidget::wheelEvent( e );
