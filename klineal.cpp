@@ -134,12 +134,14 @@ KLineal::KLineal( QWidget *parent )
   mBtnRotateLeft = new QToolButton( this );
   mBtnRotateLeft->setGeometry( mLongEdgeLen / 2 - 28, 5, 26, 26 );
   mBtnRotateLeft->setIcon( KIcon( "object-rotate-left" ) );
+  mBtnRotateLeft->setToolTip( i18n( "Turn Left" ) );
   mBtnRotateLeft->hide();
   connect( mBtnRotateLeft, SIGNAL( clicked() ), this, SLOT( turnLeft() ) );
 
   mBtnRotateRight = new QToolButton( this );
   mBtnRotateRight->setGeometry( mLongEdgeLen / 2 + 2, 5, 26, 26 );
   mBtnRotateRight->setIcon( KIcon( "object-rotate-right" ) );
+  mBtnRotateRight->setToolTip( i18n( "Turn Right" ) );
   mBtnRotateRight->hide();
   connect( mBtnRotateRight, SIGNAL( clicked() ), this, SLOT( turnRight() ) );
 
@@ -389,35 +391,29 @@ void KLineal::setOrientation( int inOrientation )
   case North:
     mLabel->move( 4, height()-mLabel->height() - 4 );
     mColorLabel->move( mLabel->pos() + QPoint( 0, -20 ) );
-    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, height() - 31 );
-    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, height() - 31 );
     mCurrentCursor = mNorthCursor;
     break;
 
   case South:
     mLabel->move( 4, 4 );
     mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
-    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, 5 );
-    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, 5 );
     mCurrentCursor = mSouthCursor;
     break;
 
   case East:
     mLabel->move( 4, 4 );
     mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
-    mBtnRotateLeft->move( 5, mLongEdgeLen / 2 - 28 );
-    mBtnRotateRight->move( 5, mLongEdgeLen / 2 + 2 );
     mCurrentCursor = mEastCursor;
     break;
 
   case West:
     mLabel->move( width()-mLabel->width() - 4, 4 );
     mColorLabel->move( mLabel->pos() + QPoint( -5, 20 ) );
-    mBtnRotateLeft->move( width() - 31, mLongEdgeLen / 2 - 28 );
-    mBtnRotateRight->move( width() - 31, mLongEdgeLen / 2 + 2 );
     mCurrentCursor = mWestCursor;
     break;
   }
+
+  adjustRotateButtons();
 
   if ( mLenMenu && mFullScreenAction ) {
     mFullScreenAction->setText( mOrientation % 2 ? i18n( "&Full Screen Height" ) : i18n( "&Full Screen Width" ) );
@@ -484,6 +480,7 @@ void KLineal::reLength( int percentOfScreen )
     move( x(), 10 );
   }
 
+  adjustRotateButtons();
   saveSettings();
 }
 
@@ -510,6 +507,7 @@ void KLineal::reLengthAbsolute( int length )
     move( x(), 10 );
   }
 
+  adjustRotateButtons();
   saveSettings();
 }
 
@@ -740,6 +738,34 @@ void KLineal::adjustLabel()
 
   s.sprintf( "%d%s", digit, ( mRelativeScale ? "%" : " px" ) );
   mLabel->setText( s );
+}
+
+/**
+ * Updates the position of the rotation buttons
+ */
+void KLineal::adjustRotateButtons()
+{
+  switch( mOrientation ) {
+  case North:
+    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, height() - 31 );
+    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, height() - 31 );
+    break;
+
+  case South:
+    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, 5 );
+    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, 5 );
+    break;
+
+  case East:
+    mBtnRotateLeft->move( 5, mLongEdgeLen / 2 - 28 );
+    mBtnRotateRight->move( 5, mLongEdgeLen / 2 + 2 );
+    break;
+
+  case West:
+    mBtnRotateLeft->move( width() - 31, mLongEdgeLen / 2 - 28 );
+    mBtnRotateRight->move( width() - 31, mLongEdgeLen / 2 + 2 );
+    break;
+  }
 }
 
 void KLineal::keyPressEvent( QKeyEvent *e )

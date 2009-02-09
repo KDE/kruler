@@ -105,6 +105,7 @@ public slots:
   void hideLabel();
   void showLabel();
   void adjustLabel();
+  void adjustRotateButtons();
   void setShortLength();
   void setMediumLength();
   void setTallLength();
