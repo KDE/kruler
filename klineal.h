@@ -92,6 +92,7 @@ private:
   KActionCollection *mActionCollection;
   int mOpacity;
   QToolButton *mBtnRotateLeft, *mBtnRotateRight;
+  QToolButton *mCloseButton;
 
 public slots:
   void setOrientation( int );
@@ -105,7 +106,7 @@ public slots:
   void hideLabel();
   void showLabel();
   void adjustLabel();
-  void adjustRotateButtons();
+  void adjustButtons();
   void setShortLength();
   void setMediumLength();
   void setTallLength();

@@ -42,7 +42,11 @@
       <default>255</default>
     </entry>
     <entry name="RotateButtonsVisible" type="Bool">
-      <label>Are the rotate buttons visible?</label>
+      <label>Are the rotate buttons visible</label>
+      <default>false</default>
+    </entry>
+    <entry name="CloseButtonVisible" type="Bool">
+      <label>Is the close button visible</label>
       <default>false</default>
     </entry>
   </group>
