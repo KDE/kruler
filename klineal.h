@@ -21,6 +21,7 @@
 #include <QWidget>
 
 class QAutoSizeLabel;
+class QToolButton;
 
 class KAction;
 class KActionCollection;
@@ -90,6 +91,7 @@ private:
   bool mRelativeScale;
   KActionCollection *mActionCollection;
   int mOpacity;
+  QToolButton *mBtnRotateLeft, *mBtnRotateRight;
 
 public slots:
   void setOrientation( int );

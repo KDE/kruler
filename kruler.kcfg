@@ -41,5 +41,9 @@
       <label>Opacity of the window</label>
       <default>255</default>
     </entry>
+    <entry name="RotateButtonsVisible" type="Bool">
+      <label>Are the rotate buttons visible?</label>
+      <default>false</default>
+    </entry>
   </group>
 </kcfg>
