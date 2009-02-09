@@ -22,7 +22,6 @@
 #include <QClipboard>
 #include <QPainter>
 #include <QMouseEvent>
-#include <QShortcut>
 #include <QSlider>
 #include <QToolButton>
 #include <QWidgetAction>
@@ -223,7 +222,6 @@ KLineal::KLineal( QWidget *parent )
   copyColorAction->setText( i18n( "Copy Color" ) );
   mActionCollection->addAction( "copy_color", copyColorAction );
   mMenu->addAction( copyColorAction );
-  new QShortcut( copyColorAction->shortcut().primary(), this, SLOT( copyColor() ) );
   mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
   mMenu->addSeparator();
@@ -232,13 +230,11 @@ KLineal::KLineal( QWidget *parent )
     KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
     mActionCollection->addAction( "close", closeAction );
     mMenu->addAction( closeAction );
-    new QShortcut( closeAction->shortcut().primary(), this, SLOT( slotClose() ) );
   }
 
   KAction *quit = KStandardAction::quit( kapp, SLOT( quit() ), this );
   mActionCollection->addAction( "quit", quit );
   mMenu->addAction( quit );
-  new QShortcut( quit->shortcut().primary(), this, SLOT(slotQuit() ) );
 
   mActionCollection->associateWidget( this );
   mActionCollection->readSettings();
