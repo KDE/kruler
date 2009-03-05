@@ -630,6 +630,7 @@ void KLineal::slotPreferences()
   mScaleFont = RulerSettings::self()->scaleFont();
   repaint();
   saveSettings();
+  delete dialog;
 }
 
 void KLineal::switchRelativeScale( bool checked )
