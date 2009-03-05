@@ -730,7 +730,9 @@ void KLineal::showLabel()
     mBtnRotateLeft->show();
     mBtnRotateRight->show();
   }
-  if ( mCloseButton && RulerSettings::self()->closeButtonVisible() ) {
+  if ( mCloseButton &&
+       RulerSettings::self()->closeButtonVisible() &&
+       RulerSettings::self()->trayIcon()) {
     mCloseButton->show();
   }
 }
