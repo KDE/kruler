@@ -54,6 +54,8 @@ protected:
   void enterEvent( QEvent *e );
   void leaveEvent( QEvent *e );
 
+    void createSystemTray();
+
 private:
   KAction* addAction( KMenu *menu, KIcon icon, const QString& text,
                       const QObject* receiver, const char* member,

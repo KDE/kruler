@@ -227,16 +227,8 @@ KLineal::KLineal( QWidget *parent )
   mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
   mMenu->addSeparator();
-
   if ( RulerSettings::self()->trayIcon() ) {
-    KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
-    mActionCollection->addAction( "close", closeAction );
-    mMenu->addAction( closeAction );
-
-    mCloseButton = new QToolButton( this );
-    mCloseButton->setIcon( closeAction->icon() );
-    mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
-    connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
+      createSystemTray();
   }
 
   KAction *quit = KStandardAction::quit( kapp, SLOT( quit() ), this );
@@ -251,15 +243,26 @@ KLineal::KLineal( QWidget *parent )
   hideLabel();
   setOrientation( mOrientation );
 
-  if ( RulerSettings::self()->trayIcon() ) {
-    mTrayIcon = new KSystemTrayIcon( KIcon( "kruler" ), this );
-    mTrayIcon->show();
-  }
 }
 
 KLineal::~KLineal()
 {
 }
+
+void KLineal::createSystemTray()
+{
+    KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
+    mActionCollection->addAction( "close", closeAction );
+    mMenu->addAction( closeAction );
+
+    mCloseButton = new QToolButton( this );
+    mCloseButton->setIcon( closeAction->icon() );
+    mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
+    connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
+    mTrayIcon = new KSystemTrayIcon( KIcon( "kruler" ), this );
+    mTrayIcon->show();
+}
+
 
 KAction* KLineal::addAction( KMenu *menu, KIcon icon, const QString& text,
                              const QObject* receiver, const char* member,
@@ -632,10 +635,15 @@ void KLineal::slotPreferences()
   repaint();
   saveSettings();
   delete dialog;
+
   if ( RulerSettings::self()->trayIcon() ) {
-      if ( !mTrayIcon )
-          mTrayIcon = new KSystemTrayIcon( KIcon( "kruler" ), this );
-      mTrayIcon->show();
+      if ( !mTrayIcon ) {
+          createSystemTray();
+          //need to adjust button
+          adjustButtons();
+      }
+      else
+          mTrayIcon->show();
   }
   else {
       if ( mTrayIcon ) {
