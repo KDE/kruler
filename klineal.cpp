@@ -629,29 +629,34 @@ void KLineal::slotPreferences()
   advancedConfig.setupUi( advancedConfigWidget );
   dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), "preferences-other" );
 
+  connect(dialog, SIGNAL(settingsChanged(const QString&)), SLOT(loadConfig()));
   dialog->exec();
-  mColor = RulerSettings::self()->bgColor();
-  mScaleFont = RulerSettings::self()->scaleFont();
-  repaint();
-  saveSettings();
   delete dialog;
-
-  if ( RulerSettings::self()->trayIcon() ) {
-      if ( !mTrayIcon ) {
-          createSystemTray();
-          //need to adjust button
-          adjustButtons();
-      }
-      else
-          mTrayIcon->show();
-  }
-  else {
-      if ( mTrayIcon ) {
-          mTrayIcon->hide();
-      }
-  }
-
 }
+
+void KLineal::loadConfig()
+{
+    mColor = RulerSettings::self()->bgColor();
+    mScaleFont = RulerSettings::self()->scaleFont();
+    saveSettings();
+
+    if ( RulerSettings::self()->trayIcon() ) {
+        if ( !mTrayIcon ) {
+            createSystemTray();
+            //need to adjust button
+            adjustButtons();
+        }
+        else
+            mTrayIcon->show();
+    }
+    else {
+        if ( mTrayIcon ) {
+            mTrayIcon->hide();
+        }
+    }
+    repaint();
+}
+
 
 void KLineal::switchRelativeScale( bool checked )
 {

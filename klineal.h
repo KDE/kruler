@@ -127,5 +127,6 @@ public slots:
   void saveSettings();
   void slotClose();
   void slotQuit();
+    void loadConfig();
 };
 #endif
