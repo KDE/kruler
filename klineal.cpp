@@ -83,7 +83,8 @@ KLineal::KLineal( QWidget *parent )
     mOffsetAction( 0 ),
     mClicked( false ),
     mActionCollection( 0 ),
-    mCloseButton( 0 )
+    mCloseButton( 0 ),
+    mTrayIcon( 0 )
 {
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
@@ -231,7 +232,7 @@ KLineal::KLineal( QWidget *parent )
     KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
     mActionCollection->addAction( "close", closeAction );
     mMenu->addAction( closeAction );
- 
+
     mCloseButton = new QToolButton( this );
     mCloseButton->setIcon( closeAction->icon() );
     mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
@@ -251,8 +252,8 @@ KLineal::KLineal( QWidget *parent )
   setOrientation( mOrientation );
 
   if ( RulerSettings::self()->trayIcon() ) {
-    KSystemTrayIcon *tray = new KSystemTrayIcon( KIcon( "kruler" ), this );
-    tray->show();
+    mTrayIcon = new KSystemTrayIcon( KIcon( "kruler" ), this );
+    mTrayIcon->show();
   }
 }
 
@@ -631,6 +632,17 @@ void KLineal::slotPreferences()
   repaint();
   saveSettings();
   delete dialog;
+  if ( RulerSettings::self()->trayIcon() ) {
+      if ( !mTrayIcon )
+          mTrayIcon = new KSystemTrayIcon( KIcon( "kruler" ), this );
+      mTrayIcon->show();
+  }
+  else {
+      if ( mTrayIcon ) {
+          mTrayIcon->hide();
+      }
+  }
+
 }
 
 void KLineal::switchRelativeScale( bool checked )

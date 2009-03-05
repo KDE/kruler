@@ -27,6 +27,7 @@ class KAction;
 class KActionCollection;
 class KIcon;
 class KMenu;
+class KSystemTrayIcon;
 
 class KLineal : public QWidget {
   Q_OBJECT
@@ -93,6 +94,7 @@ private:
   int mOpacity;
   QToolButton *mBtnRotateLeft, *mBtnRotateRight;
   QToolButton *mCloseButton;
+    KSystemTrayIcon *mTrayIcon;
 
 public slots:
   void setOrientation( int );
