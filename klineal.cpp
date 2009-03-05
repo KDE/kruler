@@ -473,6 +473,7 @@ void KLineal::setColor()
 {
   setColor( mColorSelector.color() );
   saveSettings();
+  delete dialog;
 }
 
 /**
