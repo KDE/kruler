@@ -47,6 +47,7 @@
 #include <netwm.h>
 
 #include "kruler.h"
+#include "krulersystemtray.h"
 #include "qautosizelabel.h"
 
 #include "ui_cfg_appearance.h"
@@ -259,7 +260,7 @@ void KLineal::createSystemTray()
     mCloseButton->setIcon( closeAction->icon() );
     mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
     connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
-    mTrayIcon = new KSystemTrayIcon( KIcon( "kruler" ), this );
+    mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this,mActionCollection );
     mTrayIcon->show();
 }
 
