@@ -40,9 +40,9 @@ public:
 
   void move( int x, int y );
   void move( const QPoint &p );
-  QPoint pos();
-  int x();
-  int y();
+  QPoint pos() const;
+  int x() const;
+  int y() const;
 
 protected:
   void keyPressEvent( QKeyEvent *e );

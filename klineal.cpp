@@ -299,17 +299,17 @@ void KLineal::move(const QPoint &p)
   setGeometry( QRect( p, size() ) );
 }
 
-QPoint KLineal::pos()
+QPoint KLineal::pos() const
 {
   return frameGeometry().topLeft();
 }
 
-int KLineal::x()
+int KLineal::x() const
 {
   return pos().x();
 }
 
-int KLineal::y()
+int KLineal::y() const
 {
   return pos().y();
 }
