@@ -25,4 +25,3 @@ KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget * parent, KAction
 
 }
 
-#include "krulersystemtray.moc"
