@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 
   KLineal *ruler = new KLineal();
   ruler->show();
-
-  return a.exec();
+  int ret = a.exec();
+  delete ruler;
+  return ret;
 }

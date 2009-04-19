@@ -248,6 +248,7 @@ KLineal::KLineal( QWidget *parent )
 
 KLineal::~KLineal()
 {
+    delete mTrayIcon;
 }
 
 void KLineal::createSystemTray()
