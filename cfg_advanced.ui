@@ -23,7 +23,7 @@
       <string>If this option is enabled, the window is being moved using the operations from the window manager.</string>
      </property>
      <property name="text" >
-      <string>Native Moving</string>
+      <string>Native moving</string>
      </property>
     </widget>
    </item>

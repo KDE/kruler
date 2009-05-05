@@ -184,9 +184,9 @@ KLineal::KLineal( QWidget *parent )
   mMenu->addMenu( mLenMenu );
 
   KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
-  mScaleDirectionAction = addAction( scaleMenu, KIcon(), i18n( "Right To Left" ),
+  mScaleDirectionAction = addAction( scaleMenu, KIcon(), i18n( "Right to Left" ),
                                      this, SLOT( switchDirection() ), Qt::Key_D, "right_to_left" );
-  mCenterOriginAction = addAction( scaleMenu, KIcon(), i18n( "Center origin" ),
+  mCenterOriginAction = addAction( scaleMenu, KIcon(), i18n( "Center Origin" ),
                                    this, SLOT( centerOrigin() ), Qt::Key_C, "center_origin" );
   mCenterOriginAction->setEnabled( !mRelativeScale );
   mOffsetAction = addAction( scaleMenu, KIcon(), i18n( "Offset..." ),
@@ -529,9 +529,9 @@ void KLineal::updateScaleDirectionMenuItem()
   QString label;
 
   if ( mOrientation == North || mOrientation == South ) {
-    label = mLeftToRight ? i18n( "Right To Left" ) : i18n( "Left To Right" );
+    label = mLeftToRight ? i18n( "Right to Left" ) : i18n( "Left to Right" );
   } else {
-    label = mLeftToRight ? i18n( "Bottom To Top" ) : i18n( "Top To Bottom" );
+    label = mLeftToRight ? i18n( "Bottom to Top" ) : i18n( "Top to Bottom" );
   }
 
   mScaleDirectionAction->setText( label );
@@ -577,7 +577,7 @@ void KLineal::centerOrigin()
 void KLineal::slotOffset()
 {
   bool ok;
-  int newOffset = KInputDialog::getInteger( i18n( "Scale offset" ),
+  int newOffset = KInputDialog::getInteger( i18n( "Scale Offset" ),
                                             i18n( "Offset:" ), mOffset,
                                             -2147483647, 2147483647, 1, &ok, this );
 
