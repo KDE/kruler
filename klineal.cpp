@@ -501,8 +501,6 @@ void KLineal::reLengthAbsolute( int length )
     return;
   }
 
-  QRect r = KGlobalSettings::desktopGeometry( this );
-
   mLongEdgeLen = length;
   if ( mOrientation == North || mOrientation == South ) {
     resize( mLongEdgeLen, height() );
