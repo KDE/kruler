@@ -14,13 +14,14 @@
  ***************************************************************************/
 
 #include "krulersystemtray.h"
-#include <QMenu>
+#include <KMenu>
 
 
 KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget * parent, KActionCollection *actions)
-    : KSystemTrayIcon( icon, parent )
+    : Experimental::KNotificationItem( parent )
 {
-    QMenu * cm = contextMenu();
+    setIconByPixmap(icon);
+    KMenu * cm = contextMenu();
     cm->addAction( actions->action("preferences") );
 
 }

@@ -17,9 +17,9 @@
 #define KRULERSYSTEMTRAY_H
 #include <kactioncollection.h>
 #include <kicon.h>
-#include <ksystemtrayicon.h>
+#include <knotificationitem.h>
 
-class KRulerSystemTray : public KSystemTrayIcon
+class KRulerSystemTray : public Experimental::KNotificationItem 
 {
 public:
     KRulerSystemTray( const KIcon &icon, QWidget * parent, KActionCollection *actions);

@@ -262,7 +262,7 @@ void KLineal::createSystemTray()
     mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
     connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
     mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this,mActionCollection );
-    mTrayIcon->show();
+    mTrayIcon->setCategory(Experimental::KNotificationItem::ApplicationStatus);
 }
 
 
@@ -646,12 +646,11 @@ void KLineal::loadConfig()
             //need to adjust button
             adjustButtons();
         }
-        else
-            mTrayIcon->show();
     }
     else {
         if ( mTrayIcon ) {
-            mTrayIcon->hide();
+            delete mTrayIcon;
+	    mTrayIcon = 0;
         }
     }
     repaint();
