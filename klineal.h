@@ -98,6 +98,7 @@ private:
   QToolButton *mCloseButton;
     KRulerSystemTray *mTrayIcon;
 
+  bool firstCreate;
 public slots:
   void setOrientation( int );
   void setNorth();

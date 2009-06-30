@@ -87,6 +87,7 @@ KLineal::KLineal( QWidget *parent )
     mCloseButton( 0 ),
     mTrayIcon( 0 )
 {
+  firstCreate = true;
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
@@ -253,16 +254,22 @@ KLineal::~KLineal()
 
 void KLineal::createSystemTray()
 {
-    KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
-    mActionCollection->addAction( "close", closeAction );
-    mMenu->addAction( closeAction );
+    if( firstCreate)
+    {
+      KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
+      mActionCollection->addAction( "close", closeAction );
+      mMenu->addAction( closeAction );
 
-    mCloseButton = new QToolButton( this );
-    mCloseButton->setIcon( closeAction->icon() );
-    mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
-    connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
-    mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this,mActionCollection );
-    mTrayIcon->setCategory(Experimental::KNotificationItem::ApplicationStatus);
+      mCloseButton = new QToolButton( this );
+      mCloseButton->setIcon( closeAction->icon() );
+      mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
+      connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
+      firstCreate = false;
+    }
+    if(!mTrayIcon) {
+      mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this,mActionCollection );
+      mTrayIcon->setCategory(Experimental::KNotificationItem::ApplicationStatus);
+    }
 }
 
 
