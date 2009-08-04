@@ -1,5 +1,5 @@
 /***************************************************************************
-                          klineal.h  -  description
+                          krulersystemtray.h  -  description
                              -------------------
     Copyright            : (C) 2009        by Montel Laurent <montel@kde.org>
  ***************************************************************************/
@@ -19,7 +19,7 @@
 #include <kicon.h>
 #include <knotificationitem.h>
 
-class KRulerSystemTray : public Experimental::KNotificationItem 
+class KRulerSystemTray : public Experimental::KNotificationItem
 {
 public:
     KRulerSystemTray( const KIcon &icon, QWidget * parent, KActionCollection *actions);
