@@ -15,6 +15,7 @@
 
 #ifndef KRULERSYSTEMTRAY_H
 #define KRULERSYSTEMTRAY_H
+
 #include <kactioncollection.h>
 #include <kicon.h>
 #include <knotificationitem.h>
@@ -22,7 +23,7 @@
 class KRulerSystemTray : public Experimental::KNotificationItem
 {
 public:
-    KRulerSystemTray( const KIcon &icon, QWidget * parent, KActionCollection *actions);
+  KRulerSystemTray( const KIcon &icon, QWidget *parent, KActionCollection *actions );
 };
 
 #endif

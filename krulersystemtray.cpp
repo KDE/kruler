@@ -17,12 +17,10 @@
 #include <KMenu>
 
 
-KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget * parent, KActionCollection *actions)
-    : Experimental::KNotificationItem( parent )
+KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget *parent, KActionCollection *actions)
+  : Experimental::KNotificationItem( parent )
 {
-    setIconByPixmap(icon);
-    KMenu * cm = contextMenu();
-    cm->addAction( actions->action("preferences") );
-
+  setIconByPixmap(icon);
+  KMenu *cm = contextMenu();
+  cm->addAction( actions->action( "preferences" ) );
 }
-
