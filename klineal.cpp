@@ -886,7 +886,7 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
   } else {
     QPoint p = QCursor::pos();
 
-    switch (mOrientation) {
+    switch ( mOrientation ) {
     case North:
       p.setY( p.y() - 46 );
       break;
@@ -995,9 +995,25 @@ void KLineal::wheelEvent( QWheelEvent *e )
       saveSettings();
     }
   } else { // changing length
+    int oldLen = mLongEdgeLen;
     int newLength = mLongEdgeLen + numSteps;
     reLengthAbsolute( newLength );
-    mLabel->setText( i18n( "Length: %1 px", newLength ) );
+    mLabel->setText( i18n( "Length: %1 px", mLongEdgeLen ) );
+
+    // when holding shift relength at the other side
+    if ( e->modifiers() & Qt::ShiftModifier ) {
+      int change = mLongEdgeLen - oldLen;
+
+      QPoint dist;
+
+      if ( mOrientation == North || mOrientation == South ) {
+        dist.setX( -change );
+      } else {
+        dist.setY( -change );
+      }
+
+      move( pos() + dist );
+    }
   }
 
   QWidget::wheelEvent( e );
