@@ -14,13 +14,15 @@
  ***************************************************************************/
 
 #include "krulersystemtray.h"
-#include <KMenu>
 
+#include <KLocale>
+#include <KMenu>
 
 KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget *parent, KActionCollection *actions)
   : Experimental::KNotificationItem( parent )
 {
-  setIconByPixmap(icon);
+  setIconByPixmap( icon );
+  setToolTip( icon, i18n( "KDE Screen Ruler" ), QString() );
   KMenu *cm = contextMenu();
   cm->addAction( actions->action( "preferences" ) );
 }
