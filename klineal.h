@@ -54,7 +54,7 @@ protected:
   void enterEvent( QEvent *e );
   void leaveEvent( QEvent *e );
 
-    void createSystemTray();
+  void createSystemTray();
 
 private:
   KAction* addAction( KMenu *menu, KIcon icon, const QString& text,
@@ -75,6 +75,7 @@ private:
   int mLongEdgeLen;
   int mShortEdgeLen;
   KMenu *mMenu;
+  QAction *mCloseAction;
   KMenu *mLenMenu;
   QAction *mFullScreenAction;
   QAction *mScaleDirectionAction;
@@ -96,9 +97,8 @@ private:
   int mOpacity;
   QToolButton *mBtnRotateLeft, *mBtnRotateRight;
   QToolButton *mCloseButton;
-    KRulerSystemTray *mTrayIcon;
+  KRulerSystemTray *mTrayIcon;
 
-  bool firstCreate;
 public slots:
   void setOrientation( int );
   void setNorth();
@@ -128,6 +128,6 @@ public slots:
   void saveSettings();
   void slotClose();
   void slotQuit();
-    void loadConfig();
+  void loadConfig();
 };
 #endif

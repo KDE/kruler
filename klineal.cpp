@@ -75,6 +75,7 @@ KLineal::KLineal( QWidget *parent )
   : QWidget( parent ),
     mDragging( false ),
     mShortEdgeLen( 70 ),
+    mCloseAction( 0 ),
     mLenMenu( 0 ),                // INFO This member could be eventually deleted
                                   // since if mFullScreenAction is initialized
                                   // mLenMenu should have been, too.
@@ -87,7 +88,6 @@ KLineal::KLineal( QWidget *parent )
     mCloseButton( 0 ),
     mTrayIcon( 0 )
 {
-  firstCreate = true;
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
@@ -249,27 +249,28 @@ KLineal::KLineal( QWidget *parent )
 
 KLineal::~KLineal()
 {
-    delete mTrayIcon;
+  delete mTrayIcon;
 }
 
 void KLineal::createSystemTray()
 {
-    if( firstCreate)
-    {
-      KAction *closeAction = KStandardAction::close( this, SLOT( slotClose() ), this );
-      mActionCollection->addAction( "close", closeAction );
-      mMenu->addAction( closeAction );
+  if ( !mCloseAction ) {
+    mCloseAction = KStandardAction::close( this, SLOT( slotClose() ), this );
+    mActionCollection->addAction( "close", mCloseAction );
+    mMenu->addAction( mCloseAction );
 
-      mCloseButton = new QToolButton( this );
-      mCloseButton->setIcon( closeAction->icon() );
-      mCloseButton->setToolTip( closeAction->text().remove( '&' ) );
-      connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
-      firstCreate = false;
-    }
-    if(!mTrayIcon) {
-      mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this,mActionCollection );
-      mTrayIcon->setCategory(Experimental::KNotificationItem::ApplicationStatus);
-    }
+    mCloseButton = new QToolButton( this );
+    mCloseButton->setIcon( mCloseAction->icon() );
+    mCloseButton->setToolTip( mCloseAction->text().remove( '&' ) );
+    connect( mCloseButton, SIGNAL( clicked() ), this, SLOT( slotClose() ) );
+  } else {
+    mCloseAction->setVisible( true );
+  }
+  
+  if ( !mTrayIcon ) {
+    mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this, mActionCollection );
+    mTrayIcon->setCategory( Experimental::KNotificationItem::ApplicationStatus );
+  }
 }
 
 
@@ -636,31 +637,34 @@ void KLineal::slotPreferences()
   advancedConfig.setupUi( advancedConfigWidget );
   dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), "preferences-other" );
 
-  connect(dialog, SIGNAL(settingsChanged(const QString&)), SLOT(loadConfig()));
+  connect( dialog, SIGNAL( settingsChanged( const QString& ) ), SLOT( loadConfig() ) );
   dialog->exec();
   delete dialog;
 }
 
 void KLineal::loadConfig()
 {
-    mColor = RulerSettings::self()->bgColor();
-    mScaleFont = RulerSettings::self()->scaleFont();
-    saveSettings();
+  mColor = RulerSettings::self()->bgColor();
+  mScaleFont = RulerSettings::self()->scaleFont();
+  saveSettings();
 
-    if ( RulerSettings::self()->trayIcon() ) {
-        if ( !mTrayIcon ) {
-            createSystemTray();
-            //need to adjust button
-            adjustButtons();
-        }
+  if ( RulerSettings::self()->trayIcon() ) {
+    if ( !mTrayIcon ) {
+      createSystemTray();
+      //need to adjust button
+      adjustButtons();
     }
-    else {
-        if ( mTrayIcon ) {
-            delete mTrayIcon;
-	    mTrayIcon = 0;
-        }
+  } else {
+    if ( mTrayIcon ) {
+      delete mTrayIcon;
+      mTrayIcon = 0;
     }
-    repaint();
+
+    if ( mCloseAction ) {
+      mCloseAction->setVisible( false );
+    }
+  }
+  repaint();
 }
 
 
