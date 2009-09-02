@@ -14,7 +14,7 @@ kde4_add_app_icon(kruler_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-apps-kruler.
 
 kde4_add_executable(kruler ${kruler_SRCS})
 
-target_link_libraries(kruler ${KDE4_KDEUI_LIBS} ${X11_LIBRARIES} ${LIBKNOTIFICATIONITEM-1_LIBRARIES})
+target_link_libraries(kruler ${KDE4_KDEUI_LIBS} ${X11_LIBRARIES})
 
 install(TARGETS kruler ${INSTALL_TARGETS_DEFAULT_ARGS})
 

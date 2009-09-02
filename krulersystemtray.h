@@ -20,7 +20,7 @@
 #include <kicon.h>
 #include <knotificationitem.h>
 
-class KRulerSystemTray : public Experimental::KNotificationItem
+class KRulerSystemTray : public KNotificationItem
 {
 public:
   KRulerSystemTray( const KIcon &icon, QWidget *parent, KActionCollection *actions );

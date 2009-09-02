@@ -19,7 +19,7 @@
 #include <KMenu>
 
 KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget *parent, KActionCollection *actions)
-  : Experimental::KNotificationItem( parent )
+  : KNotificationItem( parent )
 {
   setIconByPixmap( icon );
   setToolTip( icon, i18n( "KDE Screen Ruler" ), QString() );
