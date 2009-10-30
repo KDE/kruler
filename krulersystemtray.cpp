@@ -19,10 +19,10 @@
 #include <KMenu>
 
 KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget *parent, KActionCollection *actions)
-  : KNotificationItem( parent )
+  : KStatusNotifierItem( parent )
 {
   setIconByPixmap( icon );
-  setStatus(KNotificationItem::Active);
+  setStatus(KStatusNotifierItem::Active);
   setToolTip( icon, i18n( "KDE Screen Ruler" ), QString() );
   KMenu *cm = contextMenu();
   cm->addAction( actions->action( "preferences" ) );

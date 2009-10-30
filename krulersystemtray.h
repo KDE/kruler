@@ -18,9 +18,9 @@
 
 #include <kactioncollection.h>
 #include <kicon.h>
-#include <knotificationitem.h>
+#include <kstatusnotifieritem.h>
 
-class KRulerSystemTray : public KNotificationItem
+class KRulerSystemTray : public KStatusNotifierItem
 {
 public:
   KRulerSystemTray( const KIcon &icon, QWidget *parent, KActionCollection *actions );
