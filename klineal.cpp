@@ -268,7 +268,7 @@ void KLineal::createSystemTray()
   }
   
   if ( !mTrayIcon ) {
-    mTrayIcon = new KRulerSystemTray( KIcon( "kruler" ), this, mActionCollection );
+    mTrayIcon = new KRulerSystemTray( "kruler", this, mActionCollection );
     mTrayIcon->setCategory( KStatusNotifierItem::ApplicationStatus );
   }
 }

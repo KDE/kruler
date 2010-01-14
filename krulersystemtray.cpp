@@ -18,12 +18,12 @@
 #include <KLocale>
 #include <KMenu>
 
-KRulerSystemTray::KRulerSystemTray( const KIcon& icon, QWidget *parent, KActionCollection *actions)
+KRulerSystemTray::KRulerSystemTray( const QString& iconName, QWidget *parent, KActionCollection *actions)
   : KStatusNotifierItem( parent )
 {
-  setIconByPixmap( icon );
+  setIconByName( iconName );
   setStatus(KStatusNotifierItem::Active);
-  setToolTip( icon, i18n( "KDE Screen Ruler" ), QString() );
+  setToolTip( iconName, i18n( "KDE Screen Ruler" ), QString() );
   KMenu *cm = contextMenu();
   cm->addAction( actions->action( "preferences" ) );
 }
