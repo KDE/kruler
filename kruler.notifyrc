@@ -1,6 +1,11 @@
 [Global]
 IconName=kruler
 Comment=On-Screen Ruler
+Comment[pt]=Régua no Ecrã
+Comment[pt_BR]=Régua na tela
+Comment[ru]=Линейка на экране
+Comment[uk]=Екранна лінійка
+Comment[x-test]=xxOn-Screen Rulerxx
 
 [Event/cursormove]
 Name=Moved by Cursor Keys
