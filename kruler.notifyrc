@@ -1,6 +1,7 @@
 [Global]
 IconName=kruler
 Comment=On-Screen Ruler
+Comment[nds]=Op-Schirm-Lineaal
 Comment[pt]=Régua no Ecrã
 Comment[pt_BR]=Régua na tela
 Comment[ru]=Линейка на экране
