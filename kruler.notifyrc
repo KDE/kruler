@@ -1,6 +1,10 @@
 [Global]
 IconName=kruler
 Comment=On-Screen Ruler
+Comment[es]=Regla para la pantalla
+Comment[hr]=Ravnalo na zaslonu
+Comment[is]=Reglustika á skjáinn
+Comment[nb]=Skjermlinjal
 Comment[nds]=Op-Schirm-Lineaal
 Comment[pt]=Régua no Ecrã
 Comment[pt_BR]=Régua na tela
