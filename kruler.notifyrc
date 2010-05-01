@@ -1,6 +1,7 @@
 [Global]
 IconName=kruler
 Comment=On-Screen Ruler
+Comment[cs]=Obrazovkové pravítko
 Comment[de]=Bildschirmlineal
 Comment[en_GB]=On-Screen Ruler
 Comment[es]=Regla para la pantalla
