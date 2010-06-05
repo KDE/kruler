@@ -22,6 +22,7 @@ Comment[sv]=Skärmlinjal
 Comment[th]=ไม้บรรทัดบนหน้าจอ
 Comment[uk]=Екранна лінійка
 Comment[x-test]=xxOn-Screen Rulerxx
+Comment[zh_CN]=屏幕标尺
 Comment[zh_TW]=螢幕尺規
 
 [Event/cursormove]
