@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {
   KAboutData aboutData( "kruler", 0, ki18n( "KDE Screen Ruler" ),
     KDE_VERSION_STRING,
-    ki18n( "A screen ruler for the K Desktop Environment" ),
+    ki18n( "A screen ruler for KDE" ),
     KAboutData::License_GPL,
     ki18n( "(c) 2000 - 2008, Till Krech\n(c) 2009, Mathias Soeken" ) );
   aboutData.addAuthor( ki18n( "Mathias Soeken" ), ki18n( "Maintainer" ), "msoeken@tzi.de" );

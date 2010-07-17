@@ -93,6 +93,7 @@ KLineal::KLineal( QWidget *parent )
 
   setAttribute( Qt::WA_TranslucentBackground );
   setWindowFlags( Qt::FramelessWindowHint );
+  setWindowTitle( i18n( "KRuler" ) );
 
   setMinimumSize( 60, 60 );
   setMaximumSize( 8000, 8000 );
