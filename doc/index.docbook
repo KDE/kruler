@@ -53,7 +53,7 @@
 <title>Introduction</title>
 
 <para>&kruler; is a very simple application, with only one aim in life.  To
-measure pixes distances and colors on your screen. It is usefull for working on
+measure pixel distances and colors on your screen. It is useful for working on
 layout of dialogs, webpages &etc;</para>
 
 <para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Graphics</guisubmenu> 
@@ -89,7 +89,7 @@ applications.</para>
 <para>You can change the orientation in three different ways:</para>
 
 <simplelist>
-<member>Clicking the &MMB; switches the ruler from vertical to horizotal orientation</member>
+<member>Clicking the &MMB; switches the ruler from vertical to horizontal orientation</member>
 <member>By clicking the rotation buttons to turn 90 degrees to the left or right. 
 If the rotation buttons are not displayed on the ruler, enable them with <guilabel>Show 
 rotation buttons</guilabel> in the <link linkend="settings-dialog">settings dialog</link></member>
