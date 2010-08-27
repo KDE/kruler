@@ -310,7 +310,7 @@ West, it will rotate to be oriented South.</para>
 </menuchoice>
 </term>
 <listitem>
-<para> slider.</para>
+<para>This menu item displays a slider to change the opacity of &kruler;.</para>
 </listitem>
 </varlistentry>
 
