@@ -25,5 +25,5 @@ KRulerSystemTray::KRulerSystemTray( const QString& iconName, QWidget *parent, KA
   setStatus(KStatusNotifierItem::Active);
   setToolTip( iconName, i18n( "KDE Screen Ruler" ), QString() );
   KMenu *cm = contextMenu();
-  cm->addAction( actions->action( "preferences" ) );
+  cm->addAction( actions->action( QLatin1String( "preferences" ) ) );
 }
