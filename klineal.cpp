@@ -656,10 +656,8 @@ void KLineal::loadConfig()
       adjustButtons();
     }
   } else {
-    if ( mTrayIcon ) {
-      delete mTrayIcon;
-      mTrayIcon = 0;
-    }
+    delete mTrayIcon;
+    mTrayIcon = 0;
 
     if ( mCloseAction ) {
       mCloseAction->setVisible( false );
