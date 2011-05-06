@@ -93,7 +93,7 @@ KLineal::KLineal( QWidget *parent )
 
   setAttribute( Qt::WA_TranslucentBackground );
   setWindowFlags( Qt::FramelessWindowHint );
-  setWindowTitle( i18n( "KRuler" ) );
+  setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
   setMinimumSize( 60, 60 );
   setMaximumSize( 8000, 8000 );
@@ -584,7 +584,7 @@ void KLineal::centerOrigin()
 void KLineal::slotOffset()
 {
   bool ok;
-  int newOffset = KInputDialog::getInteger( i18n( "Scale Offset" ),
+  int newOffset = KInputDialog::getInteger( i18nc( "@title:window", "Scale Offset" ),
                                             i18n( "Offset:" ), mOffset,
                                             -2147483647, 2147483647, 1, &ok, this );
 
@@ -601,7 +601,7 @@ void KLineal::slotLength()
   bool ok;
   QRect r = KGlobalSettings::desktopGeometry( this );
   int width = ( ( mOrientation == North ) || ( mOrientation == South ) ) ? r.width() : r.height();
-  int newLength = KInputDialog::getInteger( i18n( "Ruler Length" ),
+  int newLength = KInputDialog::getInteger( i18nc( "@title:window", "Ruler Length" ),
                                             i18n( "Length:" ), mLongEdgeLen,
                                             0, width, 1, &ok, this );
 
