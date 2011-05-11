@@ -2,6 +2,7 @@
 IconName=kruler
 Comment=On-Screen Ruler
 Comment[bg]=Линийка за екрана
+Comment[bs]=Ekranski lenjir
 Comment[ca]=Regle de pantalla
 Comment[ca@valencia]=Regle de pantalla
 Comment[cs]=Obrazovkové pravítko
@@ -114,6 +115,7 @@ Comment[af]=Die liniaal het verskuif beeldelement-gewys te gebruik Die plekaandu
 Comment[ar]=المسطرة تحركت في اتجاه البكسل باستخدام مفاتيح المؤشر
 Comment[ast]=La regla movióse píxel a píxel usando les tecles del cursor
 Comment[bg]=Линийката е преместена на ниво пиксели чрез клавишите
+Comment[bs]=Lenjir je pomjeren za piksel pokazivačkim tasterima
 Comment[ca]=El regle es mou píxel a píxel amb les tecles de cursor
 Comment[ca@valencia]=El regle es mou píxel a píxel amb les tecles de cursor
 Comment[cs]=Pravítko bylo kurzorovými klávesami posunuto o několik bodů
