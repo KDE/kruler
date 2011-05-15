@@ -76,6 +76,7 @@ private:
   int mShortEdgeLen;
   KMenu *mMenu;
   QAction *mCloseAction;
+  QAction *mKeepAboveOthersAction;
   KMenu *mLenMenu;
   QAction *mFullScreenAction;
   QAction *mScaleDirectionAction;
@@ -107,6 +108,7 @@ public slots:
   void setWest();
   void turnLeft();
   void turnRight();
+  void keepAboveOthers( bool checked );
   void showMenu();
   void hideLabel();
   void showLabel();

@@ -40,6 +40,7 @@
 #include <KShortcutsDialog>
 #include <KStandardAction>
 #include <KSystemTrayIcon>
+#include <KToggleAction>
 #include <KToolInvocation>
 #include <KWindowSystem>
 #include <KApplication>
@@ -76,6 +77,7 @@ KLineal::KLineal( QWidget *parent )
     mDragging( false ),
     mShortEdgeLen( 70 ),
     mCloseAction( 0 ),
+    mKeepAboveOthersAction( 0 ),
     mLenMenu( 0 ),                // INFO This member could be eventually deleted
                                   // since if mFullScreenAction is initialized
                                   // mLenMenu should have been, too.
@@ -92,7 +94,7 @@ KLineal::KLineal( QWidget *parent )
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
   setAttribute( Qt::WA_TranslucentBackground );
-  setWindowFlags( Qt::FramelessWindowHint );
+  setWindowFlags( windowFlags() | Qt::FramelessWindowHint );
   setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
   setMinimumSize( 60, 60 );
@@ -169,6 +171,10 @@ KLineal::KLineal( QWidget *parent )
              this, SLOT( turnRight() ), Qt::Key_R, QLatin1String( "turn_right" ) );
   addAction( oriMenu, KIcon( QLatin1String( "object-rotate-left" ) ), i18n( "Turn &Left" ),
              this, SLOT( turnLeft() ), Qt::Key_L, QLatin1String( "turn_left" ) );
+  oriMenu->addSeparator();
+  mKeepAboveOthersAction = new KToggleAction( KIcon( QLatin1String( "go-up" ) ), i18n( "Keep &Above Others" ), oriMenu );
+  connect( mKeepAboveOthersAction, SIGNAL( triggered( bool ) ), this, SLOT( keepAboveOthers( bool ) ) );
+  oriMenu->addAction( mKeepAboveOthersAction );
   mMenu->addMenu( oriMenu );
 
   mLenMenu = new KMenu( i18n( "&Length" ), this );
@@ -474,6 +480,20 @@ void KLineal::turnRight()
 void KLineal::turnLeft()
 {
   setOrientation( mOrientation + 1 );
+}
+
+void KLineal::keepAboveOthers( bool checked )
+{
+  if (checked)
+  {
+    setWindowFlags( Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint );
+    show();
+  }
+  else
+  {
+    setWindowFlags( Qt::Window | Qt::FramelessWindowHint );
+    show();
+  }
 }
 
 void KLineal::reLength( int percentOfScreen )
