@@ -1,6 +1,7 @@
 [Global]
 IconName=kruler
 Comment=On-Screen Ruler
+Comment[ar]=مسطرة الشاشة
 Comment[bg]=Линийка за екрана
 Comment[bs]=Ekranski lenjir
 Comment[ca]=Regle de pantalla
