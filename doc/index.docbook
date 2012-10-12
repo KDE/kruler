@@ -6,9 +6,9 @@
   <!ENTITY % addindex "IGNORE">
 ]>
 
-<book lang="&language;">
+<book id="kruler" lang="&language;">
 
-<bookinfo>
+<book id="kruler"info>
 <title>The &kruler; Handbook</title>
 
 <authorgroup>
