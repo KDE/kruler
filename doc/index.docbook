@@ -30,8 +30,8 @@
 <holder>&Lauri.Watts;</holder>
 </copyright>
 
-<date>2010-08-26</date>
-<releaseinfo>4.5</releaseinfo>
+<date>2013-06-24</date>
+<releaseinfo>&kde; 4.11</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -54,7 +54,7 @@
 
 <para>&kruler; is a very simple application, with only one aim in life.  To
 measure pixel distances and colors on your screen. It is useful for working on
-layout of dialogs, webpages &etc;</para>
+layout of dialogs, web pages &etc;</para>
 
 <para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Graphics</guisubmenu> 
 <guisubmenu>More Applications</guisubmenu>
@@ -287,6 +287,10 @@ West, it will rotate to be oriented South.</para>
 </listitem>
 </varlistentry>
 </variablelist>
+<para>Additionally you can change the lenght and move the right side of the ruler using the mousewheel. 
+When holding the &Shift; key the opposite side will change.
+</para>
+
 </listitem>
 </varlistentry>
 
@@ -300,6 +304,7 @@ West, it will rotate to be oriented South.</para>
 <para>This option lets you set the ruler scale to <guilabel>Right to Left</guilabel> 
 (<keycap>D</keycap>), <guilabel>Center Origin</guilabel> (<keycap>C</keycap>), 
 <guilabel>Offset</guilabel> (<keycap>O</keycap>) and <guilabel>Percentage</guilabel>.</para>
+<para>Changing the offset via the mousewheel is also possible when holding the &LMB;.</para>
 </listitem>
 </varlistentry>
 
@@ -323,6 +328,9 @@ West, it will rotate to be oriented South.</para>
 <listitem>
 <para>The <guilabel>Configure Shortcut</guilabel> dialog allows you to assign shortcuts
 to &kruler; actions, and configure the shortcuts already assigned.</para>
+<para>For more information read the section about the 
+<ulink url="help:/fundamentals/config.html#shortcuts">Shortcuts</ulink> of the &kde; Fundamentals.
+</para>
 </listitem>
 </varlistentry>
 
@@ -366,19 +374,6 @@ buttons on the ruler and enable the tray icon.</para>
 </varlistentry>
 
 <varlistentry>
-<term>
-<menuchoice>
-<guisubmenu>Help</guisubmenu>
-</menuchoice>
-</term> 
-<listitem>
-&help.menu.documentation;
-</listitem>
-</varlistentry>
-</variablelist>
-
-<variablelist>
-<varlistentry>
 <term> 
 <menuchoice>
 <shortcut>
@@ -408,6 +403,10 @@ The context menu displays this item only when <guilabel>Show tray icon</guilabel
 </listitem>
 </varlistentry>
 </variablelist>
+<para>
+&kruler; has the common &kde; <guimenu>Help</guimenu> menu item, for more information read the section 
+about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink> of the &kde; Fundamentals.
+</para>
 
 </chapter>
 
@@ -417,6 +416,7 @@ The context menu displays this item only when <guilabel>Show tray icon</guilabel
 <para>&kruler;</para>
 
 <para>Copyright 2000, 2001 Till Krech <email>till@snafu.de</email></para>
+<para>Copyright 2009 Mathias Soeken <email>msoeken@tzi.de</email></para>
 
 <para>Thanks to Gunnstein Lye <email>gl@ez.no</email> for the initial port to
 &kde; 2</para>
