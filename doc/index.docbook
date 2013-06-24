@@ -287,7 +287,7 @@ West, it will rotate to be oriented South.</para>
 </listitem>
 </varlistentry>
 </variablelist>
-<para>Additionally you can change the lenght and move the right side of the ruler using the mousewheel. 
+<para>Additionally, you can change the length and move the right side of the ruler using the mousewheel. 
 When holding the &Shift; key the opposite side will change.
 </para>
 
@@ -328,7 +328,7 @@ When holding the &Shift; key the opposite side will change.
 <listitem>
 <para>The <guilabel>Configure Shortcut</guilabel> dialog allows you to assign shortcuts
 to &kruler; actions, and configure the shortcuts already assigned.</para>
-<para>For more information read the section about the 
+<para>For more information, read the section about the 
 <ulink url="help:/fundamentals/config.html#shortcuts">Shortcuts</ulink> of the &kde; Fundamentals.
 </para>
 </listitem>
