@@ -2,7 +2,7 @@
 <!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
 <kcfg>
   <kcfgfile name="krulerrc"/>
-  <include>KGlobalSettings</include>
+  <include>QFontDatabase</include>
   <group name="StoredSettings">
     <entry name="BgColor" type="Color">
       <label>Background color of the ruler.</label>
@@ -14,7 +14,7 @@
     </entry>
     <entry name="ScaleFont" type="Font">
       <label>Font of the text on the ruler scale.</label>
-      <default code="true">QFont( KGlobalSettings::generalFont().family(), 6 )</default>
+      <default code="true">QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont)</default>
     </entry>
     <entry name="Orientation" type="Int">
       <label>Orientation of the ruler</label>

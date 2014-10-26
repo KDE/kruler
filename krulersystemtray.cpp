@@ -15,8 +15,10 @@
 
 #include "krulersystemtray.h"
 
-#include <KLocale>
-#include <KMenu>
+#include <QMenu>
+
+#include <KActionCollection>
+#include <KLocalizedString>
 
 KRulerSystemTray::KRulerSystemTray( const QString& iconName, QWidget *parent, KActionCollection *actions)
   : KStatusNotifierItem( parent )
@@ -24,6 +26,6 @@ KRulerSystemTray::KRulerSystemTray( const QString& iconName, QWidget *parent, KA
   setIconByName( iconName );
   setStatus(KStatusNotifierItem::Active);
   setToolTip( iconName, i18n( "KDE Screen Ruler" ), QString() );
-  KMenu *cm = contextMenu();
+  QMenu *cm = contextMenu();
   cm->addAction( actions->action( QLatin1String( "preferences" ) ) );
 }

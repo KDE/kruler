@@ -20,13 +20,13 @@
 
 #include <QWidget>
 
+class QAction;
 class QAutoSizeLabel;
+class QIcon;
+class QMenu;
 class QToolButton;
 
-class KAction;
 class KActionCollection;
-class KIcon;
-class KMenu;
 class KRulerSystemTray;
 
 class KLineal : public QWidget {
@@ -57,7 +57,7 @@ protected:
   void createSystemTray();
 
 private:
-  KAction* addAction( KMenu *menu, KIcon icon, const QString& text,
+  QAction* addAction( QMenu *menu, const QIcon& icon, const QString& text,
                       const QObject* receiver, const char* member,
                       const QKeySequence &shortcut, const QString& name );
   void drawScale( QPainter &painter );
@@ -65,6 +65,7 @@ private:
   void reLength( int percentOfScreen );
   void reLengthAbsolute( int length );
   void updateScaleDirectionMenuItem();
+  QColor pixelColor( const QPoint &p );
 
   bool mDragging;
   QPoint mLastClickPos;
@@ -74,9 +75,9 @@ private:
   int mOrientation;
   int mLongEdgeLen;
   int mShortEdgeLen;
-  KMenu *mMenu;
+  QMenu *mMenu;
   QAction *mCloseAction;
-  KMenu *mLenMenu;
+  QMenu *mLenMenu;
   QAction *mFullScreenAction;
   QAction *mScaleDirectionAction;
   QAction *mCenterOriginAction;

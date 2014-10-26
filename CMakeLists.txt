@@ -1,26 +1,48 @@
 project(kruler)
 
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+set(QT_MIN_VERSION "5.2.0")
 
-add_subdirectory( pics )
+find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+add_definitions(-DTRANSLATION_DOMAIN="kruler")
+
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(ECMInstallIcons)
+include(FeatureSummary)
+
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Core
+    Widgets
+)
+
+find_package(KF5 REQUIRED COMPONENTS
+    DocTools
+    I18n
+    Notifications
+    WindowSystem
+    XmlGui
+)
+
+#add_subdirectory( pics )
 add_subdirectory( doc )
-
-include_directories (${KDE4_INCLUDES})
 
 ########### next target ###############
 
 set(kruler_SRCS qautosizelabel.cpp klineal.cpp main.cpp krulersystemtray.cpp)
 
-kde4_add_ui_files(kruler_SRCS cfg_appearance.ui cfg_advanced.ui)
+ki18n_wrap_ui(kruler_SRCS cfg_appearance.ui cfg_advanced.ui)
 
-kde4_add_kcfg_files(kruler_SRCS kruler.kcfgc)
+kconfig_add_kcfg_files(kruler_SRCS kruler.kcfgc)
 
-kde4_add_app_icon(kruler_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-apps-kruler.png")
+#kde4_add_app_icon(kruler_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-apps-kruler.png")
 
-kde4_add_executable(kruler ${kruler_SRCS})
+add_executable(kruler ${kruler_SRCS})
 
-target_link_libraries(kruler ${KDE4_KDEUI_LIBS} ${X11_LIBRARIES})
+target_link_libraries(kruler KF5::I18n KF5::Notifications KF5::WindowSystem KF5::XmlGui)
 
 install(TARGETS kruler ${INSTALL_TARGETS_DEFAULT_ARGS})
 

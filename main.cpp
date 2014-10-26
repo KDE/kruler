@@ -14,30 +14,26 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kapplication.h>
-#include <kdeversion.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
-#include <klocale.h>
+#include <QApplication>
+
+#include <KAboutData>
+#include <KLocalizedString>
 
 #include "klineal.h"
 
 int main(int argc, char *argv[])
 {
-  KAboutData aboutData( "kruler", 0, ki18n( "KDE Screen Ruler" ),
-    KDE_VERSION_STRING,
-    ki18n( "A screen ruler for KDE" ),
-    KAboutData::License_GPL,
-    ki18n( "(c) 2000 - 2008, Till Krech\n(c) 2009, Mathias Soeken" ) );
-  aboutData.addAuthor( ki18n( "Mathias Soeken" ), ki18n( "Maintainer" ), "msoeken@tzi.de" );
-  aboutData.addAuthor( ki18n( "Till Krech" ), ki18n( "Former Maintainer and Developer" ), "till@snafu.de" );
-  aboutData.addCredit( ki18n( "Gunnstein Lye" ),ki18n( "Initial port to KDE 2" ), "gl@ez.no" );
-  KCmdLineArgs::init( argc, argv, &aboutData );
+  KAboutData aboutData( "kruler", i18n( "KDE Screen Ruler" ),
+    "5.0", // version string
+    i18n( "A screen ruler for KDE" ),
+    KAboutLicense::GPL,
+    i18n( "(c) 2000 - 2008, Till Krech\n(c) 2009, Mathias Soeken" ) );
+  aboutData.addAuthor( i18n( "Mathias Soeken" ), i18n( "Maintainer" ), "msoeken@tzi.de" );
+  aboutData.addAuthor( i18n( "Till Krech" ), i18n( "Former Maintainer and Developer" ), "till@snafu.de" );
+  aboutData.addCredit( i18n( "Gunnstein Lye" ),i18n( "Initial port to KDE 2" ), "gl@ez.no" );
 
-  KCmdLineOptions options;
-  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
-
-  KApplication a;
+  QApplication a( argc, argv );
+  KAboutData::setApplicationData(aboutData);
 
   KLineal *ruler = new KLineal();
   ruler->show();

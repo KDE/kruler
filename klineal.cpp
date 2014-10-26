@@ -17,32 +17,33 @@
 
 #include "klineal.h"
 
+#include <QAction>
+#include <QApplication>
 #include <QBitmap>
 #include <QBrush>
 #include <QClipboard>
-#include <QPainter>
+#include <QDesktopWidget>
+#include <QFontDatabase>
+#include <QInputDialog>
+#include <QMenu>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QScreen>
 #include <QSlider>
 #include <QToolButton>
 #include <QWidgetAction>
 
-#include <KAction>
+#include <KAboutData>
 #include <KActionCollection>
-#include <KColorDialog>
 #include <KConfig>
 #include <KConfigDialog>
-#include <KGlobalSettings>
+#include <KHelpClient>
 #include <KHelpMenu>
-#include <KInputDialog>
-#include <KLocale>
-#include <KMenu>
+#include <KLocalizedString>
 #include <KNotification>
 #include <KShortcutsDialog>
 #include <KStandardAction>
-#include <KSystemTrayIcon>
-#include <KToolInvocation>
 #include <KWindowSystem>
-#include <KApplication>
 
 #include <netwm.h>
 
@@ -88,10 +89,10 @@ KLineal::KLineal( QWidget *parent )
     mCloseButton( 0 ),
     mTrayIcon( 0 )
 {
+  setAttribute( Qt::WA_TranslucentBackground );
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
-  setAttribute( Qt::WA_TranslucentBackground );
   setWindowFlags( Qt::FramelessWindowHint );
   setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
@@ -123,14 +124,10 @@ KLineal::KLineal( QWidget *parent )
 
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
-  QFont labelFont( KGlobalSettings::generalFont().family(), 10 );
-  labelFont.setPixelSize( 10 );
-  mLabel->setFont( labelFont );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
   mColorLabel = new QAutoSizeLabel( this );
   mColorLabel->setAutoFillBackground( true );
-  QFont colorFont( KGlobalSettings::fixedFont().family(), 10 );
-  colorFont.setPixelSize( 10 );
+  QFont colorFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
   mColorLabel->setFont( colorFont );
   mColorLabel->move( mLabel->pos() + QPoint(0, 20) );
   mColorLabel->setWhatsThis(i18n("This is the current color in hexadecimal rgb representation"
@@ -139,12 +136,12 @@ KLineal::KLineal( QWidget *parent )
                                  "little square at the end of the line cursor." ) );
 
   mBtnRotateLeft = new QToolButton( this );
-  mBtnRotateLeft->setIcon( KIcon( QLatin1String(  "object-rotate-left" ) ) );
+  mBtnRotateLeft->setIcon( QIcon::fromTheme( QLatin1String(  "object-rotate-left" ) ) );
   mBtnRotateLeft->setToolTip( i18n( "Turn Left" ) );
   connect( mBtnRotateLeft, SIGNAL(clicked()), this, SLOT(turnLeft()) );
 
   mBtnRotateRight = new QToolButton( this );
-  mBtnRotateRight->setIcon( KIcon( QLatin1String(  "object-rotate-right" ) ) );
+  mBtnRotateRight->setIcon( QIcon::fromTheme( QLatin1String(  "object-rotate-right" ) ) );
   mBtnRotateRight->setToolTip( i18n( "Turn Right" ) );
   connect( mBtnRotateRight, SIGNAL(clicked()), this, SLOT(turnRight()) );
 
@@ -154,48 +151,48 @@ KLineal::KLineal( QWidget *parent )
   mActionCollection = new KActionCollection( this );
   mActionCollection->setConfigGroup( QLatin1String( "Actions" ) );
 
-  mMenu = new KMenu( this );
-  mMenu->addTitle( i18n( "KRuler" ) );
-  KMenu *oriMenu = new KMenu( i18n( "&Orientation"), this );
-  addAction( oriMenu, KIcon( QLatin1String( "kruler-north" ) ), i18nc( "Turn Kruler North", "&North" ),
+  mMenu = new QMenu( this );
+  mMenu->addSection( i18n( "KRuler" ) );
+  QMenu *oriMenu = new QMenu( i18n( "&Orientation"), this );
+  addAction( oriMenu, QIcon::fromTheme( QLatin1String( "kruler-north" ) ), i18nc( "Turn Kruler North", "&North" ),
              this, SLOT(setNorth()), Qt::Key_N, QLatin1String( "turn_north" ) );
-  addAction( oriMenu, KIcon( QLatin1String( "kruler-east" ) ), i18nc( "Turn Kruler East", "&East" ),
+  addAction( oriMenu, QIcon::fromTheme( QLatin1String( "kruler-east" ) ), i18nc( "Turn Kruler East", "&East" ),
              this, SLOT(setEast()), Qt::Key_E, QLatin1String( "turn_east" ) );
-  addAction( oriMenu, KIcon( QLatin1String( "kruler-south" ) ), i18nc( "Turn Kruler South", "&South" ),
+  addAction( oriMenu, QIcon::fromTheme( QLatin1String( "kruler-south" ) ), i18nc( "Turn Kruler South", "&South" ),
              this, SLOT(setSouth()), Qt::Key_S, QLatin1String( "turn_south" ) );
-  addAction( oriMenu, KIcon( QLatin1String( "kruler-west" ) ), i18nc( "Turn Kruler West", "&West" ),
+  addAction( oriMenu, QIcon::fromTheme( QLatin1String( "kruler-west" ) ), i18nc( "Turn Kruler West", "&West" ),
              this, SLOT(setWest()), Qt::Key_W, QLatin1String( "turn_west" ) );
-  addAction( oriMenu, KIcon( QLatin1String( "object-rotate-right" ) ), i18n( "&Turn Right" ),
+  addAction( oriMenu, QIcon::fromTheme( QLatin1String( "object-rotate-right" ) ), i18n( "&Turn Right" ),
              this, SLOT(turnRight()), Qt::Key_R, QLatin1String( "turn_right" ) );
-  addAction( oriMenu, KIcon( QLatin1String( "object-rotate-left" ) ), i18n( "Turn &Left" ),
+  addAction( oriMenu, QIcon::fromTheme( QLatin1String( "object-rotate-left" ) ), i18n( "Turn &Left" ),
              this, SLOT(turnLeft()), Qt::Key_L, QLatin1String( "turn_left" ) );
   mMenu->addMenu( oriMenu );
 
-  mLenMenu = new KMenu( i18n( "&Length" ), this );
-  addAction( mLenMenu, KIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
+  mLenMenu = new QMenu( i18n( "&Length" ), this );
+  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
              this, SLOT(setShortLength()), Qt::CTRL + Qt::Key_S, QLatin1String( "length_short" ) );
-  addAction( mLenMenu, KIcon(), i18nc( "Make Kruler Height Medium", "&Medium" ),
+  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Medium", "&Medium" ),
              this, SLOT(setMediumLength()), Qt::CTRL + Qt::Key_M, QLatin1String( "length_medium" ) );
-  addAction( mLenMenu, KIcon(), i18nc( "Make Kruler Height Tall", "&Tall" ),
+  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Tall", "&Tall" ),
              this, SLOT(setTallLength()), Qt::CTRL + Qt::Key_T, QLatin1String( "length_tall" ) );
-  addAction( mLenMenu, KIcon(), i18n("&Full Screen Width"),
+  addAction( mLenMenu, QIcon(), i18n("&Full Screen Width"),
              this, SLOT(setFullLength()), Qt::CTRL + Qt::Key_F, QLatin1String( "length_full_length" ) );
   mLenMenu->addSeparator();
-  addAction( mLenMenu, KIcon(), i18n( "Length..." ),
+  addAction( mLenMenu, QIcon(), i18n( "Length..." ),
              this, SLOT(slotLength()), QKeySequence(), QLatin1String( "set_length" ) );
   mMenu->addMenu( mLenMenu );
 
-  KMenu* scaleMenu = new KMenu( i18n( "&Scale" ), this );
-  mScaleDirectionAction = addAction( scaleMenu, KIcon(), i18n( "Right to Left" ),
+  QMenu* scaleMenu = new QMenu( i18n( "&Scale" ), this );
+  mScaleDirectionAction = addAction( scaleMenu, QIcon(), i18n( "Right to Left" ),
                                      this, SLOT(switchDirection()), Qt::Key_D, QLatin1String( "right_to_left" ) );
-  mCenterOriginAction = addAction( scaleMenu, KIcon(), i18n( "Center Origin" ),
+  mCenterOriginAction = addAction( scaleMenu, QIcon(), i18n( "Center Origin" ),
                                    this, SLOT(centerOrigin()), Qt::Key_C, QLatin1String( "center_origin" ) );
   mCenterOriginAction->setEnabled( !mRelativeScale );
-  mOffsetAction = addAction( scaleMenu, KIcon(), i18n( "Offset..." ),
+  mOffsetAction = addAction( scaleMenu, QIcon(), i18n( "Offset..." ),
                              this, SLOT(slotOffset()), Qt::Key_O, QLatin1String( "set_offset" ) );
   mOffsetAction->setEnabled( !mRelativeScale );
   scaleMenu->addSeparator();
-  KAction *relativeScaleAction = addAction( scaleMenu, KIcon(), i18n( "Percentage" ),
+  QAction *relativeScaleAction = addAction( scaleMenu, QIcon(), i18n( "Percentage" ),
                                             0, 0, QKeySequence(), QLatin1String( "toggle_percentage" ) );
   relativeScaleAction->setCheckable( true );
   relativeScaleAction->setChecked( mRelativeScale );
@@ -203,7 +200,7 @@ KLineal::KLineal( QWidget *parent )
   mMenu->addMenu( scaleMenu );
 
   mOpacity = RulerSettings::self()->opacity();
-  KMenu* opacityMenu = new KMenu( i18n( "O&pacity" ), this );
+  QMenu* opacityMenu = new QMenu( i18n( "O&pacity" ), this );
   QWidgetAction *opacityAction = new QWidgetAction( this );
   QSlider *slider = new QSlider( this );
   slider->setMinimum( 0 );
@@ -216,25 +213,25 @@ KLineal::KLineal( QWidget *parent )
   opacityMenu->addAction( opacityAction );
   mMenu->addMenu( opacityMenu );
 
-  KAction *keyBindings = KStandardAction::keyBindings( this, SLOT(slotKeyBindings()), this );
+  QAction *keyBindings = KStandardAction::keyBindings( this, SLOT(slotKeyBindings()), this );
   mActionCollection->addAction( QLatin1String(  "key_bindings" ), keyBindings );
   mMenu->addAction( keyBindings );
-  KAction *preferences = KStandardAction::preferences( this, SLOT(slotPreferences()), this );
+  QAction *preferences = KStandardAction::preferences( this, SLOT(slotPreferences()), this );
   mActionCollection->addAction( QLatin1String(  "preferences" ), preferences );
   mMenu->addAction( preferences );
   mMenu->addSeparator();
-  KAction *copyColorAction = KStandardAction::copy( this, SLOT(copyColor()), this );
+  QAction *copyColorAction = KStandardAction::copy( this, SLOT(copyColor()), this );
   copyColorAction->setText( i18n( "Copy Color" ) );
   mActionCollection->addAction( QLatin1String(  "copy_color" ), copyColorAction );
   mMenu->addAction( copyColorAction );
   mMenu->addSeparator();
-  mMenu->addMenu( ( new KHelpMenu( this, KGlobal::mainComponent().aboutData(), true ) )->menu() );
+  mMenu->addMenu( ( new KHelpMenu( this, KAboutData::applicationData(), true ) )->menu() );
   mMenu->addSeparator();
   if ( RulerSettings::self()->trayIcon() ) {
       createSystemTray();
   }
 
-  KAction *quit = KStandardAction::quit( kapp, SLOT(quit()), this );
+  QAction *quit = KStandardAction::quit( qApp, SLOT(quit()), this );
   mActionCollection->addAction( QLatin1String(  "quit" ), quit );
   mMenu->addAction( quit );
 
@@ -275,12 +272,12 @@ void KLineal::createSystemTray()
 }
 
 
-KAction* KLineal::addAction( KMenu *menu, KIcon icon, const QString& text,
+QAction* KLineal::addAction( QMenu *menu, const QIcon& icon, const QString& text,
                              const QObject* receiver, const char* member,
                              const QKeySequence &shortcut, const QString& name )
 {
-  KAction *action = new KAction( icon, text, mActionCollection );
-  action->setShortcut( shortcut );
+  QAction *action = new QAction( icon, text, mActionCollection );
+  mActionCollection->setDefaultShortcut( action, shortcut );
   if ( receiver ) {
     connect( action, SIGNAL(triggered()), receiver, member );
   }
@@ -296,7 +293,7 @@ void KLineal::slotClose()
 
 void KLineal::slotQuit()
 {
-   kapp->quit();
+   qApp->quit();
 }
 
 void KLineal::move( int x, int y )
@@ -388,7 +385,7 @@ void KLineal::setOrientation( int inOrientation )
 
   r.moveTo(newTopLeft);
 
-  QRect desktop = KGlobalSettings::desktopGeometry( this );
+  QRect desktop = QApplication::desktop()->screenGeometry( this );
 
   if ( r.top() < desktop.top() ) {
     r.moveTop( desktop.top() );
@@ -482,7 +479,7 @@ void KLineal::reLength( int percentOfScreen )
     return;
   }
 
-  QRect r = KGlobalSettings::desktopGeometry( this );
+  QRect r = QApplication::desktop()->screenGeometry( this );
 
   if ( mOrientation == North || mOrientation == South ) {
     mLongEdgeLen = r.width() * percentOfScreen / 100;
@@ -584,9 +581,9 @@ void KLineal::centerOrigin()
 void KLineal::slotOffset()
 {
   bool ok;
-  int newOffset = KInputDialog::getInteger( i18nc( "@title:window", "Scale Offset" ),
+  int newOffset = QInputDialog::getInt( this, i18nc( "@title:window", "Scale Offset" ),
                                             i18n( "Offset:" ), mOffset,
-                                            -2147483647, 2147483647, 1, &ok, this );
+                                            -2147483647, 2147483647, 1, &ok );
 
   if ( ok ) {
     mOffset = newOffset;
@@ -599,11 +596,11 @@ void KLineal::slotOffset()
 void KLineal::slotLength()
 {
   bool ok;
-  QRect r = KGlobalSettings::desktopGeometry( this );
+  QRect r = QApplication::desktop()->screenGeometry( this );
   int width = ( ( mOrientation == North ) || ( mOrientation == South ) ) ? r.width() : r.height();
-  int newLength = KInputDialog::getInteger( i18nc( "@title:window", "Ruler Length" ),
+  int newLength = QInputDialog::getInt( this, i18nc( "@title:window", "Ruler Length" ),
                                             i18n( "Length:" ), mLongEdgeLen,
-                                            0, width, 1, &ok, this );
+                                            0, width, 1, &ok );
 
   if ( ok ) {
     reLengthAbsolute( newLength );
@@ -615,7 +612,7 @@ void KLineal::slotOpacity( int value )
   mOpacity = value;
   repaint();
   RulerSettings::self()->setOpacity( value );
-  RulerSettings::self()->writeConfig();
+  RulerSettings::self()->save();
 }
 
 void KLineal::slotKeyBindings()
@@ -691,7 +688,7 @@ void KLineal::saveSettings()
   RulerSettings::self()->setLeftToRight( mLeftToRight );
   RulerSettings::self()->setOffset( mOffset );
   RulerSettings::self()->setRelativeScale( mRelativeScale );
-  RulerSettings::self()->writeConfig();
+  RulerSettings::self()->save();
 }
 
 void KLineal::copyColor()
@@ -840,7 +837,7 @@ void KLineal::keyPressEvent( QKeyEvent *e )
 
   switch ( e->key() ) {
   case Qt::Key_F1:
-    KToolInvocation::invokeHelp();
+    KHelpClient::invokeHelp();
     return;
 
   case Qt::Key_Left:
@@ -903,7 +900,7 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
       break;
     }
 
-    QColor color = KColorDialog::grabColor( p );
+    QColor color = pixelColor( p );
     int h, s, v;
     color.getHsv( &h, &s, &v );
     mColorLabel->setText( color.name().toUpper() );
@@ -1198,4 +1195,11 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
   drawScale( painter );
 }
 
-#include "klineal.moc"
+QColor KLineal::pixelColor(const QPoint &p)
+{
+  const QDesktopWidget *desktop = QApplication::desktop();
+  QScreen *screen = QGuiApplication::screens().at(desktop->screenNumber());
+  const QPixmap pixmap = screen->grabWindow(desktop->winId(), p.x(), p.y(), 1, 1);
+  return QColor(pixmap.toImage().pixel(QPoint(0, 0)));
+}
+
