@@ -18,11 +18,17 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <Kdelibs4ConfigMigrator>
 
 #include "klineal.h"
 
 int main(int argc, char *argv[])
 {
+  Kdelibs4ConfigMigrator migrate(QLatin1String("kruler"));
+  migrate.setConfigFiles(QStringList() << QLatin1String("krulerrc") << QLatin1String("kruler.notifyrc"));
+  migrate.setUiFiles(QStringList() << QLatin1String("krulerui.rc"));
+  migrate.migrate();
+
   KAboutData aboutData( "kruler", i18n( "KDE Screen Ruler" ),
     "5.0", // version string
     i18n( "A screen ruler for KDE" ),
