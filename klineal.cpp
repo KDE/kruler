@@ -138,12 +138,12 @@ KLineal::KLineal( QWidget *parent )
   mBtnRotateLeft = new QToolButton( this );
   mBtnRotateLeft->setIcon( QIcon::fromTheme( QLatin1String(  "object-rotate-left" ) ) );
   mBtnRotateLeft->setToolTip( i18n( "Turn Left" ) );
-  connect( mBtnRotateLeft, SIGNAL(clicked()), this, SLOT(turnLeft()) );
+  connect(mBtnRotateLeft, &QToolButton::clicked, this, &KLineal::turnLeft);
 
   mBtnRotateRight = new QToolButton( this );
   mBtnRotateRight->setIcon( QIcon::fromTheme( QLatin1String(  "object-rotate-right" ) ) );
   mBtnRotateRight->setToolTip( i18n( "Turn Right" ) );
-  connect( mBtnRotateRight, SIGNAL(clicked()), this, SLOT(turnRight()) );
+  connect(mBtnRotateRight, &QToolButton::clicked, this, &KLineal::turnRight);
 
   resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
 
@@ -196,7 +196,7 @@ KLineal::KLineal( QWidget *parent )
                                             0, 0, QKeySequence(), QLatin1String( "toggle_percentage" ) );
   relativeScaleAction->setCheckable( true );
   relativeScaleAction->setChecked( mRelativeScale );
-  connect( relativeScaleAction, SIGNAL(toggled(bool)), this, SLOT(switchRelativeScale(bool)) );
+  connect(relativeScaleAction, &QAction::toggled, this, &KLineal::switchRelativeScale);
   mMenu->addMenu( scaleMenu );
 
   mOpacity = RulerSettings::self()->opacity();
@@ -208,7 +208,7 @@ KLineal::KLineal( QWidget *parent )
   slider->setSingleStep( 1 );
   slider->setOrientation( Qt::Horizontal );
   slider->setValue( RulerSettings::self()->opacity() );
-  connect( slider, SIGNAL(valueChanged(int)), this, SLOT(slotOpacity(int)) );
+  connect(slider, &QSlider::valueChanged, this, &KLineal::slotOpacity);
   opacityAction->setDefaultWidget( slider );
   opacityMenu->addAction( opacityAction );
   mMenu->addMenu( opacityMenu );
@@ -260,7 +260,7 @@ void KLineal::createSystemTray()
     mCloseButton = new QToolButton( this );
     mCloseButton->setIcon( mCloseAction->icon() );
     mCloseButton->setToolTip( mCloseAction->text().remove( QLatin1Char(  '&' ) ) );
-    connect( mCloseButton, SIGNAL(clicked()), this, SLOT(slotClose()) );
+    connect(mCloseButton, &QToolButton::clicked, this, &KLineal::slotClose);
   } else {
     mCloseAction->setVisible( true );
   }
@@ -635,7 +635,7 @@ void KLineal::slotPreferences()
   advancedConfig.setupUi( advancedConfigWidget );
   dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), QLatin1String( "preferences-other" ) );
 
-  connect( dialog, SIGNAL(settingsChanged(QString)), SLOT(loadConfig()) );
+  connect(dialog, &KConfigDialog::settingsChanged, this, &KLineal::loadConfig);
   dialog->exec();
   delete dialog;
 }
