@@ -50,4 +50,4 @@ void QAutoSizeLabel::resize()
   QLabel::resize( fm.size( Qt::TextSingleLine, text() ) );
 }
 
-#include "qautosizelabel.moc"
+
