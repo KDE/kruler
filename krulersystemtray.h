@@ -16,9 +16,9 @@
 #ifndef KRULERSYSTEMTRAY_H
 #define KRULERSYSTEMTRAY_H
 
-#include <kactioncollection.h>
-#include <kicon.h>
-#include <kstatusnotifieritem.h>
+#include <KStatusNotifierItem>
+
+class KActionCollection;
 
 class KRulerSystemTray : public KStatusNotifierItem
 {
