@@ -218,16 +218,13 @@ KLineal::KLineal( QWidget *parent )
   opacityMenu->addAction( opacityAction );
   mMenu->addMenu( opacityMenu );
 
-  QAction *keyBindings = KStandardAction::keyBindings( this, SLOT(slotKeyBindings()), this );
-  mActionCollection->addAction( QLatin1String(  "key_bindings" ), keyBindings );
+  QAction *keyBindings = mActionCollection->addAction( KStandardAction::KeyBindings, this, SLOT(slotKeyBindings()) );
   mMenu->addAction( keyBindings );
-  QAction *preferences = KStandardAction::preferences( this, SLOT(slotPreferences()), this );
-  mActionCollection->addAction( QLatin1String(  "preferences" ), preferences );
+  QAction *preferences = mActionCollection->addAction( KStandardAction::Preferences, this, SLOT(slotPreferences()) );
   mMenu->addAction( preferences );
   mMenu->addSeparator();
-  QAction *copyColorAction = KStandardAction::copy( this, SLOT(copyColor()), this );
+  QAction *copyColorAction = mActionCollection->addAction( KStandardAction::Copy, this, SLOT(copyColor()) );
   copyColorAction->setText( i18n( "Copy Color" ) );
-  mActionCollection->addAction( QLatin1String(  "copy_color" ), copyColorAction );
   mMenu->addAction( copyColorAction );
   mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KAboutData::applicationData(), true ) )->menu() );
@@ -236,8 +233,7 @@ KLineal::KLineal( QWidget *parent )
       createSystemTray();
   }
 
-  QAction *quit = KStandardAction::quit( qApp, SLOT(quit()), this );
-  mActionCollection->addAction( QLatin1String(  "quit" ), quit );
+  QAction *quit = mActionCollection->addAction( KStandardAction::Quit, qApp, SLOT(quit()) );
   mMenu->addAction( quit );
 
   mActionCollection->associateWidget( this );
@@ -258,8 +254,7 @@ KLineal::~KLineal()
 void KLineal::createSystemTray()
 {
   if ( !mCloseAction ) {
-    mCloseAction = KStandardAction::close( this, SLOT(slotClose()), this );
-    mActionCollection->addAction( QLatin1String(  "close" ), mCloseAction );
+    mCloseAction = mActionCollection->addAction( KStandardAction::Close, this, SLOT(slotClose()) );
     mMenu->addAction( mCloseAction );
 
     mCloseButton = new QToolButton( this );
