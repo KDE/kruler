@@ -630,12 +630,13 @@ void KLineal::slotPreferences()
   appearanceConfig.kcfg_CloseButtonVisible->setEnabled( appearanceConfig.kcfg_TrayIcon->isChecked() );
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), QLatin1String( "preferences-desktop-default-applications" ) );
 
-#ifdef KRULER_HAVE_X11
-  Ui::ConfigAdvanced advancedConfig;
-  QWidget *advancedConfigWidget = new QWidget( dialog );
-  advancedConfig.setupUi( advancedConfigWidget );
-  dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), QLatin1String( "preferences-other" ) );
-#endif
+  // Advanced page only contains "Native moving" setting, disable when not running on X11
+  if ( QX11Info::isPlatformX11() ) {
+    Ui::ConfigAdvanced advancedConfig;
+    QWidget *advancedConfigWidget = new QWidget( dialog );
+    advancedConfig.setupUi( advancedConfigWidget );
+    dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), QLatin1String( "preferences-other" ) );
+  }
 
   connect(dialog, &KConfigDialog::settingsChanged, this, &KLineal::loadConfig);
   dialog->exec();
@@ -881,7 +882,7 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 
   if ( mDragging && this == mouseGrabber() ) {
 #ifdef KRULER_HAVE_X11
-    if ( !RulerSettings::self()->nativeMoving() ) {
+    if ( !QX11Info::isPlatformX11() || !RulerSettings::self()->nativeMoving() ) {
 #endif
       move( QCursor::pos() - mDragOffset );
 #ifdef KRULER_HAVE_X11
@@ -938,7 +939,7 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
   mDragOffset = mLastClickPos - QPoint( gr.left(), gr.top() );
   if ( inEvent->button() == Qt::LeftButton ) {
 #ifdef KRULER_HAVE_X11
-    if ( RulerSettings::self()->nativeMoving() ) {
+    if ( QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving() ) {
       xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
       NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
       wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
@@ -967,7 +968,7 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
   Q_UNUSED( inEvent );
 
 #ifdef KRULER_HAVE_X11
-  if ( RulerSettings::self()->nativeMoving() ) {
+  if ( QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving() ) {
     NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
     wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
   } else {
