@@ -630,6 +630,7 @@ void KLineal::slotPreferences()
   appearanceConfig.kcfg_CloseButtonVisible->setEnabled( appearanceConfig.kcfg_TrayIcon->isChecked() );
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), QLatin1String( "preferences-desktop-default-applications" ) );
 
+#ifdef KRULER_HAVE_X11
   // Advanced page only contains "Native moving" setting, disable when not running on X11
   if ( QX11Info::isPlatformX11() ) {
     Ui::ConfigAdvanced advancedConfig;
@@ -637,6 +638,7 @@ void KLineal::slotPreferences()
     advancedConfig.setupUi( advancedConfigWidget );
     dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), QLatin1String( "preferences-other" ) );
   }
+#endif
 
   connect(dialog, &KConfigDialog::settingsChanged, this, &KLineal::loadConfig);
   dialog->exec();
