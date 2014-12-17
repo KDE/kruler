@@ -27,6 +27,17 @@ find_package(KF5 REQUIRED COMPONENTS
     XmlGui
 )
 
+if (NOT APPLE)
+    find_package(X11)
+    set (KRULER_HAVE_X11 ${X11_FOUND})
+    if (X11_FOUND)
+        find_package(XCB COMPONENTS XCB)
+        find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
+    endif()
+endif()
+
+configure_file(krulerconfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
+
 #add_subdirectory( pics )
 add_subdirectory( doc )
 
@@ -43,6 +54,9 @@ kconfig_add_kcfg_files(kruler_SRCS kruler.kcfgc)
 add_executable(kruler ${kruler_SRCS})
 
 target_link_libraries(kruler KF5::I18n KF5::Notifications KF5::WindowSystem KF5::XmlGui)
+if (X11_FOUND)
+    target_link_libraries(kruler Qt5::X11Extras ${XCB_LIBRARIES})
+endif()
 
 install(TARGETS kruler ${INSTALL_TARGETS_DEFAULT_ARGS})
 
