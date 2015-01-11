@@ -38,7 +38,7 @@ endif()
 
 configure_file(krulerconfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
 
-#add_subdirectory( pics )
+add_subdirectory( pics )
 add_subdirectory( doc )
 
 ########### next target ###############
@@ -64,5 +64,5 @@ install(TARGETS kruler ${INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 install( PROGRAMS org.kde.kruler.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kruler.notifyrc  DESTINATION  ${DATA_INSTALL_DIR}/kruler )
+install( FILES kruler.notifyrc  DESTINATION  ${KNOTIFYRC_INSTALL_DIR} )
 install( FILES move.wav  DESTINATION  ${DATA_INSTALL_DIR}/kruler/sounds )
