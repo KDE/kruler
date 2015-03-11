@@ -150,7 +150,6 @@ Name[zh_CN]=KRuler
 Name[zh_HK]=KRuler
 Name[zh_TW]=KRuler 尺規
 X-DocPath=kruler/index.html
-MimeType=
 Exec=kruler
 Type=Application
 Icon=kruler
