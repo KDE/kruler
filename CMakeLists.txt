@@ -50,7 +50,7 @@ ki18n_wrap_ui(kruler_SRCS cfg_appearance.ui cfg_advanced.ui)
 
 kconfig_add_kcfg_files(kruler_SRCS kruler.kcfgc)
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-apps-kruler.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-kruler.png")
 ecm_add_app_icon(kruler_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kruler ${kruler_SRCS})
