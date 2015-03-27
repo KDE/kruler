@@ -155,6 +155,4 @@ Type=Application
 Icon=kruler
 Terminal=false
 X-KDE-StartupNotify=true
-X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Graphics;X-KDE-More;
-X-DBUS-ServiceName=org.kde.kruler
