@@ -2,7 +2,6 @@
 IconName=kruler
 Comment=On-Screen Ruler
 Comment[ar]=مسطرة الشاشة
-Comment[ast]=Regla na pantalla
 Comment[bg]=Линийка за екрана
 Comment[bs]=Ekranski lenjir
 Comment[ca]=Regle de pantalla
@@ -59,7 +58,6 @@ Comment[zh_TW]=螢幕尺規
 Name=Moved by Cursor Keys
 Name[af]=Verskuif deur Plekaanduier Sleutels
 Name[ar]=حُرّك بمفاتيح المؤشر
-Name[ast]=Movida poles tecles de cursor
 Name[bg]=Преместване с клавиши
 Name[bs]=Pomjeren pokazivačkim tasterima
 Name[ca]=Es mou amb les tecles de cursor

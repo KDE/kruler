@@ -2,7 +2,6 @@
 GenericName=Screen Ruler
 GenericName[af]=Skerm Liniaal
 GenericName[ar]=مسطرة الشاشة
-GenericName[ast]=Regla de pantalla
 GenericName[bg]=Линийка за екрана
 GenericName[bs]=Ekranski lenjir
 GenericName[ca]=Regle de pantalla
@@ -77,7 +76,6 @@ GenericName[zh_TW]=螢幕尺規
 Name=KRuler
 Name[af]=K-lineaal
 Name[ar]=مسطرة ك
-Name[ast]=KRuler
 Name[bg]=KRuler
 Name[br]=KRuler
 Name[bs]=K‑lenjir
