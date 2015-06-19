@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&kruler;">
-  <!ENTITY package "kdegraphics">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -30,8 +29,8 @@
 <holder>&Lauri.Watts;</holder>
 </copyright>
 
-<date>2013-06-24</date>
-<releaseinfo>&kde; 4.11</releaseinfo>
+<date>2015-05-15</date>
+<releaseinfo>Applications 15.04</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -58,8 +57,7 @@ layout of dialogs, web pages &etc;</para>
 
 <para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Graphics</guisubmenu> 
 <guisubmenu>More Applications</guisubmenu>
-<guimenuitem>Screen Ruler</guimenuitem></menuchoice> from your
-&kmenu;.</para>
+<guimenuitem>Screen Ruler</guimenuitem></menuchoice> from your application menu.</para>
 
 <screenshot>
 <screeninfo>&kruler;</screeninfo>
@@ -430,15 +428,6 @@ about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink> o
 &underGPL;
 
 </chapter>
-
-<appendix id="installation">
-<title>Installation</title>
-
-&install.intro.documentation;
-
-&install.compile.documentation;
-
-</appendix>
 
 &documentation.index; 
 </book>
