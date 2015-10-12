@@ -24,6 +24,8 @@
 
 int main(int argc, char *argv[])
 {
+  QApplication a( argc, argv );
+
   Kdelibs4ConfigMigrator migrate(QLatin1String("kruler"));
   migrate.setConfigFiles(QStringList() << QLatin1String("krulerrc") << QLatin1String("kruler.notifyrc"));
   migrate.setUiFiles(QStringList() << QLatin1String("krulerui.rc"));
@@ -38,7 +40,6 @@ int main(int argc, char *argv[])
   aboutData.addAuthor( i18n( "Till Krech" ), i18n( "Former Maintainer and Developer" ), "till@snafu.de" );
   aboutData.addCredit( i18n( "Gunnstein Lye" ),i18n( "Initial port to KDE 2" ), "gl@ez.no" );
 
-  QApplication a( argc, argv );
   KAboutData::setApplicationData(aboutData);
 
   KLineal *ruler = new KLineal();
