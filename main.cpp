@@ -26,19 +26,19 @@ int main(int argc, char *argv[])
 {
   QApplication a( argc, argv );
 
-  Kdelibs4ConfigMigrator migrate(QLatin1String("kruler"));
-  migrate.setConfigFiles(QStringList() << QLatin1String("krulerrc") << QLatin1String("kruler.notifyrc"));
-  migrate.setUiFiles(QStringList() << QLatin1String("krulerui.rc"));
+  Kdelibs4ConfigMigrator migrate(QStringLiteral("kruler"));
+  migrate.setConfigFiles(QStringList() << QStringLiteral("krulerrc") << QStringLiteral("kruler.notifyrc"));
+  migrate.setUiFiles(QStringList() << QStringLiteral("krulerui.rc"));
   migrate.migrate();
 
-  KAboutData aboutData( "kruler", i18n( "KDE Screen Ruler" ),
-    "5.0", // version string
+  KAboutData aboutData( QStringLiteral("kruler"), i18n( "KDE Screen Ruler" ),
+    QStringLiteral("5.0"), // version string
     i18n( "A screen ruler for KDE" ),
     KAboutLicense::GPL,
     i18n( "(c) 2000 - 2008, Till Krech\n(c) 2009, Mathias Soeken" ) );
-  aboutData.addAuthor( i18n( "Mathias Soeken" ), i18n( "Maintainer" ), "msoeken@tzi.de" );
-  aboutData.addAuthor( i18n( "Till Krech" ), i18n( "Former Maintainer and Developer" ), "till@snafu.de" );
-  aboutData.addCredit( i18n( "Gunnstein Lye" ),i18n( "Initial port to KDE 2" ), "gl@ez.no" );
+  aboutData.addAuthor( i18n( "Mathias Soeken" ), i18n( "Maintainer" ), QStringLiteral("msoeken@tzi.de") );
+  aboutData.addAuthor( i18n( "Till Krech" ), i18n( "Former Maintainer and Developer" ), QStringLiteral("till@snafu.de") );
+  aboutData.addCredit( i18n( "Gunnstein Lye" ),i18n( "Initial port to KDE 2" ), QStringLiteral("gl@ez.no") );
 
   KAboutData::setApplicationData(aboutData);
 
