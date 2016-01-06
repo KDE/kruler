@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
   aboutData.addAuthor( i18n( "Mathias Soeken" ), i18n( "Maintainer" ), QStringLiteral("msoeken@tzi.de") );
   aboutData.addAuthor( i18n( "Till Krech" ), i18n( "Former Maintainer and Developer" ), QStringLiteral("till@snafu.de") );
   aboutData.addCredit( i18n( "Gunnstein Lye" ),i18n( "Initial port to KDE 2" ), QStringLiteral("gl@ez.no") );
+  aboutData.setTranslator( i18nc( "NAME OF TRANSLATORS", "Your names" ), i18nc( "EMAIL OF TRANSLATORS", "Your emails" ) );
 
   KAboutData::setApplicationData(aboutData);
 
