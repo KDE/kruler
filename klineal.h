@@ -90,6 +90,7 @@ private:
   QCursor mSouthCursor;
   QCursor mDragCursor;
   QFont mScaleFont;
+  bool mAlwaysOnTopLayer;
   bool mClicked;
   bool mLeftToRight;
   int mOffset;

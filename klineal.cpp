@@ -98,7 +98,6 @@ KLineal::KLineal( QWidget *parent )
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
 
-  setWindowFlags( Qt::FramelessWindowHint );
   setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
   setMinimumSize( 60, 60 );
@@ -126,6 +125,7 @@ KLineal::KLineal( QWidget *parent )
   mLeftToRight = RulerSettings::self()->leftToRight();
   mOffset = RulerSettings::self()->offset();
   mRelativeScale = RulerSettings::self()->relativeScale();
+  mAlwaysOnTopLayer = RulerSettings::self()->alwaysOnTop();
 
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
@@ -240,6 +240,9 @@ KLineal::KLineal( QWidget *parent )
   mActionCollection->readSettings();
 
   mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
+
+  setWindowFlags( mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
+                                    : Qt::FramelessWindowHint );
 
   hideLabel();
   setOrientation( mOrientation );
@@ -631,7 +634,7 @@ void KLineal::slotPreferences()
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), QStringLiteral( "preferences-desktop-default-applications" ) );
 
 #ifdef KRULER_HAVE_X11
-  // Advanced page only contains "Native moving" setting, disable when not running on X11
+  // Advanced page only contains the "Native moving" and "Always on top" settings, disable when not running on X11
   if ( QX11Info::isPlatformX11() ) {
     Ui::ConfigAdvanced advancedConfig;
     QWidget *advancedConfigWidget = new QWidget( dialog );
@@ -649,7 +652,11 @@ void KLineal::loadConfig()
 {
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
+  mAlwaysOnTopLayer = RulerSettings::self()->alwaysOnTop();
   saveSettings();
+
+  setWindowFlags( mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
+                                    : Qt::FramelessWindowHint );
 
   if ( RulerSettings::self()->trayIcon() ) {
     if ( !mTrayIcon ) {
@@ -665,6 +672,7 @@ void KLineal::loadConfig()
       mCloseAction->setVisible( false );
     }
   }
+  show();
   repaint();
 }
 
@@ -693,6 +701,7 @@ void KLineal::saveSettings()
   RulerSettings::self()->setLeftToRight( mLeftToRight );
   RulerSettings::self()->setOffset( mOffset );
   RulerSettings::self()->setRelativeScale( mRelativeScale );
+  RulerSettings::self()->setAlwaysOnTop( mAlwaysOnTopLayer );
   RulerSettings::self()->save();
 }
 
