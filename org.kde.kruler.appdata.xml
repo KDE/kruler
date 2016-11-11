@@ -4,9 +4,27 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KRuler</name>
+  <name xml:lang="ca">KRuler</name>
+  <name xml:lang="ca-valencia">KRuler</name>
+  <name xml:lang="nl">KRuler</name>
+  <name xml:lang="pt">KRuler</name>
+  <name xml:lang="uk">KRuler</name>
+  <name xml:lang="x-test">xxKRulerxx</name>
   <summary>Screen Ruler</summary>
+  <summary xml:lang="ca">Regle de la pantalla</summary>
+  <summary xml:lang="ca-valencia">Regle de la pantalla</summary>
+  <summary xml:lang="nl">Schermliniaal</summary>
+  <summary xml:lang="pt">Régua do Ecrã</summary>
+  <summary xml:lang="uk">Екранна лінійка</summary>
+  <summary xml:lang="x-test">xxScreen Rulerxx</summary>
   <description>
     <p>KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
+    <p xml:lang="ca">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
+    <p xml:lang="ca-valencia">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
+    <p xml:lang="nl">KRuler is een schermliniaal voor het meten van pixels. Positioneer de 0 aan uw beginpunt en meet de precieze pixelafstand tussen het beginpunt en uw cursor.</p>
+    <p xml:lang="pt">O KRuler é uma régua no ecrã para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exacta em pixels entre o ponto inicial e o seu cursor.</p>
+    <p xml:lang="uk">KRuler — екранна лінійка для вимірювання відстаней у пікселях. Розташуйте нульову позначку у початковій точці вимірювання і виміряйте відстань між початковою точкою та вказівником миші.</p>
+    <p xml:lang="x-test">xxKRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.xx</p>
   </description>
   <url type="homepage">https://www.kde.org/applications/graphics/kruler/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kruler</url>
