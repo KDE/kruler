@@ -8,6 +8,7 @@
   <name xml:lang="ca-valencia">KRuler</name>
   <name xml:lang="en-GB">KRuler</name>
   <name xml:lang="es">KRuler</name>
+  <name xml:lang="it">KRuler</name>
   <name xml:lang="nl">KRuler</name>
   <name xml:lang="pt">KRuler</name>
   <name xml:lang="sk">KRuler</name>
@@ -19,6 +20,7 @@
   <summary xml:lang="ca-valencia">Regle de la pantalla</summary>
   <summary xml:lang="en-GB">Screen Ruler</summary>
   <summary xml:lang="es">Regla para la pantalla</summary>
+  <summary xml:lang="it">Righello per lo schermo</summary>
   <summary xml:lang="nl">Schermliniaal</summary>
   <summary xml:lang="pt">Régua do Ecrã</summary>
   <summary xml:lang="sk">Pravítko obrazovky</summary>
@@ -31,6 +33,7 @@
     <p xml:lang="ca-valencia">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
     <p xml:lang="en-GB">KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
     <p xml:lang="es">KRuler es una regla para la pantalla que permite medir píxeles. Sitúe el 0 en el punto de inicio y mida con precisión la distancia en píxeles entre el punto de inicio y el cursor.</p>
+    <p xml:lang="it">KRuler è un righello a schermo che misura i pixel. Posiziona lo 0 nel punto iniziale e misura la distanza precisa in pixel tra il punto iniziale e il puntatore del mouse.</p>
     <p xml:lang="nl">KRuler is een schermliniaal voor het meten van pixels. Positioneer de 0 aan uw beginpunt en meet de precieze pixelafstand tussen het beginpunt en uw cursor.</p>
     <p xml:lang="pt">O KRuler é uma régua no ecrã para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exacta em pixels entre o ponto inicial e o seu cursor.</p>
     <p xml:lang="sk">KRuler je pravítko na obrazovke na meranie pixelov. Poloha na 0 pri vašom začiatočnom bode a meranie presnej bodovej vzdialenosti medzi počiatočným bodom a vašim kurzorom.</p>
