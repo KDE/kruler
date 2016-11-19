@@ -10,6 +10,7 @@
   <name xml:lang="es">KRuler</name>
   <name xml:lang="it">KRuler</name>
   <name xml:lang="nl">KRuler</name>
+  <name xml:lang="nn">KRuler</name>
   <name xml:lang="pt">KRuler</name>
   <name xml:lang="sk">KRuler</name>
   <name xml:lang="sl">KRuler</name>
@@ -22,6 +23,7 @@
   <summary xml:lang="es">Regla para la pantalla</summary>
   <summary xml:lang="it">Righello per lo schermo</summary>
   <summary xml:lang="nl">Schermliniaal</summary>
+  <summary xml:lang="nn">Skjermlinjal</summary>
   <summary xml:lang="pt">Régua do Ecrã</summary>
   <summary xml:lang="sk">Pravítko obrazovky</summary>
   <summary xml:lang="sl">Zaslonsko ravnilo</summary>
