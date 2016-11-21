@@ -11,6 +11,7 @@
   <name xml:lang="it">KRuler</name>
   <name xml:lang="nl">KRuler</name>
   <name xml:lang="nn">KRuler</name>
+  <name xml:lang="pl">KLinijka</name>
   <name xml:lang="pt">KRuler</name>
   <name xml:lang="sk">KRuler</name>
   <name xml:lang="sl">KRuler</name>
@@ -24,6 +25,7 @@
   <summary xml:lang="it">Righello per lo schermo</summary>
   <summary xml:lang="nl">Schermliniaal</summary>
   <summary xml:lang="nn">Skjermlinjal</summary>
+  <summary xml:lang="pl">Linijka ekranowa</summary>
   <summary xml:lang="pt">Régua do Ecrã</summary>
   <summary xml:lang="sk">Pravítko obrazovky</summary>
   <summary xml:lang="sl">Zaslonsko ravnilo</summary>
@@ -37,6 +39,8 @@
     <p xml:lang="es">KRuler es una regla para la pantalla que permite medir píxeles. Sitúe el 0 en el punto de inicio y mida con precisión la distancia en píxeles entre el punto de inicio y el cursor.</p>
     <p xml:lang="it">KRuler è un righello a schermo che misura i pixel. Posiziona lo 0 nel punto iniziale e misura la distanza precisa in pixel tra il punto iniziale e il puntatore del mouse.</p>
     <p xml:lang="nl">KRuler is een schermliniaal voor het meten van pixels. Positioneer de 0 aan uw beginpunt en meet de precieze pixelafstand tussen het beginpunt en uw cursor.</p>
+    <p xml:lang="nn">KRuler er ein skjermlinjal for måling av pikselavstandar. Plasser 0-merket der du vil måla frå og mål den nøyaktige pikselavstanden frå nullpunktet til peikaren.</p>
+    <p xml:lang="pl">KLinijka jest ekranową linijką do mierzenia pikseli. Umieść miejsce 0 na punkcie początkowym i mierz precyzyjnie odległość pomiędzy punktem początkowym i twoim wskaźnikiem.</p>
     <p xml:lang="pt">O KRuler é uma régua no ecrã para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exacta em pixels entre o ponto inicial e o seu cursor.</p>
     <p xml:lang="sk">KRuler je pravítko na obrazovke na meranie pixelov. Poloha na 0 pri vašom začiatočnom bode a meranie presnej bodovej vzdialenosti medzi počiatočným bodom a vašim kurzorom.</p>
     <p xml:lang="sl">KRuler je zaslonsko ravnilo za merjenje slikovnih točk. Z njim lahko izmerite natančno razdaljo med izbrano točko in trenutnim položajem vaše miškine kazalke.</p>
