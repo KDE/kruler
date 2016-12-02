@@ -6,6 +6,7 @@
   <name>KRuler</name>
   <name xml:lang="ca">KRuler</name>
   <name xml:lang="ca-valencia">KRuler</name>
+  <name xml:lang="cs">KRuler</name>
   <name xml:lang="de">KRuler</name>
   <name xml:lang="en-GB">KRuler</name>
   <name xml:lang="es">KRuler</name>
@@ -27,6 +28,7 @@
   <summary>Screen Ruler</summary>
   <summary xml:lang="ca">Regle de la pantalla</summary>
   <summary xml:lang="ca-valencia">Regle de la pantalla</summary>
+  <summary xml:lang="cs">Obrazovkové pravítko</summary>
   <summary xml:lang="de">Bildschirmlineal</summary>
   <summary xml:lang="en-GB">Screen Ruler</summary>
   <summary xml:lang="es">Regla para la pantalla</summary>
