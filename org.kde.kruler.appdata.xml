@@ -29,7 +29,6 @@
   <name xml:lang="x-test">xxKRulerxx</name>
   <name xml:lang="zh-TW">KRuler</name>
   <summary>Screen Ruler</summary>
-  <summary xml:lang="ast">Regla na pantalla</summary>
   <summary xml:lang="ca">Regle de la pantalla</summary>
   <summary xml:lang="ca-valencia">Regle de la pantalla</summary>
   <summary xml:lang="cs">Obrazovkové pravítko</summary>
@@ -55,7 +54,6 @@
   <summary xml:lang="zh-TW">螢幕尺規</summary>
   <description>
     <p>KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
-    <p xml:lang="ast">KRuler ye una regla pa midir píxeles. Pociona'l 0 nel to puntu d'entamu y mide la distancia precisa de píxeles ente'l puntu d'entamu y el to cursor.</p>
     <p xml:lang="ca">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
     <p xml:lang="ca-valencia">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
     <p xml:lang="en-GB">KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
