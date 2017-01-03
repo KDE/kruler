@@ -27,6 +27,7 @@
   <name xml:lang="sr-ijekavianlatin">K‑lenjir</name>
   <name xml:lang="uk">KRuler</name>
   <name xml:lang="x-test">xxKRulerxx</name>
+  <name xml:lang="zh-CN">KRuler</name>
   <name xml:lang="zh-TW">KRuler</name>
   <summary>Screen Ruler</summary>
   <summary xml:lang="ca">Regle de la pantalla</summary>
@@ -51,6 +52,7 @@
   <summary xml:lang="sr-ijekavianlatin">Ekranski lenjir</summary>
   <summary xml:lang="uk">Екранна лінійка</summary>
   <summary xml:lang="x-test">xxScreen Rulerxx</summary>
+  <summary xml:lang="zh-CN">屏幕标尺</summary>
   <summary xml:lang="zh-TW">螢幕尺規</summary>
   <description>
     <p>KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
