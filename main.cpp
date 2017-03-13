@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
   KAboutData aboutData( QStringLiteral("kruler"), i18n( "KDE Screen Ruler" ),
     QStringLiteral("5.0"), // version string
-    i18n( "A screen ruler for KDE" ),
+    i18n( "A screen ruler by KDE" ),
     KAboutLicense::GPL,
     i18n( "(c) 2000 - 2008, Till Krech\n(c) 2009, Mathias Soeken" ) );
   aboutData.addAuthor( i18n( "Mathias Soeken" ), i18n( "Maintainer" ), QStringLiteral("msoeken@tzi.de") );
