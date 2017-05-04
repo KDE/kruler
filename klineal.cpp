@@ -578,7 +578,12 @@ void KLineal::keyPressEvent( QKeyEvent *e )
     dist *= 10;
   }
 
-  move( pos() + dist );
+  if ( e->modifiers() & Qt::AltModifier ) {
+    QCursor::setPos( QCursor::pos() + dist );
+  } else {
+    move( pos() + dist );
+    update();
+  }
   KNotification::event( QString(), QStringLiteral( "cursormove" ), QString() );
 }
 
