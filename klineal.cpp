@@ -116,7 +116,7 @@ KLineal::KLineal( QWidget *parent )
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
   mLongEdgeLen = RulerSettings::self()->length();
-  mOrientation = RulerSettings::self()->orientation();
+  mHorizontal = RulerSettings::self()->horizontal();
   mLeftToRight = RulerSettings::self()->leftToRight();
   mOffset = RulerSettings::self()->offset();
   mRelativeScale = RulerSettings::self()->relativeScale();
@@ -135,7 +135,7 @@ KLineal::KLineal( QWidget *parent )
   mMenu = new QMenu( this );
   mMenu->addSection( i18n( "KRuler" ) );
   addAction( mMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Rotate" ),
-             this, SLOT(turnRight()), Qt::Key_R, QStringLiteral( "turn_right" ) );
+             this, SLOT(rotate()), Qt::Key_R, QStringLiteral( "turn_right" ) );
 
   mLenMenu = new QMenu( i18n( "&Length" ), this );
   addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
@@ -205,7 +205,7 @@ KLineal::KLineal( QWidget *parent )
                                     : Qt::FramelessWindowHint );
 
   hideLabel();
-  setOrientation( mOrientation );
+  setHorizontal( mHorizontal );
 
 }
 
@@ -279,30 +279,14 @@ void KLineal::drawBackground( QPainter& painter )
 {
   QColor a, b, bg = mColor;
   QLinearGradient gradient;
-  switch ( mOrientation ) {
-  case North:
+  if ( mHorizontal ) {
     a = bg.light( 120 );
     b = bg.dark( 130 );
     gradient = QLinearGradient( 1, 0, 1, height() );
-    break;
-
-  case South:
-    b = bg.light( 120 );
-    a = bg.dark( 130 );
-    gradient = QLinearGradient( 1, 0, 1, height() );
-    break;
-
-  case West:
+  } else {
     a = bg.light( 120 );
     b = bg.dark( 130 );
     gradient = QLinearGradient( 0, 1, width(), 1 );
-    break;
-
-  case East:
-    b = bg.light( 120 );
-    a = bg.dark( 130 );
-    gradient = QLinearGradient( 0, 1, width(), 1 );
-    break;
   }
   a.setAlpha( mOpacity );
   b.setAlpha( mOpacity );
@@ -311,12 +295,11 @@ void KLineal::drawBackground( QPainter& painter )
   painter.fillRect( rect(), QBrush( gradient ) );
 }
 
-void KLineal::setOrientation( int inOrientation )
+void KLineal::setHorizontal( bool horizontal )
 {
   QRect r = frameGeometry();
-  int nineties = (int)inOrientation - (int)mOrientation;
-  mOrientation = ( inOrientation + 4 ) % 4;
-  QPoint center = mLastClickPos, newTopLeft;
+  mHorizontal = horizontal;
+  QPoint center = mLastClickPos;
 
   if ( mClicked ) {
     center = mLastClickPos;
@@ -325,18 +308,13 @@ void KLineal::setOrientation( int inOrientation )
     center = r.topLeft() + QPoint( width() / 2, height() / 2 );
   }
 
-  if ( nineties % 2 ) {
-    newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
-  } else {
-    newTopLeft = r.topLeft();
-  }
-
-  if ( mOrientation == North || mOrientation == South ) {
+  if ( mHorizontal ) {
     r.setSize( QSize( mLongEdgeLen, mShortEdgeLen ) );
   } else {
     r.setSize( QSize( mShortEdgeLen, mLongEdgeLen ) );
   }
 
+  QPoint newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
   r.moveTo(newTopLeft);
 
   QRect desktop = QApplication::desktop()->screenGeometry( this );
@@ -361,20 +339,14 @@ void KLineal::setOrientation( int inOrientation )
   mLabel->move( ( width() - mLabel->width() ) / 2,
                 ( height() - mLabel->height() ) / 2 );
 
-  switch( mOrientation ) {
-  case North:
-  case South:
+  if ( mHorizontal ) {
     mCurrentCursor = mVerticalCursor;
-    break;
-
-  case West:
-  case East:
+  } else {
     mCurrentCursor = mHorizontalCursor;
-    break;
   }
 
   if ( mLenMenu && mFullScreenAction ) {
-    mFullScreenAction->setText( mOrientation % 2 ? i18n( "&Full Screen Height" ) : i18n( "&Full Screen Width" ) );
+    mFullScreenAction->setText( mHorizontal ? i18n( "&Full Screen Width" ) : i18n( "&Full Screen Height" ) );
   }
 
   updateScaleDirectionMenuItem();
@@ -384,34 +356,9 @@ void KLineal::setOrientation( int inOrientation )
   saveSettings();
 }
 
-void KLineal::setNorth()
+void KLineal::rotate()
 {
-  setOrientation( North );
-}
-
-void KLineal::setEast()
-{
-  setOrientation( East );
-}
-
-void KLineal::setSouth()
-{
-  setOrientation( South );
-}
-
-void KLineal::setWest()
-{
-  setOrientation( West );
-}
-
-void KLineal::turnRight()
-{
-  setOrientation( mOrientation - 1 );
-}
-
-void KLineal::turnLeft()
-{
-  setOrientation( mOrientation + 1 );
+  setHorizontal( !mHorizontal );
 }
 
 void KLineal::reLength( int percentOfScreen )
@@ -422,7 +369,7 @@ void KLineal::reLength( int percentOfScreen )
 
   QRect r = QApplication::desktop()->screenGeometry( this );
 
-  if ( mOrientation == North || mOrientation == South ) {
+  if ( mHorizontal ) {
     mLongEdgeLen = r.width() * percentOfScreen / 100;
     resize( mLongEdgeLen, height() );
   } else {
@@ -448,7 +395,7 @@ void KLineal::reLengthAbsolute( int length )
   }
 
   mLongEdgeLen = length;
-  if ( mOrientation == North || mOrientation == South ) {
+  if ( mHorizontal ) {
     resize( mLongEdgeLen, height() );
   } else {
     resize( width(), mLongEdgeLen );
@@ -471,7 +418,7 @@ void KLineal::updateScaleDirectionMenuItem()
 
   QString label;
 
-  if ( mOrientation == North || mOrientation == South ) {
+  if ( mHorizontal ) {
     label = mLeftToRight ? i18n( "Right to Left" ) : i18n( "Left to Right" );
   } else {
     label = mLeftToRight ? i18n( "Bottom to Top" ) : i18n( "Top to Bottom" );
@@ -536,7 +483,7 @@ void KLineal::slotLength()
 {
   bool ok;
   QRect r = QApplication::desktop()->screenGeometry( this );
-  int width = ( ( mOrientation == North ) || ( mOrientation == South ) ) ? r.width() : r.height();
+  int width = mHorizontal ? r.width() : r.height();
   int newLength = QInputDialog::getInt( this, i18nc( "@title:window", "Ruler Length" ),
                                             i18n( "Length:" ), mLongEdgeLen,
                                             0, width, 1, &ok );
@@ -630,7 +577,7 @@ void KLineal::saveSettings()
   RulerSettings::self()->setBgColor( mColor );
   RulerSettings::self()->setScaleFont( mScaleFont );
   RulerSettings::self()->setLength( mLongEdgeLen );
-  RulerSettings::self()->setOrientation( mOrientation );
+  RulerSettings::self()->setHorizontal( mHorizontal );
   RulerSettings::self()->setLeftToRight( mLeftToRight );
   RulerSettings::self()->setOffset( mOffset );
   RulerSettings::self()->setRelativeScale( mRelativeScale );
@@ -696,7 +643,7 @@ void KLineal::adjustLabel()
   QString s;
   QPoint cpos = QCursor::pos();
 
-  int digit = ( mOrientation == North || mOrientation == South ) ? cpos.x() - x() : cpos.y() - y();
+  int digit = mHorizontal ? cpos.x() - x() : cpos.y() - y();
 
   if ( !mRelativeScale ) {
     if ( mLeftToRight ) {
@@ -774,22 +721,10 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
   } else {
     QPoint p = QCursor::pos();
 
-    switch ( mOrientation ) {
-    case North:
+    if ( mHorizontal ) {
       p.setY( p.y() - 46 );
-      break;
-
-    case East:
+    } else {
       p.setX( p.x() + 46 );
-      break;
-
-    case West:
-      p.setX( p.x() - 46 );
-      break;
-
-    case South:
-      p.setY( p.y() + 46 );
-      break;
     }
 
     adjustLabel();
@@ -823,7 +758,7 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
 #endif
   } else if ( inEvent->button() == Qt::MidButton ) {
     mClicked = true;
-    turnLeft();
+    rotate();
   } else if ( inEvent->button() == Qt::RightButton ) {
     showMenu();
   }
@@ -880,7 +815,7 @@ void KLineal::wheelEvent( QWheelEvent *e )
 
       QPoint dist;
 
-      if ( mOrientation == North || mOrientation == South ) {
+      if ( mHorizontal ) {
         dist.setX( -change );
       } else {
         dist.setY( -change );
@@ -907,20 +842,14 @@ void KLineal::drawScale( QPainter &painter )
 
   // draw a frame around the whole thing
   // (for some unknown reason, this doesn't show up anymore)
-  switch ( mOrientation ) {
-  case North:
-  case South:
+  if ( mHorizontal ) {
     longLen = w;
     painter.drawLine( 0, 0, 0, h - 1 );
     painter.drawLine( w - 1, h - 1, w - 1, 0 );
-    break;
-
-  case East:
-  case West:
+  } else {
     longLen = h;
     painter.drawLine( 0, h - 1, w - 1, h - 1 );
     painter.drawLine( w - 1, 0, 0, 0 );
-    break;
   }
 
   if ( !mRelativeScale ) {
@@ -978,16 +907,10 @@ void KLineal::drawScaleText( QPainter &painter, int x, const QString &text )
   int tw = textSize.width();
   int th = metrics.ascent();
 
-  switch ( mOrientation ) {
-  case North:
-  case South:
+  if ( mHorizontal ) {
     painter.drawText( x - tw / 2, (h + th) / 2, text );
-    break;
-
-  case East:
-  case West:
+  } else {
     painter.drawText( (w - tw) / 2, x + th / 2, text );
-    break;
   }
 }
 
@@ -995,17 +918,12 @@ void KLineal::drawScaleTick( QPainter &painter, int x, int len )
 {
   int w = width();
   int h = height();
-  switch( mOrientation ) {
-  case North:
-  case South:
+  if ( mHorizontal ) {
     painter.drawLine( x, 0, x, len );
     painter.drawLine( x, h, x, h - len );
-    break;
-  case East:
-  case West:
+  } else {
     painter.drawLine( 0, x, len, x );
     painter.drawLine( w, x, w - len, x );
-    break;
   }
 }
 

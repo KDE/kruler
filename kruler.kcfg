@@ -16,9 +16,9 @@
       <label>Font of the text on the ruler scale.</label>
       <default code="true">QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont)</default>
     </entry>
-    <entry name="Orientation" type="Int">
-      <label>Orientation of the ruler</label>
-      <default>2</default>
+    <entry name="Horizontal" type="Bool">
+      <label>Horizontal ruler</label>
+      <default>true</default>
     </entry>
     <entry name="LeftToRight" type="Bool">
       <label>Direction of the ruler</label>

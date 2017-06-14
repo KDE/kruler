@@ -33,8 +33,6 @@ class KLineal : public QWidget {
   Q_OBJECT
 
 public:
-  enum { North = 0, West, South, East };
-
   KLineal( QWidget *parent = 0 );
   ~KLineal();
 
@@ -72,7 +70,7 @@ private:
   QPoint mLastClickPos;
   QPoint mDragOffset;
   QAutoSizeLabel *mLabel;
-  int mOrientation;
+  bool mHorizontal;
   int mLongEdgeLen;
   int mShortEdgeLen;
   QMenu *mMenu;
@@ -97,14 +95,10 @@ private:
   int mOpacity;
   KRulerSystemTray *mTrayIcon;
 
+  void setHorizontal( bool horizontal );
+
 public slots:
-  void setOrientation( int );
-  void setNorth();
-  void setEast();
-  void setSouth();
-  void setWest();
-  void turnLeft();
-  void turnRight();
+  void rotate();
   void showMenu();
   void hideLabel();
   void showLabel();
