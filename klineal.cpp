@@ -1045,7 +1045,7 @@ void KLineal::drawScale( QPainter &painter )
   painter.setFont( font );
   QFontMetrics metrics = painter.fontMetrics();
   int longLen;
-  int shortStart;
+  int shortStart = 0;
   int w = width();
   int h = height();
 
@@ -1053,35 +1053,16 @@ void KLineal::drawScale( QPainter &painter )
   // (for some unknown reason, this doesn't show up anymore)
   switch ( mOrientation ) {
   case North:
-  default:
-    shortStart = 0;
+  case South:
     longLen = w;
     painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( 0, h - 1, w - 1, h - 1 );
     painter.drawLine( w - 1, h - 1, w - 1, 0 );
     break;
 
   case East:
-    shortStart = w;
-    longLen = h;
-    painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( 0, h - 1, w - 1, h - 1 );
-    painter.drawLine( w - 1, 0, 0, 0 );
-    break;
-
-  case South:
-    shortStart = h;
-    longLen = w;
-    painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( w - 1, h - 1, w - 1, 0 );
-    painter.drawLine( w - 1, 0, 0, 0 );
-    break;
-
   case West:
-    shortStart = 0;
     longLen = h;
     painter.drawLine( 0, h - 1, w - 1, h - 1 );
-    painter.drawLine( w - 1, h - 1, w - 1, 0 );
     painter.drawLine( w - 1, 0, 0, 0 );
     break;
   }
@@ -1109,39 +1090,31 @@ void KLineal::drawScale( QPainter &painter )
         units.sprintf( "%d", digit );
         QSize textSize = metrics.size( Qt::TextSingleLine, units );
         int tw = textSize.width();
-        int th = textSize.height();
+        int th = metrics.ascent();
 
         switch ( mOrientation ) {
         case North:
-          painter.drawText( x - tw / 2, shortStart + len + th, units );
-          break;
-
         case South:
-          painter.drawText( x - tw / 2, shortStart - len - 2, units );
+          painter.drawText( x - tw / 2, (h + th) / 2, units );
           break;
 
         case East:
-          painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
-          break;
-
         case West:
-          painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
+          painter.drawText( (w - tw) / 2, x + th / 2, units );
           break;
         }
       }
 
       switch( mOrientation ) {
       case North:
-        painter.drawLine( x, shortStart, x, shortStart + len );
-        break;
       case South:
-        painter.drawLine( x, shortStart, x, shortStart - len );
+        painter.drawLine( x, 0, x, len );
+        painter.drawLine( x, h, x, h - len );
         break;
       case East:
-        painter.drawLine( shortStart, x, shortStart - len, x );
-        break;
       case West:
-        painter.drawLine( shortStart, x, shortStart + len, x );
+        painter.drawLine( 0, x, len, x );
+        painter.drawLine( w, x, w - len, x );
         break;
       }
     }
