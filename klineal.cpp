@@ -69,6 +69,7 @@ static const int MEDIUM2_TICK_SIZE = 15;
 static const int LARGE_TICK_SIZE = 18;
 
 static const int THICKNESS = 70;
+static const int CURSOR_SIZE = 15; // Must be an odd number
 
 /**
  * create the thingy with no borders and set up
@@ -117,6 +118,8 @@ KLineal::KLineal( QWidget *parent )
   } else {
     resize( QSize( THICKNESS, len ) );
   }
+
+  createCrossCursor();
 
   //BEGIN setup menu and actions
   mActionCollection = new KActionCollection( this );
@@ -187,6 +190,20 @@ KLineal::KLineal( QWidget *parent )
 KLineal::~KLineal()
 {
   delete mTrayIcon;
+}
+
+void KLineal::createCrossCursor()
+{
+  QPixmap pix( CURSOR_SIZE, CURSOR_SIZE );
+  int halfSize = CURSOR_SIZE / 2;
+  {
+    pix.fill( Qt::transparent );
+    QPainter painter( &pix );
+    painter.setPen( Qt::red );
+    painter.drawLine( 0, halfSize, CURSOR_SIZE - 1, halfSize );
+    painter.drawLine( halfSize, 0, halfSize, CURSOR_SIZE - 1 );
+  }
+  mCrossCursor = QCursor( pix, halfSize, halfSize );
 }
 
 void KLineal::createSystemTray()
@@ -628,7 +645,7 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
     if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
       setCursor( resizeCursor() );
     } else {
-      setCursor( Qt::SizeAllCursor );
+      setCursor( mCrossCursor );
     }
     adjustLabel();
   }

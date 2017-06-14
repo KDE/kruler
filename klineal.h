@@ -54,6 +54,7 @@ protected:
   void createSystemTray();
 
 private:
+  void createCrossCursor();
   QAction* addAction( QMenu *menu, const QIcon& icon, const QString& text,
                       const QObject* receiver, const char* member,
                       const QKeySequence &shortcut, const QString& name );
@@ -78,6 +79,7 @@ private:
     StateBegin,
     StateEnd
   };
+  QCursor mCrossCursor;
   RulerState mRulerState;
   QPoint mLastClickPos;
   QPoint mDragOffset;
