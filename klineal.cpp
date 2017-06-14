@@ -739,7 +739,9 @@ void KLineal::drawScale( QPainter &painter )
   if ( !mRelativeScale ) {
     int digit;
     int len;
-    for ( int x = 0; x < longLen; ++x ) {
+    // Draw from -1 to longLen rather than from 0 to longLen - 1 to take into
+    // account the offset applied in drawScaleTick
+    for ( int x = -1; x <= longLen; ++x ) {
       if ( mLeftToRight ) {
         digit = x + mOffset;
       } else {
