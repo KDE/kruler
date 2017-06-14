@@ -49,8 +49,6 @@ protected:
   void mouseMoveEvent( QMouseEvent *e );
   void wheelEvent( QWheelEvent *e );
   void paintEvent( QPaintEvent *e );
-  void enterEvent( QEvent *e );
-  void leaveEvent( QEvent *e );
 
   void createSystemTray();
 
@@ -62,11 +60,25 @@ private:
   void drawBackground( QPainter &painter );
   void drawScaleText( QPainter &painter, int x, const QString &text );
   void drawScaleTick( QPainter &painter, int x, int length );
+  void drawResizeHandle( QPainter &painter, Qt::Edge edge );
   void reLength( int percentOfScreen );
   void reLengthAbsolute( int length );
   void updateScaleDirectionMenuItem();
 
-  bool mDragging;
+  QRect beginRect() const;
+  QRect endRect() const;
+  Qt::CursorShape resizeCursor() const;
+  bool nativeMove() const;
+  void startNativeMove( QMouseEvent *e );
+  void stopNativeMove( QMouseEvent *e );
+
+  enum RulerState {
+    StateNone,
+    StateMove,
+    StateBegin,
+    StateEnd
+  };
+  RulerState mRulerState;
   QPoint mLastClickPos;
   QPoint mDragOffset;
   QAutoSizeLabel *mLabel;
@@ -81,10 +93,6 @@ private:
   QAction *mCenterOriginAction;
   QAction *mOffsetAction;
   QColor mColor;
-  QCursor mCurrentCursor;
-  QCursor mVerticalCursor;
-  QCursor mHorizontalCursor;
-  QCursor mDragCursor;
   QFont mScaleFont;
   bool mAlwaysOnTopLayer;
   bool mClicked;
@@ -100,8 +108,6 @@ private:
 public slots:
   void rotate();
   void showMenu();
-  void hideLabel();
-  void showLabel();
   void adjustLabel();
   void setShortLength();
   void setMediumLength();

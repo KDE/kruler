@@ -59,19 +59,9 @@
 #include "ui_cfg_appearance.h"
 #include "ui_cfg_advanced.h"
 
-/**
- * this is our cursor bitmap:
- * a line 48 pixels long with an arrow pointing down
- * and a sqare with a one pixel hole at the top (end)
- */
-static const uchar cursorBits[] = {
-  0x38, 0x28, 0x38, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0xfe, 0xfe, 0x7c, 0x7c, 0x38, 0x38, 0x10, 0x10,
-};
+static const int RESIZE_HANDLE_LEN = 7;
+static const int RESIZE_HANDLE_SHORT_LEN = 24;
+static const qreal RESIZE_HANDLE_OPACITY = 0.3;
 
 /**
  * create the thingy with no borders and set up
@@ -79,7 +69,7 @@ static const uchar cursorBits[] = {
  */
 KLineal::KLineal( QWidget *parent )
   : QWidget( parent ),
-    mDragging( false ),
+    mRulerState( StateNone ),
     mShortEdgeLen( 70 ),
     mCloseAction( 0 ),
     mLenMenu( 0 ),                // INFO This member could be eventually deleted
@@ -105,14 +95,6 @@ KLineal::KLineal( QWidget *parent )
                       "It is useful for working on layouts of dialogs, web pages etc." ) );
   setMouseTracking( true );
 
-  QBitmap bim = QBitmap::fromData( QSize( 8, 48 ), cursorBits, QImage::Format_Mono );
-  QMatrix m;
-  m.rotate( 90.0 );
-  mVerticalCursor = QCursor( bim, bim, 4, 24 );
-  bim = bim.transformed( m );
-  mHorizontalCursor = QCursor( bim, bim, 24, 4 );
-
-  mCurrentCursor = mVerticalCursor;
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
   mLongEdgeLen = RulerSettings::self()->length();
@@ -123,7 +105,6 @@ KLineal::KLineal( QWidget *parent )
   mAlwaysOnTopLayer = RulerSettings::self()->alwaysOnTop();
 
   mLabel = new QAutoSizeLabel( this );
-  mLabel->setGeometry( 0, height() - 12, 32, 12 );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
 
   resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
@@ -204,9 +185,8 @@ KLineal::KLineal( QWidget *parent )
   setWindowFlags( mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
                                     : Qt::FramelessWindowHint );
 
-  hideLabel();
   setHorizontal( mHorizontal );
-
+  adjustLabel();
 }
 
 KLineal::~KLineal()
@@ -336,14 +316,7 @@ void KLineal::setHorizontal( bool horizontal )
   }
 
   setGeometry( r );
-  mLabel->move( ( width() - mLabel->width() ) / 2,
-                ( height() - mLabel->height() ) / 2 );
-
-  if ( mHorizontal ) {
-    mCurrentCursor = mVerticalCursor;
-  } else {
-    mCurrentCursor = mHorizontalCursor;
-  }
+  adjustLabel();
 
   if ( mLenMenu && mFullScreenAction ) {
     mFullScreenAction->setText( mHorizontal ? i18n( "&Full Screen Width" ) : i18n( "&Full Screen Height" ) );
@@ -351,7 +324,6 @@ void KLineal::setHorizontal( bool horizontal )
 
   updateScaleDirectionMenuItem();
 
-  setCursor( mCurrentCursor );
   repaint();
   saveSettings();
 }
@@ -425,6 +397,27 @@ void KLineal::updateScaleDirectionMenuItem()
   }
 
   mScaleDirectionAction->setText( label );
+}
+
+QRect KLineal::beginRect() const
+{
+  int shortLen = RESIZE_HANDLE_SHORT_LEN;
+  return mHorizontal
+    ? QRect( 0, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LEN, shortLen )
+    : QRect( ( width() - shortLen ) / 2, 0, shortLen, RESIZE_HANDLE_LEN );
+}
+
+QRect KLineal::endRect() const
+{
+  int shortLen = RESIZE_HANDLE_SHORT_LEN;
+  return mHorizontal
+    ? QRect( width() - RESIZE_HANDLE_LEN, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LEN, shortLen )
+    : QRect( ( width() - shortLen ) / 2, height() - RESIZE_HANDLE_LEN, shortLen, RESIZE_HANDLE_LEN );
+}
+
+Qt::CursorShape KLineal::resizeCursor() const
+{
+  return mHorizontal ? Qt::SizeHorCursor : Qt::SizeVerCursor;
 }
 
 void KLineal::setShortLength()
@@ -595,55 +588,13 @@ void KLineal::showMenu()
 }
 
 /**
- * overwritten to switch the value label and line cursor on
- */
-void KLineal::enterEvent( QEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-
-  if ( !mDragging ) {
-    showLabel();
-  }
-}
-
-/**
- * overwritten to switch the value label and line cursor off
- */
-void KLineal::leaveEvent( QEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-
-  if ( !geometry().contains( QCursor::pos() ) ) {
-    hideLabel();
-  }
-}
-
-/**
- * shows the value lable
- */
-void KLineal::showLabel()
-{
-  adjustLabel();
-  mLabel->show();
-}
-
-/**
- * hides the value label
- */
-void KLineal::hideLabel()
-{
-  mLabel->hide();
-}
-
-/**
  * updates the current value label
  */
 void KLineal::adjustLabel()
 {
   QString s;
-  QPoint cpos = QCursor::pos();
 
-  int digit = mHorizontal ? cpos.x() - x() : cpos.y() - y();
+  int digit = mHorizontal ? width() : height();
 
   if ( !mRelativeScale ) {
     if ( mLeftToRight ) {
@@ -662,6 +613,12 @@ void KLineal::adjustLabel()
 
   s.sprintf( "%d%s", digit, ( mRelativeScale ? "%" : " px" ) );
   mLabel->setText( s );
+
+  QFontMetrics fm = mLabel->fontMetrics();
+  QPoint pos = mHorizontal
+    ? QPoint( height() / 2, ( height() - fm.ascent() ) / 2 )
+    : QPoint( ( width() - mLabel->width() ) / 2, width() / 2 );
+  mLabel->move( pos );
 }
 
 void KLineal::keyPressEvent( QKeyEvent *e )
@@ -710,24 +667,35 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
 
-  if ( mDragging && this == mouseGrabber() ) {
-#ifdef KRULER_HAVE_X11
-    if ( !QX11Info::isPlatformX11() || !RulerSettings::self()->nativeMoving() ) {
-#endif
+  if ( mRulerState != StateNone && this == mouseGrabber() ) {
+    if ( mRulerState == StateMove ) {
       move( QCursor::pos() - mDragOffset );
-#ifdef KRULER_HAVE_X11
+    } else if ( mRulerState == StateBegin ) {
+      QRect r = geometry();
+      if ( mHorizontal ) {
+        r.setLeft( QCursor::pos().x() - mDragOffset.x() );
+      } else {
+        r.setTop( QCursor::pos().y() - mDragOffset.y() );
+      }
+      setGeometry( r );
+
+      adjustLabel();
+    } else if ( mRulerState == StateEnd ) {
+      QPoint end = QCursor::pos() + mDragOffset - pos();
+      QSize size = mHorizontal
+        ? QSize( end.x(), height() )
+        : QSize( width(), end.y() );
+      resize( size );
+      adjustLabel();
     }
-#endif
   } else {
-    QPoint p = QCursor::pos();
-
-    if ( mHorizontal ) {
-      p.setY( p.y() - 46 );
+    QPoint cpos = mapFromGlobal( QCursor::pos() );
+    mRulerState = StateNone;
+    if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
+      setCursor( resizeCursor() );
     } else {
-      p.setX( p.x() + 46 );
+      setCursor( Qt::SizeAllCursor );
     }
-
-    adjustLabel();
   }
 }
 
@@ -737,25 +705,27 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 void KLineal::mousePressEvent( QMouseEvent *inEvent )
 {
   mLastClickPos = QCursor::pos();
-  hideLabel();
 
   QRect gr = geometry();
-  mDragOffset = mLastClickPos - QPoint( gr.left(), gr.top() );
+  mDragOffset = mLastClickPos - gr.topLeft();
   if ( inEvent->button() == Qt::LeftButton ) {
-#ifdef KRULER_HAVE_X11
-    if ( QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving() ) {
-      xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
-      NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-      wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
-    } else {
-#endif
-      if ( !mDragging ) {
-        grabMouse( Qt::SizeAllCursor );
-        mDragging = true;
+    if ( mRulerState < StateMove ) {
+      if ( beginRect().contains( mDragOffset ) ) {
+        mRulerState = StateBegin;
+        grabMouse( resizeCursor() );
+      } else if ( endRect().contains( mDragOffset ) ) {
+        mDragOffset = gr.bottomRight() - mLastClickPos;
+        mRulerState = StateEnd;
+        grabMouse( resizeCursor() );
+      } else {
+        if ( nativeMove() ) {
+          startNativeMove( inEvent );
+        } else {
+          mRulerState = StateMove;
+          grabMouse( Qt::SizeAllCursor );
+        }
       }
-#ifdef KRULER_HAVE_X11
     }
-#endif
   } else if ( inEvent->button() == Qt::MidButton ) {
     mClicked = true;
     rotate();
@@ -764,28 +734,52 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
   }
 }
 
+#ifdef KRULER_HAVE_X11
+bool KLineal::nativeMove() const
+{
+  return QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving();
+}
+
+void KLineal::startNativeMove( QMouseEvent *inEvent )
+{
+  xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
+  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
+  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
+}
+
+void KLineal::stopNativeMove( QMouseEvent *inEvent )
+{
+  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
+  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
+}
+#else
+bool KLineal::nativeMove() const
+{
+  return false;
+}
+
+void KLineal::startNativeMove( QMouseEvent *inEvent )
+{
+  Q_UNUSED( inEvent );
+}
+
+void KLineal::stopNativeMove( QMouseEvent *inEvent )
+{
+  Q_UNUSED( inEvent );
+}
+#endif
+
 /**
  * overwritten for dragging
  */
 void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 {
-  Q_UNUSED( inEvent );
-
-#ifdef KRULER_HAVE_X11
-  if ( QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving() ) {
-    NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
-  } else {
-#endif
-    if ( mDragging ) {
-      mDragging = false;
-      releaseMouse();
-    }
-#ifdef KRULER_HAVE_X11
+  if ( mRulerState != StateNone ) {
+    mRulerState = StateNone;
+    releaseMouse();
+  } else if ( nativeMove() ) {
+    stopNativeMove( inEvent );
   }
-#endif
-
-  showLabel();
 }
 
 void KLineal::wheelEvent( QWheelEvent *e )
@@ -927,6 +921,36 @@ void KLineal::drawScaleTick( QPainter &painter, int x, int len )
   }
 }
 
+void KLineal::drawResizeHandle( QPainter &painter, Qt::Edge edge )
+{
+  QRect rect;
+  switch ( edge ) {
+  case Qt::LeftEdge:
+  case Qt::TopEdge:
+    rect = beginRect();
+    break;
+  case Qt::RightEdge:
+  case Qt::BottomEdge:
+    rect = endRect();
+    break;
+  }
+  painter.setOpacity( RESIZE_HANDLE_OPACITY );
+  if ( mHorizontal ) {
+    int y1 = ( mShortEdgeLen - RESIZE_HANDLE_SHORT_LEN ) / 2;
+    int y2 = y1 + RESIZE_HANDLE_SHORT_LEN - 1;
+    for ( int x = rect.left() + 1; x < rect.right(); x += 2 ) {
+      painter.drawLine( x, y1, x, y2 );
+    }
+  } else {
+    int x1 = ( mShortEdgeLen - RESIZE_HANDLE_SHORT_LEN ) / 2;
+    int x2 = x1 + RESIZE_HANDLE_SHORT_LEN - 1;
+    for ( int y = rect.top() + 1; y < rect.bottom(); y += 2 ) {
+      painter.drawLine( x1, y, x2, y );
+    }
+  }
+  painter.setOpacity( 1 );
+}
+
 /**
  * actually draws the ruler
  */
@@ -937,4 +961,7 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
   QPainter painter( this );
   drawBackground( painter );
   drawScale( painter );
+
+  drawResizeHandle( painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge );
+  drawResizeHandle( painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge );
 }
