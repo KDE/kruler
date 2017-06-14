@@ -51,8 +51,8 @@
 <title>Introduction</title>
 
 <para>&kruler; is a very simple application, with only one aim in life.  To
-measure pixel distances and colors on your screen. It is useful for working on
-layout of dialogs, web pages &etc;</para>
+measure pixel distances on your screen. It is useful for working on layout
+of dialogs, web pages &etc;</para>
 
 <para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Graphics</guisubmenu> 
 <guisubmenu>More Applications</guisubmenu>
@@ -73,23 +73,15 @@ layout of dialogs, web pages &etc;</para>
 <para>Clicking with the &LMB; on the &kruler; will turn the cursor to a cross
 with four arrows and enables you to drag &kruler; around the screen.</para>
 
-<para>When you move the mouse over &kruler;, your cursor will turn into an
-elongated arrow, with a circle at one end.  As you move the cursor, &kruler; will
-display how far from the point marked <guilabel>0</guilabel> the circle on the
-end of the cursor currently is.  &kruler; will also display the
-&HTML; color code of the color currently under the circle.
-This is very useful for picking out colors from an image.  If you move the
-mouse far enough that the arrow cursor is no longer touching &kruler;, the
-cursor will revert to normal, allowing you to carry on working with your other
-applications.</para>
+<para>When you move the mouse over &kruler;, your cursor will turn into a
+red arrow.  As you move the cursor, &kruler; will
+display how far from the origin the cursor currently is.
+</para>
 
-<para>You can change the orientation in three different ways:</para>
+<para>You can change the orientation in two different ways:</para>
 
 <simplelist>
 <member>Clicking the &MMB; switches the ruler from vertical to horizontal orientation</member>
-<member>By clicking the rotation buttons to turn 90 degrees to the left or right. 
-If the rotation buttons are not displayed on the ruler, enable them with <guilabel>Show 
-rotation buttons</guilabel> in the <link linkend="settings-dialog">settings dialog</link></member>
 <member>Using the context menu, described in the next chapter</member>
 </simplelist>
 
@@ -105,189 +97,11 @@ following entries:</para>
 <varlistentry>
 <term>
 <menuchoice>
-<guisubmenu>Orientation</guisubmenu>
+<guimenuitem>Rotate</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
-<para>This submenu contains entries that allow you to change the orientation of
-&kruler;</para>
-
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycap>N</keycap>
-</shortcut>
-<guisubmenu>Orientation</guisubmenu>
-<guimenuitem>North</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Turns &kruler; so the ruler is horizontal, and the measurements are on the
-top (North) of the ruler</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycap>E</keycap>
-</shortcut>
-<guisubmenu>Orientation</guisubmenu>
-<guimenuitem>East</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Turns &kruler; so the ruler is vertical, and the measurements are on the
-right (East) of the ruler</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycap>S</keycap>
-</shortcut>
-<guisubmenu>Orientation</guisubmenu>
-<guimenuitem>South</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Turns &kruler; so the ruler is horizontal, and the measurements are on the
-bottom (South) of the ruler</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycap>W</keycap>
-</shortcut>
-<guisubmenu>Orientation</guisubmenu>
-<guimenuitem>West</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Turns &kruler; so the ruler is vertical, and the measurements are on the
-left (West) of the ruler</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycap>R</keycap>
-</shortcut>
-<guisubmenu>Orientation</guisubmenu>
-<guimenuitem>Turn Right</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Turns the ruler 90 Degrees to the right.  For example, if it is oriented
-South, it will rotate to be oriented West.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycap>L</keycap>
-</shortcut>
-<guisubmenu>Orientation</guisubmenu>
-<guimenuitem>Turn Left</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Turns the ruler 90 Degrees to the left.  For example, if it is oriented
-West, it will rotate to be oriented South.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guisubmenu>Length</guisubmenu>
-</menuchoice>
-</term>
-<listitem>
-<para>This submenu contains entries that allow you to change the length of
-&kruler;</para>
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut><keycombo action="simul">&Ctrl;
-<keycap>S</keycap></keycombo>
-</shortcut>
-<guisubmenu>Length</guisubmenu>
-<guimenuitem>Short</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Makes &kruler; short - about 385 pixels long.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>
-</shortcut>
-<guisubmenu>Length</guisubmenu>
-<guimenuitem>Medium</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Makes &kruler; a medium length - about 640 pixels long.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>T</keycap></keycombo>
-</shortcut>
-<guisubmenu>Length</guisubmenu>
-<guimenuitem>Tall</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Makes &kruler; long - about 960 pixels in length.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>F</keycap></keycombo>
-</shortcut>
-<guisubmenu>Length</guisubmenu>
-<guimenuitem>Full Screen Width</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Makes &kruler; the same size as your screen width.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guisubmenu>Length</guisubmenu>
-<guimenuitem>Length...</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Opens a dialog to enter the size in pixel.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<para>Additionally, you can change the length and move the right side of the ruler using the mousewheel. 
-When holding the &Shift; key the opposite side will change.
-</para>
-
+<para>Switchs &kruler; from vertical to horizontal orientation.</para>
 </listitem>
 </varlistentry>
 
@@ -351,22 +165,8 @@ to &kruler; actions, and configure the shortcuts already assigned.</para>
 </mediaobject>
 </screenshot>
 </para>
-<para>In this dialog you can change the background color and font, enable rotation and close 
-buttons on the ruler and enable the tray icon.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>C</keycap></keycombo>
-</shortcut>
-<guimenuitem>Copy Color</guimenuitem>
-</menuchoice>
-</term>
-<listitem>
-<para>Copies the &HTML; color code of the color currently under the circle to the clipboard.</para>
+<para>In this dialog you can change the background color and font and enable
+the tray icon.</para>
 </listitem>
 </varlistentry>
 
