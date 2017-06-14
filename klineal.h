@@ -62,8 +62,6 @@ private:
   void drawScaleText( QPainter &painter, int x, const QString &text );
   void drawScaleTick( QPainter &painter, int x, int length );
   void drawResizeHandle( QPainter &painter, Qt::Edge edge );
-  void reLength( int percentOfScreen );
-  void reLengthAbsolute( int length );
   void updateScaleDirectionMenuItem();
 
   QRect beginRect() const;
@@ -85,12 +83,8 @@ private:
   QPoint mDragOffset;
   QAutoSizeLabel *mLabel;
   bool mHorizontal;
-  int mLongEdgeLen;
-  int mShortEdgeLen;
   QMenu *mMenu;
   QAction *mCloseAction;
-  QMenu *mLenMenu;
-  QAction *mFullScreenAction;
   QAction *mScaleDirectionAction;
   QAction *mCenterOriginAction;
   QAction *mOffsetAction;
@@ -108,20 +102,16 @@ private:
   void setHorizontal( bool horizontal );
 
   bool isResizing() const;
+  int length() const;
   QPoint localCursorPos() const;
 
 public slots:
   void rotate();
   void showMenu();
   void adjustLabel();
-  void setShortLength();
-  void setMediumLength();
-  void setTallLength();
-  void setFullLength();
   void switchDirection();
   void centerOrigin();
   void slotOffset();
-  void slotLength();
   void slotOpacity( int value );
   void slotKeyBindings();
   void slotPreferences();

@@ -59,8 +59,8 @@
 #include "ui_cfg_appearance.h"
 #include "ui_cfg_advanced.h"
 
-static const int RESIZE_HANDLE_LEN = 7;
-static const int RESIZE_HANDLE_SHORT_LEN = 24;
+static const int RESIZE_HANDLE_LENGTH = 7;
+static const int RESIZE_HANDLE_THICKNESS = 24;
 static const qreal RESIZE_HANDLE_OPACITY = 0.3;
 
 static const int SMALL_TICK_SIZE = 6;
@@ -77,12 +77,7 @@ static const int THICKNESS = 70;
 KLineal::KLineal( QWidget *parent )
   : QWidget( parent ),
     mRulerState( StateNone ),
-    mShortEdgeLen( 70 ),
     mCloseAction( 0 ),
-    mLenMenu( 0 ),                // INFO This member could be eventually deleted
-                                  // since if mFullScreenAction is initialized
-                                  // mLenMenu should have been, too.
-    mFullScreenAction( 0 ),
     mScaleDirectionAction( 0 ),
     mCenterOriginAction( 0 ),
     mOffsetAction( 0 ),
@@ -104,7 +99,7 @@ KLineal::KLineal( QWidget *parent )
 
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
-  mLongEdgeLen = RulerSettings::self()->length();
+  int len = RulerSettings::self()->length();
   mHorizontal = RulerSettings::self()->horizontal();
   mLeftToRight = RulerSettings::self()->leftToRight();
   mOffset = RulerSettings::self()->offset();
@@ -114,7 +109,11 @@ KLineal::KLineal( QWidget *parent )
   mLabel = new QAutoSizeLabel( this );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
 
-  resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
+  if ( mHorizontal ) {
+    resize( QSize( len, THICKNESS ) );
+  } else {
+    resize( QSize( THICKNESS, len ) );
+  }
 
   //BEGIN setup menu and actions
   mActionCollection = new KActionCollection( this );
@@ -124,20 +123,6 @@ KLineal::KLineal( QWidget *parent )
   mMenu->addSection( i18n( "KRuler" ) );
   addAction( mMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Rotate" ),
              this, SLOT(rotate()), Qt::Key_R, QStringLiteral( "turn_right" ) );
-
-  mLenMenu = new QMenu( i18n( "&Length" ), this );
-  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
-             this, SLOT(setShortLength()), Qt::CTRL + Qt::Key_S, QStringLiteral( "length_short" ) );
-  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Medium", "&Medium" ),
-             this, SLOT(setMediumLength()), Qt::CTRL + Qt::Key_M, QStringLiteral( "length_medium" ) );
-  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Tall", "&Tall" ),
-             this, SLOT(setTallLength()), Qt::CTRL + Qt::Key_T, QStringLiteral( "length_tall" ) );
-  addAction( mLenMenu, QIcon(), i18n("&Full Screen Width"),
-             this, SLOT(setFullLength()), Qt::CTRL + Qt::Key_F, QStringLiteral( "length_full_length" ) );
-  mLenMenu->addSeparator();
-  addAction( mLenMenu, QIcon(), i18n( "Length..." ),
-             this, SLOT(slotLength()), QKeySequence(), QStringLiteral( "set_length" ) );
-  mMenu->addMenu( mLenMenu );
 
   QMenu* scaleMenu = new QMenu( i18n( "&Scale" ), this );
   mScaleDirectionAction = addAction( scaleMenu, QIcon(), i18n( "Right to Left" ),
@@ -285,6 +270,9 @@ void KLineal::drawBackground( QPainter& painter )
 void KLineal::setHorizontal( bool horizontal )
 {
   QRect r = frameGeometry();
+  if ( mHorizontal != horizontal ) {
+    r.setSize( r.size().transposed() );
+  }
   mHorizontal = horizontal;
   QPoint center = mLastClickPos;
 
@@ -295,16 +283,18 @@ void KLineal::setHorizontal( bool horizontal )
     center = r.topLeft() + QPoint( width() / 2, height() / 2 );
   }
 
-  if ( mHorizontal ) {
-    r.setSize( QSize( mLongEdgeLen, mShortEdgeLen ) );
-  } else {
-    r.setSize( QSize( mShortEdgeLen, mLongEdgeLen ) );
-  }
-
   QPoint newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
   r.moveTo(newTopLeft);
 
   QRect desktop = QApplication::desktop()->screenGeometry( this );
+
+  if ( r.width() > desktop.width() ) {
+    r.setWidth( desktop.width() );
+  }
+
+  if ( r.height() > desktop.height() ) {
+    r.setHeight( desktop.height() );
+  }
 
   if ( r.top() < desktop.top() ) {
     r.moveTop( desktop.top() );
@@ -325,10 +315,6 @@ void KLineal::setHorizontal( bool horizontal )
   setGeometry( r );
   adjustLabel();
 
-  if ( mLenMenu && mFullScreenAction ) {
-    mFullScreenAction->setText( mHorizontal ? i18n( "&Full Screen Width" ) : i18n( "&Full Screen Height" ) );
-  }
-
   updateScaleDirectionMenuItem();
 
   saveSettings();
@@ -337,57 +323,6 @@ void KLineal::setHorizontal( bool horizontal )
 void KLineal::rotate()
 {
   setHorizontal( !mHorizontal );
-}
-
-void KLineal::reLength( int percentOfScreen )
-{
-  if ( percentOfScreen < 10 ) {
-    return;
-  }
-
-  QRect r = QApplication::desktop()->screenGeometry( this );
-
-  if ( mHorizontal ) {
-    mLongEdgeLen = r.width() * percentOfScreen / 100;
-    resize( mLongEdgeLen, height() );
-  } else {
-    mLongEdgeLen = r.height() * percentOfScreen / 100;
-    resize( width(), mLongEdgeLen );
-  }
-
-  if ( x() + width() < 10 ) {
-    move( 10, y() );
-  }
-
-  if ( y() + height() < 10 ) {
-    move( x(), 10 );
-  }
-
-  saveSettings();
-}
-
-void KLineal::reLengthAbsolute( int length )
-{
-  if ( length < 100 ) {
-    return;
-  }
-
-  mLongEdgeLen = length;
-  if ( mHorizontal ) {
-    resize( mLongEdgeLen, height() );
-  } else {
-    resize( width(), mLongEdgeLen );
-  }
-
-  if ( x() + width() < 10 ) {
-    move( 10, y() );
-  }
-
-  if ( y() + height() < 10 ) {
-    move( x(), 10 );
-  }
-
-  saveSettings();
 }
 
 void KLineal::updateScaleDirectionMenuItem()
@@ -407,43 +342,23 @@ void KLineal::updateScaleDirectionMenuItem()
 
 QRect KLineal::beginRect() const
 {
-  int shortLen = RESIZE_HANDLE_SHORT_LEN;
+  int shortLen = RESIZE_HANDLE_THICKNESS;
   return mHorizontal
-    ? QRect( 0, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LEN, shortLen )
-    : QRect( ( width() - shortLen ) / 2, 0, shortLen, RESIZE_HANDLE_LEN );
+    ? QRect( 0, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LENGTH, shortLen )
+    : QRect( ( width() - shortLen ) / 2, 0, shortLen, RESIZE_HANDLE_LENGTH );
 }
 
 QRect KLineal::endRect() const
 {
-  int shortLen = RESIZE_HANDLE_SHORT_LEN;
+  int shortLen = RESIZE_HANDLE_THICKNESS;
   return mHorizontal
-    ? QRect( width() - RESIZE_HANDLE_LEN, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LEN, shortLen )
-    : QRect( ( width() - shortLen ) / 2, height() - RESIZE_HANDLE_LEN, shortLen, RESIZE_HANDLE_LEN );
+    ? QRect( width() - RESIZE_HANDLE_LENGTH, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LENGTH, shortLen )
+    : QRect( ( width() - shortLen ) / 2, height() - RESIZE_HANDLE_LENGTH, shortLen, RESIZE_HANDLE_LENGTH );
 }
 
 Qt::CursorShape KLineal::resizeCursor() const
 {
   return mHorizontal ? Qt::SizeHorCursor : Qt::SizeVerCursor;
-}
-
-void KLineal::setShortLength()
-{
-  reLength( 30 );
-}
-
-void KLineal::setMediumLength()
-{
-  reLength( 50 );
-}
-
-void KLineal::setTallLength()
-{
-  reLength( 75 );
-}
-
-void KLineal::setFullLength()
-{
-  reLength( 100 );
 }
 
 void KLineal::switchDirection()
@@ -457,7 +372,7 @@ void KLineal::switchDirection()
 
 void KLineal::centerOrigin()
 {
-  mOffset = -( mLongEdgeLen / 2 );
+  mOffset = -( length() / 2 );
   repaint();
   adjustLabel();
   saveSettings();
@@ -475,20 +390,6 @@ void KLineal::slotOffset()
     repaint();
     adjustLabel();
     saveSettings();
-  }
-}
-
-void KLineal::slotLength()
-{
-  bool ok;
-  QRect r = QApplication::desktop()->screenGeometry( this );
-  int width = mHorizontal ? r.width() : r.height();
-  int newLength = QInputDialog::getInt( this, i18nc( "@title:window", "Ruler Length" ),
-                                            i18n( "Length:" ), mLongEdgeLen,
-                                            0, width, 1, &ok );
-
-  if ( ok ) {
-    reLengthAbsolute( newLength );
   }
 }
 
@@ -575,7 +476,7 @@ void KLineal::saveSettings()
 {
   RulerSettings::self()->setBgColor( mColor );
   RulerSettings::self()->setScaleFont( mScaleFont );
-  RulerSettings::self()->setLength( mLongEdgeLen );
+  RulerSettings::self()->setLength( length() );
   RulerSettings::self()->setHorizontal( mHorizontal );
   RulerSettings::self()->setLeftToRight( mLeftToRight );
   RulerSettings::self()->setOffset( mOffset );
@@ -596,6 +497,11 @@ void KLineal::showMenu()
 bool KLineal::isResizing() const
 {
   return mouseGrabber() == this && ( mRulerState == StateBegin || mRulerState == StateEnd );
+}
+
+int KLineal::length() const
+{
+  return mHorizontal ? width() : height();
 }
 
 QPoint KLineal::localCursorPos() const
@@ -624,21 +530,21 @@ void KLineal::adjustLabel()
   } else {
     color = Qt::red;
     QPoint pos = localCursorPos();
-    int length = mHorizontal ? pos.x() : pos.y();
+    int len = mHorizontal ? pos.x() : pos.y();
     if ( !mRelativeScale ) {
       if ( mLeftToRight ) {
-        length += mOffset;
+        len += mOffset;
       } else {
-        length = mLongEdgeLen - length + mOffset;
+        len = length() - len + mOffset;
       }
-      text = i18n( "%1 px", length );
+      text = i18n( "%1 px", len );
     } else {
-      length = ( length * 100.f ) / mLongEdgeLen;
+      len = ( len * 100.f ) / length();
 
       if ( !mLeftToRight ) {
-        length = 100 - length;
+        len = 100 - len;
       }
-      text = i18n( "%1%", length );
+      text = i18n( "%1%", len );
     }
   }
 
@@ -719,7 +625,6 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
         r.setTop( QCursor::pos().y() - mDragOffset.y() );
       }
       setGeometry( r );
-
       adjustLabel();
     } else if ( mRulerState == StateEnd ) {
       QPoint end = QCursor::pos() + mDragOffset - pos();
@@ -820,6 +725,7 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
   if ( mRulerState != StateNone ) {
     mRulerState = StateNone;
     releaseMouse();
+    saveSettings();
   } else if ( nativeMove() ) {
     stopNativeMove( inEvent );
   }
@@ -840,26 +746,6 @@ void KLineal::wheelEvent( QWheelEvent *e )
       repaint();
       mLabel->setText( i18n( "Offset: %1", mOffset ) );
       saveSettings();
-    }
-  } else { // changing length
-    int oldLen = mLongEdgeLen;
-    int newLength = mLongEdgeLen + numSteps;
-    reLengthAbsolute( newLength );
-    mLabel->setText( i18n( "Length: %1 px", mLongEdgeLen ) );
-
-    // when holding shift relength at the other side
-    if ( e->modifiers() & Qt::ShiftModifier ) {
-      int change = mLongEdgeLen - oldLen;
-
-      QPoint dist;
-
-      if ( mHorizontal ) {
-        dist.setX( -change );
-      } else {
-        dist.setY( -change );
-      }
-
-      move( pos() + dist );
     }
   }
 
@@ -975,14 +861,14 @@ void KLineal::drawResizeHandle( QPainter &painter, Qt::Edge edge )
   }
   painter.setOpacity( RESIZE_HANDLE_OPACITY );
   if ( mHorizontal ) {
-    int y1 = ( mShortEdgeLen - RESIZE_HANDLE_SHORT_LEN ) / 2;
-    int y2 = y1 + RESIZE_HANDLE_SHORT_LEN - 1;
+    int y1 = ( THICKNESS - RESIZE_HANDLE_THICKNESS ) / 2;
+    int y2 = y1 + RESIZE_HANDLE_THICKNESS - 1;
     for ( int x = rect.left() + 1; x < rect.right(); x += 2 ) {
       painter.drawLine( x, y1, x, y2 );
     }
   } else {
-    int x1 = ( mShortEdgeLen - RESIZE_HANDLE_SHORT_LEN ) / 2;
-    int x2 = x1 + RESIZE_HANDLE_SHORT_LEN - 1;
+    int x1 = ( THICKNESS - RESIZE_HANDLE_THICKNESS ) / 2;
+    int x2 = x1 + RESIZE_HANDLE_THICKNESS - 1;
     for ( int y = rect.top() + 1; y < rect.bottom(); y += 2 ) {
       painter.drawLine( x1, y, x2, y );
     }
