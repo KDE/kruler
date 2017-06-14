@@ -864,7 +864,7 @@ void KLineal::drawScale( QPainter &painter )
       if ( digit % 20 == 0 ) len = 15;
       if ( digit % 100 == 0 ) len = 18;
 
-      if ( digit % 100 == 0 ) {
+      if ( digit % 100 == 0 && digit != 0 ) {
         QString units;
         units.sprintf( "%d", digit );
         drawScaleText( painter, x, units );
@@ -880,7 +880,7 @@ void KLineal::drawScale( QPainter &painter )
       int x = (int)( i * step );
       len = ( i % 10 ) ? 6 : 15;
 
-      if ( i % 10 == 0 ) {
+      if ( i % 10 == 0 && i != 0 && i != 100 ) {
         QString units;
         int value = mLeftToRight ? i : ( 100 - i );
         units.sprintf( "%d%%", value );
