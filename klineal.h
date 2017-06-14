@@ -84,10 +84,8 @@ private:
   QAction *mOffsetAction;
   QColor mColor;
   QCursor mCurrentCursor;
-  QCursor mNorthCursor;
-  QCursor mEastCursor;
-  QCursor mWestCursor;
-  QCursor mSouthCursor;
+  QCursor mVerticalCursor;
+  QCursor mHorizontalCursor;
   QCursor mDragCursor;
   QFont mScaleFont;
   bool mAlwaysOnTopLayer;

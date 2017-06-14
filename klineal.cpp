@@ -109,15 +109,11 @@ KLineal::KLineal( QWidget *parent )
   QBitmap bim = QBitmap::fromData( QSize( 8, 48 ), cursorBits, QImage::Format_Mono );
   QMatrix m;
   m.rotate( 90.0 );
-  mNorthCursor = QCursor( bim, bim, 3, 47 );
+  mVerticalCursor = QCursor( bim, bim, 4, 24 );
   bim = bim.transformed( m );
-  mEastCursor = QCursor( bim, bim, 0, 3 );
-  bim = bim.transformed( m );
-  mSouthCursor = QCursor( bim, bim, 4, 0 );
-  bim = bim.transformed( m );
-  mWestCursor = QCursor( bim, bim, 47, 4 );
+  mHorizontalCursor = QCursor( bim, bim, 24, 4 );
 
-  mCurrentCursor = mNorthCursor;
+  mCurrentCursor = mVerticalCursor;
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
   mLongEdgeLen = RulerSettings::self()->length();
@@ -394,25 +390,18 @@ void KLineal::setOrientation( int inOrientation )
   }
 
   setGeometry( r );
+  mLabel->move( ( width() - mLabel->width() ) / 2,
+                ( height() - mLabel->height() ) / 2 );
+
   switch( mOrientation ) {
   case North:
-    mLabel->move( 4, height()-mLabel->height() - 4 );
-    mCurrentCursor = mNorthCursor;
-    break;
-
   case South:
-    mLabel->move( 4, 4 );
-    mCurrentCursor = mSouthCursor;
-    break;
-
-  case East:
-    mLabel->move( 4, 4 );
-    mCurrentCursor = mEastCursor;
+    mCurrentCursor = mVerticalCursor;
     break;
 
   case West:
-    mLabel->move( width()-mLabel->width() - 4, 4 );
-    mCurrentCursor = mWestCursor;
+  case East:
+    mCurrentCursor = mHorizontalCursor;
     break;
   }
 
