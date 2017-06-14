@@ -67,13 +67,11 @@ private:
   void reLength( int percentOfScreen );
   void reLengthAbsolute( int length );
   void updateScaleDirectionMenuItem();
-  QColor pixelColor( const QPoint &p );
 
   bool mDragging;
   QPoint mLastClickPos;
   QPoint mDragOffset;
   QAutoSizeLabel *mLabel;
-  QAutoSizeLabel *mColorLabel;
   int mOrientation;
   int mLongEdgeLen;
   int mShortEdgeLen;
@@ -128,7 +126,6 @@ public slots:
   void slotKeyBindings();
   void slotPreferences();
   void switchRelativeScale( bool checked );
-  void copyColor();
   void saveSettings();
   void slotClose();
   void slotQuit();

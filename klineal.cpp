@@ -102,7 +102,7 @@ KLineal::KLineal( QWidget *parent )
 
   setMinimumSize( 60, 60 );
   setMaximumSize( 8000, 8000 );
-  setWhatsThis( i18n( "This is a tool to measure pixel distances and colors on the screen. "
+  setWhatsThis( i18n( "This is a tool to measure pixel distances on the screen. "
                       "It is useful for working on layouts of dialogs, web pages etc." ) );
   setMouseTracking( true );
 
@@ -130,15 +130,6 @@ KLineal::KLineal( QWidget *parent )
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
-  mColorLabel = new QAutoSizeLabel( this );
-  mColorLabel->setAutoFillBackground( true );
-  QFont colorFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
-  mColorLabel->setFont( colorFont );
-  mColorLabel->move( mLabel->pos() + QPoint(0, 20) );
-  mColorLabel->setWhatsThis(i18n("This is the current color in hexadecimal rgb representation"
-                                 " as you may use it in HTML or as a QColor name. "
-                                 "The rectangles background shows the color of the pixel inside the "
-                                 "little square at the end of the line cursor." ) );
 
   mBtnRotateLeft = new QToolButton( this );
   mBtnRotateLeft->setIcon( QIcon::fromTheme( QStringLiteral(  "object-rotate-left" ) ) );
@@ -222,10 +213,6 @@ KLineal::KLineal( QWidget *parent )
   mMenu->addAction( keyBindings );
   QAction *preferences = mActionCollection->addAction( KStandardAction::Preferences, this, SLOT(slotPreferences()) );
   mMenu->addAction( preferences );
-  mMenu->addSeparator();
-  QAction *copyColorAction = mActionCollection->addAction( KStandardAction::Copy, this, SLOT(copyColor()) );
-  copyColorAction->setText( i18n( "Copy Color" ) );
-  mMenu->addAction( copyColorAction );
   mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KAboutData::applicationData(), true ) )->menu() );
   mMenu->addSeparator();
@@ -410,25 +397,21 @@ void KLineal::setOrientation( int inOrientation )
   switch( mOrientation ) {
   case North:
     mLabel->move( 4, height()-mLabel->height() - 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( 0, -20 ) );
     mCurrentCursor = mNorthCursor;
     break;
 
   case South:
     mLabel->move( 4, 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
     mCurrentCursor = mSouthCursor;
     break;
 
   case East:
     mLabel->move( 4, 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
     mCurrentCursor = mEastCursor;
     break;
 
   case West:
     mLabel->move( width()-mLabel->width() - 4, 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( -5, 20 ) );
     mCurrentCursor = mWestCursor;
     break;
   }
@@ -705,11 +688,6 @@ void KLineal::saveSettings()
   RulerSettings::self()->save();
 }
 
-void KLineal::copyColor()
-{
-  QApplication::clipboard()->setText( mColorLabel->text() );
-}
-
 /**
  * lets the context menu appear at current cursor position
  */
@@ -750,7 +728,6 @@ void KLineal::showLabel()
 {
   adjustLabel();
   mLabel->show();
-  mColorLabel->show();
   if ( RulerSettings::self()->rotateButtonsVisible() ) {
     mBtnRotateLeft->show();
     mBtnRotateRight->show();
@@ -768,7 +745,6 @@ void KLineal::showLabel()
 void KLineal::hideLabel()
 {
   mLabel->hide();
-  mColorLabel->hide();
   mBtnRotateLeft->hide();
   mBtnRotateRight->hide();
   if ( mCloseButton ) {
@@ -920,20 +896,6 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
       break;
     }
 
-    QColor color = pixelColor( p );
-    int h, s, v;
-    color.getHsv( &h, &s, &v );
-    mColorLabel->setText( color.name().toUpper() );
-    QPalette palette = mColorLabel->palette();
-    palette.setColor( mColorLabel->backgroundRole(), color );
-    if ( v < 255 / 2 ) {
-      v = 255;
-    } else {
-      v = 0;
-    }
-    color.setHsv( h, s, v );
-    palette.setColor( mColorLabel->foregroundRole(), color );
-    mColorLabel->setPalette( palette );
     adjustLabel();
   }
 }
@@ -1162,12 +1124,3 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
   drawBackground( painter );
   drawScale( painter );
 }
-
-QColor KLineal::pixelColor(const QPoint &p)
-{
-  const QDesktopWidget *desktop = QApplication::desktop();
-  QScreen *screen = QGuiApplication::screens().at(desktop->screenNumber());
-  const QPixmap pixmap = screen->grabWindow(desktop->winId(), p.x(), p.y(), 1, 1);
-  return QColor(pixmap.toImage().pixel(QPoint(0, 0)));
-}
-
