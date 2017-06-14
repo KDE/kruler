@@ -4,6 +4,7 @@
     begin                : Fri Oct 13 2000
     Copyright            : (C) 2000 - 2008 by Till Krech <till@snafu.de>
                            (C) 2009        by Mathias Soeken <msoeken@tzi.de>
+                           (C) 2017        by Aurélien Gâteau <agateau@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -21,7 +22,6 @@
 #include <QWidget>
 
 class QAction;
-class QAutoSizeLabel;
 class QIcon;
 class QMenu;
 class QToolButton;
@@ -33,8 +33,6 @@ class KLineal : public QWidget {
   Q_OBJECT
 
 public:
-  enum { North = 0, West, South, East };
-
   KLineal( QWidget *parent = 0 );
   ~KLineal();
 
@@ -46,49 +44,55 @@ public:
 
 protected:
   void keyPressEvent( QKeyEvent *e );
+  void leaveEvent( QEvent *e );
   void mousePressEvent( QMouseEvent *e );
   void mouseReleaseEvent( QMouseEvent *e );
   void mouseMoveEvent( QMouseEvent *e );
   void wheelEvent( QWheelEvent *e );
   void paintEvent( QPaintEvent *e );
-  void enterEvent( QEvent *e );
-  void leaveEvent( QEvent *e );
 
   void createSystemTray();
 
 private:
+  void createCrossCursor();
   QAction* addAction( QMenu *menu, const QIcon& icon, const QString& text,
                       const QObject* receiver, const char* member,
                       const QKeySequence &shortcut, const QString& name );
   void drawScale( QPainter &painter );
   void drawBackground( QPainter &painter );
-  void reLength( int percentOfScreen );
-  void reLengthAbsolute( int length );
+  void drawScaleText( QPainter &painter, int x, const QString &text );
+  void drawScaleTick( QPainter &painter, int x, int length );
+  void drawResizeHandle( QPainter &painter, Qt::Edge edge );
+  void drawIndicatorOverlay( QPainter &painter, int xy );
+  void drawIndicatorText( QPainter &painter, int xy );
   void updateScaleDirectionMenuItem();
-  QColor pixelColor( const QPoint &p );
 
-  bool mDragging;
+  QRect beginRect() const;
+  QRect midRect() const;
+  QRect endRect() const;
+  Qt::CursorShape resizeCursor() const;
+  bool nativeMove() const;
+  void startNativeMove( QMouseEvent *e );
+  void stopNativeMove( QMouseEvent *e );
+  QString indicatorText() const;
+
+  enum RulerState {
+    StateNone,
+    StateMove,
+    StateBegin,
+    StateEnd
+  };
+  QCursor mCrossCursor;
+  RulerState mRulerState;
   QPoint mLastClickPos;
   QPoint mDragOffset;
-  QAutoSizeLabel *mLabel;
-  QAutoSizeLabel *mColorLabel;
-  int mOrientation;
-  int mLongEdgeLen;
-  int mShortEdgeLen;
+  bool mHorizontal;
   QMenu *mMenu;
   QAction *mCloseAction;
-  QMenu *mLenMenu;
-  QAction *mFullScreenAction;
   QAction *mScaleDirectionAction;
   QAction *mCenterOriginAction;
   QAction *mOffsetAction;
   QColor mColor;
-  QCursor mCurrentCursor;
-  QCursor mNorthCursor;
-  QCursor mEastCursor;
-  QCursor mWestCursor;
-  QCursor mSouthCursor;
-  QCursor mDragCursor;
   QFont mScaleFont;
   bool mAlwaysOnTopLayer;
   bool mClicked;
@@ -97,36 +101,24 @@ private:
   bool mRelativeScale;
   KActionCollection *mActionCollection;
   int mOpacity;
-  QToolButton *mBtnRotateLeft, *mBtnRotateRight;
-  QToolButton *mCloseButton;
   KRulerSystemTray *mTrayIcon;
 
+  void setHorizontal( bool horizontal );
+
+  bool isResizing() const;
+  int length() const;
+  QPoint localCursorPos() const;
+
 public slots:
-  void setOrientation( int );
-  void setNorth();
-  void setEast();
-  void setSouth();
-  void setWest();
-  void turnLeft();
-  void turnRight();
+  void rotate();
   void showMenu();
-  void hideLabel();
-  void showLabel();
-  void adjustLabel();
-  void adjustButtons();
-  void setShortLength();
-  void setMediumLength();
-  void setTallLength();
-  void setFullLength();
   void switchDirection();
   void centerOrigin();
   void slotOffset();
-  void slotLength();
   void slotOpacity( int value );
   void slotKeyBindings();
   void slotPreferences();
   void switchRelativeScale( bool checked );
-  void copyColor();
   void saveSettings();
   void slotClose();
   void slotQuit();

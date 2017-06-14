@@ -16,9 +16,9 @@
       <label>Font of the text on the ruler scale.</label>
       <default code="true">QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont)</default>
     </entry>
-    <entry name="Orientation" type="Int">
-      <label>Orientation of the ruler</label>
-      <default>2</default>
+    <entry name="Horizontal" type="Bool">
+      <label>Horizontal ruler</label>
+      <default>true</default>
     </entry>
     <entry name="LeftToRight" type="Bool">
       <label>Direction of the ruler</label>
@@ -39,14 +39,6 @@
     <entry name="Opacity" type="Int">
       <label>Opacity of the window</label>
       <default>255</default>
-    </entry>
-    <entry name="RotateButtonsVisible" type="Bool">
-      <label>Are the rotate buttons visible</label>
-      <default>false</default>
-    </entry>
-    <entry name="CloseButtonVisible" type="Bool">
-      <label>Is the close button visible</label>
-      <default>false</default>
     </entry>
     <entry name="NativeMoving" type="Bool">
       <label>Is native moving (possibly wobbling windows) active</label>

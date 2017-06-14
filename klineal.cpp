@@ -4,6 +4,7 @@
     Begin                : Fri Oct 13 2000
     Copyright            : 2000 by Till Krech <till@snafu.de>
                            2008 by Mathias Soeken <msoeken@informatik.uni-bremen.de>
+                           2017 by Aurélien Gâteau <agateau@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
@@ -54,24 +55,30 @@
 
 #include "kruler.h"
 #include "krulersystemtray.h"
-#include "qautosizelabel.h"
 
 #include "ui_cfg_appearance.h"
 #include "ui_cfg_advanced.h"
 
-/**
- * this is our cursor bitmap:
- * a line 48 pixels long with an arrow pointing down
- * and a sqare with a one pixel hole at the top (end)
- */
-static const uchar cursorBits[] = {
-  0x38, 0x28, 0x38, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10,
-  0xfe, 0xfe, 0x7c, 0x7c, 0x38, 0x38, 0x10, 0x10,
-};
+static const int RESIZE_HANDLE_LENGTH = 7;
+static const int RESIZE_HANDLE_THICKNESS = 24;
+static const qreal RESIZE_HANDLE_OPACITY = 0.3;
+
+static const int SMALL_TICK_SIZE = 6;
+static const int MEDIUM1_TICK_SIZE = 10;
+static const int MEDIUM2_TICK_SIZE = 15;
+static const int LARGE_TICK_SIZE = 18;
+static const qreal TICK_OPACITY = 0.3;
+
+static const int THICKNESS = 70;
+
+static const qreal OVERLAY_OPACITY = 0.1;
+static const qreal OVERLAY_BORDER_OPACITY = 0.3;
+
+static const int INDICATOR_MARGIN = 6;
+static const int INDICATOR_RECT_RADIUS = 3;
+static const qreal INDICATOR_RECT_OPACITY = 0.6;
+
+static const int CURSOR_SIZE = 15; // Must be an odd number
 
 /**
  * create the thingy with no borders and set up
@@ -79,19 +86,13 @@ static const uchar cursorBits[] = {
  */
 KLineal::KLineal( QWidget *parent )
   : QWidget( parent ),
-    mDragging( false ),
-    mShortEdgeLen( 70 ),
+    mRulerState( StateNone ),
     mCloseAction( 0 ),
-    mLenMenu( 0 ),                // INFO This member could be eventually deleted
-                                  // since if mFullScreenAction is initialized
-                                  // mLenMenu should have been, too.
-    mFullScreenAction( 0 ),
     mScaleDirectionAction( 0 ),
     mCenterOriginAction( 0 ),
     mOffsetAction( 0 ),
     mClicked( false ),
     mActionCollection( 0 ),
-    mCloseButton( 0 ),
     mTrayIcon( 0 )
 {
   setAttribute( Qt::WA_TranslucentBackground );
@@ -100,57 +101,28 @@ KLineal::KLineal( QWidget *parent )
 
   setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
-  setMinimumSize( 60, 60 );
+  setMinimumSize( THICKNESS, THICKNESS );
   setMaximumSize( 8000, 8000 );
-  setWhatsThis( i18n( "This is a tool to measure pixel distances and colors on the screen. "
+  setWhatsThis( i18n( "This is a tool to measure pixel distances on the screen. "
                       "It is useful for working on layouts of dialogs, web pages etc." ) );
   setMouseTracking( true );
 
-  QBitmap bim = QBitmap::fromData( QSize( 8, 48 ), cursorBits, QImage::Format_Mono );
-  QMatrix m;
-  m.rotate( 90.0 );
-  mNorthCursor = QCursor( bim, bim, 3, 47 );
-  bim = bim.transformed( m );
-  mEastCursor = QCursor( bim, bim, 0, 3 );
-  bim = bim.transformed( m );
-  mSouthCursor = QCursor( bim, bim, 4, 0 );
-  bim = bim.transformed( m );
-  mWestCursor = QCursor( bim, bim, 47, 4 );
-
-  mCurrentCursor = mNorthCursor;
   mColor = RulerSettings::self()->bgColor();
   mScaleFont = RulerSettings::self()->scaleFont();
-  mLongEdgeLen = RulerSettings::self()->length();
-  mOrientation = RulerSettings::self()->orientation();
+  int len = RulerSettings::self()->length();
+  mHorizontal = RulerSettings::self()->horizontal();
   mLeftToRight = RulerSettings::self()->leftToRight();
   mOffset = RulerSettings::self()->offset();
   mRelativeScale = RulerSettings::self()->relativeScale();
   mAlwaysOnTopLayer = RulerSettings::self()->alwaysOnTop();
 
-  mLabel = new QAutoSizeLabel( this );
-  mLabel->setGeometry( 0, height() - 12, 32, 12 );
-  mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
-  mColorLabel = new QAutoSizeLabel( this );
-  mColorLabel->setAutoFillBackground( true );
-  QFont colorFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
-  mColorLabel->setFont( colorFont );
-  mColorLabel->move( mLabel->pos() + QPoint(0, 20) );
-  mColorLabel->setWhatsThis(i18n("This is the current color in hexadecimal rgb representation"
-                                 " as you may use it in HTML or as a QColor name. "
-                                 "The rectangles background shows the color of the pixel inside the "
-                                 "little square at the end of the line cursor." ) );
+  if ( mHorizontal ) {
+    resize( QSize( len, THICKNESS ) );
+  } else {
+    resize( QSize( THICKNESS, len ) );
+  }
 
-  mBtnRotateLeft = new QToolButton( this );
-  mBtnRotateLeft->setIcon( QIcon::fromTheme( QStringLiteral(  "object-rotate-left" ) ) );
-  mBtnRotateLeft->setToolTip( i18n( "Turn Left" ) );
-  connect(mBtnRotateLeft, &QToolButton::clicked, this, &KLineal::turnLeft);
-
-  mBtnRotateRight = new QToolButton( this );
-  mBtnRotateRight->setIcon( QIcon::fromTheme( QStringLiteral(  "object-rotate-right" ) ) );
-  mBtnRotateRight->setToolTip( i18n( "Turn Right" ) );
-  connect(mBtnRotateRight, &QToolButton::clicked, this, &KLineal::turnRight);
-
-  resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
+  createCrossCursor();
 
   //BEGIN setup menu and actions
   mActionCollection = new KActionCollection( this );
@@ -158,34 +130,8 @@ KLineal::KLineal( QWidget *parent )
 
   mMenu = new QMenu( this );
   mMenu->addSection( i18n( "KRuler" ) );
-  QMenu *oriMenu = new QMenu( i18n( "&Orientation"), this );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-north" ) ), i18nc( "Turn Kruler North", "&North" ),
-             this, SLOT(setNorth()), Qt::Key_N, QStringLiteral( "turn_north" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-east" ) ), i18nc( "Turn Kruler East", "&East" ),
-             this, SLOT(setEast()), Qt::Key_E, QStringLiteral( "turn_east" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-south" ) ), i18nc( "Turn Kruler South", "&South" ),
-             this, SLOT(setSouth()), Qt::Key_S, QStringLiteral( "turn_south" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-west" ) ), i18nc( "Turn Kruler West", "&West" ),
-             this, SLOT(setWest()), Qt::Key_W, QStringLiteral( "turn_west" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-right" ) ), i18n( "&Turn Right" ),
-             this, SLOT(turnRight()), Qt::Key_R, QStringLiteral( "turn_right" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Turn &Left" ),
-             this, SLOT(turnLeft()), Qt::Key_L, QStringLiteral( "turn_left" ) );
-  mMenu->addMenu( oriMenu );
-
-  mLenMenu = new QMenu( i18n( "&Length" ), this );
-  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
-             this, SLOT(setShortLength()), Qt::CTRL + Qt::Key_S, QStringLiteral( "length_short" ) );
-  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Medium", "&Medium" ),
-             this, SLOT(setMediumLength()), Qt::CTRL + Qt::Key_M, QStringLiteral( "length_medium" ) );
-  addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Tall", "&Tall" ),
-             this, SLOT(setTallLength()), Qt::CTRL + Qt::Key_T, QStringLiteral( "length_tall" ) );
-  addAction( mLenMenu, QIcon(), i18n("&Full Screen Width"),
-             this, SLOT(setFullLength()), Qt::CTRL + Qt::Key_F, QStringLiteral( "length_full_length" ) );
-  mLenMenu->addSeparator();
-  addAction( mLenMenu, QIcon(), i18n( "Length..." ),
-             this, SLOT(slotLength()), QKeySequence(), QStringLiteral( "set_length" ) );
-  mMenu->addMenu( mLenMenu );
+  addAction( mMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Rotate" ),
+             this, SLOT(rotate()), Qt::Key_R, QStringLiteral( "turn_right" ) );
 
   QMenu* scaleMenu = new QMenu( i18n( "&Scale" ), this );
   mScaleDirectionAction = addAction( scaleMenu, QIcon(), i18n( "Right to Left" ),
@@ -223,10 +169,6 @@ KLineal::KLineal( QWidget *parent )
   QAction *preferences = mActionCollection->addAction( KStandardAction::Preferences, this, SLOT(slotPreferences()) );
   mMenu->addAction( preferences );
   mMenu->addSeparator();
-  QAction *copyColorAction = mActionCollection->addAction( KStandardAction::Copy, this, SLOT(copyColor()) );
-  copyColorAction->setText( i18n( "Copy Color" ) );
-  mMenu->addAction( copyColorAction );
-  mMenu->addSeparator();
   mMenu->addMenu( ( new KHelpMenu( this, KAboutData::applicationData(), true ) )->menu() );
   mMenu->addSeparator();
   if ( RulerSettings::self()->trayIcon() ) {
@@ -244,9 +186,7 @@ KLineal::KLineal( QWidget *parent )
   setWindowFlags( mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
                                     : Qt::FramelessWindowHint );
 
-  hideLabel();
-  setOrientation( mOrientation );
-
+  setHorizontal( mHorizontal );
 }
 
 KLineal::~KLineal()
@@ -254,19 +194,24 @@ KLineal::~KLineal()
   delete mTrayIcon;
 }
 
+void KLineal::createCrossCursor()
+{
+  QPixmap pix( CURSOR_SIZE, CURSOR_SIZE );
+  int halfSize = CURSOR_SIZE / 2;
+  {
+    pix.fill( Qt::transparent );
+    QPainter painter( &pix );
+    painter.setPen( Qt::red );
+    painter.drawLine( 0, halfSize, CURSOR_SIZE - 1, halfSize );
+    painter.drawLine( halfSize, 0, halfSize, CURSOR_SIZE - 1 );
+  }
+  mCrossCursor = QCursor( pix, halfSize, halfSize );
+}
+
 void KLineal::createSystemTray()
 {
-  if ( !mCloseAction ) {
-    mCloseAction = mActionCollection->addAction( KStandardAction::Close, this, SLOT(slotClose()) );
-    mMenu->addAction( mCloseAction );
-
-    mCloseButton = new QToolButton( this );
-    mCloseButton->setIcon( mCloseAction->icon() );
-    mCloseButton->setToolTip( mCloseAction->text().remove( QLatin1Char(  '&' ) ) );
-    connect(mCloseButton, &QToolButton::clicked, this, &KLineal::slotClose);
-  } else {
-    mCloseAction->setVisible( true );
-  }
+  mCloseAction = mActionCollection->addAction( KStandardAction::Close, this, SLOT(slotClose()) );
+  mMenu->addAction( mCloseAction );
 
   if ( !mTrayIcon ) {
     mTrayIcon = new KRulerSystemTray( QStringLiteral( "kruler" ), this, mActionCollection );
@@ -328,30 +273,14 @@ void KLineal::drawBackground( QPainter& painter )
 {
   QColor a, b, bg = mColor;
   QLinearGradient gradient;
-  switch ( mOrientation ) {
-  case North:
+  if ( mHorizontal ) {
     a = bg.light( 120 );
     b = bg.dark( 130 );
     gradient = QLinearGradient( 1, 0, 1, height() );
-    break;
-
-  case South:
-    b = bg.light( 120 );
-    a = bg.dark( 130 );
-    gradient = QLinearGradient( 1, 0, 1, height() );
-    break;
-
-  case West:
+  } else {
     a = bg.light( 120 );
     b = bg.dark( 130 );
     gradient = QLinearGradient( 0, 1, width(), 1 );
-    break;
-
-  case East:
-    b = bg.light( 120 );
-    a = bg.dark( 130 );
-    gradient = QLinearGradient( 0, 1, width(), 1 );
-    break;
   }
   a.setAlpha( mOpacity );
   b.setAlpha( mOpacity );
@@ -360,12 +289,14 @@ void KLineal::drawBackground( QPainter& painter )
   painter.fillRect( rect(), QBrush( gradient ) );
 }
 
-void KLineal::setOrientation( int inOrientation )
+void KLineal::setHorizontal( bool horizontal )
 {
   QRect r = frameGeometry();
-  int nineties = (int)inOrientation - (int)mOrientation;
-  mOrientation = ( inOrientation + 4 ) % 4;
-  QPoint center = mLastClickPos, newTopLeft;
+  if ( mHorizontal != horizontal ) {
+    r.setSize( r.size().transposed() );
+  }
+  mHorizontal = horizontal;
+  QPoint center = mLastClickPos;
 
   if ( mClicked ) {
     center = mLastClickPos;
@@ -374,21 +305,18 @@ void KLineal::setOrientation( int inOrientation )
     center = r.topLeft() + QPoint( width() / 2, height() / 2 );
   }
 
-  if ( nineties % 2 ) {
-    newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
-  } else {
-    newTopLeft = r.topLeft();
-  }
-
-  if ( mOrientation == North || mOrientation == South ) {
-    r.setSize( QSize( mLongEdgeLen, mShortEdgeLen ) );
-  } else {
-    r.setSize( QSize( mShortEdgeLen, mLongEdgeLen ) );
-  }
-
+  QPoint newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
   r.moveTo(newTopLeft);
 
   QRect desktop = QApplication::desktop()->screenGeometry( this );
+
+  if ( r.width() > desktop.width() ) {
+    r.setWidth( desktop.width() );
+  }
+
+  if ( r.height() > desktop.height() ) {
+    r.setHeight( desktop.height() );
+  }
 
   if ( r.top() < desktop.top() ) {
     r.moveTop( desktop.top() );
@@ -407,126 +335,15 @@ void KLineal::setOrientation( int inOrientation )
   }
 
   setGeometry( r );
-  switch( mOrientation ) {
-  case North:
-    mLabel->move( 4, height()-mLabel->height() - 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( 0, -20 ) );
-    mCurrentCursor = mNorthCursor;
-    break;
-
-  case South:
-    mLabel->move( 4, 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
-    mCurrentCursor = mSouthCursor;
-    break;
-
-  case East:
-    mLabel->move( 4, 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( 0, 20 ) );
-    mCurrentCursor = mEastCursor;
-    break;
-
-  case West:
-    mLabel->move( width()-mLabel->width() - 4, 4 );
-    mColorLabel->move( mLabel->pos() + QPoint( -5, 20 ) );
-    mCurrentCursor = mWestCursor;
-    break;
-  }
-
-  adjustButtons();
-
-  if ( mLenMenu && mFullScreenAction ) {
-    mFullScreenAction->setText( mOrientation % 2 ? i18n( "&Full Screen Height" ) : i18n( "&Full Screen Width" ) );
-  }
 
   updateScaleDirectionMenuItem();
 
-  setCursor( mCurrentCursor );
-  repaint();
   saveSettings();
 }
 
-void KLineal::setNorth()
+void KLineal::rotate()
 {
-  setOrientation( North );
-}
-
-void KLineal::setEast()
-{
-  setOrientation( East );
-}
-
-void KLineal::setSouth()
-{
-  setOrientation( South );
-}
-
-void KLineal::setWest()
-{
-  setOrientation( West );
-}
-
-void KLineal::turnRight()
-{
-  setOrientation( mOrientation - 1 );
-}
-
-void KLineal::turnLeft()
-{
-  setOrientation( mOrientation + 1 );
-}
-
-void KLineal::reLength( int percentOfScreen )
-{
-  if ( percentOfScreen < 10 ) {
-    return;
-  }
-
-  QRect r = QApplication::desktop()->screenGeometry( this );
-
-  if ( mOrientation == North || mOrientation == South ) {
-    mLongEdgeLen = r.width() * percentOfScreen / 100;
-    resize( mLongEdgeLen, height() );
-  } else {
-    mLongEdgeLen = r.height() * percentOfScreen / 100;
-    resize( width(), mLongEdgeLen );
-  }
-
-  if ( x() + width() < 10 ) {
-    move( 10, y() );
-  }
-
-  if ( y() + height() < 10 ) {
-    move( x(), 10 );
-  }
-
-  adjustButtons();
-  saveSettings();
-}
-
-void KLineal::reLengthAbsolute( int length )
-{
-  if ( length < 100 ) {
-    return;
-  }
-
-  mLongEdgeLen = length;
-  if ( mOrientation == North || mOrientation == South ) {
-    resize( mLongEdgeLen, height() );
-  } else {
-    resize( width(), mLongEdgeLen );
-  }
-
-  if ( x() + width() < 10 ) {
-    move( 10, y() );
-  }
-
-  if ( y() + height() < 10 ) {
-    move( x(), 10 );
-  }
-
-  adjustButtons();
-  saveSettings();
+  setHorizontal( !mHorizontal );
 }
 
 void KLineal::updateScaleDirectionMenuItem()
@@ -535,7 +352,7 @@ void KLineal::updateScaleDirectionMenuItem()
 
   QString label;
 
-  if ( mOrientation == North || mOrientation == South ) {
+  if ( mHorizontal ) {
     label = mLeftToRight ? i18n( "Right to Left" ) : i18n( "Left to Right" );
   } else {
     label = mLeftToRight ? i18n( "Bottom to Top" ) : i18n( "Top to Bottom" );
@@ -544,24 +361,25 @@ void KLineal::updateScaleDirectionMenuItem()
   mScaleDirectionAction->setText( label );
 }
 
-void KLineal::setShortLength()
+QRect KLineal::beginRect() const
 {
-  reLength( 30 );
+  int shortLen = RESIZE_HANDLE_THICKNESS;
+  return mHorizontal
+    ? QRect( 0, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LENGTH, shortLen )
+    : QRect( ( width() - shortLen ) / 2, 0, shortLen, RESIZE_HANDLE_LENGTH );
 }
 
-void KLineal::setMediumLength()
+QRect KLineal::endRect() const
 {
-  reLength( 50 );
+  int shortLen = RESIZE_HANDLE_THICKNESS;
+  return mHorizontal
+    ? QRect( width() - RESIZE_HANDLE_LENGTH, ( height() - shortLen ) / 2 + 1, RESIZE_HANDLE_LENGTH, shortLen )
+    : QRect( ( width() - shortLen ) / 2, height() - RESIZE_HANDLE_LENGTH, shortLen, RESIZE_HANDLE_LENGTH );
 }
 
-void KLineal::setTallLength()
+Qt::CursorShape KLineal::resizeCursor() const
 {
-  reLength( 75 );
-}
-
-void KLineal::setFullLength()
-{
-  reLength( 100 );
+  return mHorizontal ? Qt::SizeHorCursor : Qt::SizeVerCursor;
 }
 
 void KLineal::switchDirection()
@@ -569,15 +387,13 @@ void KLineal::switchDirection()
   mLeftToRight = !mLeftToRight;
   updateScaleDirectionMenuItem();
   repaint();
-  adjustLabel();
   saveSettings();
 }
 
 void KLineal::centerOrigin()
 {
-  mOffset = -( mLongEdgeLen / 2 );
+  mOffset = -( length() / 2 );
   repaint();
-  adjustLabel();
   saveSettings();
 }
 
@@ -591,22 +407,7 @@ void KLineal::slotOffset()
   if ( ok ) {
     mOffset = newOffset;
     repaint();
-    adjustLabel();
     saveSettings();
-  }
-}
-
-void KLineal::slotLength()
-{
-  bool ok;
-  QRect r = QApplication::desktop()->screenGeometry( this );
-  int width = ( ( mOrientation == North ) || ( mOrientation == South ) ) ? r.width() : r.height();
-  int newLength = QInputDialog::getInt( this, i18nc( "@title:window", "Ruler Length" ),
-                                            i18n( "Length:" ), mLongEdgeLen,
-                                            0, width, 1, &ok );
-
-  if ( ok ) {
-    reLengthAbsolute( newLength );
   }
 }
 
@@ -630,7 +431,6 @@ void KLineal::slotPreferences()
   Ui::ConfigAppearance appearanceConfig;
   QWidget *appearanceConfigWidget = new QWidget( dialog );
   appearanceConfig.setupUi( appearanceConfigWidget );
-  appearanceConfig.kcfg_CloseButtonVisible->setEnabled( appearanceConfig.kcfg_TrayIcon->isChecked() );
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), QStringLiteral( "preferences-desktop-default-applications" ) );
 
 #ifdef KRULER_HAVE_X11
@@ -661,8 +461,6 @@ void KLineal::loadConfig()
   if ( RulerSettings::self()->trayIcon() ) {
     if ( !mTrayIcon ) {
       createSystemTray();
-      //need to adjust button
-      adjustButtons();
     }
   } else {
     delete mTrayIcon;
@@ -685,7 +483,6 @@ void KLineal::switchRelativeScale( bool checked )
   mOffsetAction->setEnabled( !mRelativeScale );
 
   repaint();
-  adjustLabel();
   saveSettings();
 }
 
@@ -696,18 +493,13 @@ void KLineal::saveSettings()
 {
   RulerSettings::self()->setBgColor( mColor );
   RulerSettings::self()->setScaleFont( mScaleFont );
-  RulerSettings::self()->setLength( mLongEdgeLen );
-  RulerSettings::self()->setOrientation( mOrientation );
+  RulerSettings::self()->setLength( length() );
+  RulerSettings::self()->setHorizontal( mHorizontal );
   RulerSettings::self()->setLeftToRight( mLeftToRight );
   RulerSettings::self()->setOffset( mOffset );
   RulerSettings::self()->setRelativeScale( mRelativeScale );
   RulerSettings::self()->setAlwaysOnTop( mAlwaysOnTopLayer );
   RulerSettings::self()->save();
-}
-
-void KLineal::copyColor()
-{
-  QApplication::clipboard()->setText( mColorLabel->text() );
 }
 
 /**
@@ -719,129 +511,36 @@ void KLineal::showMenu()
   mMenu->popup( pos );
 }
 
-/**
- * overwritten to switch the value label and line cursor on
- */
-void KLineal::enterEvent( QEvent *inEvent )
+bool KLineal::isResizing() const
 {
-  Q_UNUSED( inEvent );
-
-  if ( !mDragging ) {
-    showLabel();
-  }
+  return mouseGrabber() == this && ( mRulerState == StateBegin || mRulerState == StateEnd );
 }
 
-/**
- * overwritten to switch the value label and line cursor off
- */
-void KLineal::leaveEvent( QEvent *inEvent )
+int KLineal::length() const
 {
-  Q_UNUSED( inEvent );
-
-  if ( !geometry().contains( QCursor::pos() ) ) {
-    hideLabel();
-  }
+  return mHorizontal ? width() : height();
 }
 
-/**
- * shows the value lable
- */
-void KLineal::showLabel()
+QPoint KLineal::localCursorPos() const
 {
-  adjustLabel();
-  mLabel->show();
-  mColorLabel->show();
-  if ( RulerSettings::self()->rotateButtonsVisible() ) {
-    mBtnRotateLeft->show();
-    mBtnRotateRight->show();
-  }
-  if ( mCloseButton &&
-       RulerSettings::self()->closeButtonVisible() &&
-       RulerSettings::self()->trayIcon()) {
-    mCloseButton->show();
-  }
+  // For some reason mapFromGlobal( QCursor::pos() ) thinks the ruler is at 0, 0 at startup.
+  // compute the position ourselves to avoid that.
+  return QCursor::pos() - pos();
 }
 
-/**
- * hides the value label
- */
-void KLineal::hideLabel()
+QString KLineal::indicatorText() const
 {
-  mLabel->hide();
-  mColorLabel->hide();
-  mBtnRotateLeft->hide();
-  mBtnRotateRight->hide();
-  if ( mCloseButton ) {
-    mCloseButton->hide();
-  }
-}
-
-/**
- * updates the current value label
- */
-void KLineal::adjustLabel()
-{
-  QString s;
-  QPoint cpos = QCursor::pos();
-
-  int digit = ( mOrientation == North || mOrientation == South ) ? cpos.x() - x() : cpos.y() - y();
-
+  int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
   if ( !mRelativeScale ) {
-    if ( mLeftToRight ) {
-      digit += mOffset;
-    } else {
-      digit = mLongEdgeLen - digit + mOffset;
-    }
+    int len = mLeftToRight ? xy + 1 : length() - xy;
+    return i18n( "%1 px", len );
   } else {
-    // INFO: Perhaps use float also for displaying relative value
-    digit = (int)( ( digit * 100.f ) / mLongEdgeLen );
+    int len = ( xy * 100.f ) / length();
 
     if ( !mLeftToRight ) {
-      digit = 100 - digit;
+      len = 100 - len;
     }
-  }
-
-  s.sprintf( "%d%s", digit, ( mRelativeScale ? "%" : " px" ) );
-  mLabel->setText( s );
-}
-
-/**
- * Updates the position of the tool buttons
- */
-void KLineal::adjustButtons()
-{
-  switch( mOrientation ) {
-  case North:
-    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, height() - 31 );
-    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, height() - 31 );
-    if ( mCloseButton ) {
-      mCloseButton->move( width() - 31, height() - 31 );
-    }
-    break;
-
-  case South:
-    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, 5 );
-    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, 5 );
-    if ( mCloseButton ) {
-      mCloseButton->move( width() - 31, 5 );
-    }
-    break;
-
-  case East:
-    mBtnRotateLeft->move( 5, mLongEdgeLen / 2 - 28 );
-    mBtnRotateRight->move( 5, mLongEdgeLen / 2 + 2 );
-    if ( mCloseButton ) {
-      mCloseButton->move( 5, height() - 31 );
-    }
-    break;
-
-  case West:
-    mBtnRotateLeft->move( width() - 31, mLongEdgeLen / 2 - 28 );
-    mBtnRotateRight->move( width() - 31, mLongEdgeLen / 2 + 2 );
-    if ( mCloseButton ) {
-      mCloseButton->move( width() - 31, height() - 31 );
-    }
-    break;
+    return i18n( "%1%", len );
   }
 }
 
@@ -883,58 +582,46 @@ void KLineal::keyPressEvent( QKeyEvent *e )
   KNotification::event( QString(), QStringLiteral( "cursormove" ), QString() );
 }
 
-/**
- * overwritten to handle the line cursor which is a separate widget outside the main
- * window. Also used for dragging.
- */
+void KLineal::leaveEvent( QEvent *e )
+{
+  Q_UNUSED( e );
+  update();
+}
+
 void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
 
-  if ( mDragging && this == mouseGrabber() ) {
-#ifdef KRULER_HAVE_X11
-    if ( !QX11Info::isPlatformX11() || !RulerSettings::self()->nativeMoving() ) {
-#endif
+  if ( mRulerState >= StateMove ) {
+    if ( mouseGrabber() != this ) {
+      return;
+    }
+    if ( mRulerState == StateMove ) {
       move( QCursor::pos() - mDragOffset );
-#ifdef KRULER_HAVE_X11
+    } else if ( mRulerState == StateBegin ) {
+      QRect r = geometry();
+      if ( mHorizontal ) {
+        r.setLeft( QCursor::pos().x() - mDragOffset.x() );
+      } else {
+        r.setTop( QCursor::pos().y() - mDragOffset.y() );
+      }
+      setGeometry( r );
+    } else if ( mRulerState == StateEnd ) {
+      QPoint end = QCursor::pos() + mDragOffset - pos();
+      QSize size = mHorizontal
+        ? QSize( end.x(), height() )
+        : QSize( width(), end.y() );
+      resize( size );
     }
-#endif
   } else {
-    QPoint p = QCursor::pos();
-
-    switch ( mOrientation ) {
-    case North:
-      p.setY( p.y() - 46 );
-      break;
-
-    case East:
-      p.setX( p.x() + 46 );
-      break;
-
-    case West:
-      p.setX( p.x() - 46 );
-      break;
-
-    case South:
-      p.setY( p.y() + 46 );
-      break;
-    }
-
-    QColor color = pixelColor( p );
-    int h, s, v;
-    color.getHsv( &h, &s, &v );
-    mColorLabel->setText( color.name().toUpper() );
-    QPalette palette = mColorLabel->palette();
-    palette.setColor( mColorLabel->backgroundRole(), color );
-    if ( v < 255 / 2 ) {
-      v = 255;
+    QPoint cpos = localCursorPos();
+    mRulerState = StateNone;
+    if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
+      setCursor( resizeCursor() );
     } else {
-      v = 0;
+      setCursor( mCrossCursor );
     }
-    color.setHsv( h, s, v );
-    palette.setColor( mColorLabel->foregroundRole(), color );
-    mColorLabel->setPalette( palette );
-    adjustLabel();
+    update();
   }
 }
 
@@ -944,55 +631,82 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 void KLineal::mousePressEvent( QMouseEvent *inEvent )
 {
   mLastClickPos = QCursor::pos();
-  hideLabel();
 
   QRect gr = geometry();
-  mDragOffset = mLastClickPos - QPoint( gr.left(), gr.top() );
+  mDragOffset = mLastClickPos - gr.topLeft();
   if ( inEvent->button() == Qt::LeftButton ) {
-#ifdef KRULER_HAVE_X11
-    if ( QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving() ) {
-      xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
-      NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-      wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
-    } else {
-#endif
-      if ( !mDragging ) {
-        grabMouse( Qt::SizeAllCursor );
-        mDragging = true;
+    if ( mRulerState < StateMove ) {
+      if ( beginRect().contains( mDragOffset ) ) {
+        mRulerState = StateBegin;
+        grabMouse( resizeCursor() );
+      } else if ( endRect().contains( mDragOffset ) ) {
+        mDragOffset = gr.bottomRight() - mLastClickPos;
+        mRulerState = StateEnd;
+        grabMouse( resizeCursor() );
+      } else {
+        if ( nativeMove() ) {
+          startNativeMove( inEvent );
+        } else {
+          mRulerState = StateMove;
+          grabMouse( Qt::SizeAllCursor );
+        }
       }
-#ifdef KRULER_HAVE_X11
     }
-#endif
   } else if ( inEvent->button() == Qt::MidButton ) {
     mClicked = true;
-    turnLeft();
+    rotate();
   } else if ( inEvent->button() == Qt::RightButton ) {
     showMenu();
   }
 }
+
+#ifdef KRULER_HAVE_X11
+bool KLineal::nativeMove() const
+{
+  return QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving();
+}
+
+void KLineal::startNativeMove( QMouseEvent *inEvent )
+{
+  xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
+  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
+  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
+}
+
+void KLineal::stopNativeMove( QMouseEvent *inEvent )
+{
+  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
+  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
+}
+#else
+bool KLineal::nativeMove() const
+{
+  return false;
+}
+
+void KLineal::startNativeMove( QMouseEvent *inEvent )
+{
+  Q_UNUSED( inEvent );
+}
+
+void KLineal::stopNativeMove( QMouseEvent *inEvent )
+{
+  Q_UNUSED( inEvent );
+}
+#endif
 
 /**
  * overwritten for dragging
  */
 void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 {
-  Q_UNUSED( inEvent );
-
-#ifdef KRULER_HAVE_X11
-  if ( QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving() ) {
-    NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
-  } else {
-#endif
-    if ( mDragging ) {
-      mDragging = false;
-      releaseMouse();
-    }
-#ifdef KRULER_HAVE_X11
+  if ( mRulerState != StateNone ) {
+    mRulerState = StateNone;
+    releaseMouse();
+    saveSettings();
+  } else if ( nativeMove() ) {
+    stopNativeMove( inEvent );
   }
-#endif
-
-  showLabel();
 }
 
 void KLineal::wheelEvent( QWheelEvent *e )
@@ -1003,32 +717,10 @@ void KLineal::wheelEvent( QWheelEvent *e )
   // changing offset
   if ( e->buttons() == Qt::LeftButton ) {
     if ( !mRelativeScale ) {
-      mLabel->show();
       mOffset += numSteps;
 
       repaint();
-      mLabel->setText( i18n( "Offset: %1", mOffset ) );
       saveSettings();
-    }
-  } else { // changing length
-    int oldLen = mLongEdgeLen;
-    int newLength = mLongEdgeLen + numSteps;
-    reLengthAbsolute( newLength );
-    mLabel->setText( i18n( "Length: %1 px", mLongEdgeLen ) );
-
-    // when holding shift relength at the other side
-    if ( e->modifiers() & Qt::ShiftModifier ) {
-      int change = mLongEdgeLen - oldLen;
-
-      QPoint dist;
-
-      if ( mOrientation == North || mOrientation == South ) {
-        dist.setX( -change );
-      } else {
-        dist.setY( -change );
-      }
-
-      move( pos() + dist );
     }
   }
 
@@ -1043,53 +735,14 @@ void KLineal::drawScale( QPainter &painter )
   painter.setPen( Qt::black );
   QFont font = mScaleFont;
   painter.setFont( font );
-  QFontMetrics metrics = painter.fontMetrics();
-  int longLen;
-  int shortStart;
-  int w = width();
-  int h = height();
-
-  // draw a frame around the whole thing
-  // (for some unknown reason, this doesn't show up anymore)
-  switch ( mOrientation ) {
-  case North:
-  default:
-    shortStart = 0;
-    longLen = w;
-    painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( 0, h - 1, w - 1, h - 1 );
-    painter.drawLine( w - 1, h - 1, w - 1, 0 );
-    break;
-
-  case East:
-    shortStart = w;
-    longLen = h;
-    painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( 0, h - 1, w - 1, h - 1 );
-    painter.drawLine( w - 1, 0, 0, 0 );
-    break;
-
-  case South:
-    shortStart = h;
-    longLen = w;
-    painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( w - 1, h - 1, w - 1, 0 );
-    painter.drawLine( w - 1, 0, 0, 0 );
-    break;
-
-  case West:
-    shortStart = 0;
-    longLen = h;
-    painter.drawLine( 0, h - 1, w - 1, h - 1 );
-    painter.drawLine( w - 1, h - 1, w - 1, 0 );
-    painter.drawLine( w - 1, 0, 0, 0 );
-    break;
-  }
+  int longLen = length();
 
   if ( !mRelativeScale ) {
     int digit;
     int len;
-    for ( int x = 0; x < longLen; ++x ) {
+    // Draw from -1 to longLen rather than from 0 to longLen - 1 to take into
+    // account the offset applied in drawScaleTick
+    for ( int x = -1; x <= longLen; ++x ) {
       if ( mLeftToRight ) {
         digit = x + mOffset;
       } else {
@@ -1098,109 +751,171 @@ void KLineal::drawScale( QPainter &painter )
 
       if ( digit % 2 ) continue;
 
-      len = 6;
+      if ( digit % 100 == 0 ) {
+        len = LARGE_TICK_SIZE;
+      } else if ( digit % 20 == 0 ) {
+        len = MEDIUM2_TICK_SIZE;
+      } else if (digit % 10 == 0) {
+        len = MEDIUM1_TICK_SIZE;
+      } else {
+        len = SMALL_TICK_SIZE;
+      }
 
-      if ( digit % 10 == 0 ) len = 10;
-      if ( digit % 20 == 0 ) len = 15;
-      if ( digit % 100 == 0 ) len = 18;
-
-      if ( digit % 20 == 0 ) {
-        font.setBold( digit % 100 == 0 );
-        painter.setFont( font );
+      if ( digit % 100 == 0 && digit != 0 ) {
         QString units;
         units.sprintf( "%d", digit );
-        QSize textSize = metrics.size( Qt::TextSingleLine, units );
-        int tw = textSize.width();
-        int th = textSize.height();
-
-        switch ( mOrientation ) {
-        case North:
-          painter.drawText( x - tw / 2, shortStart + len + th, units );
-          break;
-
-        case South:
-          painter.drawText( x - tw / 2, shortStart - len - 2, units );
-          break;
-
-        case East:
-          painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
-          break;
-
-        case West:
-          painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
-          break;
-        }
+        drawScaleText( painter, x, units );
       }
 
-      switch( mOrientation ) {
-      case North:
-        painter.drawLine( x, shortStart, x, shortStart + len );
-        break;
-      case South:
-        painter.drawLine( x, shortStart, x, shortStart - len );
-        break;
-      case East:
-        painter.drawLine( shortStart, x, shortStart - len, x );
-        break;
-      case West:
-        painter.drawLine( shortStart, x, shortStart + len, x );
-        break;
-      }
+      drawScaleTick( painter, x, len );
     }
   } else {
     float step = longLen / 100.f;
     int len;
 
-    font.setBold( true );
-    painter.setFont( font );
-
     for ( int i = 0; i <= 100; ++i ) {
       int x = (int)( i * step );
-      len = ( i % 10 ) ? 6 : 15;
 
-      if ( i % 10 == 0 ) {
+      if ( i % 10 == 0 && i != 0 && i != 100 ) {
         QString units;
         int value = mLeftToRight ? i : ( 100 - i );
         units.sprintf( "%d%%", value );
-        QSize textSize = metrics.size( Qt::TextSingleLine, units );
-        int tw = textSize.width();
-        int th = textSize.height();
-
-        switch ( mOrientation ) {
-        case North:
-          painter.drawText( x - tw / 2, shortStart + len + th, units );
-          break;
-
-        case South:
-          painter.drawText( x - tw / 2, shortStart - len - 2, units );
-          break;
-
-        case East:
-          painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
-          break;
-
-        case West:
-          painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
-          break;
-        }
+        drawScaleText( painter, x, units );
+        len = MEDIUM2_TICK_SIZE;
+      } else {
+        len = SMALL_TICK_SIZE;
       }
 
-      switch( mOrientation ) {
-      case North:
-        painter.drawLine( x, shortStart, x, shortStart + len );
-        break;
-      case South:
-        painter.drawLine( x, shortStart, x, shortStart - len );
-        break;
-      case East:
-        painter.drawLine( shortStart, x, shortStart - len, x );
-        break;
-      case West:
-        painter.drawLine( shortStart, x, shortStart + len, x );
-        break;
-      }
+      drawScaleTick( painter, x, len );
     }
   }
+}
+
+void KLineal::drawScaleText( QPainter &painter, int x, const QString &text )
+{
+  QFontMetrics metrics = painter.fontMetrics();
+  QSize textSize = metrics.size( Qt::TextSingleLine, text );
+  int w = width();
+  int h = height();
+  int tw = textSize.width();
+  int th = metrics.ascent();
+
+  if ( mHorizontal ) {
+    painter.drawText( x - tw / 2, (h + th) / 2, text );
+  } else {
+    painter.drawText( (w - tw) / 2, x + th / 2, text );
+  }
+}
+
+void KLineal::drawScaleTick( QPainter &painter, int x, int len )
+{
+  painter.setOpacity( TICK_OPACITY );
+  int w = width();
+  int h = height();
+  // Offset by one because we are measuring lengths, not positions, so when the
+  // indicator is at position 0 it measures a length of 1 pixel.
+  if ( mLeftToRight ) {
+    --x;
+  } else {
+    ++x;
+  }
+  if ( mHorizontal ) {
+    painter.drawLine( x, 0, x, len );
+    painter.drawLine( x, h, x, h - len );
+  } else {
+    painter.drawLine( 0, x, len, x );
+    painter.drawLine( w, x, w - len, x );
+  }
+  painter.setOpacity( 1 );
+}
+
+void KLineal::drawResizeHandle( QPainter &painter, Qt::Edge edge )
+{
+  QRect rect;
+  switch ( edge ) {
+  case Qt::LeftEdge:
+  case Qt::TopEdge:
+    rect = beginRect();
+    break;
+  case Qt::RightEdge:
+  case Qt::BottomEdge:
+    rect = endRect();
+    break;
+  }
+  painter.setOpacity( RESIZE_HANDLE_OPACITY );
+  if ( mHorizontal ) {
+    int y1 = ( THICKNESS - RESIZE_HANDLE_THICKNESS ) / 2;
+    int y2 = y1 + RESIZE_HANDLE_THICKNESS - 1;
+    for ( int x = rect.left() + 1; x < rect.right(); x += 2 ) {
+      painter.drawLine( x, y1, x, y2 );
+    }
+  } else {
+    int x1 = ( THICKNESS - RESIZE_HANDLE_THICKNESS ) / 2;
+    int x2 = x1 + RESIZE_HANDLE_THICKNESS - 1;
+    for ( int y = rect.top() + 1; y < rect.bottom(); y += 2 ) {
+      painter.drawLine( x1, y, x2, y );
+    }
+  }
+  painter.setOpacity( 1 );
+}
+
+void KLineal::drawIndicatorOverlay( QPainter &painter, int xy )
+{
+  painter.setPen( Qt::red );
+  painter.setOpacity( OVERLAY_OPACITY );
+  if ( mHorizontal ) {
+    QPointF p1( mLeftToRight ? 0 : width(), 0 );
+    QPointF p2( xy, THICKNESS );
+    QRectF rect( p1, p2 );
+    painter.fillRect( rect, Qt::red );
+
+    painter.setOpacity( OVERLAY_BORDER_OPACITY );
+    painter.drawLine( xy, 0, xy, THICKNESS );
+  } else {
+    QPointF p1( 0, mLeftToRight ? 0 : height() );
+    QPointF p2( THICKNESS, xy );
+    QRectF rect( p1, p2 );
+    painter.fillRect( rect, Qt::red );
+
+    painter.setOpacity( OVERLAY_BORDER_OPACITY );
+    painter.drawLine( 0, xy, THICKNESS, xy );
+  }
+}
+
+void KLineal::drawIndicatorText( QPainter &painter, int xy )
+{
+  QString text = indicatorText();
+  painter.setFont( font() );
+  QFontMetrics fm = QFontMetrics( font() );
+  int tx, ty;
+  int tw = fm.width( text );
+  if ( mHorizontal ) {
+    tx = xy + INDICATOR_MARGIN;
+    if ( tx + tw > width() ) {
+      tx = xy - tw - INDICATOR_MARGIN;
+    }
+    ty = height() - SMALL_TICK_SIZE - INDICATOR_RECT_RADIUS;
+  } else {
+    tx = ( width() - tw ) / 2;
+    ty = xy + fm.ascent() + INDICATOR_MARGIN;
+    if ( ty > height() ) {
+      ty = xy - INDICATOR_MARGIN;
+    }
+  }
+
+  // Draw background rect
+  painter.setRenderHint( QPainter::Antialiasing );
+  painter.setOpacity( INDICATOR_RECT_OPACITY );
+  painter.setBrush( Qt::red );
+  QRectF bgRect( tx, ty - fm.ascent() + 1, tw, fm.ascent() );
+  bgRect.adjust( -INDICATOR_RECT_RADIUS, -INDICATOR_RECT_RADIUS, INDICATOR_RECT_RADIUS, INDICATOR_RECT_RADIUS );
+  bgRect.translate( 0.5, 0.5 );
+  painter.drawRoundedRect( bgRect, INDICATOR_RECT_RADIUS, INDICATOR_RECT_RADIUS );
+
+  // Draw text
+  painter.setOpacity( 1 );
+  painter.setPen( Qt::white );
+  painter.drawText( tx, ty, text );
 }
 
 /**
@@ -1213,13 +928,12 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
   QPainter painter( this );
   drawBackground( painter );
   drawScale( painter );
-}
 
-QColor KLineal::pixelColor(const QPoint &p)
-{
-  const QDesktopWidget *desktop = QApplication::desktop();
-  QScreen *screen = QGuiApplication::screens().at(desktop->screenNumber());
-  const QPixmap pixmap = screen->grabWindow(desktop->winId(), p.x(), p.y(), 1, 1);
-  return QColor(pixmap.toImage().pixel(QPoint(0, 0)));
+  drawResizeHandle( painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge );
+  drawResizeHandle( painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge );
+  if ( underMouse() && !isResizing() ) {
+    int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+    drawIndicatorOverlay( painter, xy );
+    drawIndicatorText( painter, xy );
+  }
 }
-
