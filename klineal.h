@@ -95,8 +95,6 @@ private:
   bool mRelativeScale;
   KActionCollection *mActionCollection;
   int mOpacity;
-  QToolButton *mBtnRotateLeft, *mBtnRotateRight;
-  QToolButton *mCloseButton;
   KRulerSystemTray *mTrayIcon;
 
 public slots:
@@ -111,7 +109,6 @@ public slots:
   void hideLabel();
   void showLabel();
   void adjustLabel();
-  void adjustButtons();
   void setShortLength();
   void setMediumLength();
   void setTallLength();

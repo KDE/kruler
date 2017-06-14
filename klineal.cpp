@@ -91,7 +91,6 @@ KLineal::KLineal( QWidget *parent )
     mOffsetAction( 0 ),
     mClicked( false ),
     mActionCollection( 0 ),
-    mCloseButton( 0 ),
     mTrayIcon( 0 )
 {
   setAttribute( Qt::WA_TranslucentBackground );
@@ -126,16 +125,6 @@ KLineal::KLineal( QWidget *parent )
   mLabel = new QAutoSizeLabel( this );
   mLabel->setGeometry( 0, height() - 12, 32, 12 );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
-
-  mBtnRotateLeft = new QToolButton( this );
-  mBtnRotateLeft->setIcon( QIcon::fromTheme( QStringLiteral(  "object-rotate-left" ) ) );
-  mBtnRotateLeft->setToolTip( i18n( "Turn Left" ) );
-  connect(mBtnRotateLeft, &QToolButton::clicked, this, &KLineal::turnLeft);
-
-  mBtnRotateRight = new QToolButton( this );
-  mBtnRotateRight->setIcon( QIcon::fromTheme( QStringLiteral(  "object-rotate-right" ) ) );
-  mBtnRotateRight->setToolTip( i18n( "Turn Right" ) );
-  connect(mBtnRotateRight, &QToolButton::clicked, this, &KLineal::turnRight);
 
   resize( QSize( mLongEdgeLen, mShortEdgeLen ) );
 
@@ -227,17 +216,8 @@ KLineal::~KLineal()
 
 void KLineal::createSystemTray()
 {
-  if ( !mCloseAction ) {
-    mCloseAction = mActionCollection->addAction( KStandardAction::Close, this, SLOT(slotClose()) );
-    mMenu->addAction( mCloseAction );
-
-    mCloseButton = new QToolButton( this );
-    mCloseButton->setIcon( mCloseAction->icon() );
-    mCloseButton->setToolTip( mCloseAction->text().remove( QLatin1Char(  '&' ) ) );
-    connect(mCloseButton, &QToolButton::clicked, this, &KLineal::slotClose);
-  } else {
-    mCloseAction->setVisible( true );
-  }
+  mCloseAction = mActionCollection->addAction( KStandardAction::Close, this, SLOT(slotClose()) );
+  mMenu->addAction( mCloseAction );
 
   if ( !mTrayIcon ) {
     mTrayIcon = new KRulerSystemTray( QStringLiteral( "kruler" ), this, mActionCollection );
@@ -393,8 +373,6 @@ void KLineal::setOrientation( int inOrientation )
     break;
   }
 
-  adjustButtons();
-
   if ( mLenMenu && mFullScreenAction ) {
     mFullScreenAction->setText( mOrientation % 2 ? i18n( "&Full Screen Height" ) : i18n( "&Full Screen Width" ) );
   }
@@ -460,7 +438,6 @@ void KLineal::reLength( int percentOfScreen )
     move( x(), 10 );
   }
 
-  adjustButtons();
   saveSettings();
 }
 
@@ -485,7 +462,6 @@ void KLineal::reLengthAbsolute( int length )
     move( x(), 10 );
   }
 
-  adjustButtons();
   saveSettings();
 }
 
@@ -590,7 +566,6 @@ void KLineal::slotPreferences()
   Ui::ConfigAppearance appearanceConfig;
   QWidget *appearanceConfigWidget = new QWidget( dialog );
   appearanceConfig.setupUi( appearanceConfigWidget );
-  appearanceConfig.kcfg_CloseButtonVisible->setEnabled( appearanceConfig.kcfg_TrayIcon->isChecked() );
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), QStringLiteral( "preferences-desktop-default-applications" ) );
 
 #ifdef KRULER_HAVE_X11
@@ -621,8 +596,6 @@ void KLineal::loadConfig()
   if ( RulerSettings::self()->trayIcon() ) {
     if ( !mTrayIcon ) {
       createSystemTray();
-      //need to adjust button
-      adjustButtons();
     }
   } else {
     delete mTrayIcon;
@@ -705,15 +678,6 @@ void KLineal::showLabel()
 {
   adjustLabel();
   mLabel->show();
-  if ( RulerSettings::self()->rotateButtonsVisible() ) {
-    mBtnRotateLeft->show();
-    mBtnRotateRight->show();
-  }
-  if ( mCloseButton &&
-       RulerSettings::self()->closeButtonVisible() &&
-       RulerSettings::self()->trayIcon()) {
-    mCloseButton->show();
-  }
 }
 
 /**
@@ -722,11 +686,6 @@ void KLineal::showLabel()
 void KLineal::hideLabel()
 {
   mLabel->hide();
-  mBtnRotateLeft->hide();
-  mBtnRotateRight->hide();
-  if ( mCloseButton ) {
-    mCloseButton->hide();
-  }
 }
 
 /**
@@ -756,46 +715,6 @@ void KLineal::adjustLabel()
 
   s.sprintf( "%d%s", digit, ( mRelativeScale ? "%" : " px" ) );
   mLabel->setText( s );
-}
-
-/**
- * Updates the position of the tool buttons
- */
-void KLineal::adjustButtons()
-{
-  switch( mOrientation ) {
-  case North:
-    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, height() - 31 );
-    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, height() - 31 );
-    if ( mCloseButton ) {
-      mCloseButton->move( width() - 31, height() - 31 );
-    }
-    break;
-
-  case South:
-    mBtnRotateLeft->move( mLongEdgeLen / 2 - 28, 5 );
-    mBtnRotateRight->move( mLongEdgeLen / 2 + 2, 5 );
-    if ( mCloseButton ) {
-      mCloseButton->move( width() - 31, 5 );
-    }
-    break;
-
-  case East:
-    mBtnRotateLeft->move( 5, mLongEdgeLen / 2 - 28 );
-    mBtnRotateRight->move( 5, mLongEdgeLen / 2 + 2 );
-    if ( mCloseButton ) {
-      mCloseButton->move( 5, height() - 31 );
-    }
-    break;
-
-  case West:
-    mBtnRotateLeft->move( width() - 31, mLongEdgeLen / 2 - 28 );
-    mBtnRotateRight->move( width() - 31, mLongEdgeLen / 2 + 2 );
-    if ( mCloseButton ) {
-      mCloseButton->move( width() - 31, height() - 31 );
-    }
-    break;
-  }
 }
 
 void KLineal::keyPressEvent( QKeyEvent *e )
