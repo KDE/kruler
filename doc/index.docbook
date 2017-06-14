@@ -78,6 +78,10 @@ red arrow.  As you move the cursor, &kruler; will
 display how far from the origin the cursor currently is.
 </para>
 
+<para>You can resize the ruler by moving the mouse over the handle on the
+left or right edges of &kruler; (the top or bottom edges when it is oriented
+vertically), holding down the &LMB; and dragging the handle.</para>
+
 <para>You can change the orientation in two different ways:</para>
 
 <simplelist>
