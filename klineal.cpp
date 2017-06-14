@@ -108,6 +108,9 @@ KLineal::KLineal( QWidget *parent )
 
   mLabel = new QAutoSizeLabel( this );
   mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
+  QPalette pal = mLabel->palette();
+  pal.setColor( QPalette::WindowText, Qt::red );
+  mLabel->setPalette( pal );
 
   if ( mHorizontal ) {
     resize( QSize( len, THICKNESS ) );
@@ -516,43 +519,27 @@ QPoint KLineal::localCursorPos() const
  */
 void KLineal::adjustLabel()
 {
-  QColor color;
-  QString text;
-
-  if ( isResizing() ) {
-    color = Qt::black;
-    int size = mHorizontal ? width() : height();
-    text = i18n( "Size: %1 px", size );
-  } else if ( !underMouse() ) {
+  if ( isResizing() || !underMouse() ) {
     mLabel->hide();
     update();
     return;
-  } else {
-    color = Qt::red;
-    QPoint pos = localCursorPos();
-    int len = mHorizontal ? pos.x() : pos.y();
-    if ( !mRelativeScale ) {
-      if ( mLeftToRight ) {
-        len += mOffset;
-      } else {
-        len = length() - len + mOffset;
-      }
-      text = i18n( "%1 px", len );
-    } else {
-      len = ( len * 100.f ) / length();
-
-      if ( !mLeftToRight ) {
-        len = 100 - len;
-      }
-      text = i18n( "%1%", len );
-    }
   }
 
-  QPalette pal = mLabel->palette();
-  pal.setColor( QPalette::WindowText, color );
-  mLabel->setPalette( pal );
+  QString text;
+  int len = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+  if ( !mRelativeScale ) {
+    if ( !mLeftToRight ) {
+      len = length() - len;
+    }
+    text = i18n( "%1 px", len );
+  } else {
+    len = ( len * 100.f ) / length();
 
-  mLabel->show();
+    if ( !mLeftToRight ) {
+      len = 100 - len;
+    }
+    text = i18n( "%1%", len );
+  }
   mLabel->setText( text );
 
   QFontMetrics fm = mLabel->fontMetrics();
@@ -560,6 +547,7 @@ void KLineal::adjustLabel()
     ? QPoint( height() / 2, ( height() - fm.ascent() ) / 2 )
     : QPoint( ( width() - mLabel->width() ) / 2, width() / 2 );
   mLabel->move( pos );
+  mLabel->show();
   update();
 }
 
