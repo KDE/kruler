@@ -145,20 +145,8 @@ KLineal::KLineal( QWidget *parent )
 
   mMenu = new QMenu( this );
   mMenu->addSection( i18n( "KRuler" ) );
-  QMenu *oriMenu = new QMenu( i18n( "&Orientation"), this );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-north" ) ), i18nc( "Turn Kruler North", "&North" ),
-             this, SLOT(setNorth()), Qt::Key_N, QStringLiteral( "turn_north" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-east" ) ), i18nc( "Turn Kruler East", "&East" ),
-             this, SLOT(setEast()), Qt::Key_E, QStringLiteral( "turn_east" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-south" ) ), i18nc( "Turn Kruler South", "&South" ),
-             this, SLOT(setSouth()), Qt::Key_S, QStringLiteral( "turn_south" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "kruler-west" ) ), i18nc( "Turn Kruler West", "&West" ),
-             this, SLOT(setWest()), Qt::Key_W, QStringLiteral( "turn_west" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-right" ) ), i18n( "&Turn Right" ),
+  addAction( mMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Rotate" ),
              this, SLOT(turnRight()), Qt::Key_R, QStringLiteral( "turn_right" ) );
-  addAction( oriMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Turn &Left" ),
-             this, SLOT(turnLeft()), Qt::Key_L, QStringLiteral( "turn_left" ) );
-  mMenu->addMenu( oriMenu );
 
   mLenMenu = new QMenu( i18n( "&Length" ), this );
   addAction( mLenMenu, QIcon(), i18nc( "Make Kruler Height Short", "&Short" ),
