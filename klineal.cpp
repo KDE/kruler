@@ -66,6 +66,7 @@ static const int SMALL_TICK_SIZE = 6;
 static const int MEDIUM1_TICK_SIZE = 10;
 static const int MEDIUM2_TICK_SIZE = 15;
 static const int LARGE_TICK_SIZE = 18;
+static const qreal TICK_OPACITY = 0.3;
 
 static const int THICKNESS = 70;
 
@@ -805,6 +806,7 @@ void KLineal::drawScaleText( QPainter &painter, int x, const QString &text )
 
 void KLineal::drawScaleTick( QPainter &painter, int x, int len )
 {
+  painter.setOpacity( TICK_OPACITY );
   int w = width();
   int h = height();
   // Offset by one because we are measuring lengths, not positions, so when the
@@ -821,6 +823,7 @@ void KLineal::drawScaleTick( QPainter &painter, int x, int len )
     painter.drawLine( 0, x, len, x );
     painter.drawLine( w, x, w - len, x );
   }
+  painter.setOpacity( 1 );
 }
 
 void KLineal::drawResizeHandle( QPainter &painter, Qt::Edge edge )
