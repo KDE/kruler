@@ -1104,9 +1104,7 @@ void KLineal::drawScale( QPainter &painter )
       if ( digit % 20 == 0 ) len = 15;
       if ( digit % 100 == 0 ) len = 18;
 
-      if ( digit % 20 == 0 ) {
-        font.setBold( digit % 100 == 0 );
-        painter.setFont( font );
+      if ( digit % 100 == 0 ) {
         QString units;
         units.sprintf( "%d", digit );
         QSize textSize = metrics.size( Qt::TextSingleLine, units );
@@ -1150,9 +1148,6 @@ void KLineal::drawScale( QPainter &painter )
   } else {
     float step = longLen / 100.f;
     int len;
-
-    font.setBold( true );
-    painter.setFont( font );
 
     for ( int i = 0; i <= 100; ++i ) {
       int x = (int)( i * step );
