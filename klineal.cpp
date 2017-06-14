@@ -54,7 +54,6 @@
 
 #include "kruler.h"
 #include "krulersystemtray.h"
-#include "qautosizelabel.h"
 
 #include "ui_cfg_appearance.h"
 #include "ui_cfg_advanced.h"
@@ -69,6 +68,14 @@ static const int MEDIUM2_TICK_SIZE = 15;
 static const int LARGE_TICK_SIZE = 18;
 
 static const int THICKNESS = 70;
+
+static const qreal OVERLAY_OPACITY = 0.1;
+static const qreal OVERLAY_BORDER_OPACITY = 0.3;
+
+static const int INDICATOR_MARGIN = 6;
+static const int INDICATOR_RECT_RADIUS = 3;
+static const qreal INDICATOR_RECT_OPACITY = 0.6;
+
 static const int CURSOR_SIZE = 15; // Must be an odd number
 
 /**
@@ -106,12 +113,6 @@ KLineal::KLineal( QWidget *parent )
   mOffset = RulerSettings::self()->offset();
   mRelativeScale = RulerSettings::self()->relativeScale();
   mAlwaysOnTopLayer = RulerSettings::self()->alwaysOnTop();
-
-  mLabel = new QAutoSizeLabel( this );
-  mLabel->setWhatsThis( i18n( "This is the current distance measured in pixels." ) );
-  QPalette pal = mLabel->palette();
-  pal.setColor( QPalette::WindowText, Qt::red );
-  mLabel->setPalette( pal );
 
   if ( mHorizontal ) {
     resize( QSize( len, THICKNESS ) );
@@ -184,7 +185,6 @@ KLineal::KLineal( QWidget *parent )
                                     : Qt::FramelessWindowHint );
 
   setHorizontal( mHorizontal );
-  adjustLabel();
 }
 
 KLineal::~KLineal()
@@ -333,7 +333,6 @@ void KLineal::setHorizontal( bool horizontal )
   }
 
   setGeometry( r );
-  adjustLabel();
 
   updateScaleDirectionMenuItem();
 
@@ -386,7 +385,6 @@ void KLineal::switchDirection()
   mLeftToRight = !mLeftToRight;
   updateScaleDirectionMenuItem();
   repaint();
-  adjustLabel();
   saveSettings();
 }
 
@@ -394,7 +392,6 @@ void KLineal::centerOrigin()
 {
   mOffset = -( length() / 2 );
   repaint();
-  adjustLabel();
   saveSettings();
 }
 
@@ -408,7 +405,6 @@ void KLineal::slotOffset()
   if ( ok ) {
     mOffset = newOffset;
     repaint();
-    adjustLabel();
     saveSettings();
   }
 }
@@ -485,7 +481,6 @@ void KLineal::switchRelativeScale( bool checked )
   mOffsetAction->setEnabled( !mRelativeScale );
 
   repaint();
-  adjustLabel();
   saveSettings();
 }
 
@@ -531,41 +526,20 @@ QPoint KLineal::localCursorPos() const
   return QCursor::pos() - pos();
 }
 
-/**
- * updates the current value label
- */
-void KLineal::adjustLabel()
+QString KLineal::indicatorText() const
 {
-  if ( isResizing() || !underMouse() ) {
-    mLabel->hide();
-    update();
-    return;
-  }
-
-  QString text;
-  int len = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+  int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
   if ( !mRelativeScale ) {
-    if ( !mLeftToRight ) {
-      len = length() - len;
-    }
-    text = i18n( "%1 px", len );
+    int len = mLeftToRight ? xy + 1 : length() - xy;
+    return i18n( "%1 px", len );
   } else {
-    len = ( len * 100.f ) / length();
+    int len = ( xy * 100.f ) / length();
 
     if ( !mLeftToRight ) {
       len = 100 - len;
     }
-    text = i18n( "%1%", len );
+    return i18n( "%1%", len );
   }
-  mLabel->setText( text );
-
-  QFontMetrics fm = mLabel->fontMetrics();
-  QPoint pos = mHorizontal
-    ? QPoint( height() / 2, ( height() - fm.ascent() ) / 2 )
-    : QPoint( ( width() - mLabel->width() ) / 2, width() / 2 );
-  mLabel->move( pos );
-  mLabel->show();
-  update();
 }
 
 void KLineal::keyPressEvent( QKeyEvent *e )
@@ -609,7 +583,7 @@ void KLineal::keyPressEvent( QKeyEvent *e )
 void KLineal::leaveEvent( QEvent *e )
 {
   Q_UNUSED( e );
-  adjustLabel();
+  update();
 }
 
 void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
@@ -630,14 +604,12 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
         r.setTop( QCursor::pos().y() - mDragOffset.y() );
       }
       setGeometry( r );
-      adjustLabel();
     } else if ( mRulerState == StateEnd ) {
       QPoint end = QCursor::pos() + mDragOffset - pos();
       QSize size = mHorizontal
         ? QSize( end.x(), height() )
         : QSize( width(), end.y() );
       resize( size );
-      adjustLabel();
     }
   } else {
     QPoint cpos = localCursorPos();
@@ -647,7 +619,7 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
     } else {
       setCursor( mCrossCursor );
     }
-    adjustLabel();
+    update();
   }
 }
 
@@ -678,7 +650,6 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
         }
       }
     }
-    adjustLabel();
   } else if ( inEvent->button() == Qt::MidButton ) {
     mClicked = true;
     rotate();
@@ -734,7 +705,6 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
   } else if ( nativeMove() ) {
     stopNativeMove( inEvent );
   }
-  adjustLabel();
 }
 
 void KLineal::wheelEvent( QWheelEvent *e )
@@ -745,11 +715,9 @@ void KLineal::wheelEvent( QWheelEvent *e )
   // changing offset
   if ( e->buttons() == Qt::LeftButton ) {
     if ( !mRelativeScale ) {
-      mLabel->show();
       mOffset += numSteps;
 
       repaint();
-      mLabel->setText( i18n( "Offset: %1", mOffset ) );
       saveSettings();
     }
   }
@@ -765,7 +733,7 @@ void KLineal::drawScale( QPainter &painter )
   painter.setPen( Qt::black );
   QFont font = mScaleFont;
   painter.setFont( font );
-  int longLen = mHorizontal ? width() : height();
+  int longLen = length();
 
   if ( !mRelativeScale ) {
     int digit;
@@ -839,9 +807,13 @@ void KLineal::drawScaleTick( QPainter &painter, int x, int len )
 {
   int w = width();
   int h = height();
-  // Offset by one because we are measuring lengths, not position, so when the
+  // Offset by one because we are measuring lengths, not positions, so when the
   // indicator is at position 0 it measures a length of 1 pixel.
-  --x;
+  if ( mLeftToRight ) {
+    --x;
+  } else {
+    ++x;
+  }
   if ( mHorizontal ) {
     painter.drawLine( x, 0, x, len );
     painter.drawLine( x, h, x, h - len );
@@ -881,6 +853,65 @@ void KLineal::drawResizeHandle( QPainter &painter, Qt::Edge edge )
   painter.setOpacity( 1 );
 }
 
+void KLineal::drawIndicatorOverlay( QPainter &painter, int xy )
+{
+  painter.setPen( Qt::red );
+  painter.setOpacity( OVERLAY_OPACITY );
+  if ( mHorizontal ) {
+    QPointF p1( mLeftToRight ? 0 : width(), 0 );
+    QPointF p2( xy, THICKNESS );
+    QRectF rect( p1, p2 );
+    painter.fillRect( rect, Qt::red );
+
+    painter.setOpacity( OVERLAY_BORDER_OPACITY );
+    painter.drawLine( xy, 0, xy, THICKNESS );
+  } else {
+    QPointF p1( 0, mLeftToRight ? 0 : height() );
+    QPointF p2( THICKNESS, xy );
+    QRectF rect( p1, p2 );
+    painter.fillRect( rect, Qt::red );
+
+    painter.setOpacity( OVERLAY_BORDER_OPACITY );
+    painter.drawLine( 0, xy, THICKNESS, xy );
+  }
+}
+
+void KLineal::drawIndicatorText( QPainter &painter, int xy )
+{
+  QString text = indicatorText();
+  painter.setFont( font() );
+  QFontMetrics fm = QFontMetrics( font() );
+  int tx, ty;
+  int tw = fm.width( text );
+  if ( mHorizontal ) {
+    tx = xy + INDICATOR_MARGIN;
+    if ( tx + tw > width() ) {
+      tx = xy - tw - INDICATOR_MARGIN;
+    }
+    ty = height() - SMALL_TICK_SIZE - INDICATOR_RECT_RADIUS;
+  } else {
+    tx = ( width() - tw ) / 2;
+    ty = xy + fm.ascent() + INDICATOR_MARGIN;
+    if ( ty > height() ) {
+      ty = xy - INDICATOR_MARGIN;
+    }
+  }
+
+  // Draw background rect
+  painter.setRenderHint( QPainter::Antialiasing );
+  painter.setOpacity( INDICATOR_RECT_OPACITY );
+  painter.setBrush( Qt::red );
+  QRectF bgRect( tx, ty - fm.ascent() + 1, tw, fm.ascent() );
+  bgRect.adjust( -INDICATOR_RECT_RADIUS, -INDICATOR_RECT_RADIUS, INDICATOR_RECT_RADIUS, INDICATOR_RECT_RADIUS );
+  bgRect.translate( 0.5, 0.5 );
+  painter.drawRoundedRect( bgRect, INDICATOR_RECT_RADIUS, INDICATOR_RECT_RADIUS );
+
+  // Draw text
+  painter.setOpacity( 1 );
+  painter.setPen( Qt::white );
+  painter.drawText( tx, ty, text );
+}
+
 /**
  * actually draws the ruler
  */
@@ -895,8 +926,8 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
   drawResizeHandle( painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge );
   drawResizeHandle( painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge );
   if ( underMouse() && !isResizing() ) {
-    painter.setPen( Qt::red );
-    QPoint pos = localCursorPos();
-    drawScaleTick( painter, mHorizontal ? pos.x() : pos.y(), LARGE_TICK_SIZE );
+    int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+    drawIndicatorOverlay( painter, xy );
+    drawIndicatorText( painter, xy );
   }
 }

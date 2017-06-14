@@ -21,7 +21,6 @@
 #include <QWidget>
 
 class QAction;
-class QAutoSizeLabel;
 class QIcon;
 class QMenu;
 class QToolButton;
@@ -63,6 +62,8 @@ private:
   void drawScaleText( QPainter &painter, int x, const QString &text );
   void drawScaleTick( QPainter &painter, int x, int length );
   void drawResizeHandle( QPainter &painter, Qt::Edge edge );
+  void drawIndicatorOverlay( QPainter &painter, int xy );
+  void drawIndicatorText( QPainter &painter, int xy );
   void updateScaleDirectionMenuItem();
 
   QRect beginRect() const;
@@ -72,6 +73,7 @@ private:
   bool nativeMove() const;
   void startNativeMove( QMouseEvent *e );
   void stopNativeMove( QMouseEvent *e );
+  QString indicatorText() const;
 
   enum RulerState {
     StateNone,
@@ -83,7 +85,6 @@ private:
   RulerState mRulerState;
   QPoint mLastClickPos;
   QPoint mDragOffset;
-  QAutoSizeLabel *mLabel;
   bool mHorizontal;
   QMenu *mMenu;
   QAction *mCloseAction;
@@ -110,7 +111,6 @@ private:
 public slots:
   void rotate();
   void showMenu();
-  void adjustLabel();
   void switchDirection();
   void centerOrigin();
   void slotOffset();

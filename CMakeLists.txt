@@ -44,7 +44,7 @@ add_subdirectory( doc )
 
 ########### next target ###############
 
-set(kruler_SRCS qautosizelabel.cpp klineal.cpp main.cpp krulersystemtray.cpp)
+set(kruler_SRCS klineal.cpp main.cpp krulersystemtray.cpp)
 
 ki18n_wrap_ui(kruler_SRCS cfg_appearance.ui cfg_advanced.ui)
 
