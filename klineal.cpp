@@ -4,6 +4,7 @@
     Begin                : Fri Oct 13 2000
     Copyright            : 2000 by Till Krech <till@snafu.de>
                            2008 by Mathias Soeken <msoeken@informatik.uni-bremen.de>
+                           2017 by Aurélien Gâteau <agateau@kde.org>
  ***************************************************************************/
 
 /***************************************************************************

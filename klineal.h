@@ -4,6 +4,7 @@
     begin                : Fri Oct 13 2000
     Copyright            : (C) 2000 - 2008 by Till Krech <till@snafu.de>
                            (C) 2009        by Mathias Soeken <msoeken@tzi.de>
+                           (C) 2017        by Aurélien Gâteau <agateau@kde.org>
  ***************************************************************************/
 
 /***************************************************************************
