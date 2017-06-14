@@ -63,6 +63,13 @@ static const int RESIZE_HANDLE_LEN = 7;
 static const int RESIZE_HANDLE_SHORT_LEN = 24;
 static const qreal RESIZE_HANDLE_OPACITY = 0.3;
 
+static const int SMALL_TICK_SIZE = 6;
+static const int MEDIUM1_TICK_SIZE = 10;
+static const int MEDIUM2_TICK_SIZE = 15;
+static const int LARGE_TICK_SIZE = 18;
+
+static const int THICKNESS = 70;
+
 /**
  * create the thingy with no borders and set up
  * its members
@@ -89,7 +96,7 @@ KLineal::KLineal( QWidget *parent )
 
   setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
-  setMinimumSize( 60, 60 );
+  setMinimumSize( THICKNESS, THICKNESS );
   setMaximumSize( 8000, 8000 );
   setWhatsThis( i18n( "This is a tool to measure pixel distances on the screen. "
                       "It is useful for working on layouts of dialogs, web pages etc." ) );
@@ -324,7 +331,6 @@ void KLineal::setHorizontal( bool horizontal )
 
   updateScaleDirectionMenuItem();
 
-  repaint();
   saveSettings();
 }
 
@@ -587,38 +593,68 @@ void KLineal::showMenu()
   mMenu->popup( pos );
 }
 
+bool KLineal::isResizing() const
+{
+  return mouseGrabber() == this && ( mRulerState == StateBegin || mRulerState == StateEnd );
+}
+
+QPoint KLineal::localCursorPos() const
+{
+  // For some reason mapFromGlobal( QCursor::pos() ) thinks the ruler is at 0, 0 at startup.
+  // compute the position ourselves to avoid that.
+  return QCursor::pos() - pos();
+}
+
 /**
  * updates the current value label
  */
 void KLineal::adjustLabel()
 {
-  QString s;
+  QColor color;
+  QString text;
 
-  int digit = mHorizontal ? width() : height();
-
-  if ( !mRelativeScale ) {
-    if ( mLeftToRight ) {
-      digit += mOffset;
-    } else {
-      digit = mLongEdgeLen - digit + mOffset;
-    }
+  if ( isResizing() ) {
+    color = Qt::black;
+    int size = mHorizontal ? width() : height();
+    text = i18n( "Size: %1 px", size );
+  } else if ( !underMouse() ) {
+    mLabel->hide();
+    update();
+    return;
   } else {
-    // INFO: Perhaps use float also for displaying relative value
-    digit = (int)( ( digit * 100.f ) / mLongEdgeLen );
+    color = Qt::red;
+    QPoint pos = localCursorPos();
+    int length = mHorizontal ? pos.x() : pos.y();
+    if ( !mRelativeScale ) {
+      if ( mLeftToRight ) {
+        length += mOffset;
+      } else {
+        length = mLongEdgeLen - length + mOffset;
+      }
+      text = i18n( "%1 px", length );
+    } else {
+      length = ( length * 100.f ) / mLongEdgeLen;
 
-    if ( !mLeftToRight ) {
-      digit = 100 - digit;
+      if ( !mLeftToRight ) {
+        length = 100 - length;
+      }
+      text = i18n( "%1%", length );
     }
   }
 
-  s.sprintf( "%d%s", digit, ( mRelativeScale ? "%" : " px" ) );
-  mLabel->setText( s );
+  QPalette pal = mLabel->palette();
+  pal.setColor( QPalette::WindowText, color );
+  mLabel->setPalette( pal );
+
+  mLabel->show();
+  mLabel->setText( text );
 
   QFontMetrics fm = mLabel->fontMetrics();
   QPoint pos = mHorizontal
     ? QPoint( height() / 2, ( height() - fm.ascent() ) / 2 )
     : QPoint( ( width() - mLabel->width() ) / 2, width() / 2 );
   mLabel->move( pos );
+  update();
 }
 
 void KLineal::keyPressEvent( QKeyEvent *e )
@@ -659,15 +695,20 @@ void KLineal::keyPressEvent( QKeyEvent *e )
   KNotification::event( QString(), QStringLiteral( "cursormove" ), QString() );
 }
 
-/**
- * overwritten to handle the line cursor which is a separate widget outside the main
- * window. Also used for dragging.
- */
+void KLineal::leaveEvent( QEvent *e )
+{
+  Q_UNUSED( e );
+  adjustLabel();
+}
+
 void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
 
-  if ( mRulerState != StateNone && this == mouseGrabber() ) {
+  if ( mRulerState >= StateMove ) {
+    if ( mouseGrabber() != this ) {
+      return;
+    }
     if ( mRulerState == StateMove ) {
       move( QCursor::pos() - mDragOffset );
     } else if ( mRulerState == StateBegin ) {
@@ -689,13 +730,14 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
       adjustLabel();
     }
   } else {
-    QPoint cpos = mapFromGlobal( QCursor::pos() );
+    QPoint cpos = localCursorPos();
     mRulerState = StateNone;
     if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
       setCursor( resizeCursor() );
     } else {
       setCursor( Qt::SizeAllCursor );
     }
+    adjustLabel();
   }
 }
 
@@ -726,6 +768,7 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
         }
       }
     }
+    adjustLabel();
   } else if ( inEvent->button() == Qt::MidButton ) {
     mClicked = true;
     rotate();
@@ -780,6 +823,7 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
   } else if ( nativeMove() ) {
     stopNativeMove( inEvent );
   }
+  adjustLabel();
 }
 
 void KLineal::wheelEvent( QWheelEvent *e )
@@ -830,21 +874,7 @@ void KLineal::drawScale( QPainter &painter )
   painter.setPen( Qt::black );
   QFont font = mScaleFont;
   painter.setFont( font );
-  int longLen;
-  int w = width();
-  int h = height();
-
-  // draw a frame around the whole thing
-  // (for some unknown reason, this doesn't show up anymore)
-  if ( mHorizontal ) {
-    longLen = w;
-    painter.drawLine( 0, 0, 0, h - 1 );
-    painter.drawLine( w - 1, h - 1, w - 1, 0 );
-  } else {
-    longLen = h;
-    painter.drawLine( 0, h - 1, w - 1, h - 1 );
-    painter.drawLine( w - 1, 0, 0, 0 );
-  }
+  int longLen = mHorizontal ? width() : height();
 
   if ( !mRelativeScale ) {
     int digit;
@@ -858,11 +888,15 @@ void KLineal::drawScale( QPainter &painter )
 
       if ( digit % 2 ) continue;
 
-      len = 6;
-
-      if ( digit % 10 == 0 ) len = 10;
-      if ( digit % 20 == 0 ) len = 15;
-      if ( digit % 100 == 0 ) len = 18;
+      if ( digit % 100 == 0 ) {
+        len = LARGE_TICK_SIZE;
+      } else if ( digit % 20 == 0 ) {
+        len = MEDIUM2_TICK_SIZE;
+      } else if (digit % 10 == 0) {
+        len = MEDIUM1_TICK_SIZE;
+      } else {
+        len = SMALL_TICK_SIZE;
+      }
 
       if ( digit % 100 == 0 && digit != 0 ) {
         QString units;
@@ -878,13 +912,15 @@ void KLineal::drawScale( QPainter &painter )
 
     for ( int i = 0; i <= 100; ++i ) {
       int x = (int)( i * step );
-      len = ( i % 10 ) ? 6 : 15;
 
       if ( i % 10 == 0 && i != 0 && i != 100 ) {
         QString units;
         int value = mLeftToRight ? i : ( 100 - i );
         units.sprintf( "%d%%", value );
         drawScaleText( painter, x, units );
+        len = MEDIUM2_TICK_SIZE;
+      } else {
+        len = SMALL_TICK_SIZE;
       }
 
       drawScaleTick( painter, x, len );
@@ -964,4 +1000,9 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
 
   drawResizeHandle( painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge );
   drawResizeHandle( painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge );
+  if ( underMouse() && !isResizing() ) {
+    painter.setPen( Qt::red );
+    QPoint pos = localCursorPos();
+    drawScaleTick( painter, mHorizontal ? pos.x() : pos.y(), LARGE_TICK_SIZE );
+  }
 }

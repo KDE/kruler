@@ -44,6 +44,7 @@ public:
 
 protected:
   void keyPressEvent( QKeyEvent *e );
+  void leaveEvent( QEvent *e );
   void mousePressEvent( QMouseEvent *e );
   void mouseReleaseEvent( QMouseEvent *e );
   void mouseMoveEvent( QMouseEvent *e );
@@ -66,6 +67,7 @@ private:
   void updateScaleDirectionMenuItem();
 
   QRect beginRect() const;
+  QRect midRect() const;
   QRect endRect() const;
   Qt::CursorShape resizeCursor() const;
   bool nativeMove() const;
@@ -104,6 +106,9 @@ private:
   KRulerSystemTray *mTrayIcon;
 
   void setHorizontal( bool horizontal );
+
+  bool isResizing() const;
+  QPoint localCursorPos() const;
 
 public slots:
   void rotate();
