@@ -948,6 +948,9 @@ void KLineal::drawScaleTick( QPainter &painter, int x, int len )
 {
   int w = width();
   int h = height();
+  // Offset by one because we are measuring lengths, not position, so when the
+  // indicator is at position 0 it measures a length of 1 pixel.
+  --x;
   if ( mHorizontal ) {
     painter.drawLine( x, 0, x, len );
     painter.drawLine( x, h, x, h - len );
