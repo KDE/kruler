@@ -1043,9 +1043,7 @@ void KLineal::drawScale( QPainter &painter )
   painter.setPen( Qt::black );
   QFont font = mScaleFont;
   painter.setFont( font );
-  QFontMetrics metrics = painter.fontMetrics();
   int longLen;
-  int shortStart = 0;
   int w = width();
   int h = height();
 
@@ -1088,35 +1086,10 @@ void KLineal::drawScale( QPainter &painter )
       if ( digit % 100 == 0 ) {
         QString units;
         units.sprintf( "%d", digit );
-        QSize textSize = metrics.size( Qt::TextSingleLine, units );
-        int tw = textSize.width();
-        int th = metrics.ascent();
-
-        switch ( mOrientation ) {
-        case North:
-        case South:
-          painter.drawText( x - tw / 2, (h + th) / 2, units );
-          break;
-
-        case East:
-        case West:
-          painter.drawText( (w - tw) / 2, x + th / 2, units );
-          break;
-        }
+        drawScaleText( painter, x, units );
       }
 
-      switch( mOrientation ) {
-      case North:
-      case South:
-        painter.drawLine( x, 0, x, len );
-        painter.drawLine( x, h, x, h - len );
-        break;
-      case East:
-      case West:
-        painter.drawLine( 0, x, len, x );
-        painter.drawLine( w, x, w - len, x );
-        break;
-      }
+      drawScaleTick( painter, x, len );
     }
   } else {
     float step = longLen / 100.f;
@@ -1130,44 +1103,51 @@ void KLineal::drawScale( QPainter &painter )
         QString units;
         int value = mLeftToRight ? i : ( 100 - i );
         units.sprintf( "%d%%", value );
-        QSize textSize = metrics.size( Qt::TextSingleLine, units );
-        int tw = textSize.width();
-        int th = textSize.height();
-
-        switch ( mOrientation ) {
-        case North:
-          painter.drawText( x - tw / 2, shortStart + len + th, units );
-          break;
-
-        case South:
-          painter.drawText( x - tw / 2, shortStart - len - 2, units );
-          break;
-
-        case East:
-          painter.drawText( shortStart - len - tw - 2, x + th / 2 - 2, units );
-          break;
-
-        case West:
-          painter.drawText( shortStart + len + 2, x + th / 2 - 2, units );
-          break;
-        }
+        drawScaleText( painter, x, units );
       }
 
-      switch( mOrientation ) {
-      case North:
-        painter.drawLine( x, shortStart, x, shortStart + len );
-        break;
-      case South:
-        painter.drawLine( x, shortStart, x, shortStart - len );
-        break;
-      case East:
-        painter.drawLine( shortStart, x, shortStart - len, x );
-        break;
-      case West:
-        painter.drawLine( shortStart, x, shortStart + len, x );
-        break;
-      }
+      drawScaleTick( painter, x, len );
     }
+  }
+}
+
+void KLineal::drawScaleText( QPainter &painter, int x, const QString &text )
+{
+  QFontMetrics metrics = painter.fontMetrics();
+  QSize textSize = metrics.size( Qt::TextSingleLine, text );
+  int w = width();
+  int h = height();
+  int tw = textSize.width();
+  int th = metrics.ascent();
+
+  switch ( mOrientation ) {
+  case North:
+  case South:
+    painter.drawText( x - tw / 2, (h + th) / 2, text );
+    break;
+
+  case East:
+  case West:
+    painter.drawText( (w - tw) / 2, x + th / 2, text );
+    break;
+  }
+}
+
+void KLineal::drawScaleTick( QPainter &painter, int x, int len )
+{
+  int w = width();
+  int h = height();
+  switch( mOrientation ) {
+  case North:
+  case South:
+    painter.drawLine( x, 0, x, len );
+    painter.drawLine( x, h, x, h - len );
+    break;
+  case East:
+  case West:
+    painter.drawLine( 0, x, len, x );
+    painter.drawLine( w, x, w - len, x );
+    break;
   }
 }
 

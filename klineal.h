@@ -62,6 +62,8 @@ private:
                       const QKeySequence &shortcut, const QString& name );
   void drawScale( QPainter &painter );
   void drawBackground( QPainter &painter );
+  void drawScaleText( QPainter &painter, int x, const QString &text );
+  void drawScaleTick( QPainter &painter, int x, int length );
   void reLength( int percentOfScreen );
   void reLengthAbsolute( int length );
   void updateScaleDirectionMenuItem();
