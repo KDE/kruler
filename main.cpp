@@ -25,7 +25,7 @@
 int main(int argc, char *argv[])
 {
   QApplication a( argc, argv );
-
+  a.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
   Kdelibs4ConfigMigrator migrate(QStringLiteral("kruler"));
   migrate.setConfigFiles(QStringList() << QStringLiteral("krulerrc") << QStringLiteral("kruler.notifyrc"));
   migrate.setUiFiles(QStringList() << QStringLiteral("krulerui.rc"));
