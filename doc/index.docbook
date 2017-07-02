@@ -211,6 +211,17 @@ about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink> o
 
 </chapter>
 
+<chapter id="keyboard-handling">
+<title>Keyboard Handling</title>
+
+<para>You can move the ruler using the arrow key buttons.</para>
+
+<para>You can move the mouse cursor, and thus the indicator, by holding down
+&Alt; and using the arrow buttons.</para>
+
+<para>Hold down &Shift; while doing one of those to move faster.</para>
+</chapter>
+
 <chapter id="credits-and-license">
 <title>Credits and License</title>
 
