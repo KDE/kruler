@@ -129,7 +129,6 @@ KLineal::KLineal( QWidget *parent )
   mActionCollection->setConfigGroup( QStringLiteral( "Actions" ) );
 
   mMenu = new QMenu( this );
-  mMenu->addSection( i18n( "KRuler" ) );
   addAction( mMenu, QIcon::fromTheme( QStringLiteral( "object-rotate-left" ) ), i18n( "Rotate" ),
              this, SLOT(rotate()), Qt::Key_R, QStringLiteral( "turn_right" ) );
 
@@ -154,11 +153,14 @@ KLineal::KLineal( QWidget *parent )
   QMenu* opacityMenu = new QMenu( i18n( "O&pacity" ), this );
   QWidgetAction *opacityAction = new QWidgetAction( this );
   QSlider *slider = new QSlider( this );
-  slider->setMinimum( 0 );
+  slider->setMinimum( 30 );
   slider->setMaximum( 255 );
   slider->setSingleStep( 1 );
   slider->setOrientation( Qt::Horizontal );
   slider->setValue( RulerSettings::self()->opacity() );
+  // Show ticks so that the slider is a bit taller, thus easier to grab
+  slider->setTickPosition( QSlider::TicksBothSides );
+  slider->setTickInterval( 30 );
   connect(slider, &QSlider::valueChanged, this, &KLineal::slotOpacity);
   opacityAction->setDefaultWidget( slider );
   opacityMenu->addAction( opacityAction );
