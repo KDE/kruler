@@ -16,6 +16,7 @@
   <name xml:lang="fi">KRuler</name>
   <name xml:lang="fr">KRuler</name>
   <name xml:lang="gl">KRuler</name>
+  <name xml:lang="ia">KRuler</name>
   <name xml:lang="id">KRuler</name>
   <name xml:lang="it">KRuler</name>
   <name xml:lang="ko">KRuler</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="et">Ekraani joonlaud</summary>
   <summary xml:lang="fi">Näyttöviivain</summary>
   <summary xml:lang="gl">Regra de pantalla</summary>
+  <summary xml:lang="ia">Regula de schermo</summary>
   <summary xml:lang="id">Penggaris Layar</summary>
   <summary xml:lang="it">Righello per lo schermo</summary>
   <summary xml:lang="ko">화면 자</summary>
