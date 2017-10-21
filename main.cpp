@@ -19,6 +19,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <Kdelibs4ConfigMigrator>
+#include <QCommandLineParser>
 
 #include "klineal.h"
 
@@ -40,8 +41,13 @@ int main(int argc, char *argv[])
   aboutData.addAuthor( i18n( "Till Krech" ), i18n( "Former Maintainer and Developer" ), QStringLiteral("till@snafu.de") );
   aboutData.addCredit( i18n( "Gunnstein Lye" ),i18n( "Initial port to KDE 2" ), QStringLiteral("gl@ez.no") );
   aboutData.setTranslator( i18nc( "NAME OF TRANSLATORS", "Your names" ), i18nc( "EMAIL OF TRANSLATORS", "Your emails" ) );
-
   KAboutData::setApplicationData(aboutData);
+
+  QCommandLineParser parser;
+  aboutData.setupCommandLine(&parser);
+  parser.process(a);
+  aboutData.processCommandLine(&parser);
+
 
   KLineal *ruler = new KLineal();
   ruler->show();
