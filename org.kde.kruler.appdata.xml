@@ -24,6 +24,7 @@
   <name xml:lang="nn">KRuler</name>
   <name xml:lang="pl">KLinijka</name>
   <name xml:lang="pt">KRuler</name>
+  <name xml:lang="pt-BR">KRuler</name>
   <name xml:lang="ru">KRuler</name>
   <name xml:lang="sk">KRuler</name>
   <name xml:lang="sl">KRuler</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="nn">Skjermlinjal</summary>
   <summary xml:lang="pl">Linijka ekranowa</summary>
   <summary xml:lang="pt">Régua do Ecrã</summary>
+  <summary xml:lang="pt-BR">Régua da tela</summary>
   <summary xml:lang="ru">Экранная линейка</summary>
   <summary xml:lang="sk">Pravítko obrazovky</summary>
   <summary xml:lang="sl">Zaslonsko ravnilo</summary>
