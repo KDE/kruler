@@ -47,6 +47,7 @@
   <summary xml:lang="es">Regla para la pantalla</summary>
   <summary xml:lang="et">Ekraani joonlaud</summary>
   <summary xml:lang="fi">Näyttöviivain</summary>
+  <summary xml:lang="fr">Règle d'écran</summary>
   <summary xml:lang="gl">Regra de pantalla</summary>
   <summary xml:lang="ia">Regula de schermo</summary>
   <summary xml:lang="id">Penggaris Layar</summary>
@@ -79,6 +80,7 @@
     <p xml:lang="es">KRuler es una regla para la pantalla que permite medir píxeles. Sitúe el 0 en el punto de inicio y mida con precisión la distancia en píxeles entre el punto de inicio y el cursor.</p>
     <p xml:lang="et">KRuler on ekraani joonlaud pikslite ülemõõtmiseks. Paiguta 0 sinna, kust soovid alustada, ja mõõda täpne vahemaa pikslites nullpunktist kursorini.</p>
     <p xml:lang="fi">KRuler on kuvapisteiden mittaamiseen tarkoitettu näyttöviivain. Sijoita 0 alkupisteen kohdalle ja mittaa sen ja osoittimen välinen etäisyys kuvapisteinä.</p>
+    <p xml:lang="fr">KRuler est une règle d'écran permettant de mesurer des pixels. Positionnez le 0 sur le point de départ pour mesurer la distance précise entre le point de départ et votre curseur.</p>
     <p xml:lang="gl">KRuler é unha regra de pantalla para medir píxeles. Coloque o 0 no punto inicial e mida a distancia en píxeles precisa do punto inicial ao cursor.</p>
     <p xml:lang="id">KRuler adalah sebuah penggaris pada layar untuk mengukur pixel. Posisi 0 di titik pemulaian dan mengukur jarak presisi pixel antara titik pemulaian dan kursor Anda.</p>
     <p xml:lang="it">KRuler è un righello a schermo che misura i pixel. Posiziona lo 0 nel punto iniziale e misura la distanza precisa in pixel tra il punto iniziale e il puntatore del mouse.</p>
