@@ -895,7 +895,7 @@ void KLineal::drawIndicatorText( QPainter &painter, int xy )
   painter.setFont( font() );
   QFontMetrics fm = QFontMetrics( font() );
   int tx, ty;
-  int tw = fm.width( text );
+  int tw = fm.boundingRect(text).width();
   if ( mHorizontal ) {
     tx = xy + INDICATOR_MARGIN;
     if ( tx + tw > width() ) {
