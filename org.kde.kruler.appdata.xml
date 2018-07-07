@@ -24,6 +24,7 @@
   <name xml:lang="nn">KRuler</name>
   <name xml:lang="pl">KLinijka</name>
   <name xml:lang="pt">KRuler</name>
+  <name xml:lang="pt-BR">KRuler</name>
   <name xml:lang="ru">KRuler</name>
   <name xml:lang="sk">KRuler</name>
   <name xml:lang="sl">KRuler</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="nn">Skjermlinjal</summary>
   <summary xml:lang="pl">Linijka ekranowa</summary>
   <summary xml:lang="pt">Régua do Ecrã</summary>
+  <summary xml:lang="pt-BR">Régua de tela</summary>
   <summary xml:lang="ru">Экранная линейка</summary>
   <summary xml:lang="sk">Pravítko obrazovky</summary>
   <summary xml:lang="sl">Zaslonsko ravnilo</summary>
@@ -89,6 +91,7 @@
     <p xml:lang="nn">KRuler er ein skjermlinjal for måling av pikselavstandar. Plasser 0-merket der du vil måla frå og mål den nøyaktige pikselavstanden frå nullpunktet til peikaren.</p>
     <p xml:lang="pl">KLinijka jest ekranową linijką do mierzenia pikseli. Umieść miejsce 0 na punkcie początkowym i mierz precyzyjnie odległość pomiędzy punktem początkowym i twoim wskaźnikiem.</p>
     <p xml:lang="pt">O KRuler é uma régua no ecrã para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exacta em pixels entre o ponto inicial e o seu cursor.</p>
+    <p xml:lang="pt-BR">KRuler é uma régua de tela para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exata em pixels entre o ponto inicial e o seu cursor.</p>
     <p xml:lang="sk">KRuler je pravítko na obrazovke na meranie pixelov. Poloha na 0 pri vašom začiatočnom bode a meranie presnej bodovej vzdialenosti medzi počiatočným bodom a vašim kurzorom.</p>
     <p xml:lang="sl">KRuler je zaslonsko ravnilo za merjenje slikovnih točk. Z njim lahko izmerite natančno razdaljo med izbrano točko in trenutnim položajem vaše miškine kazalke.</p>
     <p xml:lang="sr">К‑лењир је екрански лењир за мерење пиксела. Поставите 0 у жељену почетну тачку и измерите тачно пикселско растојање између те тачке и показивача.</p>
