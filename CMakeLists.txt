@@ -1,9 +1,10 @@
 project(kruler)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-set(QT_MIN_VERSION "5.2.0")
+set(QT_MIN_VERSION "5.8.0")
+set(KF5_MIN_VERSION "5.30.0")
 
-find_package(ECM 1.7.0 REQUIRED NO_MODULE)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 add_definitions(-DTRANSLATION_DOMAIN="kruler")
@@ -20,7 +21,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DocTools
     I18n
     Notifications
@@ -73,3 +74,4 @@ install( FILES org.kde.kruler.appdata.xml    DESTINATION  ${KDE_INSTALL_METAINFO
 install( FILES kruler.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
 install( FILES move.wav  DESTINATION  ${KDE_INSTALL_DATADIR}/kruler/sounds )
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
