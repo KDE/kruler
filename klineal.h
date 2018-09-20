@@ -109,7 +109,7 @@ private:
   int length() const;
   QPoint localCursorPos() const;
 
-public slots:
+public Q_SLOTS:
   void rotate();
   void showMenu();
   void switchDirection();
