@@ -85,15 +85,7 @@ static const int CURSOR_SIZE = 15; // Must be an odd number
  * its members
  */
 KLineal::KLineal( QWidget *parent )
-  : QWidget( parent ),
-    mRulerState( StateNone ),
-    mCloseAction( 0 ),
-    mScaleDirectionAction( 0 ),
-    mCenterOriginAction( 0 ),
-    mOffsetAction( 0 ),
-    mClicked( false ),
-    mActionCollection( 0 ),
-    mTrayIcon( 0 )
+  : QWidget( parent )
 {
   setAttribute( Qt::WA_TranslucentBackground );
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
@@ -143,7 +135,7 @@ KLineal::KLineal( QWidget *parent )
   mOffsetAction->setEnabled( !mRelativeScale );
   scaleMenu->addSeparator();
   QAction *relativeScaleAction = addAction( scaleMenu, QIcon(), i18n( "Percentage" ),
-                                            0, 0, QKeySequence(), QStringLiteral( "toggle_percentage" ) );
+                                            nullptr, nullptr, QKeySequence(), QStringLiteral( "toggle_percentage" ) );
   relativeScaleAction->setCheckable( true );
   relativeScaleAction->setChecked( mRelativeScale );
   connect(relativeScaleAction, &QAction::toggled, this, &KLineal::switchRelativeScale);
@@ -466,7 +458,7 @@ void KLineal::loadConfig()
     }
   } else {
     delete mTrayIcon;
-    mTrayIcon = 0;
+    mTrayIcon = nullptr;
 
     if ( mCloseAction ) {
       mCloseAction->setVisible( false );

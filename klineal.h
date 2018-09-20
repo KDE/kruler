@@ -33,7 +33,7 @@ class KLineal : public QWidget {
   Q_OBJECT
 
 public:
-  KLineal( QWidget *parent = 0 );
+  explicit KLineal( QWidget *parent = nullptr );
   ~KLineal();
 
   void move( int x, int y );
@@ -43,13 +43,13 @@ public:
   int y() const;
 
 protected:
-  void keyPressEvent( QKeyEvent *e );
-  void leaveEvent( QEvent *e );
-  void mousePressEvent( QMouseEvent *e );
-  void mouseReleaseEvent( QMouseEvent *e );
-  void mouseMoveEvent( QMouseEvent *e );
-  void wheelEvent( QWheelEvent *e );
-  void paintEvent( QPaintEvent *e );
+  void keyPressEvent( QKeyEvent *e ) override;
+  void leaveEvent( QEvent *e ) override;
+  void mousePressEvent( QMouseEvent *e ) override;
+  void mouseReleaseEvent( QMouseEvent *e ) override;
+  void mouseMoveEvent( QMouseEvent *e ) override;
+  void wheelEvent( QWheelEvent *e ) override;
+  void paintEvent( QPaintEvent *e ) override;
 
   void createSystemTray();
 
@@ -83,25 +83,25 @@ private:
     StateEnd
   };
   QCursor mCrossCursor;
-  RulerState mRulerState;
+  RulerState mRulerState = StateNone;
   QPoint mLastClickPos;
   QPoint mDragOffset;
-  bool mHorizontal;
-  QMenu *mMenu;
-  QAction *mCloseAction;
-  QAction *mScaleDirectionAction;
-  QAction *mCenterOriginAction;
-  QAction *mOffsetAction;
+  bool mHorizontal = false;
+  QMenu *mMenu = nullptr;
+  QAction *mCloseAction = nullptr;
+  QAction *mScaleDirectionAction = nullptr;
+  QAction *mCenterOriginAction = nullptr;
+  QAction *mOffsetAction = nullptr;
   QColor mColor;
   QFont mScaleFont;
-  bool mAlwaysOnTopLayer;
-  bool mClicked;
-  bool mLeftToRight;
-  int mOffset;
-  bool mRelativeScale;
-  KActionCollection *mActionCollection;
-  int mOpacity;
-  KRulerSystemTray *mTrayIcon;
+  bool mAlwaysOnTopLayer = false;
+  bool mClicked = false;
+  bool mLeftToRight = false;
+  int mOffset = 0;
+  bool mRelativeScale = false;
+  KActionCollection *mActionCollection = nullptr;
+  int mOpacity = 0;
+  KRulerSystemTray *mTrayIcon = nullptr;
 
   void setHorizontal( bool horizontal );
 
