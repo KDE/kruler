@@ -109,7 +109,7 @@
   </description>
   <url type="homepage">https://www.kde.org/applications/graphics/kruler/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kruler</url>
-  <url type="donation">https://www.kde.org/community/donations</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kruler&amp;source=appdata</url>
   <provides>
     <binary>kruler</binary>
   </provides>
