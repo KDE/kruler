@@ -268,12 +268,12 @@ void KLineal::drawBackground( QPainter& painter )
   QColor a, b, bg = mColor;
   QLinearGradient gradient;
   if ( mHorizontal ) {
-    a = bg.light( 120 );
-    b = bg.dark( 130 );
+    a = bg.lighter( 120 );
+    b = bg.darker( 130 );
     gradient = QLinearGradient( 1, 0, 1, height() );
   } else {
-    a = bg.light( 120 );
-    b = bg.dark( 130 );
+    a = bg.lighter( 120 );
+    b = bg.darker( 130 );
     gradient = QLinearGradient( 0, 1, width(), 1 );
   }
   a.setAlpha( mOpacity );
