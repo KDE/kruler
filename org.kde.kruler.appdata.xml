@@ -115,4 +115,9 @@
     <binary>kruler</binary>
   </provides>
   <project_group>KDE</project_group>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
+    </screenshot>
+  </screenshots>
 </component>
