@@ -24,7 +24,6 @@
 class QAction;
 class QIcon;
 class QMenu;
-class QToolButton;
 
 class KActionCollection;
 class KRulerSystemTray;
