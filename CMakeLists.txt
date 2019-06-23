@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(kruler)
+# KDE Application Version, managed by release script
+set(KDE_APPLICATIONS_VERSION_MAJOR "19")
+set(KDE_APPLICATIONS_VERSION_MINOR "07")
+set(KDE_APPLICATIONS_VERSION_MICRO "70")
+set(KDE_APPLICATIONS_VERSION "${KDE_APPLICATIONS_VERSION_MAJOR}.${KDE_APPLICATIONS_VERSION_MINOR}.${KDE_APPLICATIONS_VERSION_MICRO}")
+
+project(kruler VERSION ${KDE_APPLICATIONS_VERSION})
 
 set(QT_MIN_VERSION "5.8.0")
 set(KF5_MIN_VERSION "5.30.0")
@@ -16,6 +22,7 @@ include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(FeatureSummary)
 include(ECMAddAppIcon)
+include(ECMSetupVersion)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
@@ -48,6 +55,8 @@ add_subdirectory( pics )
 add_subdirectory( doc )
 
 ########### next target ###############
+
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KRULER VERSION_HEADER kruler_version.h)
 
 set(kruler_SRCS klineal.cpp main.cpp krulersystemtray.cpp)
 

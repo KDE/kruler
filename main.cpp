@@ -23,6 +23,8 @@
 
 #include "klineal.h"
 
+#include "kruler_version.h"
+
 int main(int argc, char *argv[])
 {
   QApplication a( argc, argv );
@@ -33,7 +35,7 @@ int main(int argc, char *argv[])
   migrate.migrate();
 
   KAboutData aboutData( QStringLiteral("kruler"), i18n( "KDE Screen Ruler" ),
-    QStringLiteral("5.0"), // version string
+    QStringLiteral(KRULER_VERSION_STRING),
     i18n( "A screen ruler by KDE" ),
     KAboutLicense::GPL,
     i18n( "(c) 2000 - 2008, Till Krech\n(c) 2009, Mathias Soeken" ) );
