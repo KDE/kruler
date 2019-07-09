@@ -20,18 +20,13 @@
 
 #include <QAction>
 #include <QApplication>
-#include <QBitmap>
 #include <QBrush>
-#include <QClipboard>
 #include <QDesktopWidget>
-#include <QFontDatabase>
 #include <QInputDialog>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QScreen>
 #include <QSlider>
-#include <QToolButton>
 #include <QWidgetAction>
 
 #include <KAboutData>
