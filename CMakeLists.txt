@@ -8,6 +8,11 @@ set(KDE_APPLICATIONS_VERSION "${KDE_APPLICATIONS_VERSION_MAJOR}.${KDE_APPLICATIO
 
 project(kruler VERSION ${KDE_APPLICATIONS_VERSION})
 
+if (EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup(TARGETS)
+endif()
+
 set(QT_MIN_VERSION "5.8.0")
 set(KF5_MIN_VERSION "5.30.0")
 
