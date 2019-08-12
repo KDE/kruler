@@ -39,6 +39,11 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+if (KF5ConfigWidgets_VERSION VERSION_GREATER "5.56.0")
+        add_definitions(-DQT_NO_FOREACH)
+        MESSAGE(STATUS "compile without foreach")
+endif()
+
 
 if (NOT APPLE)
     find_package(X11)
