@@ -1,5 +1,6 @@
 [Global]
 IconName=kruler
+DesktopEntry=org.kde.kruler
 Comment=On-Screen Ruler
 Comment[ar]=مسطرة الشاشة
 Comment[bg]=Линийка за екрана
