@@ -705,7 +705,7 @@ void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
 
 void KLineal::wheelEvent( QWheelEvent *e )
 {
-  int numDegrees = e->delta() / 8;
+  int numDegrees = e->angleDelta().y() / 8;
   int numSteps = numDegrees / 15;
 
   // changing offset
@@ -756,8 +756,7 @@ void KLineal::drawScale( QPainter &painter )
       }
 
       if ( digit % 100 == 0 && digit != 0 ) {
-        QString units;
-        units.sprintf( "%d", digit );
+        QString units = QStringLiteral("%1").arg(digit);
         drawScaleText( painter, x, units );
       }
 
@@ -771,9 +770,8 @@ void KLineal::drawScale( QPainter &painter )
       int x = (int)( i * step );
 
       if ( i % 10 == 0 && i != 0 && i != 100 ) {
-        QString units;
         int value = mLeftToRight ? i : ( 100 - i );
-        units.sprintf( "%d%%", value );
+        const QString units = QString::asprintf( "%d%%", value );
         drawScaleText( painter, x, units );
         len = MEDIUM2_TICK_SIZE;
       } else {
