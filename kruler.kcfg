@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
-<kcfg>
-  <kcfgfile name="krulerrc"/>
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                        http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
   <include>QFontDatabase</include>
+  <kcfgfile name="krulerrc"/>
   <group name="StoredSettings">
     <entry name="BgColor" type="Color">
       <label>Background color of the ruler.</label>
