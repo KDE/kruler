@@ -206,7 +206,7 @@ The context menu displays this item only when <guilabel>Show tray icon</guilabel
 </variablelist>
 <para>
 &kruler; has the common &kde; <guimenu>Help</guimenu> menu item, for more information read the section 
-about the <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink> of the &kde; Fundamentals.
+about the <ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink> of the &kde; Fundamentals.
 </para>
 
 </chapter>
