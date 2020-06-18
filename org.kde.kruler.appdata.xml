@@ -35,6 +35,7 @@
   <name xml:lang="sv">Kruler</name>
   <name xml:lang="tr">KRuler</name>
   <name xml:lang="uk">KRuler</name>
+  <name xml:lang="x-test">xxKRulerxx</name>
   <name xml:lang="zh-CN">直尺</name>
   <name xml:lang="zh-TW">KRuler</name>
   <summary>Screen Ruler</summary>
@@ -69,6 +70,7 @@
   <summary xml:lang="sv">Skärmlinjal</summary>
   <summary xml:lang="tr">Ekran Cetveli</summary>
   <summary xml:lang="uk">Екранна лінійка</summary>
+  <summary xml:lang="x-test">xxScreen Rulerxx</summary>
   <summary xml:lang="zh-CN">屏幕标尺</summary>
   <summary xml:lang="zh-TW">螢幕尺規</summary>
   <description>
@@ -102,6 +104,7 @@
     <p xml:lang="sv">Kruler är en skärmlinjal för att mäta bildpunkter. Placera nollan på startpunkten och mät det exakta avståndet i bildpunkter mellan startpunkten och pekaren.</p>
     <p xml:lang="tr">KRuler, pikselleri ölçmek için ekran üstü bir cetveltir. 0'ı başlangıç noktanızda konumlandırın ve başlangıç noktası ile imleciniz arasındaki kesin piksel mesafesini ölçün.</p>
     <p xml:lang="uk">KRuler — екранна лінійка для вимірювання відстаней у пікселях. Розташуйте нульову позначку у початковій точці вимірювання і виміряйте відстань між початковою точкою та вказівником миші.</p>
+    <p xml:lang="x-test">xxKRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.xx</p>
     <p xml:lang="zh-CN">直尺是测量像素的屏幕标尺。将 0 放置在测量起点并测量起点和鼠标之间的精确像素距离。</p>
     <p xml:lang="zh-TW">KRuler 是一個用以測量像素的，在螢幕上顯示的直尺。在您的起始點標記為 0 並測量出您的起始點到游標的精確像素距離。</p>
   </description>
