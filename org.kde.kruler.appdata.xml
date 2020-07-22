@@ -7,6 +7,7 @@
   <name xml:lang="ca">KRuler</name>
   <name xml:lang="ca-valencia">KRuler</name>
   <name xml:lang="cs">KRuler</name>
+  <name xml:lang="da">KRuler</name>
   <name xml:lang="de">KRuler</name>
   <name xml:lang="el">KRuler</name>
   <name xml:lang="en-GB">KRuler</name>
@@ -42,6 +43,7 @@
   <summary xml:lang="ca">Regle de la pantalla</summary>
   <summary xml:lang="ca-valencia">Regle de la pantalla</summary>
   <summary xml:lang="cs">Obrazovkové pravítko</summary>
+  <summary xml:lang="da">Skærmlineal</summary>
   <summary xml:lang="de">Bildschirmlineal</summary>
   <summary xml:lang="el">Κανόνας οθόνης</summary>
   <summary xml:lang="en-GB">Screen Ruler</summary>
@@ -77,6 +79,7 @@
     <p>KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
     <p xml:lang="ca">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
     <p xml:lang="ca-valencia">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
+    <p xml:lang="da">KRuler er en lineal på skærmen til at måle pixel. Placer 0 ved dit startpunkt og mål den præcise pixelafstand mellem startpunktet og din markør.</p>
     <p xml:lang="de">KRuler ist ein Bildschirmlineal zu Messen von Pixeln. Setzen Sie den Ursprung des Lineals auf den Startpunkt und messen Sie dann den genauen Abstand zum Cursor.</p>
     <p xml:lang="el">Το KRuler είναι ένας κανόνας οθόνης για τη μέτρηση εικονοστοιχείων. Τοποθετείτε το 0 στο αρχικό σημείο της επιλογής σας και μετράτε με ακρίβεια την απόσταση ανάμεσα στο αρχικό σημείο και το δρομέα.</p>
     <p xml:lang="en-GB">KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
