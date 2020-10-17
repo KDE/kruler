@@ -67,7 +67,6 @@ private:
   void updateScaleDirectionMenuItem();
 
   QRect beginRect() const;
-  QRect midRect() const;
   QRect endRect() const;
   Qt::CursorShape resizeCursor() const;
   bool nativeMove() const;
