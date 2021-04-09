@@ -646,7 +646,7 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
         }
       }
     }
-  } else if ( inEvent->button() == Qt::MidButton ) {
+  } else if ( inEvent->button() == Qt::MiddleButton ) {
     mClicked = true;
     rotate();
   } else if ( inEvent->button() == Qt::RightButton ) {
