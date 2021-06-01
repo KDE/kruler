@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
 
 # KDE Application Version, managed by release script
 set(RELEASE_SERVICE_VERSION_MAJOR "21")
@@ -8,8 +8,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kruler VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.11.0")
-set(KF5_MIN_VERSION "5.30.0")
+set(QT_MIN_VERSION "5.15.0")
+set(KF5_MIN_VERSION "5.83.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -36,15 +36,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     WindowSystem
     XmlGui
 )
-add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
-add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
-
-
-if (KF5ConfigWidgets_VERSION VERSION_GREATER "5.56.0")
-        add_definitions(-DQT_NO_FOREACH)
-        MESSAGE(STATUS "compile without foreach")
-endif()
-
 
 if (NOT APPLE)
     find_package(X11)
@@ -64,16 +55,16 @@ add_subdirectory( doc )
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KRULER VERSION_HEADER kruler_version.h)
 
-set(kruler_SRCS klineal.cpp main.cpp krulersystemtray.cpp)
+add_executable(kruler)
+target_sources(kruler PRIVATE klineal.cpp main.cpp krulersystemtray.cpp)
 
-ki18n_wrap_ui(kruler_SRCS cfg_appearance.ui cfg_advanced.ui)
+ki18n_wrap_ui(kruler cfg_appearance.ui cfg_advanced.ui)
 
-kconfig_add_kcfg_files(kruler_SRCS kruler.kcfgc)
+kconfig_add_kcfg_files(kruler kruler.kcfgc)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-kruler.png")
-ecm_add_app_icon(kruler_SRCS ICONS ${ICONS_SRCS})
+ecm_add_app_icon(kruler ICONS ${ICONS_SRCS})
 
-add_executable(kruler ${kruler_SRCS})
 
 target_link_libraries(kruler KF5::I18n KF5::Notifications KF5::WindowSystem KF5::XmlGui)
 if (X11_FOUND)
