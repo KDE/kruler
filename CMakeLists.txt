@@ -68,7 +68,7 @@ ecm_add_app_icon(kruler ICONS ${ICONS_SRCS})
 
 target_link_libraries(kruler KF5::I18n KF5::Notifications KF5::WindowSystem KF5::XmlGui)
 if (X11_FOUND)
-    target_link_libraries(kruler Qt5::X11Extras ${XCB_LIBRARIES})
+    target_link_libraries(kruler Qt::X11Extras ${XCB_LIBRARIES})
 endif()
 
 install(TARGETS kruler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
