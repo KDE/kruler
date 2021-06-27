@@ -29,6 +29,7 @@
 #include <QSlider>
 #include <QWidgetAction>
 
+#include <kxmlgui_version.h>
 #include <KAboutData>
 #include <KActionCollection>
 #include <KConfig>
@@ -410,7 +411,11 @@ void KLineal::slotOpacity( int value )
 
 void KLineal::slotKeyBindings()
 {
+#if KXMLGUI_VERSION >= QT_VERSION_CHECK(5,84,0)
+    KShortcutsDialog::showDialog(mActionCollection, KShortcutsEditor::LetterShortcutsAllowed, this);
+#else
   KShortcutsDialog::configure( mActionCollection );
+#endif
 }
 
 void KLineal::slotPreferences()
