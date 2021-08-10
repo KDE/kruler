@@ -60,21 +60,5 @@
  </tabstops>
  <resources/>
  <connections>
-  <connection>
-   <sender>kcfg_TrayIcon</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>kcfg_CloseButtonVisible</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>172</x>
-     <y>100</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>183</x>
-     <y>127</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
 </ui>
