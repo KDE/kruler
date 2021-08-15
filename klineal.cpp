@@ -1,20 +1,10 @@
-/***************************************************************************
-                          klineal.cpp  -  description
-                             -------------------
-    Begin                : Fri Oct 13 2000
-    Copyright            : 2000 by Till Krech <till@snafu.de>
-                           2008 by Mathias Soeken <msoeken@informatik.uni-bremen.de>
-                           2017 by Aurélien Gâteau <agateau@kde.org>
- ***************************************************************************/
+/*
+    SPDX-FileCopyrightText: 2000 Till Krech <till@snafu.de>
+    SPDX-FileCopyrightText: 2008 Mathias Soeken <msoeken@informatik.uni-bremen.de>
+    SPDX-FileCopyrightText: 2017 Aurélien Gâteau <agateau@kde.org>
 
-/***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- ***************************************************************************/
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
 
 #include "klineal.h"
 
