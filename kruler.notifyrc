@@ -53,7 +53,7 @@ Comment[th]=ไม้บรรทัดบนหน้าจอ
 Comment[tr]=Ekran Cetveli
 Comment[uk]=Екранна лінійка
 Comment[x-test]=xxOn-Screen Rulerxx
-Comment[zh_CN]=屏幕标尺
+Comment[zh_CN]=屏幕标尺工具
 Comment[zh_TW]=螢幕尺規
 
 [Event/cursormove]
