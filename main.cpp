@@ -41,10 +41,7 @@ int main(int argc, char *argv[])
   parser.process(app);
   aboutData.processCommandLine(&parser);
 
-
-  KLineal *ruler = new KLineal();
-  ruler->show();
-  int ret = app.exec();
-  delete ruler;
-  return ret;
+  KLineal ruler;
+  ruler.show();
+  return app.exec();
 }
