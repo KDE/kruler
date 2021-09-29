@@ -19,7 +19,7 @@
 int main(int argc, char *argv[])
 {
   QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-  QApplication a( argc, argv );
+  QApplication app( argc, argv );
   Kdelibs4ConfigMigrator migrate(QStringLiteral("kruler"));
   migrate.setConfigFiles(QStringList() << QStringLiteral("krulerrc") << QStringLiteral("kruler.notifyrc"));
   migrate.setUiFiles(QStringList() << QStringLiteral("krulerui.rc"));
@@ -38,13 +38,13 @@ int main(int argc, char *argv[])
 
   QCommandLineParser parser;
   aboutData.setupCommandLine(&parser);
-  parser.process(a);
+  parser.process(app);
   aboutData.processCommandLine(&parser);
 
 
   KLineal *ruler = new KLineal();
   ruler->show();
-  int ret = a.exec();
+  int ret = app.exec();
   delete ruler;
   return ret;
 }
