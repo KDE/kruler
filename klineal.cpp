@@ -18,6 +18,7 @@
 #include <QPainter>
 #include <QSlider>
 #include <QWidgetAction>
+#include <QWindow>
 
 #include <KAboutData>
 #include <KActionCollection>
@@ -72,6 +73,12 @@ static const int CURSOR_SIZE = 15; // Must be an odd number
 KLineal::KLineal( QWidget *parent )
   : QWidget( parent )
 {
+  // In Wayland, clients cannot currently query a fractional pixel ratio. To
+  // avoid showing a wrong value, we do not remap virtualized values and
+  // simply return 1 in the pixelRatio() method. This logic can be removed
+  // once Wayland fills the gap.
+  mWayland = KWindowSystem::isPlatformWayland();
+
   setAttribute( Qt::WA_TranslucentBackground );
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
   KWindowSystem::setState( winId(), NET::KeepAbove );
@@ -371,7 +378,7 @@ void KLineal::switchDirection()
 
 void KLineal::centerOrigin()
 {
-  mOffset = -( length() / 2 );
+  mOffset = -qRound( length()*pixelRatio() / 2 );
   repaint();
   saveSettings();
 }
@@ -507,12 +514,19 @@ QPoint KLineal::localCursorPos() const
   return QCursor::pos() - pos();
 }
 
+inline qreal KLineal::pixelRatio() const
+{
+  if (mWayland || !windowHandle())
+    return 1;
+  return windowHandle()->devicePixelRatio();
+}
+
 QString KLineal::indicatorText() const
 {
   int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
   if ( !mRelativeScale ) {
     int len = mLeftToRight ? xy + 1 : length() - xy;
-    return i18n( "%1 px", len );
+    return i18n( "%1 px", qRound(len*pixelRatio()) );
   } else {
     int len = ( xy * 100.f ) / length();
 
@@ -716,10 +730,10 @@ void KLineal::wheelEvent( QWheelEvent *e )
  */
 void KLineal::drawScale( QPainter &painter )
 {
-  painter.setPen( Qt::black );
+  painter.setPen( QPen(Qt::black, 1/pixelRatio()) );
   QFont font = mScaleFont;
   painter.setFont( font );
-  int longLen = length();
+  int longLen = length()*pixelRatio();
 
   if ( !mRelativeScale ) {
     int digit;
@@ -777,23 +791,24 @@ void KLineal::drawScaleText( QPainter &painter, int x, const QString &text )
 {
   QFontMetrics metrics = painter.fontMetrics();
   QSize textSize = metrics.size( Qt::TextSingleLine, text );
-  int w = width();
-  int h = height();
-  int tw = textSize.width();
-  int th = metrics.ascent();
+  qreal w = width();
+  qreal h = height();
+  qreal tw = textSize.width();
+  qreal th = metrics.ascent();
+  qreal lx = x/pixelRatio();
 
   if ( mHorizontal ) {
-    painter.drawText( x - tw / 2, (h + th) / 2, text );
+    painter.drawText( QPointF(lx - tw / 2, (h + th) / 2), text );
   } else {
-    painter.drawText( (w - tw) / 2, x + th / 2, text );
+    painter.drawText( QPointF((w - tw) / 2, lx + th / 2), text );
   }
 }
 
 void KLineal::drawScaleTick( QPainter &painter, int x, int len )
 {
   painter.setOpacity( TICK_OPACITY );
-  int w = width();
-  int h = height();
+  qreal w = width();
+  qreal h = height();
   // Offset by one because we are measuring lengths, not positions, so when the
   // indicator is at position 0 it measures a length of 1 pixel.
   if ( mLeftToRight ) {
@@ -801,12 +816,16 @@ void KLineal::drawScaleTick( QPainter &painter, int x, int len )
   } else {
     ++x;
   }
+
+  // The value is in physical coords, but Qt is drawing in logical coords.
+  qreal lx = x / pixelRatio();
+
   if ( mHorizontal ) {
-    painter.drawLine( x, 0, x, len );
-    painter.drawLine( x, h, x, h - len );
+    painter.drawLine( QLineF(lx, 0, lx, len) );
+    painter.drawLine( QLineF(lx, h, lx, h - len) );
   } else {
-    painter.drawLine( 0, x, len, x );
-    painter.drawLine( w, x, w - len, x );
+    painter.drawLine( QLineF(0, lx, len, lx) );
+    painter.drawLine( QLineF(w, lx, w - len, lx) );
   }
   painter.setOpacity( 1 );
 }
