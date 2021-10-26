@@ -23,7 +23,7 @@ class KLineal : public QWidget {
 
 public:
   explicit KLineal( QWidget *parent = nullptr );
-  ~KLineal();
+  ~KLineal() override;
 
   void move( int x, int y );
   void move( const QPoint &p );
