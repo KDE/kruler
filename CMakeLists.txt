@@ -68,6 +68,8 @@ add_executable(kruler)
 target_sources(kruler PRIVATE
     klineal.cpp
     krulersystemtray.cpp
+    klineal.h
+    krulersystemtray.h
     main.cpp
 )
 
