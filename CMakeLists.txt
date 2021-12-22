@@ -23,25 +23,32 @@ include(FeatureSummary)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
 )
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-    DocTools
     I18n
     Notifications
     WindowSystem
     XmlGui
 )
-
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 if (NOT APPLE)
     find_package(X11)
     set (KRULER_HAVE_X11 ${X11_FOUND})
     if (X11_FOUND)
         find_package(XCB COMPONENTS XCB)
-        find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
+        if (QT_MAJOR_VERSION STREQUAL "5")
+            find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
+        else()
+            # qtx11extras_p.h is in Qt6Gui, which implied by the Qt6Gui above
+        endif()
     endif()
 endif()
 
@@ -57,7 +64,10 @@ add_definitions(-DTRANSLATION_DOMAIN="kruler")
 configure_file(krulerconfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
 
 add_subdirectory( pics )
-add_subdirectory( doc )
+
+if (KF5DocTools_FOUND)
+    add_subdirectory(doc)
+endif()
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VARIABLE_PREFIX KRULER
@@ -91,16 +101,20 @@ target_link_libraries(kruler
 )
 if (X11_FOUND)
     target_link_libraries(kruler
-        Qt::X11Extras
         ${XCB_LIBRARIES}
     )
+    if (TARGET Qt5::X11Extras)
+        target_link_libraries(kruler Qt5::X11Extras)
+    elseif (TARGET Qt6::Gui)
+        target_link_libraries(kruler Qt6::GuiPrivate) # qtx11extras_p.h
+    endif()
 endif()
 
 install(TARGETS kruler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install( PROGRAMS org.kde.kruler.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES org.kde.kruler.appdata.xml    DESTINATION  ${KDE_INSTALL_METAINFODIR} )
-install( FILES kruler.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFY5RCDIR} )
+install( FILES kruler.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES move.wav  DESTINATION  ${KDE_INSTALL_DATADIR}/kruler/sounds )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
