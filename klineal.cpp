@@ -11,7 +11,7 @@
 #include <QAction>
 #include <QApplication>
 #include <QBrush>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QInputDialog>
 #include <QMenu>
 #include <QMouseEvent>
@@ -35,7 +35,11 @@
 #include "krulerconfig.h"
 
 #ifdef KRULER_HAVE_X11
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QX11Info>
+#else
+#include <private/qtx11extras_p.h>
+#endif
 #include <netwm.h>
 #endif
 
@@ -294,7 +298,7 @@ void KLineal::setHorizontal( bool horizontal )
   QPoint newTopLeft = QPoint( center.x() - height() / 2, center.y() - width() / 2 );
   r.moveTo(newTopLeft);
 
-  QRect desktop = QApplication::desktop()->screenGeometry( this );
+  QRect desktop = QGuiApplication::primaryScreen()->geometry();
 
   if ( r.width() > desktop.width() ) {
     r.setWidth( desktop.width() );
