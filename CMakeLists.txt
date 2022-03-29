@@ -29,6 +29,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 )
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    CoreAddons
     I18n
     Notifications
     WindowSystem
@@ -94,6 +95,7 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-kruler.png")
 ecm_add_app_icon(kruler ICONS ${ICONS_SRCS})
 
 target_link_libraries(kruler
+    KF5::CoreAddons
     KF5::I18n
     KF5::Notifications
     KF5::WindowSystem
