@@ -41,14 +41,16 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 if (NOT APPLE)
-    find_package(X11)
-    set (KRULER_HAVE_X11 ${X11_FOUND})
-    if (X11_FOUND)
+    option(WITHOUT_X11 "Build without X11 integration (skips finding X11)" OFF)
+    if (NOT WITHOUT_X11)
         find_package(XCB COMPONENTS XCB)
-        if (QT_MAJOR_VERSION STREQUAL "5")
-            find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
-        else()
-            # qtx11extras_p.h is in Qt6Gui, which implied by the Qt6Gui above
+        set (KRULER_HAVE_X11 ${XCB_FOUND})
+        if (XCB_FOUND)
+            if (QT_MAJOR_VERSION STREQUAL "5")
+                find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
+            else()
+                # qtx11extras_p.h is in Qt6Gui, which implied by the Qt6Gui above
+            endif()
         endif()
     endif()
 endif()
@@ -101,7 +103,7 @@ target_link_libraries(kruler
     KF5::WindowSystem
     KF5::XmlGui
 )
-if (X11_FOUND)
+if (KRULER_HAVE_X11)
     target_link_libraries(kruler
         ${XCB_LIBRARIES}
     )
