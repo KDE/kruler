@@ -590,43 +590,6 @@ void KLineal::leaveEvent( QEvent *e )
   update();
 }
 
-void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-
-  if ( mRulerState >= StateMove ) {
-    if ( mouseGrabber() != this ) {
-      return;
-    }
-    if ( mRulerState == StateMove ) {
-      move( QCursor::pos() - mDragOffset );
-    } else if ( mRulerState == StateBegin ) {
-      QRect r = geometry();
-      if ( mHorizontal ) {
-        r.setLeft( QCursor::pos().x() - mDragOffset.x() );
-      } else {
-        r.setTop( QCursor::pos().y() - mDragOffset.y() );
-      }
-      setGeometry( r );
-    } else if ( mRulerState == StateEnd ) {
-      QPoint end = QCursor::pos() + mDragOffset - pos();
-      QSize size = mHorizontal
-        ? QSize( end.x(), height() )
-        : QSize( width(), end.y() );
-      resize( size );
-    }
-  } else {
-    QPoint cpos = localCursorPos();
-    mRulerState = StateNone;
-    if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
-      setCursor( resizeCursor() );
-    } else {
-      setCursor( mCrossCursor );
-    }
-    update();
-  }
-}
-
 /**
  * overwritten for dragging and context menu
  */
@@ -639,19 +602,11 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
   if ( inEvent->button() == Qt::LeftButton ) {
     if ( mRulerState < StateMove ) {
       if ( beginRect().contains( mDragOffset ) ) {
-        mRulerState = StateBegin;
-        grabMouse( resizeCursor() );
+        windowHandle()->startSystemResize(mHorizontal ? Qt::LeftEdge : Qt::TopEdge);
       } else if ( endRect().contains( mDragOffset ) ) {
-        mDragOffset = gr.bottomRight() - mLastClickPos;
-        mRulerState = StateEnd;
-        grabMouse( resizeCursor() );
+        windowHandle()->startSystemResize(mHorizontal ? Qt::RightEdge : Qt::BottomEdge);
       } else {
-        if ( nativeMove() ) {
-          startNativeMove( inEvent );
-        } else {
-          mRulerState = StateMove;
-          grabMouse( Qt::SizeAllCursor );
-        }
+        windowHandle()->startSystemMove();
       }
     }
   } else if ( inEvent->button() == Qt::MiddleButton ) {
@@ -659,64 +614,6 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
     rotate();
   } else if ( inEvent->button() == Qt::RightButton ) {
     showMenu();
-  }
-}
-
-#ifdef KRULER_HAVE_X11
-bool KLineal::nativeMove() const
-{
-  return (mWayland || (QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving()));
-}
-
-void KLineal::startNativeMove( QMouseEvent *inEvent )
-{
-  if (mWayland) {
-    windowHandle()->startSystemMove();
-  } else {
-    xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
-    NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
-  }
-}
-
-void KLineal::stopNativeMove( QMouseEvent *inEvent )
-{
-  if (!mWayland) {
-    NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
-  }
-}
-#else
-bool KLineal::nativeMove() const
-{
-  return mWayland;
-}
-
-void KLineal::startNativeMove( QMouseEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-  if (mWayland) {
-    windowHandle()->startSystemMove();
-  }
-}
-
-void KLineal::stopNativeMove( QMouseEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-}
-#endif
-
-/**
- * overwritten for dragging
- */
-void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
-{
-  if ( mRulerState != StateNone ) {
-    mRulerState = StateNone;
-    releaseMouse();
-    saveSettings();
-  } else if ( nativeMove() ) {
-    stopNativeMove( inEvent );
   }
 }
 

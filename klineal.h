@@ -35,8 +35,6 @@ protected:
   void keyPressEvent( QKeyEvent *e ) override;
   void leaveEvent( QEvent *e ) override;
   void mousePressEvent( QMouseEvent *e ) override;
-  void mouseReleaseEvent( QMouseEvent *e ) override;
-  void mouseMoveEvent( QMouseEvent *e ) override;
   void wheelEvent( QWheelEvent *e ) override;
   void paintEvent( QPaintEvent *e ) override;
 
@@ -59,9 +57,6 @@ private:
   QRect beginRect() const;
   QRect endRect() const;
   Qt::CursorShape resizeCursor() const;
-  bool nativeMove() const;
-  void startNativeMove( QMouseEvent *e );
-  void stopNativeMove( QMouseEvent *e );
   QString indicatorText() const;
 
   enum RulerState {
