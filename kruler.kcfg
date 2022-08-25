@@ -43,10 +43,6 @@
       <label>Opacity of the window</label>
       <default>255</default>
     </entry>
-    <entry name="NativeMoving" type="Bool">
-      <label>Is native moving (possibly wobbling windows) active</label>
-      <default>false</default>
-    </entry>
     <entry name="AlwaysOnTop" type="Bool">
       <label>Is always on top</label>
       <default>true</default>

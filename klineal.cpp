@@ -181,6 +181,7 @@ KLineal::KLineal( QWidget *parent )
 
 KLineal::~KLineal()
 {
+  saveSettings();
   delete mTrayIcon;
 }
 
@@ -501,11 +502,6 @@ void KLineal::showMenu()
   mMenu->popup( pos );
 }
 
-bool KLineal::isResizing() const
-{
-  return mouseGrabber() == this && ( mRulerState == StateBegin || mRulerState == StateEnd );
-}
-
 int KLineal::length() const
 {
   return mHorizontal ? width() : height();
@@ -600,14 +596,12 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
   QRect gr = geometry();
   mDragOffset = mLastClickPos - gr.topLeft();
   if ( inEvent->button() == Qt::LeftButton ) {
-    if ( mRulerState < StateMove ) {
-      if ( beginRect().contains( mDragOffset ) ) {
-        windowHandle()->startSystemResize(mHorizontal ? Qt::LeftEdge : Qt::TopEdge);
-      } else if ( endRect().contains( mDragOffset ) ) {
-        windowHandle()->startSystemResize(mHorizontal ? Qt::RightEdge : Qt::BottomEdge);
-      } else {
-        windowHandle()->startSystemMove();
-      }
+    if ( beginRect().contains( mDragOffset ) ) {
+      windowHandle()->startSystemResize(mHorizontal ? Qt::LeftEdge : Qt::TopEdge);
+    } else if ( endRect().contains( mDragOffset ) ) {
+      windowHandle()->startSystemResize(mHorizontal ? Qt::RightEdge : Qt::BottomEdge);
+    } else {
+      windowHandle()->startSystemMove();
     }
   } else if ( inEvent->button() == Qt::MiddleButton ) {
     mClicked = true;
@@ -842,7 +836,7 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
 
   drawResizeHandle( painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge );
   drawResizeHandle( painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge );
-  if ( underMouse() && !isResizing() ) {
+  if ( underMouse() ) {
     int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
     drawIndicatorOverlay( painter, xy );
     drawIndicatorText( painter, xy );

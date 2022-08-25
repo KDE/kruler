@@ -57,16 +57,12 @@ private:
   QRect beginRect() const;
   QRect endRect() const;
   Qt::CursorShape resizeCursor() const;
+  bool nativeMove() const;
+  void startNativeMove( QMouseEvent *e );
+  void stopNativeMove( QMouseEvent *e );
   QString indicatorText() const;
 
-  enum RulerState {
-    StateNone,
-    StateMove,
-    StateBegin,
-    StateEnd
-  };
   QCursor mCrossCursor;
-  RulerState mRulerState = StateNone;
   QPoint mLastClickPos;
   QPoint mDragOffset;
   bool mHorizontal = false;
@@ -89,7 +85,6 @@ private:
 
   void setHorizontal( bool horizontal );
 
-  bool isResizing() const;
   int length() const;
   QPoint localCursorPos() const;
   qreal pixelRatio() const;
