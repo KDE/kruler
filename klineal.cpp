@@ -611,6 +611,19 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
   }
 }
 
+void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
+{
+  Q_UNUSED( inEvent );
+  QPoint cpos = localCursorPos();
+  if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
+    setCursor( resizeCursor() );
+  } else {
+    setCursor( mCrossCursor );
+  }
+  update();
+}
+
+
 void KLineal::wheelEvent( QWheelEvent *e )
 {
   int numDegrees = e->angleDelta().y() / 8;
