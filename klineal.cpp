@@ -665,30 +665,39 @@ void KLineal::mousePressEvent( QMouseEvent *inEvent )
 #ifdef KRULER_HAVE_X11
 bool KLineal::nativeMove() const
 {
-  return QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving();
+  return (mWayland || (QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving()));
 }
 
 void KLineal::startNativeMove( QMouseEvent *inEvent )
 {
-  xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
-  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
+  if (mWayland) {
+    windowHandle()->startSystemMove();
+  } else {
+    xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
+    NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
+    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
+  }
 }
 
 void KLineal::stopNativeMove( QMouseEvent *inEvent )
 {
-  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
+  if (!mWayland) {
+    NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
+    wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
+  }
 }
 #else
 bool KLineal::nativeMove() const
 {
-  return false;
+  return mWayland;
 }
 
 void KLineal::startNativeMove( QMouseEvent *inEvent )
 {
   Q_UNUSED( inEvent );
+  if (mWayland) {
+    windowHandle()->startSystemMove();
+  }
 }
 
 void KLineal::stopNativeMove( QMouseEvent *inEvent )
