@@ -1,0 +1,278 @@
+# translation of kruler.po to Chinese Traditional
+# Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+#
+# Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2006, 2009, 2010.
+# Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2011.
+# Jeff Huang <s8321414@gmail.com>, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2017-06-27 21:37+0800\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr "若開啟此選項，視窗會保持在其他視窗的上層。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "永遠開啟"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "背景顏色："
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "字型"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "顯示系統匣圖示"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr "這是一個量測螢幕像素距離的工具。在對話框、網頁設計等排版時非常有用。"
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "旋轉"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "刻度(&S)"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "右到左"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "原點置中"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "位移..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "百分比"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "不透明度(&P)"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "左到右"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "下到上"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "上到下"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "刻度位移"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Offset："
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "外觀"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "進階"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 px"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "尺規的背景顏色"
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "尺規長度"
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "尺規刻度的字型"
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "水平尺規"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "尺規方向"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "原點位移"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "尺規的刻度是否是相對的（使用百分比）"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "是否使用系統匣圖示"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "視窗不透明度"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "永遠在最上層"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE 螢幕尺規"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "由 KDE 開發的螢幕尺規"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "維護者"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "前任維護者與開發者"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "初始移植到 KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Michelle H.Y. Yu, Frank Weng (a.k.a. Franklin)"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Michelle_H.Y._Yu@wistron.com.tw, franklin@goodhorse.idv.tw"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr "若開啟此選項，視窗會使用來自視窗管理員的操作來移動。"
+
+#~ msgid "Native moving"
+#~ msgstr "自然移動"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "要使用自然移動嗎"

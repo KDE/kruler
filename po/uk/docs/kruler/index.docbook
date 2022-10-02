@@ -1,0 +1,353 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Підручник з Лінійки екрана</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>14 червня 2017 року</date>
+<releaseinfo
+>5.0 (Програми 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>Лінійку екрана можна використовувати для вимірювання об’єктів на екрані. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+
+<para
+>Лінійка екрана — це дуже проста програма, цю програму призначено лише для одного: вимірювання відстаней у пікселях на вашому екрані. Програма буде корисною для роботи над діалоговими вікнами, вебсторінками тощо.</para>
+
+<para
+>Щоб запустити Лінійку екрана, скористайтеся пунктом <menuchoice
+><guimenu
+>Програми</guimenu
+> <guisubmenu
+>Графіка</guisubmenu
+> <guisubmenu
+>Інші програми</guisubmenu
+> <guimenuitem
+>Лінійка екрана</guimenuitem
+></menuchoice
+> вашого меню програм.</para>
+
+<screenshot>
+<screeninfo
+>Лінійка екрана</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Лінійка екрана</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Якщо навести вказівник миші на Лінійку екрана і клацнути лівою кнопкою миші, вказівник набуде форми хрестика з чотирма стрілочками, що надасть вам змогу пересувати Лінійку екрана екраном.</para>
+
+<para
+>Якщо ви наведете вказівник миші на &kruler;, його вигляд буде змінено на червону стрілку. Після пересування вказівника &kruler; покаже дані щодо того, наскільки далеко від початкового розташування було відведено вказівник. </para>
+
+<para
+>Ви можете змінити розмір лінійки: наведіть вказівник миші на засіб керування лінійкою у її правій або лівій частинах (або верхній чи нижній частинах, якщо лінійку розташовано вертикально), натисніть і утримуйте ліву кнопку миші і перетягніть елемент керування так, щоб отримати потрібні вам розміри лінійки.</para>
+
+<para
+>Змінити орієнтацію лінійки можна у два різних способи:</para>
+
+<simplelist>
+<member
+>Клацанням середньою кнопкою миші можна змінити орієнтацію лінійки з вертикальної на горизонтальну, і навпаки.</member>
+<member
+>За допомогою контекстного меню, яке описано у наступному розділі.</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Довідник з меню</title>
+
+<para
+>Якщо навести вказівник миші на лінійку і клацнути правою кнопкою, з’явиться контекстне меню з такими пунктами:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Обернути</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Перемикає орієнтацію &kruler; з вертикальної на горизонтальну, і навпаки.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Шкала</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>За допомогою цього пункту можна налаштувати параметри шкали лінійки: <guilabel
+>Справа ліворуч</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Центрувати початок</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Відступ</guilabel
+> (<keycap
+>O</keycap
+>) і <guilabel
+>Відсотки</guilabel
+>.</para>
+<para
+>Відступ також можна змінити за допомогою коліщатка миші, якщо утримувати натиснутою ліву кнопку миші.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Непрозорість</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>За допомогою цього пункту меню можна отримати доступ до повзунка, який призначено для зміни непрозорості лінійки.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Налаштувати скорочення...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>За допомогою діалогового вікна <guilabel
+>Налаштувати скорочення</guilabel
+> ви зможете встановити клавіатурні скорочення для виконання певних дій у &kruler; або змінити вже налаштовані клавіатурні скорочення.</para>
+<para
+>Додаткову інформацію можна отримати з розділу, присвяченого <ulink url="help:/fundamentals/config.html#shortcuts"
+>скороченням</ulink
+>, підручника з основ роботи у &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Налаштувати &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Діалогове вікно параметрів лінійки екрана</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Діалогове вікно параметрів лінійки екрана</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>За допомогою цього діалогового вікна ви зможете змінити колір тла і шрифт, а також увімкнути або вимкнути показ піктограми у лотку.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Закрити</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Приховати</action
+> &kruler;. Лінійку можна буде знову відкрити за допомогою піктограми у системному лотку. Цей пункт з’явиться у контекстному меню, лише якщо у <link linkend="settings-dialog"
+>діалоговому вікні параметрів програми</link
+> буде позначено пункт <guilabel
+>Показувати піктограму у лотку</guilabel
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Завершує роботу</action
+> Лінійки екрана</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>У &kruler; передбачено типовий пункт меню <guimenu
+>Довідка</guimenu
+> &kde;. Щоб дізнатися більше, ознайомтеся з розділом, присвяченим <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Керування за допомогою клавіатури</title>
+
+<para
+>Ви можете пересувати лінійку за допомогою клавіш зі стрілками.</para>
+
+<para
+>Щоб пересунути за допомогою клавіатури вказівник миші, натисніть і утримуйте клавішу &Alt; і скористайтеся клавішами зі стрілками.</para>
+
+<para
+>Натисніть і утримуйте клавішу &Shift;, якщо вказані вище дії слід виконувати швидше.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Подяки і ліцензування</title>
+
+<para
+>Лінійка екрана</para>
+
+<para
+>Авторські права на програму належать Till Krech <email
+>till@snafu.de</email
+>, ©2000, 2001</para>
+<para
+>Авторські права на програму належать Mathias Soeken <email
+>msoeken@tzi.de</email
+>, 2009</para>
+
+<para
+>Дякуємо Gunnstein Lye <email
+>gl@ez.no</email
+> за початкове портування на &kde; 2</para>
+
+<para
+>Авторські права на документацію належать &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

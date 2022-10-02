@@ -1,0 +1,286 @@
+# Translation of kruler.po to Catalan (Valencian)
+# Copyright (C) 2002-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2002, 2007, 2008, 2009, 2010, 2011, 2016, 2017, 2021.
+# Albert Astals Cid <aacid@kde.org>, 2004.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2016, 2017, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2021-10-10 13:43+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"Si esta opció està activada, la finestra es mantindrà sobre les altres "
+"finestres."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Sempre a dalt"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Color de fons:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Tipus de lletra:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Mostra una icona en la safata del sistema"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Esta és una eina per a mesurar les distàncies entre píxels a la pantalla. És "
+"útil per a treballar amb les disposicions dels diàlegs, pàgines web, etc."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Gira"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Escala"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "De dreta a esquerra"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Centra l'origen"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Desplaçament..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Percentatge"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "O&pacitat"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "D'esquerra a dreta"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "De baix a dalt"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "De dalt a baix"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Desplaçament de l'escala"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Desplaçament:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Aparença"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Avançat"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 px"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Color de fons del regle."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Llargària del regle."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Tipus de lletra del text en l'escala del regle."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Regle horitzontal"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Direcció del regle"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Desplaçament de l'origen"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Si l'escala del regle és relativa (percentatge)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Si s'utilitza la icona en la safata"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Opacitat de la finestra"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Sempre està a dalt"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "Regle de la pantalla de KDE"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "Un regle de la pantalla, creat per la comunitat KDE"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Mantenidor"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Antic mantenidor i desenvolupador"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Adaptació inicial a KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep M. Ferrer"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Si esta opció està activada, la finestra es mourà emprant les operacions "
+#~ "des del gestor de finestres."
+
+#~ msgid "Native moving"
+#~ msgstr "Moviment natiu"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Si està actiu el moviment natiu (possiblement finestres sacsades)"

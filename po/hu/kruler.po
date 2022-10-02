@@ -1,0 +1,388 @@
+#
+# Tamas Szanto <tszanto@interware.hu>, 2000.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.3\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2011-07-31 00:05+0200\n"
+"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "If this option is enabled, the window is being moved using the operations "
+#| "from the window manager."
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"Ha ez be van jelölve, az ablak elmozgatása az ablakkezelőn keresztül törénik."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Háttérszín:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Betűtípus:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Tálcaikon"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a tool to measure pixel distances and colors on the screen. It is "
+#| "useful for working on layouts of dialogs, web pages etc."
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Ez az eszköz a képernyőn történő távolságmérésre (képpontban) és "
+"színmeghatározásra alkalmas. Hasznos lehet párbeszédablakok vagy weboldalak "
+"készítésénél."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr ""
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Skálázás"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Jobbról balra"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Középre"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Eltolás..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Százalék"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "Át&tetszőség"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Balról jobbra"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Lentről fel"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Fentről le"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Skálaeltolás"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Eltolás:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Megjelenés"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Speciális"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr ""
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "A vonalzó háttérszíne."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "A vonalzó hossza."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "A vonalzó beosztásának betűtípusa."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr ""
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "A vonalzó tájolása"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "A kezdőpont eltolása"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "A vonalzó relatív skálázása (százalékban)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Van-e tálcaikon"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Az ablak áttetszősége"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr ""
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE képernyővonalzó"
+
+#: main.cpp:34
+#, fuzzy, kde-format
+#| msgid "A screen ruler for KDE"
+msgid "A screen ruler by KDE"
+msgstr "Képernyővonalzó a KDE-hez"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) Till Krech, 2000-2008.\n"
+"(c) Mathias Soeken, 2009."
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Karbantartó"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Korábbi karbantartó és fejlesztő"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Az első KDE 2 alá írt változat"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Szántó Tamás"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tszanto@interware.hu"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Ha ez be van jelölve, az ablak elmozgatása az ablakkezelőn keresztül "
+#~ "törénik."
+
+#~ msgid "Native moving"
+#~ msgstr "Natív elmozgatás"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Natív ablakmozgatás (az ablakkezelővel)"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Elforgató gombok"
+
+#~ msgid "Show close button"
+#~ msgstr "Bezáró gomb"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Az aktuális távolság képpontban mérve."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Ez az aktuális szín RGB értéke hexadecimális alakban, ahogyan HTML-ben "
+#~ "vagy a QColor-ban kell megadni. A téglalap háttere olyan színű, mint a "
+#~ "mutató hegye által mutatott képponté."
+
+#~ msgid "Turn Left"
+#~ msgstr "Balra fordítás"
+
+#~ msgid "Turn Right"
+#~ msgstr "Jobbra fordítás"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Tájolás"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "Észa&k"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "K&elet"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Dél"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "Nyu&gat"
+
+#~ msgid "&Turn Right"
+#~ msgstr "&Jobbra fordítás"
+
+#~ msgid "Turn &Left"
+#~ msgstr "&Balra fordítás"
+
+#~ msgid "&Length"
+#~ msgstr "&Hossz"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Rövid"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "Kö&zepes"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "H&osszú"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "A képernyő szé&léig"
+
+#~ msgid "Length..."
+#~ msgstr "Hossz..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Színmásolás"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "A képernyő m&agasságáig"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Vonalzóhossz"
+
+#~ msgid "Length:"
+#~ msgstr "Hossz:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Eltolás: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Hossz: %1 képpont"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "A vonalzó tájolása"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Látszódjanak-e az elforgató gombok"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Látszódjon-e a bezáró gomb"

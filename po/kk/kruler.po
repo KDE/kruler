@@ -1,0 +1,395 @@
+# translation of kruler.po to Kazakh
+#
+# Sairan Kikkarin <sairan@computer.org>, 2007.
+# Sairan Kikkarin <sairan@computer.org>, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2012-02-01 03:39+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "If this option is enabled, the window is being moved using the operations "
+#| "from the window manager."
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr "Белгісі қойылса, терезе терезе менеджерінен басқарылып жылжытылады."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Аясының түсі:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Қаріпі"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Таңбашасы жүйелік сөреде"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a tool to measure pixel distances and colors on the screen. It is "
+#| "useful for working on layouts of dialogs, web pages etc."
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Бұл экрандағы пикселдер арасын өлшеуге және олардың түсін анықтауға арналған "
+"құрал. Диалогтарды, веб-парақтарды және т.б. жобалағанда пайдалы болады."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr ""
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Шәкілі"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Оңнан солға"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Ортадан бастап"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Шегінісі..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Пайызы"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "М&олдірлік"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Солдан оңға"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Төменнен жоғарға"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Жоғардан төменге"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Шәкілінің шегінісі"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Шегінісі"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Көрінісі"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Косымша"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr ""
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Өлшегіш аясының түсі."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Өлшегіштің ұзындығы."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Өлшегіш шәкілінің жазуынын қаріпі."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr ""
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Өлшегіш бағыты"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Басталу шегінісі"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Өлшегіш шәкілі салыстырмалы (пайыздық) болмақ па"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Таңбашасы жүйелік сөреде көрсетіледі ме"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Өлшегіштің мөлдірлігі"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr ""
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE-нің экран өлшегіші"
+
+#: main.cpp:34
+#, fuzzy, kde-format
+#| msgid "A screen ruler for KDE"
+msgid "A screen ruler by KDE"
+msgstr "KDE экран өлшегіші"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Жетілдірушісі"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Бұрынғы жетілдірушісі және құрастырушсы"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "KDE 2-ге бастапқы бейімдеу"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сайран Киккарин"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sairan@computer.org"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr "Белгісі қойылса, терезе терезе менеджерінен басқарылып жылжытылады."
+
+#~ msgid "Native moving"
+#~ msgstr "Табиғи жылжуы"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Табиғи жылжуы бола ма"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Бұрау батырмалар көрсетілсін"
+
+#~ msgid "Show close button"
+#~ msgstr "Жабу батырмасы көрсетілсін"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Бұл нүктелер арасындағы пикселдер саны."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Бұл нүктенің түсі. Түсі HTML кодында немесе QColor атауында қолданатын "
+#~ "оналтылық rgb пішімінде келтірілген. Санның аясы сызық меңзердің "
+#~ "құйрығындағы шағын шаршының ортасындағы пикселдің түсін қайталайды."
+
+#~ msgid "Turn Left"
+#~ msgstr "Солға бұру"
+
+#~ msgid "Turn Right"
+#~ msgstr "Оңға бұру"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Бетбұрысы"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "&Жоғарға"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Оңға"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Төменге"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "С&олға"
+
+#~ msgid "&Turn Right"
+#~ msgstr "Оңға бұ&ру"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Со&лға бұру"
+
+#~ msgid "&Length"
+#~ msgstr "Ұ&зындығы"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "Қ&ысқа"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "Орта&ша"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "Ұ&зын"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "Экранның &енідей"
+
+#~ msgid "Length..."
+#~ msgstr "Ұзындығы..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Түсін көшіріп алу"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "Экранның &биіктігідей"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Өлшегіш ұзындығы"
+
+#~ msgid "Length:"
+#~ msgstr "Ұзындығы"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Шегінісі: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Ұзындығы: %1 пиксел"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "Өлшегіштің бетбұрысы"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Бұрау батырмалар көрсетіле ме"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Жабу батырмасы көрсетіле ме"
+
+#~ msgid "Choose &Font..."
+#~ msgstr "Қа&ріпті таңдау..."
+
+#~ msgid "(c) 2000, Till Krech"
+#~ msgstr "(c) 2000, Till Krech"
+
+#~ msgid "Programming"
+#~ msgstr "Бағдарманы іске асыру"

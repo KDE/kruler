@@ -1,0 +1,391 @@
+# translation of kruler.po to Lithuanian
+#
+# Ričardas Čepas <rch@richard.eu.org>, 2002.
+# Donatas Glodenis <dgvirtual@akl.lt>, 2005.
+# Tomas Straupis <tomasstraupis@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2011-06-17 11:13+0300\n"
+"Last-Translator: Tomas Straupis <tomasstraupis@gmail.com>\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "If this option is enabled, the window is being moved using the operations "
+#| "from the window manager."
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"Įjungus šią parinktį, langas perkeliamas naudojant langų valdymo veiksmus."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Fono spalva:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Šriftas:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Rodyti dėklo ženkliuką"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a tool to measure pixel distances and colors on the screen. It is "
+#| "useful for working on layouts of dialogs, web pages etc."
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Tai yra priemonė išmatuoti ekrano pikselių atstumams ir spalvoms. Ji gali "
+"būti naudinga dirbant su dialogų maketais, žiniatinklio puslapiais ir kt."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr ""
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Skalė"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Iš dešinės į kairę"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Pradžia per vidurį"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Poslinkis..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Procentai"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "&Permatomumas"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Iš kairės į dešinę"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Iš apačios aukštyn"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Iš viršaus žemyn"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Skalės poslinkis"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Poslinkis:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Išvaizda"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Sudėtingesnė"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr ""
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Liniuotės fono spalva."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Liniuotės ilgis."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Liniuotės skalės šriftas."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr ""
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Liniuotės kryptis"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Pradžios taško poslinkis"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Ar liniuotės skalė santykinė (procentais)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Ar naudojamas dėklo ženkliukas"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Lango permatomumas"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr ""
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE ekrano liniuotė"
+
+#: main.cpp:34
+#, fuzzy, kde-format
+#| msgid "A screen ruler for KDE"
+msgid "A screen ruler by KDE"
+msgstr "KDE ekrano liniuotė"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Prižiūrėtojas"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Ankstesnis prižiūrėtojas ir programuotojas"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Pirmas perkėlimas į KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Eugenijus Paulauskas"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "eugenijus@agvila.lt"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Įjungus šią parinktį, langas perkeliamas naudojant langų valdymo veiksmus."
+
+#~ msgid "Native moving"
+#~ msgstr "Savas perkėlimas"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr ""
+#~ "Ar įjungtas savas langų perkėlimas (galbūt su įjungtu judančių langų "
+#~ "siūbavimu)"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Rodyti pasukimo mygtukus"
+
+#~ msgid "Show close button"
+#~ msgstr "Rodyti išjungimo mygtuką"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Tai yra dabartinis atstumas išmatuotas pikseliais."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Tai yra dabartinė spalva, pateikta šešioliktainėje rgb išraiškoje, kurią "
+#~ "galite naudoti su HTML arba QColor vardais.Stačiakampis fonas parodys "
+#~ "pikselio spalvą, esančią nedidelio kvadrato viduje žymiklio eilutės gale."
+
+#~ msgid "Turn Left"
+#~ msgstr "Pasukti kairėn"
+
+#~ msgid "Turn Right"
+#~ msgstr "Pasukti dešinėn"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Orientacija"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "Š&iaurė"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Rytai"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Pietūs"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "&Vakarai"
+
+#~ msgid "&Turn Right"
+#~ msgstr "Pasukti &dešinėn"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Pasukti &kairėn"
+
+#~ msgid "&Length"
+#~ msgstr "&Ilgis"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Trumpa"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "&Vidutinė"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "&Ilga"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "&Viso ekrano plotis"
+
+#~ msgid "Length..."
+#~ msgstr "Ilgis..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Kopijuoti spalvą"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "&Viso ekrano plotis"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Liniuotės ilgis"
+
+#~ msgid "Length:"
+#~ msgstr "Ilgis:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Poslinkis: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Ilgis: %1 taškų"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "Liniuotės orientacija"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Ar matomi pasukimo mygtukai"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Ar matomas išjungimo mygtukas"

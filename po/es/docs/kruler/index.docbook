@@ -1,0 +1,384 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Spanish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>El manual de &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+> <firstname
+>Miguel</firstname
+> <surname
+>Revilla Rodríguez</surname
+> <affiliation
+><address
+> <email
+>yo@miguelrevilla.com</email
+> </address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Javier</firstname
+> <surname
+>Fdez. Retenaga</surname
+> <affiliation
+><address
+> <email
+>jfrtnaga@yahoo.es</email
+> </address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Javier</firstname
+> <surname
+>Viñal</surname
+> <affiliation
+><address
+> <email
+>fjvinal@gmail.com</email
+> </address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2017-06-14</date>
+<releaseinfo
+>5.0 (Aplicaciones 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; se utiliza para medir objetos en la pantalla. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+>&kruler; es una aplicación muy sencilla, con un único objetivo: medir distancias entre píxeles de su pantalla. Es útil para trabajar en diseños de diálogos, páginas web, &etc;</para>
+
+<para
+>Para iniciar &kruler;, abra <menuchoice
+><guimenu
+>Aplicaciones</guimenu
+><guisubmenu
+>Gráficos</guisubmenu
+> <guisubmenu
+>Más aplicaciones</guisubmenu
+> <guimenuitem
+>Regla para la pantalla</guimenuitem
+></menuchoice
+> en el menú de aplicaciones.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Pulsando en &kruler; con el &LMB; hará que el cursor se convierta en una cruz con cuatro flechas que le permitirán arrastrar &kruler; por la pantalla.</para>
+
+<para
+>Cuando sitúe el ratón sobre &kruler;, el cursor cambiará a una flecha roja. Mientras mueve el cursor, &kruler; mostrará la distancia entre el cursor y el origen. </para>
+
+<para
+>Puede cambiar el tamaño de la regla moviendo el ratón sobre el asa de los bordes derecho o izquierdo de &kruler; (los bordes superior o inferior cuando está orientada verticalmente), manteniendo pulsado el &LMB; y arrastrando el asa.</para>
+
+<para
+>Usted puede cambiar la orientación de dos maneras distintas:</para>
+
+<simplelist>
+<member
+>Pulsando con el &MMB; conmuta la regla de orientación vertical a horizontal</member>
+<member
+>Uso del menú de contexto, descrito en el siguiente capítulo</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Menú Referencia</title>
+
+<para
+>Pinchando con el &RMB; sobre la regla aparecerá un menú desplegable con las siguientes entradas:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Rotar</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Cambia &kruler; de orientación vertical a horizontal.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Escala</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Esta opción establece la escala de la regla a <guilabel
+>Derecha a izquierda</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Centrada en origen</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Desplazamiento</guilabel
+> (<keycap
+>O</keycap
+>) y <guilabel
+>Porcentaje</guilabel
+>.</para>
+<para
+>Cambiar el desplazamiento vía la rueda del ratón también es posible cuando se mantiene pulsado el &LMB;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Opacidad</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Esta opción de menú muestra un deslizador para cambiar la opacidad de &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Configurar accesos rápidos...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>El diálogo <guilabel
+>Configurar accesos rápidos</guilabel
+> le permite asignar accesos rápidos a las acciones de &kruler; y configurar los accesos rápidos ya asignados.</para>
+<para
+>Para más información, lea la sección sobre los <ulink url="help:/fundamentals/config.html#shortcuts"
+>Accesos rápidos</ulink
+> de los fundamentos de &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Configurar &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>diálogo de configuración de &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>diálogo de configuración de &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>En este diálogo puede cambiar el color de fondo y tipo de letra, así como activar el icono de la bandeja del sistema.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Cerrar</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Oculta</action
+> &kruler;. Puede mostrarse de nuevo usando el icono de la bandeja del sistema. El menú de contexto muestra este elemento solo cuando <guilabel
+>Mostrar icono de la bandeja</guilabel
+> está marcado en el <link linkend="settings-dialog"
+>diálogo de preferencias</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Salir</action
+> de &kruler;</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler; dispone de la opción de menú común de &kde; <guimenu
+>Ayuda</guimenu
+>, para más información lea la sección sobre el <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menú ayuda</ulink
+> de los fundamentos de &kde;. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Uso del teclado</title>
+
+<para
+>Puede mover la regla usando las teclas del cursor.</para>
+
+<para
+>Puede mover el cursor del ratón y, por consiguiente, el indicador, manteniendo pulsada la tecla &Alt; y usando las teclas del cursor.</para>
+
+<para
+>Mantenga pulsada la tecla &Shift; mientras hace una de dichas operaciones para mover más rápido.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Créditos y licencia</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Derechos de autor 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Derechos de autor 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Gracias a Gunnstein Lye <email
+>gl@ez.no</email
+> por la migración inicial a &kde; 2</para>
+
+<para
+>Copyright de la documentación &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Traducido por Miguel Revilla Rodríguez <email
+>yo@miguelrevilla.com</email
+>, Javier Fdez. Retenaga <email
+>jfrtnaga@yahoo.es</email
+> y por Javier Viñal <email
+>fjvinal@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

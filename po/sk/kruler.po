@@ -1,0 +1,383 @@
+# translation of kruler.po to Slovak
+# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <visnovsky@kde.org>, 2004.
+# Michal Sulek <misurel@gmail.com>, 2009, 2011.
+# Richard Frič <Richard.Fric@kdemail.net>, 2011.
+# Roman Paholik <wizzardsk@gmail.com>, 2016, 2017.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2019-07-20 13:12+0200\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.07.80\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr "Ak je táto možnosť povolená, okno sa ponechá nad ostatnými oknami."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Vždy navrchu"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Farba pozadia:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Písmo:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Zobraziť ikonu v systémovej lište"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "Pravitko"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Toto je nástroj pre meranie vzdialeností v pixeloch na obrazovke. Je "
+"užitočný pri vytváraní dialógov, WWW stránok a pod."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Otočiť"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Stupnica"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Sprava doľava"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Počiatok v strede"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Posun..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Percentuálna"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "&Nepriehľadnosť"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Zľava doprava"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Zdola nahor"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Zhora nadol"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Posun stupnice"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Posun:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Vzhľad"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Pokročilé"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 px"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Farba pozadia pravítka."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Dĺžka pravítka."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Písmo textu na stupnici pravítka."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Vodorovné pravítko"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Smer pravítka"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Posun od počiatku"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Je stupnica pravítka relatívna (v percentách)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Je použitá ikona v systémovej lište"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Priehľadnosť okna"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Je vždy navrchu"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE pravítko obrazovky"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "Pravítko obrazovky od KDE"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Správca"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Predošlý správca a vývojár"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Počiatočný port do KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stanislav Visnovsky,Michal Šulek"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "visnovsky@kde.org,misurel@gmail.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "bAk je táto možnosť povolená, okno sa presunie pomocou operácií správcu "
+#~ "okien."
+
+#~ msgid "Native moving"
+#~ msgstr "Natívne presúvanie"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Je aktívne natívne presúvanie (možnosť zvlnených okien)"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Zobraziť tlačidlá otáčania"
+
+#~ msgid "Show close button"
+#~ msgstr "Zobraziť tlačidlo zatvorenia"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Toto je aktuálna vzdialenosť v pixeloch."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Toto je aktuálna farba reprezentovaná ako šestnástkové RGB číslo aké "
+#~ "môžete použiť v HTML alebo ako názov QColor. Pozadie obdĺžnika zobrazuje "
+#~ "farbu pixelu v malom štvorci na konci čiary kurzoru."
+
+#~ msgid "Turn Left"
+#~ msgstr "Otočiť doľava"
+
+#~ msgid "Turn Right"
+#~ msgstr "Otočiť doprava"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Orientácia"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "&Sever"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Východ"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Juh"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "&Západ"
+
+#~ msgid "&Turn Right"
+#~ msgstr "Otočiť do&prava"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Otočiť &doľava"
+
+#~ msgid "&Length"
+#~ msgstr "&Dĺžka"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Krátke"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "&Stredné"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "&Dlhé"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "Na celú &obrazovku"
+
+#~ msgid "Length..."
+#~ msgstr "Dĺžka..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Kopírovať farbu"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "Na výšku &obrazovky"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Dĺžka pravítka"
+
+#~ msgid "Length:"
+#~ msgstr "Dĺžka:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Posun: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Dĺžka: %1 px"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "Orientácia pravítka"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Sú viditeľné tlačidlá otáčania"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Je viditeľné tlačidlo zavretia"

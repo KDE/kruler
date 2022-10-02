@@ -1,0 +1,392 @@
+# Till Krech <till@snafu.de>, 2000.
+# Stefan Winter <swinter@kde.org>, 2004.
+# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2007.
+# Burkhard Lück <lueck@hube-lueck.de>, 2007, 2009, 2010, 2013, 2017.
+# Frederik Schwarzer <schwarzer@kde.org>, 2009, 2010, 2011, 2012, 2016.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2017-06-19 09:50+0100\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"Ist diese Einstellung markiert, wird das Fenster im Vordergrund gehalten."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Immer im Vordergrund"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Hintergrundfarbe:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Schriftart:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Symbol im Systemabschnitt der Kontrollleiste anzeigen"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KDE-Bildschirmlineal"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Dies ist ein Werkzeug, mit dem Abstände auf dem Bildschirm gemessen werden "
+"können. Es hilft z. B. bei Arbeiten an Webseiten-Layouts oder bei der Arbeit "
+"an Dialogen."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Drehen"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Skala"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Rechts nach links"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Ursprung zentriert"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Versatz ..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Prozent"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "&Durchsichtigkeit"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Links nach rechts"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Von unten nach oben"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Von oben nach unten"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Skalenversatz"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Versatz:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 px"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%1 %"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Hintergrundfarbe des Lineals."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Länge des Lineals."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Schriftart des Textes der Skala des Lineals."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Waagerechtes Lineal"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Richtung des Lineals"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Versatz des Ursprungs der Skala"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Anzeige der Skala in Prozent auf dem Lineal"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Anzeige des Symbols im Systemabschnitt der Kontrollleiste"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Undurchsichtigkeit des Fensters"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Ist immer im Vordergrund"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE-Bildschirmlineal"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "Ein Bildschirmlineal von KDE"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"© 2000–2008, Till Krech\n"
+"© 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Betreuer"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Früherer Betreuer und Entwickler"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Ursprüngliche Portierung nach KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Winter"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kickdown@online.de"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Ist diese Einstellung markiert, wird das Fenster mit den Bedienfunktionen "
+#~ "der Fensterverwaltung bewegt."
+
+#~ msgid "Native moving"
+#~ msgstr "Natives Bewegen"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Ist natives Bewegen (möglicherweise mit wabernden Fenstern) aktiv?"
+
+#~ msgid "KRuler"
+#~ msgstr "KDE-Bildschirmlineal"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "„Drehen“-Knopf anzeigen"
+
+#~ msgid "Show close button"
+#~ msgstr "„Schließen“-Knopf anzeigen"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Dies ist die momentane Entfernung, gemessen in Pixeln."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Dies ist die Farbe des Pixels im Innern des kleinen Rechtecks am Ende des "
+#~ "Pfeil-Cursors. Angezeigt wird der Hexadezimalwert von Rot, Grün und Blau, "
+#~ "so wie er in HTML oder als Farbname in Qt verwendet werden kann."
+
+#~ msgid "Turn Left"
+#~ msgstr "Nach links drehen"
+
+#~ msgid "Turn Right"
+#~ msgstr "Nach rechts drehen"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Ausrichtung"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "&Nord"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Ost"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Süd"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "&West"
+
+#~ msgid "&Turn Right"
+#~ msgstr "Im &Uhrzeigersinn drehen"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Gegen den Uhrzeiger&sinn drehen"
+
+#~ msgid "&Length"
+#~ msgstr "&Länge"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Kurz"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "&Mittel"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "&Lang"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "&Volle Bildschirmbreite"
+
+#~ msgid "Length..."
+#~ msgstr "Länge ..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Farbe kopieren"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "&Volle Bildschirmhöhe"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Lineallänge"
+
+#~ msgid "Length:"
+#~ msgstr "Länge:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Versatz: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Länge: %1 px"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "Ausrichtung des Lineals"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Anzeige der Drehknöpfe"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Anzeige des Knopfes „Schließen“"
+
+#~ msgid "Choose &Font..."
+#~ msgstr "Lineal&schrift wählen ..."
+
+#~ msgid "(c) 2000, Till Krech"
+#~ msgstr "(c) 2000, Till Krech"
+
+#~ msgid "Programming"
+#~ msgstr "Programmierung"

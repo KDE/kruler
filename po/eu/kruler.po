@@ -1,0 +1,388 @@
+# Translation of kruler.po to Euskara/Basque (eu).
+# Copyright (C) 2003-2018, Free Software Foundation.
+# This file is distributed under the same license as the kdegraphics package.
+# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+#
+# Translators:
+# Marcos  <marcos@euskalgnu.org>, 2003.
+# Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
+# Enbata <urazpian@hotmail.com>, 2009.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2011, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2018-08-04 16:17+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr "Aukera hau gaitzen bada, leihoa beste leihoen gainean mantenduko da."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Beti gain-gainean"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Atzeko planoko kolorea:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Letra-tipoa:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Erakutsi erretiluaren ikonoa"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Hau pantailako pixelen arteko distantziak neurtzeko tresna bat da. "
+"Baliagarria da antolamenduekin lan egiteko, elkarrizketa-koadroetan, web-"
+"orriekin, etb."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Biratu"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Eskala"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Eskuinetik ezkerrera"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Zentruaren jatorria"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Desplazamendua..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Ehunekoa"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "O&pakutasuna"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Ezkerretik eskuinera"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Behetik gora"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Goitik behera"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Eskalaren desplazamendua"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Desplazamendua:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Itxura"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 px"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%%1"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Erregelaren atzeko planoko kolorea."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Erregelaren luzera."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Erregelako eskalako testuaren letra-tipoa."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Erregela horizontala"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Erregelaren norabidea"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Jatorrizkoaren desplazamendua"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Erregelaren eskala erlatiboa den (ehunekoa)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Erretiluaren ikonoa erabiliko den"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Leihoaren opakotasuna"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Beti dago gain-gainean"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDEren pantailako erregela"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "KDEk egindako pantailako erregela bat"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Mantentzailea"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Haiserako mantentzaile eta garatzailea"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Hasierako KDE 2-rako moldaketa"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ion Gaztañaga, Marcos Goyenetxe"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "igaztanaga@gmail.com, marcos@euskalgnu.org"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Aukera hau gaitzen bada, leihoa lekuz aldatuko da leiho-kudeatzailearen "
+#~ "eragiketak erabiliz."
+
+#~ msgid "Native moving"
+#~ msgstr "Jatorrizko mugimendua"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Jatorrizko mugimendua (baliteke leihoak dardarka) aktibo dagoen"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Erakutsi biratzeko botoiak"
+
+#~ msgid "Show close button"
+#~ msgstr "Erakutsi ixteko botoia"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Hau pixeletan neurtutako uneko distantzia da."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Hau HTMLan edo QColor izen bezala erabili dezakezun uneko GBU (RGB) "
+#~ "kolorearen balio hamaseitarra da. Laukizuzeneko atzeko planoak pixelaren "
+#~ "kolorea kurtsoarean lerroaren amaieran karratutxo batean erakusten du."
+
+#~ msgid "Turn Left"
+#~ msgstr "Biratu ezkerrera"
+
+#~ msgid "Turn Right"
+#~ msgstr "Biratu eskuinera"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Orientazioa"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "&Iparraldea"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Ekialdea"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Hegoaldea"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "&Mendebaldea"
+
+#~ msgid "&Turn Right"
+#~ msgstr "Biratu e&skuinera"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Biratu e&zkerrera"
+
+#~ msgid "&Length"
+#~ msgstr "&Luzera"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Txikia"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "&Tartekoa"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "&Altua"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "Pantaila &osoaren zabalera"
+
+#~ msgid "Length..."
+#~ msgstr "Luzera..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Kopiatu kolorea"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "&Pantaila osoaren altuera"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Erregelaren luzera"
+
+#~ msgid "Length:"
+#~ msgstr "Luzera:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Desplazamendua: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Luzera: %1 px"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "Erregelaren orientazioa"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Biratzeko botoiak ikusgai dauden"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Ixteko botoia ikusgai dagoen"

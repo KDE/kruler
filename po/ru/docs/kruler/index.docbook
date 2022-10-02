@@ -1,0 +1,617 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kruler;">
+  <!ENTITY package "kdegraphics">
+  <!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Иван </firstname
+> <surname
+>Кашуков </surname
+><affiliation
+><address
+><email
+>dolphin210@yandex.ru </email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Алексей </firstname
+> <surname
+>Баранов </surname
+><affiliation
+><address
+><email
+>aleksei.ee@gmail.com </email
+></address
+></affiliation
+><contrib
+>Дополнение перевода</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>24 июня 2013 г.</date>
+<releaseinfo
+>&kde; 4.11</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; &mdash; приложение для измерения объектов на экране. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>&kruler; &mdash; очень простое приложение, созданное лишь для того, чтобы измерять расстояния в пикселах и определять цвета на экране. Это полезно для работы с макетами диалоговых окон, веб-страниц и тому подобного.</para>
+
+<para
+>Чтобы запустить &kruler;, выберите в меню запуска приложений <menuchoice
+><guimenu
+>Приложения</guimenu
+><guisubmenu
+>Графика</guisubmenu
+> <guisubmenu
+>Дополнительные приложения</guisubmenu
+> <guimenuitem
+>Экранная линейка</guimenuitem
+></menuchoice
+>.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>При нажатии и удерживании левой кнопки мыши на &kruler; указатель примет вид креста с четырьмя стрелками, и вы сможете перемещать &kruler; по экрану.</para>
+
+<para
+>Когда мышь находится над линейкой, курсор принимает форму удлинённой стрелки, с кружком в начале. При перемещении курсора &kruler; будет отображать расстояние между нулевой отметкой (<guilabel
+>0</guilabel
+>) и кружком, а также <acronym
+>HTML</acronym
+>-код цвета пиксела, находящегося в кружке. Это помогает получить код цвета из какого-либо изображения. Если курсор не касается линейки, он принимает обычную форму, что позволяет вам работать с другими приложениями.</para>
+
+<para
+>Вы можете поменять ориентацию линейки тремя различными способами:</para>
+
+<simplelist>
+<member
+>При нажатии средней кнопкой мыши на линейке меняется её ориентация с вертикальной на горизонтальную или наоборот</member>
+<member
+>С помощью нажатия кнопок поворота, для поворотов на 90 градусов влево или вправо. Если кнопки вращения не показаны на линейке, вы можете их включить, используя параметр <guilabel
+>Показывать кнопки вращения</guilabel
+> в <link linkend="settings-dialog"
+>окне настройки &kruler;</link
+></member>
+<member
+>Используя команды из контекстного меню. Это меню описано в следующей главе.</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Справочник команд</title>
+
+<para
+>При щелчке правой кнопкой мыши по линейке появится контекстное меню, включающее следующие пункты:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guisubmenu
+>Ориентация</guisubmenu>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Это подменю включает команды, с помощью которых вы можете повернуть линейку &kruler;.</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>N</keycap
+> </shortcut
+> <guisubmenu
+>Ориентация</guisubmenu
+> <guimenuitem
+>Север</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Повернуть линейку шкалой вверх</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>E</keycap
+> </shortcut
+> <guisubmenu
+>Ориентация</guisubmenu
+> <guimenuitem
+>Восток</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Повернуть линейку шкалой вправо</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>S</keycap
+> </shortcut
+> <guisubmenu
+>Ориентация</guisubmenu
+> <guimenuitem
+>Юг</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Повернуть линейку шкалой вниз</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>W</keycap
+> </shortcut
+> <guisubmenu
+>Ориентация</guisubmenu
+> <guimenuitem
+>Запад</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Повернуть линейку шкалой влево</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>R</keycap
+> </shortcut
+> <guisubmenu
+>Ориентация</guisubmenu
+> <guimenuitem
+>Повернуть вправо</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Повернуть линейку по часовой стрелке.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>L</keycap
+> </shortcut
+> <guisubmenu
+>Ориентация</guisubmenu
+> <guimenuitem
+>Повернуть влево</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Повернуть линейку против часовой стрелки.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice>
+<guisubmenu
+>Длина</guisubmenu>
+</menuchoice>
+</term>
+<listitem>
+<para
+>С помощью команд этого подменю вы можете изменить длину линейки &kruler;.</para>
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycombo action="simul"
+> &Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guisubmenu
+>Длина</guisubmenu
+> <guimenuitem
+>Короткая</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Линейка &kruler; станет короткой &mdash; около 385 пикселов.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+></shortcut
+> <guisubmenu
+>Длина</guisubmenu
+> <guimenuitem
+>Средняя</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&kruler; примет среднюю длину &mdash; около 640 пикселов.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>T</keycap
+></keycombo
+></shortcut
+> <guisubmenu
+>Длина</guisubmenu
+> <guimenuitem
+>Длинная</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&kruler; примет длину около 960 пикселов.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guisubmenu
+>Длина</guisubmenu
+> <guimenuitem
+>По ширине экрана</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&kruler; примет длину экрана.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><guisubmenu
+>Длина</guisubmenu
+> <guimenuitem
+>Длина...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Откроет окно для ввода размера в пикселах</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>Также, вы можете менять длину, двигая правую границу линейки вращением колесика мыши. Удерживание клавиши &Shift; позволяет двигать противоположную границу. </para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Шкала</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Это подменю позволяет вам устанавливать шкалу линейки: <guilabel
+>Справа налево</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>От центра</guilabel
+> (<keycap
+>C</keycap
+>), задавать <guilabel
+>Смещение...</guilabel
+> (<keycap
+>O</keycap
+>) и использовать <guilabel
+>Процентное соотношение</guilabel
+> для измерения расстояниях в процентах от всей длины линейки.</para>
+<para
+>Менять смещение также возможно с помощью колесика мыши, когда нажата левая кнопка мыши.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Прозрачность</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Этот пункт меню показывает ползунок, позволяющий менять прозрачность линейки &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Комбинации клавиш...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Окно <guilabel
+>Настройка комбинаций клавиш</guilabel
+> позволяет вам назначать и настраивать уже назначенные комбинации клавиш &kruler;.</para>
+<para
+>Для получения дополнительной информации читайте раздел о <ulink url="help:/fundamentals/config.html#shortcuts"
+>комбинациях клавиш</ulink
+> в «Основах &kde;». </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Настроить &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Окно настройки &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Окно настройки &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>В этом окне вы можете менять цвет фона и шрифт, включить показ кнопок вращения и закрытия и добавить значок приложения в системный лоток.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Скопировать цвет</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Копирует в буфер обмена &HTML;-код цвета пиксела, находящегося в кружке.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Закрыть</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Скрывает</action
+> &kruler;. Линейка может быть показана снова, если нажать на значке в системном лотке. Этот пункт присутствует в контекстном меню только в том случае, если в <link linkend="settings-dialog"
+>окне настройки &kruler;</link
+> включён параметр <guilabel
+>Показывать значок в системном лотке</guilabel
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Завершает работу</action
+> &kruler;.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>В меню &kruler; содержится общее для всех приложений KDE подменю <guimenu
+>Справка</guimenu
+>, для получения дополнительной информации читайте раздел о <ulink url="help:/fundamentals/ui.html#menus-help"
+>Меню «Справка»</ulink
+> в «Основах &kde;». </para>
+
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&kruler;</para>
+
+<para
+>&copy; Till Krech <email
+>till@snafu.de</email
+>, 2000, 2001</para>
+<para
+>&copy; Mathias Soeken <email
+>msoeken@tzi.de</email
+>, 2009</para>
+
+<para
+>Выражаем благодарность Gunnstein Lye <email
+>gl@ez.no</email
+> за первоначальный перенос на &kde; 2</para>
+
+<para
+>&copy; &Lauri.Watts; &Lauri.Watts.mail;. Документация.</para>
+
+<para
+>Перевод на русский: Иван Кашуков <email
+>dolphin210@yandex.ru</email
+></para
+><para
+>Дополнение перевода: Алексей Баранов <email
+>aleksei.ee@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Установка</title>
+
+&install.intro.documentation;
+
+&install.compile.documentation;
+
+</appendix>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

@@ -1,0 +1,585 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>O Manual do &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2015-05-15</date>
+<releaseinfo
+>Aplicações 15.04</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>O &kruler; pode ser usado para medir os objectos no ecrã. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<para
+>O &kruler; é uma aplicação muito simples, com apenas um objectivo na vida: medir distâncias e cores no seu ecrã. É útil para trabalhar com disposições e posição em janelas, páginas Web, &etc;</para>
+
+<para
+>Para iniciar o &kruler;, escolha a opção <menuchoice
+><guimenu
+>Aplicações</guimenu
+><guisubmenu
+>Gráficos</guisubmenu
+><guisubmenu
+>Mais Aplicações</guisubmenu
+> <guimenuitem
+>Régua do Ecrã</guimenuitem
+></menuchoice
+> no seu menu de aplicações.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Se carregar com o &LMB; no &kruler; irá mudar o cursor para um ícone de uma cruz de quatro pontas, o que lhe permite arrastar o &kruler; por todo o ecrã.</para>
+
+<para
+>Quando você mover o rato por cima do &kruler;, o seu cursor irá mudar para uma seta mais longa, com um círculo num extremo. À medida que você mexe o cursor, o &kruler; irá mostrar quão longe do ponto marcado como <guilabel
+>0</guilabel
+> está o círculo no fim do cursor. O &kruler; irá também mostrar o código de cor de &HTML; da cor que se encontra de momento sob o círculo. Isto é muito útil para extrair cores de uma imagem. Se você mexer o rato de tal forma que o cursor da seta não toque mais no &kruler;, o cursor irá voltar ao normal, o que lhe permitirá continuar a trabalhar com as suas outras aplicações.</para>
+
+<para
+>Você pode alterar a orientação de três formas diferentes:</para>
+
+<simplelist>
+<member
+>Se carregar com o &MMB; irá mudar a régua da direcção vertical para a horizontal</member>
+<member
+>Ao carregar nos botões de rotação, poderá rodar 90 graus para a esquerda ou para a direita. Se os botões de rotação não estiverem visíveis na régua, active-os com a opção <guilabel
+>Mostrar os botões de rotação</guilabel
+> na <link linkend="settings-dialog"
+>janela de configuração</link
+></member>
+<member
+>Usando o menu de contexto descrito no próximo capítulo</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Referência do Menu</title>
+
+<para
+>Se carregar com o &RMB; na régua, fará aparecer um menu de contexto com os seguintes itens:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guisubmenu
+>Orientação</guisubmenu>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Este sub-menu contém os itens que lhe permitem alterar a orientação do &kruler;</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>N</keycap
+> </shortcut
+> <guisubmenu
+>Orientação</guisubmenu
+> <guimenuitem
+>Norte</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Muda o &kruler; de modo a que a régua esteja horizontal e as medidas estejam no topo (no Norte) da régua</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>E</keycap
+> </shortcut
+> <guisubmenu
+>Orientação</guisubmenu
+> <guimenuitem
+>Leste</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Muda o &kruler; de modo a que a régua esteja vertical e as medidas estejam à direita (a Leste) da régua</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>S</keycap
+> </shortcut
+> <guisubmenu
+>Orientação</guisubmenu
+> <guimenuitem
+>Sul</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Muda o &kruler; de modo a que a régua esteja horizontal e as medidas estejam em baixo (a Sul) da régua</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>W</keycap
+> </shortcut
+> <guisubmenu
+>Orientação</guisubmenu
+> <guimenuitem
+>Oeste</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Muda o &kruler; de modo a que a régua esteja vertical e as medidas estejam à esquerda (a Oeste) da régua</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>R</keycap
+> </shortcut
+> <guisubmenu
+>Orientação</guisubmenu
+> <guimenuitem
+>Virar à Direita</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Roda a régua 90 graus para a direita. Por exemplo, se estiver virada para Sul, irá rodar de forma a ficar virado para Oeste.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycap
+>L</keycap
+> </shortcut
+> <guisubmenu
+>Orientação</guisubmenu
+> <guimenuitem
+>Virar à Esquerda</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Roda a régua 90 graus para a esquerda. Por exemplo, se estiver virada para Oeste, irá rodar de forma a ficar virado para Sul.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice>
+<guisubmenu
+>Comprimento</guisubmenu>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Este sub-menu contém os itens que lhe permitem alterar o comprimento do &kruler;</para>
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guisubmenu
+>Comprimento</guisubmenu
+> <guimenuitem
+>Curto</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Torna o &kruler; curto - com cerca de 385 pontos de comprimento.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guisubmenu
+>Comprimento</guisubmenu
+> <guimenuitem
+>Médio</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Põe o &kruler; com tamanho médio  - cerca de 640 pontos de comprimento.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>T</keycap
+></keycombo
+> </shortcut
+> <guisubmenu
+>Comprimento</guisubmenu
+> <guimenuitem
+>Alto</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Põe o &kruler; com tamanho grande  - cerca de 960 pontos de comprimento.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guisubmenu
+>Comprimento</guisubmenu
+> <guimenuitem
+>Largura Total do Ecrã</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Coloca o &kruler; com o mesmo tamanho que a largura do seu ecrã.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+<menuchoice
+><guisubmenu
+>Comprimento</guisubmenu
+> <guimenuitem
+>Comprimento...</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Abre uma janela para introduzir o tamanho em pontos.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>Para além disso, poderá alterar o tamanho e mover o lado direito da régua com a roda do rato. Se mantiver carregada a tecla &Shift;, irá mudar o lado oposto. </para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Escala</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Esta opção permite-lhe definir a escala da régua para <guilabel
+>Direita para a Esquerda</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Centrado na Origem</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Deslocamento</guilabel
+> (<keycap
+>O</keycap
+>) e <guilabel
+>Percentagem</guilabel
+>.</para>
+<para
+>Alterar a posição com a roda do rato também é possível enquanto mantém carregado o &LMB;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Opacidade</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Este item do menu contém os itens que lhe permitem alterar a transparência do &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Configurar os Atalhos...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>A janela para <guilabel
+>Configurar os Atalhos</guilabel
+> permite-lhe atribuir atalhos às acções do &kruler; e configurar os atalhos já atribuídos.</para>
+<para
+>Para mais informações, leia a secção sobre os <ulink url="help:/fundamentals/config.html#shortcuts"
+>Atalhos</ulink
+> dos Fundamentos do &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Configurar o &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Janela de configuração do &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Janela de configuração do &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>Nesta janela, poderá alterar a cor e tipo de letra do fundo, activar a rotação e fechar os botões na régua, activando o ícone da bandeja.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Copiar a Cor</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>Copia o código de cor em &HTML; da cor actualmente sob o círculo para a área de transferência.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Fechar</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Esconde</action
+> o &kruler;. Poderá ser apresentado de novo se usar o ícone da bandeja do sistema. O menu de contexto mostra este item apenas quando tiver a opção <guilabel
+>Mostrar o ícone da bandeja</guilabel
+> estiver assinalada na <link linkend="settings-dialog"
+>janela de configuração</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Sair</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Sai</action
+> do &kruler;</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>O &kruler; tem o menu de <guimenu
+>Ajuda</guimenu
+> normal do &kde;; para mais informações, leia a secção sobre o menu de <ulink url="help:/fundamentals/ui.html#menus-help"
+>Ajuda</ulink
+> dos Fundamentos do &kde;. </para>
+
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Créditos e Licença</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Obrigado ao Gunnstein Lye <email
+>gl@ez.no</email
+> pela mudança inicial para o &kde; 2</para>
+
+<para
+>Documentação com 'copyright' de &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

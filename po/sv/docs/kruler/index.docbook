@@ -1,0 +1,352 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok skärmlinjal</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2017-06-14</date>
+<releaseinfo
+>5.0 (Program 15.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>Skärmlinjalen kan användas för att mäta objekt på skärmen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>Skärmlinjalen är ett mycket enkelt program, med ett mål med livet: att mäta avstånd i bildpunkter på skärmen. Det är användbart för att arbeta med layout av dialogrutor, webbsidor, etc.</para>
+
+<para
+>Välj <menuchoice
+><guimenu
+>Program</guimenu
+><guisubmenu
+>Grafik</guisubmenu
+> <guisubmenu
+>Fler program</guisubmenu
+> <guimenuitem
+>Skärmlinjal</guimenuitem
+></menuchoice
+> i programmenyn för att starta skärmlinjalen.</para>
+
+<screenshot>
+<screeninfo
+>Skärmlinjal</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Skärmlinjal</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Ett vänsterklick på skärmlinjalen ändrar markören till ett kors med fyra pilar, och låter dig dra omkring skärmlinjalen på skärmen.</para>
+
+<para
+>När musen hålls över skärmlinjalen ändras markören till en röd pil. När markören flyttas, visar skärmlinjalen hur långt från origo som markören för närvarande befinner sig. </para>
+
+<para
+>Linjalens storlek kan ändras genom att flytta musen till skärmlinjalens grepp vid vänster eller höger kant (övre eller undre kanten när den är vertikalt orienterad), hålla nere vänster musknapp och dra greppet.</para>
+
+<para
+>Du kan ändra orientering på två olika sätt:</para>
+
+<simplelist>
+<member
+>Att klicka med musens mittenknapp ändrar linjalen från vertikal till horisontell orientering</member>
+<member
+>Med den sammanhangsberoende menyn, som beskrivs i nästa kapitel.</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Menyreferens</title>
+
+<para
+>Ett högerklick på linjalen visar en sammanhangsberoende meny, med följande alternativ:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Rotera</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Ändrar linjalen från vertikal till horisontell orientering.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Skala</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Alternativet låter dig ställa in linjalens skala till <guilabel
+>Höger till vänster</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Centrera nollpunkt</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Position</guilabel
+> (<keycap
+>O</keycap
+>) och <guilabel
+>Procentvärde</guilabel
+>.</para>
+<para
+>Ändra position via mushjulet är också möjligt när vänster musknapp hålls nere.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Ogenomskinlighet</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Det här menyalternativet visar ett skjutreglage för att ändra Skärmlinjalens genomskinlighet.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Anpassa genvägar...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Dialogrutan <guilabel
+>Anpassa genvägar</guilabel
+> låter dig tilldela snabbtangenter till Skärmlinjalens åtgärder, och ställa in redan tilldelade snabbtangenter.</para>
+<para
+>För mer information läs avsnittet <ulink url="help:/fundamentals/config.html#shortcuts"
+>Genvägar</ulink
+> i &kde;:s grunder. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Anpassa Skärmlinjal</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Skärmlinjalens inställningsdialogruta</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Skärmlinjalens inställningsdialogruta</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>I den här dialogrutan kan du ändra bakgrundsfärgen och teckensnittet, aktivera ikonen i systembrickan.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Stäng</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Döljer</action
+> Skärmlinjal. Den kan visas igen med ikonen i systembrickan. Den sammanhangsberoende menyn visar bara objektet när <guilabel
+>Visa ikon i systembrickan</guilabel
+> är markerad i <link linkend="settings-dialog"
+>inställningsdialogrutan</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Avslutar</action
+> skärmlinjalen</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>Skärmlinjalen har &kde;:s vanliga menyalternativ i menyn <guimenu
+>Hjälp</guimenu
+>. För mer information läs avsnittet om <ulink url="help:/fundamentals/menus.html#menus-help"
+>hjälpmenyn</ulink
+> i &kde;:s grunder. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Tangentbordshantering</title>
+
+<para
+>Linjalen kan flyttas genom att använda piltangenterna.</para>
+
+<para
+>Muspekaren, och därmed indikatorn, kan flyttas genom att hålla nere &Alt; och använda piltangenterna.</para>
+
+<para
+>Håll nere &Shift; när något av dem görs för att flytta snabbare.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Tack till och licens</title>
+
+<para
+>Skärmlinjal</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Tack till Gunnstein Lye <email
+>gl@ez.no</email
+> för den ursprungliga anpassningen till &kde; 2</para>
+
+<para
+>Dokumentation Copyright &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

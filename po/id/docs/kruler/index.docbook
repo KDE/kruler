@@ -1,0 +1,352 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Indonesian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Buku Petunjuk &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Wantoyo</firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+>wantoyek@gmail.com</email
+></address
+></affiliation
+><contrib
+>Terjemahan</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>14-06-2017</date>
+<releaseinfo
+>5.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; bisa digunakan untuk mengukur objek pada layar. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Pengenalan</title>
+
+<para
+>&kruler; adalah aplikasi yang sangat sederhana, hanya dengan satu tujuan dalam hidup. Untuk mengukur jumlah pixel pada layar Anda. Yang berguna untuk pekerjaan pada tataletak dialog-dialog, halaman web dll.</para>
+
+<para
+>Untuk memulai &kruler;, pilihlah <menuchoice
+><guimenu
+>Aplikasi</guimenu
+><guisubmenu
+>Grafik</guisubmenu
+> <guisubmenu
+>Aplikasi Selebihnya</guisubmenu
+> <guimenuitem
+>Screen Ruler</guimenuitem
+></menuchoice
+> dari menu aplikasi Anda.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Mengeklik &LMB; pada &kruler; akan menjadikan kursor menjadi silang dengan empat anak panah dan pengaktifan seret &kruler; Anda pada layar.</para>
+
+<para
+>Ketika Anda memindah mouse melintasi &kruler;, kursor Anda akan menjadi panah merah. Umpama Anda memindah kursor, &kruler; akan menampilkan seberapa jauh dari asal kursor saat ini. </para>
+
+<para
+>Anda bisa mengubah ukuran penggaris dengan memindah mouse melintasi pegangan pada pinggir kiri atau kanan &kruler; (pinggir atas dan bawah ketika ia terorientasi tegak), tekantahan &LMB; dan menyeret pegangan.</para>
+
+<para
+>Anda bisa mengubah orientasi dalam cara yang berbeda:</para>
+
+<simplelist>
+<member
+>Mengeklik &MMB; mengalihkan penggaris dari orientasi tegak ke mendatar</member>
+<member
+>Menggunakan menu konteks, diterangjelaskan dalam bab selanjutnya</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Referensi Menu</title>
+
+<para
+>Mengeklik dengan &RMB; pada penggaris akan menyembulkan menu konteks, dengan entri-entri sebagai berikut:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Rotasikan</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Alihkan &kruler; dari orientasi tegak ke mendatar.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Skala</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Opsi ini memnyegerakan Anda mengeset skala penggaris untuk <guilabel
+>Kanan ke Kiri</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Pusat Asal</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Setelmati</guilabel
+> (<keycap
+>O</keycap
+>) dan <guilabel
+>Persentase</guilabel
+>.</para>
+<para
+>Mengubah setelmati melalui rodamouse juga bisa ketika menahan &LMB;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Opasitas</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Item menu ini menampilkan sebuah penggeser untuk mengubah opasitinya &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Konfigurasikan Pintasan...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Dialog <guilabel
+>Konfigurasikan Pintasan</guilabel
+> memungkinkan Anda untuk menugaskan pintasan pada aksi &kruler;, dan mengkonfigurasi pintasan yang sudah ditugaskan.</para>
+<para
+>Untuk informasi selebihnya, baca bagian tentang <ulink url="help:/fundamentals/config.html#shortcuts"
+>Pintasan</ulink
+> pada &kde; Fundamentals. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Konfigurasikan &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Dialog pengaturan &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Dialog pengaturan &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>Dalam dialog ini Anda bisa mengubah warna latarbelakang dan font dan memfungsikan ikon tray.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Tutup</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Sembunyikan</action
+> &kruler;. Ia bisa tampil lagi menggunakan ikon dalam sistem tray. Menu konteks menampilkan item ini hanya ketika <guilabel
+>Tampilkan ikon tray</guilabel
+> yang telah tercentang dalam <link linkend="settings-dialog"
+>dialog pengaturan</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Berhenti</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Berhentikan</action
+> &kruler;</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler; memiliki item menu &kde; <guimenu
+>Bantuan</guimenu
+> secara umum, untuk informasi selebihnya baca bgian tentang <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menu Bantuan</ulink
+> pada &kde; Fundamentals. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Penanganan Keyboard</title>
+
+<para
+>Anda bisa memindah penggaris menggunakan tombol panah.</para>
+
+<para
+>Anda bisa memindah kursor mouse, dan demikian pula indikatornya, dengan tekantahan &Alt; dan menggunakan tombol panah.</para>
+
+<para
+>Tekantahan &Shift; sambil melakukan salah satu dari mereka untuk bergerak lebih cepat.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Penghargaan dan Lisensi</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Hak Cipta 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Hak Cipta 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Terima kasih untuk Gunnstein Lye <email
+>gl@ez.no</email
+> bagi inisial port ke &kde; 2</para>
+
+<para
+>Hak Cipta Dokumentasi &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Wantoyo<email
+>wantoyek@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

@@ -1,0 +1,385 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Danishka Navin <danishka@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2011-08-25 10:43+0530\n"
+"Last-Translator: Danishka Navin <danishka@gmail.com>\n"
+"Language-Team: Sinhala <info@hanthana.org>\n"
+"Language: si\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "If this option is enabled, the window is being moved using the operations "
+#| "from the window manager."
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr "මෙම අභිප්‍රේතය සක්‍රීය නම්, කවුළුව ගෙනයනු ලබන්නේ කවුළු පාලක මෙහෙයුම් මගිනි."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "පසුබිම් වර්ණය:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "අකුර:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "තැටි අයිකනය පෙන්වන්න"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a tool to measure pixel distances and colors on the screen. It is "
+#| "useful for working on layouts of dialogs, web pages etc."
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"මෙම මෙවලම තිරය මත වර්ණ හා පික්සෙල දුර මනියි. එය සංවාද වෙබ් පිටු ආදියෙහි සැකසුම් සමඟ ක්‍"
+"රියාකිරීමේදී ප්‍රයෝජනවත් වේ."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr ""
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "පරිමානය (&S)"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "දකුණේ සිට වමට"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "මධ්‍ය මූලය"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "ඕෆ්සෙට්..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "ප්‍රතිශතය"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "පාරාන්ධතාව (&p)"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "වමේ සිට දකුණට"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "පහළ සිට ඉහළට"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "ඉහළ සිට පහළට"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "පරිමාණ ඕෆ්සෙට්"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "ඕෆ්සෙට්:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "පෙනුම"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "උසස්"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr ""
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "රූලෙහි පසුබිම් වර්‍ණය."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "රූලේ දිග."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "රූලේ පරිමානය මත පෙළෙහි භාවිත අකුරු."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr ""
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "රූලේ දිශාව"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "මූලිකයඒ ඕෆ්සෙට්"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "රූලේ පරිමාණය ගැලපේද (ප්‍රතිශත)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "තැටි අයිකන භාවිතයේද"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "කවුළුවේ පාරාන්ධතාව"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr ""
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE තිර රූල"
+
+#: main.cpp:34
+#, fuzzy, kde-format
+#| msgid "A screen ruler for KDE"
+msgid "A screen ruler by KDE"
+msgstr "KDE සඳහා තිර රූලක්"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Maintainer"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "හිටපු පරිපාලක හා සංවර්ධක"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "KDE 2 සඳහා ආරම්භක පේනුව"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ඩනිෂ්ක නවින්"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "danishka@gmail.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr "මෙම අභිප්‍රේතය සක්‍රීය නම්, කවුළුව ගෙනයනු ලබන්නේ කවුළු පාලක මෙහෙයුම් මගිනි."
+
+#~ msgid "Native moving"
+#~ msgstr "ස්ව ගෙනයෑම"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "ස්ව ගෙනයෑම සක්‍රීයද? (කවුළු සෙලවුම්)"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "භ්‍රමණ බොත්තම් පෙන්වන්න"
+
+#~ msgid "Show close button"
+#~ msgstr "වැසීම් බොත්තම පෙන්වන්න"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "මෙය වත්මන් දුර පික්සෙලවලින් ගත් මිනුමයි."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "මෙය ඔබට HTML හෝ QColor නාමයක් ලෙස භාවිත කර හැකි පරිදි දහසයේ පාදයේ rgb ලෙස "
+#~ "ඉදිරිපත් කල වත්මන් වර්ණයයි. ත්‍රිකෝණයේ පසුබිම රේඛා කර්සරය අඟ ඇති කුඩා කොටුව තුල ඇති පික්සෙල "
+#~ "වර්ණය දක්වයි."
+
+#~ msgid "Turn Left"
+#~ msgstr "වමට හැරෙන්න"
+
+#~ msgid "Turn Right"
+#~ msgstr "දකුණට හැරෙන්න"
+
+#~ msgid "&Orientation"
+#~ msgstr "ස්ථානගත (&O)"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "උතුර (&N)"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "නැගෙනහිර (&E)"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "දකුණ (&S)"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "බටහිර (&W)"
+
+#~ msgid "&Turn Right"
+#~ msgstr "දකුණට හරවන්න (&T)"
+
+#~ msgid "Turn &Left"
+#~ msgstr "වමට හරවන්න (&L)"
+
+#~ msgid "&Length"
+#~ msgstr "දිග (&L)"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "කෙටි (&S)"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "මධ්‍යම (&M)"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "උස (&T)"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "මුළු තිර පළල (&F)"
+
+#~ msgid "Length..."
+#~ msgstr "දිග..."
+
+#~ msgid "Copy Color"
+#~ msgstr "වර්‍ණය පිටපත්"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "මුළු තිර උස (&F)"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "රූලේ දිග"
+
+#~ msgid "Length:"
+#~ msgstr "දිග:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "ඕෆ්සෙට්: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "දිග: %1 px"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "රූලේ ස්ථානගත වීම"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "භ්‍රමණ බොත්තම පෙනේද"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "වැසීම් බොත්තම පෙනේද"

@@ -1,0 +1,287 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Adem Alp Yıldız <ademalp@linux-sevenler.org>, 2004.
+# Adem GUNES <adem@alaeddin.cc.selcuk.edu.tr>, 2000.
+# Elfun K. <elfun@riseup.net>, 2009.
+# Görkem Çetin <gorkem@kde.org>, 2004.
+# obsoleteman <tulliana@gmail.com>, 2008-2010,2012.
+# Serhat Demirkol <serhat_demirkol@yahoo.com>, 2009.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegraphics-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2022-06-24 05:39+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.04.2\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"Bu seçenek etkinleştirilirse pencere diğer pencerelerin üstünde tutulur."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Her zaman üstte"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Arka plan rengi:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Yazıtipi:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Sistem tepsisi simgesini göster"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "K Cetvel"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Bu araç ekrandaki pikseller arası uzaklıkları ölçmeye yarar. Web "
+"sayfalarında ve diyaloglarda katmanlar vb. ile çalışırken faydalıdır."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Döndür"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Ölçekle"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Sağdan Sola"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Başnoktayı Ortala"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Göreli Konum..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Yüzde"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "&Matlık"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Soldan Sağa"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Aşağıdan Yukarıya"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Yukarıdan Aşağıya"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Yerleşimi Ölçekle"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Göreli Konum:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Görünüm"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 piksel"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%​%1"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Cetvelin arka plan rengi."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Cetvelin uzunluğu."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Cetvel ölçeğindeki metnin yazıtipi."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Yatay cetvel"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Cetvelin doğrultusu"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Başlangıç noktasının ofseti"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Cetvelin ölçeği göreceli mi (yüzde)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Sistem tepsisi simgesi kullanımı"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Pencerenin matlığı"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Her zaman üstte mi"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "KDE Ekran Cetveli"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "KDE için bir ekran cetveli"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Projeyi Sürdüren"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Eski Projeyi Sürdüren ve Geliştirici"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "KDE 2 başlangıç aktarımı"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tuncay YENİAY, Emir SARI"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tuncayyeniay@mynet.com, emir_sari@icloud.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Eğer bu seçenek etkinleştirilirse pencereler pencere yöneticisinden gelen "
+#~ "yönergelere göre taşınır."
+
+#~ msgid "Native moving"
+#~ msgstr "Doğal taşıma"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Doğal taşıma (muhtemelen sallanan pencereler) etkin"

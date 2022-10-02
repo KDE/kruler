@@ -1,0 +1,336 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % French "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Manuel utilisateur de &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+&traducteurYvesDessertine; 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>14-06-2017</date>
+<releaseinfo
+>5.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; peut être utilisé pour mesurer des objets sur l'écran. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>&kruler; est une application très simple, n'ayant qu'un seul but dans la vie : mesurer des distances en pixels sur votre écran. Ceci est utile pour travailler sur des dispositions de boîtes de dialogue, des pages Internet, &etc;</para>
+
+<para
+>Pour démarrer &kruler;, veuillez choisir <menuchoice
+><guimenu
+>Applications</guimenu
+><guisubmenu
+>Graphisme</guisubmenu
+><guisubmenu
+>Plus d'applications</guisubmenu
+><guimenuitem
+>Règle d'écran</guimenuitem
+></menuchoice
+> depuis votre menu d'applications.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Le fait de cliquer avec le &BGS; sur &kruler; changera le curseur en croix avec quatre flèches, et vous permettra de déplacer &kruler; sur votre écran.</para>
+
+<para
+>Quand vous déplacez la souris au-dessus de &kruler;, votre pointeur de souris deviendra un flèche rouge. Dès que vous déplacerez le pointeur, &kruler; affichera la distance à la position d'origine du pointeur. </para>
+
+<para
+>Vous pouvez re-dimensionner la règle en déplaçant le pointeur sur la poignée sur les cotés droit ou gauche (les bords haut et bas quand orienté verticalement), en maintenant enfoncé le &BDS; et en faisant glisser la poignée.</para>
+
+<para
+>Vous pouvez modifier l'orientation de deux manières différentes ;</para>
+
+<simplelist>
+<member
+>en cliquant avec le &BCS;, la règle bascule entre les orientations verticale et horizontale, </member>
+<member
+>en utilisant le menu contextuel, décrit dans le prochain chapitre.</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Référence des menus</title>
+
+<para
+>Cliquez avec le &BDS; sur la règle pour ouvrir le menu contextuel. Il comprend les éléments suivants :</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Faire tourner</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Bascule l'orientation de &kruler;de verticale à horizontale.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Graduation</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Cette option vous permet de régler la graduation de <guilabel
+>Droite à gauche</guilabel
+> (<keycap
+>D</keycap
+>), de <guilabel
+>centrer l'origine</guilabel
+> (<keycap
+>C</keycap
+>), le régler le <guilabel
+>décalage</guilabel
+> (<keycap
+>O</keycap
+>) ou de graduer <guilabel
+>en pourcentage</guilabel
+>.</para>
+<para
+>Il est également possible de modifier le décalage avec la molette de la souris en maintenant enfoncé le &BGS;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Opacité</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Cet élément de menu affiche un curseur permettant de modifier l'opacité de &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Configurer les raccourcis clavier...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>La boîte de dialogue <guilabel
+>Configurer les raccourcis claviers</guilabel
+> vous permet d'assigner des raccourcis aux actions de &kruler;, et de configurer les raccourcis déjà assignés.</para>
+<para
+>Pour davantage d'informations, lisez la section à propos des <ulink url="help:/fundamentals/config.html#shortcuts"
+>racourcis</ulink
+> dans les fondamentaux de &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Configurer &kruler;…</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Boîte de dialogue de configuration de &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Boîte de dialogue de configuration de &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>Dans cette boîte de dialogue, vous pouvez modifier la couleur d'arrière plan et la police, activer l'icône de la boîte à miniatures.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Fermer</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Masque</action
+> &kruler;. Il peut être affiché de nouveau en utilisant l'icône de la boîte à miniatures. Le menu contextuel n'affiche cet élément que lorsque <guilabel
+>Afficher dans la boîte à miniatures</guilabel
+> est coché dans la <link linkend="settings-dialog"
+>Boîte de dialogue de configuration</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Quitter</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Quitte</action
+> &kruler;.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler; possède l'élément habituel de <guimenu
+>Aide</guimenu
+> de &kde;. Pour plus d'informations, veuillez consulter la page <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu d'aide</ulink
+> des fondamentaux de &kde;. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Gestion du clavier</title>
+
+<para
+>Vous pouvez déplacer la règle en utilisant les boutons en forme de flèche.</para>
+
+<para
+>Vous pouvez déplacer le pointeur de souris et donc l'indicateur, en maintenant enfoncée la touche &Alt; et en appuyant sur les boutons de flèche.</para>
+
+<para
+>Maintenez enfoncée la touche &Maj; en utilisant l'une d'entre elles pour se déplacer plus vite.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Remerciements à Gunnstein Lye <email
+>gl@ez.no</email
+> pour le portage initial vers &kde; 2</para>
+
+<para
+>Documentation sous Copyright &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Traduction française par &YvesDessertine;.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

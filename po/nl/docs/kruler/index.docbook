@@ -1,0 +1,334 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Het handboek van &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+&Niels.Reedijk;&Sander.Koning; 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2017-06-14</date>
+<releaseinfo
+>5.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; kan gebruikt worden om objecten op het scherm te meten. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+
+<para
+>&kruler; is een erg eenvoudig programma, met slechts één doel in het leven: pixelafstanden op uw scherm te meten. Het is bedoeld om te helpen bij het werken met de opmaak van dialogen, webpagina's &etc;</para>
+
+<para
+>Om &kruler; te starten, kiest u <menuchoice
+><guimenu
+>Toepassingen</guimenu
+><guimenu
+>Grafisch</guimenu
+><guisubmenu
+>Meer toepassingen</guisubmenu
+><guimenuitem
+>KDE Schermliniaal</guimenuitem
+></menuchoice
+> uit uw menu Toepassingen</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Als u met de &LMB; klikt op &kruler; verandert de cursor in een kruis met vier armen, waardoor u &kruler; over het scherm kunt slepen.</para>
+
+<para
+>Wanneer u de muis over &kruler; beweegt zal uw cursor veranderen in een rode pijl. Bij het bewegen van de cursor zal &kruler; tonen hoe ver van het begin de cursor nu is. </para>
+
+<para
+>U kunt de grootte van de liniaal veranderen door de muis boven de handel aan de linker of rechter randen van &kruler; te plaatsen (de boven- of onderrand wanneer deze verticaal is georiënteerd), en dan de &LMB; omlaag te houden en de handel te verslepen.</para>
+
+<para
+>U kunt de oriëntatie op twee manieren veranderen:</para>
+
+<simplelist>
+<member
+>Klikken met &MMB; schakelt de liniaal van verticale naar horizontale oriëntatie</member>
+<member
+>Met gebruik van het contextmenu, dat beschreven wordt in het volgende hoofdstuk</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Menubeschrijvingen</title>
+
+<para
+>Door met de &RMB; op de liniaal te klikken opent u een contextmenu met de volgende items:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Draaien</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Schakelt &kruler; van verticale naar horizontale oriëntatie.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Schaal</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Deze optie laat u de schaal van de liniaal instellen op <guilabel
+>Rechts naar links</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Begin centreren</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Offset</guilabel
+> (<keycap
+>O</keycap
+>) en <guilabel
+>Percentage</guilabel
+>.</para>
+<para
+>De offset wijzigen via het muiswiel is ook mogelijk met het ingedrukt houden van de &LMB;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Dekking</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Dit menu-item toont een schuifregelaar waarmee u de dekking van &kruler; kunt veranderen.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Sneltoetsen instellen...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>De dialoog <guilabel
+>Sneltoetsen instellen</guilabel
+> stelt u in staat sneltoetsen toe te kennen aan acties van &kruler; en reeds geconfigureerde sneltoetsen bewerken.</para>
+<para
+>Voor meer informatie lees de sectie over <ulink url="help:/fundamentals/confightml#shortcuts"
+>Sneltoetsen</ulink
+> van de &kde; Fundamentals. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>&kruler; instellen...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Instellingendialoog van &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Instellingendialoog van &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>In deze dialoog kunt u de achtergrondkleur en het lettertype wijzigen en het pictogram in het systeemvak.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Sluiten</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Verbergt</action
+> &kruler;. Het kan opnieuw zichtbaar gemaakt worden met het pictogram in het systeemvak. Het contextmenu toont dit item alleen als <guilabel
+>Pictogram in systeemvak tonen</guilabel
+> is geactiveerd in de <link linkend="settings-dialog"
+>instellingendialoog</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Sluit</action
+> &kruler; af.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler; heeft een aantal van de algemene &kde; items in het menu <guimenu
+>Help</guimenu
+>, voor meer informatie lees de sectie hierover in het <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Help</ulink
+> van &kde; Fundamentals. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Behandeling van toetsenbord</title>
+
+<para
+>U kunt de liniaal met de pijltjestoetsen verplaatsen.</para>
+
+<para
+>U kunt de muiscursor verplaatsen en dus de indicator, door &Alt; ingedrukt te houden en de pijltjestoetsen te gebruiken.</para>
+
+<para
+>Hou &Shift; ingedrukt bij het doen van een van deze om sneller te verplaatsen.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Dank aan Gunnstein Lye <email
+>gl@ez.no</email
+> voor de eerste overzetting naar &kde; 2</para>
+
+<para
+>Documentatie copyright &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+&meld.fouten;&vertaling.niels;&vertaling.sander; &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

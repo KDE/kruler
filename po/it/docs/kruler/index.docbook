@@ -1,0 +1,366 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Italian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Manuale di &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Nicola</firstname
+><surname
+>Ruggero</surname
+><affiliation
+><address
+><email
+>nicola@nxnt.org</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Matteo</firstname
+><surname
+>Merli</surname
+><affiliation
+><address
+><email
+>merlim@libero.it</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2017-06-14</date>
+<releaseinfo
+>5.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; può essere utilizzato per misurare oggetti sullo schermo. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<para
+>&kruler; è un'applicazione molto semplice, con uno solo scopo nella vita. Misurare le distanze in pixel sullo schermo. È utile per chi lavora con la disposizione delle finestre dei programmi, pagine web, &etc;</para>
+
+<para
+>Per avviare &kruler; scegli <menuchoice
+><guimenu
+>Applicazioni</guimenu
+><guisubmenu
+>Grafica</guisubmenu
+> <guisubmenu
+>Altri programmi</guisubmenu
+> <guimenuitem
+>Righello per lo schermo</guimenuitem
+></menuchoice
+> dal tuo menu delle applicazioni.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Se fai clic con il &LMB; su &kruler;, il puntatore prenderà la forma di una croce con quattro frecce e potrai trascinare &kruler; per lo schermo.</para>
+
+<para
+>Quando sposti il mouse su &kruler;, il puntatore prenderà la forma di una freccia rossa. Quando sposti il puntatore, &kruler; mostrerà la distanza del puntatore dall'origine. </para>
+
+<para
+>Puoi ridimensionare il righello spostando il mouse su una maniglia ai bordi sinistro e destro di &kruler; (o quelli superiore e inferiore quando è orientato verticalmente), tenendo premuto il &LMB; e trascinando la maniglia.</para>
+
+<para
+>Puoi modificare l'orientazione in due modi diversi:</para>
+
+<simplelist>
+<member
+>Facendo clic con il &MMB; il righello cambia orientazione da verticale ad orizzontale</member>
+<member
+>Utilizzando il menu contestuale, come descritto nel prossimo capitolo.</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Utilizzo dei menu</title>
+
+<para
+>Se fai clic con il &RMB; sul righello, si aprirà un menu contestuale con le seguenti voci:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Ruota</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Cambia l'orientazione di &kruler; da verticale ad orizzontale.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Riscala</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Questa opzione ti permette di riscalare il righello da <guilabel
+>Destra a sinistra</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Origine centrale</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Scostamento</guilabel
+> (<keycap
+>O</keycap
+>) e <guilabel
+>Percentuale</guilabel
+>.</para>
+<para
+>È possibile modificare lo scostamento usando la rotellina del mouse mentre si tiene premuto il &LMB;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Opacità</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Questo menu visualizza una barra a scorrimento per cambiare l'opacità di &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Configura scorciatoie...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>La finestra <guilabel
+>Configura scorciatoie</guilabel
+> ti permette di assegnare delle scorciatoie alle azioni di &kruler; oppure di modificare quelle esistenti.</para>
+<para
+>Per ulteriori informazioni, consulta il capitolo <ulink url="help:/fundamentals/config.html#shortcuts"
+>Scorciatoie</ulink
+> dei «Fondamentali di &kde;». </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Configura &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Impostazioni di &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Impostazioni di &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>In questa finestra puoi modificare il colore di sfondo ed il carattere e abilitare l'icona nel vassoio di sistema.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Chiudi</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Nascondi</action
+> &kruler;. Può essere mostrato nuovamente usando l'icona nel vassoio di sistema. Il menu contestuale mostra questo elemento solo quando è marcato <guilabel
+>Mostra icona nel vassoio di sistema</guilabel
+> nella finestra <link linkend="settings-dialog"
+>Impostazioni</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Esci</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Esce</action
+> da &kruler;</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler; ha le voci del menu <guimenu
+>Aiuto</guimenu
+> comuni di &kde;; per maggiori informazioni, consulta il capitolo <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu Aiuto</ulink
+> dei «Fondamentali di &kde;». </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Uso della tastiera</title>
+
+<para
+>Puoi spostare il righello usando i tasti freccia.</para>
+
+<para
+>Puoi spostare il cursore del mouse, e di conseguenza l'indicatore, tenendo premuto &Alt; e usando i tasti freccia.</para>
+
+<para
+>Tieni premuto &Shift; mentre esegui una di queste operazioni per velocizzarla.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Si ringrazia Gunnstein Lye <email
+>gl@ez.no</email
+> per la conversione iniziale a &kde; 2</para>
+
+<para
+>Copyright documentazione &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Traduzione italiana Matteo Merli <email
+>merlim@libero.it</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

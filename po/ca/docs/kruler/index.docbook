@@ -1,0 +1,336 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>14 de juny de 2017</date>
+<releaseinfo
+>5.0 (Aplicacions 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>El &kruler; es pot utilitzar per a mesurar objectes a la pantalla. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+
+<para
+>El &kruler; és una aplicació molt simple, amb un sol objectiu. Mesurar les distàncies de píxels a la pantalla. És útil per a treballar en el disseny de diàlegs, pàgines web, &etc;</para>
+
+<para
+>Per iniciar el &kruler;, escolliu <menuchoice
+><guimenu
+>Aplicacions</guimenu
+><guisubmenu
+>Gràfics</guisubmenu
+><guisubmenu
+>Més aplicacions</guisubmenu
+> <guimenuitem
+>Regle de la pantalla</guimenuitem
+></menuchoice
+> des del menú d'aplicacions.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>En fer clic amb el &BER; sobre el &kruler; fareu que el cursor es converteixi en una creu amb quatre fletxes que us permetrà arrossegar el &kruler; per la pantalla.</para>
+
+<para
+>En moure el punter del ratolí sobre el &kruler;, el cursor es convertirà en una fletxa vermella. A mesura que moveu el cursor, el &kruler; mostrarà la distància des de l'origen fins a la posició actual del cursor. </para>
+
+<para
+>Podeu canviar la mida del regle movent el punter del ratolí sobre la nansa que hi ha a les vores esquerra o dreta del &kruler; (o les vores superior o inferior quan està orientat verticalment), manteniu premut el &BER; i arrossegueu la nansa.</para>
+
+<para
+>Podeu canviar l'orientació de dues maneres diferents:</para>
+
+<simplelist>
+<member
+>Fent clic amb el &BMR; es canvia el regle, d'orientació vertical a horitzontal.</member>
+<member
+>Utilitzant el menú contextual, el qual es descriu en el següent capítol.</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Referència del menú</title>
+
+<para
+>En fer clic amb el &BMR; al regle apareixerà un menú contextual amb les següents entrades:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Gira</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Alternant el &kruler; des de l'orientació vertical a l'horitzontal.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Escala</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Aquesta opció us permet establir l'escala del regle <guilabel
+>De dreta a esquerra</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Centra l'origen</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Desplaçament</guilabel
+> (<keycap
+>O</keycap
+>) i <guilabel
+>Percentatge</guilabel
+>.</para>
+<para
+>Canviar la posició amb la roda del ratolí també és possible quan es manté premut el &BER;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Opacitat</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Aquest element de menú mostra un control lliscant per a canviar l'opacitat del &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Configura les dreceres...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>El diàleg <guilabel
+>Configura les dreceres</guilabel
+> permet assignar dreceres a les accions del &kruler; i configurar les ja assignades.</para>
+<para
+>Per a més informació, llegiu la secció sobre <ulink url="help:/fundamentals/config.html#shortcuts"
+>Dreceres</ulink
+> en els Fonaments del &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Configura el &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Diàleg de configuració del &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Diàleg de configuració del &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>En aquest diàleg podreu canviar el color de fons i el tipus de lletra, així com activar la icona de la safata.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenuitem
+>Tanca</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Oculta</action
+> el &kruler;. Es pot tornar a mostrar utilitzant la icona a la safata del sistema. El menú contextual sols mostra aquest element quan l'opció <guilabel
+>Mostra la icona a la safata</guilabel
+> està marcada al <link linkend="settings-dialog"
+>diàleg de configuració</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Surt</action
+> del &kruler;.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>El &kruler; té la configuració comuna al &kde; i els elements del menú <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu la secció sobre <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Fer servir el teclat</title>
+
+<para
+>Podeu moure el regle amb els botons de la tecla de fletxa.</para>
+
+<para
+>Podeu moure el cursor del ratolí i d'aquesta manera l'indicador, mantenint premuda la tecla &Alt; i utilitzant els botons de fletxa.</para>
+
+<para
+>Mantingueu premuda la tecla &Maj; per a fer que es mogui més de pressa.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Gràcies a Gunnstein Lye <email
+>gl@ez.no</email
+> per l'adaptació inicial al &kde; 2</para>
+
+<para
+>Copyright de la documentació &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Traductor/Revisor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

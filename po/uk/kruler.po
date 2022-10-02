@@ -1,0 +1,388 @@
+# Translation of kruler.po to Ukrainian
+# Copyright (C) 2002-2017 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Andriy Rysin <rysin@kde.org>, 2002.
+# Eugene Onischenko <oneugene@ukr.net>, 2004.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2007.
+# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2017-06-15 07:40+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"Якщо буде позначено цей пункт, вікно програми утримуватиметься над іншими "
+"вікнами."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Завжди згори"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Колір тла:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Шрифт:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Показувати піктограму у лотку"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"Це засіб для вимірювання відстаней у пікселях на екрані. Це корисно для "
+"компонування діалогових вікон, сторінок інтернету тощо."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Обернути"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "&Шкала"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Справа ліворуч"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Центрувати початок"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Відступ..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Відсотки"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "Н&епрозорість"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Зліва праворуч"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Знизу вгору"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Згори вниз"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Відступ шкали"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Відступ:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Вигляд"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Додатково"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 пк"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%1 %"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "Колір тла лінійки."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "Довжина лінійки."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "Шрифт, використаний для шкали лінійки."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Горизонтальна лінійка"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "Напрям лінійки"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "Відступ початку відліку"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "Чи буде шкала лінійки відносною (у відсотках)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "Чи буде використано піктограму лотка"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Непрозорість вікна"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Завжди згори"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "Лінійка екрана KDE"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "Екранна лінійка від KDE"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"© 2000 - 2008, Till Krech\n"
+"© 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Супровідник"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Колишній супровідник і розробник"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Перший порт до KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andriy Rysin"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "rysin@kde.org"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Якщо буде позначено цей пункт, вікно буде пересуватися під керуванням "
+#~ "менеджера вікон."
+
+#~ msgid "Native moving"
+#~ msgstr "Природній рух"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Чи задіяно природне (ймовірно, з драглистими вікнами) пересування"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Показувати кнопки обертання"
+
+#~ msgid "Show close button"
+#~ msgstr "Показувати кнопку закриття"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Це поточна відстань, виміряна у пікселях."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Це поточний колір у шістнадцятковому представленні rgb, таким, яким Ви "
+#~ "його бачите в HTML або у назві QColor. Прямокутне тло показує колір "
+#~ "пікселя всередині маленького квадрата в кінці рядку курсора."
+
+#~ msgid "Turn Left"
+#~ msgstr "Повернути ліворуч"
+
+#~ msgid "Turn Right"
+#~ msgstr "Повернути праворуч"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Розташування"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "&Північ"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Схід"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Південь"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "&Захід"
+
+#~ msgid "&Turn Right"
+#~ msgstr "&Повернути праворуч"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Повернути &ліворуч"
+
+#~ msgid "&Length"
+#~ msgstr "&Довжина"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Коротка"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "&Середня"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "&Довга"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "&На повну ширину екрана"
+
+#~ msgid "Length..."
+#~ msgstr "Довжина..."
+
+#~ msgid "Copy Color"
+#~ msgstr "Копіювати колір"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "&На повну висоту екрана"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Довжина лінійки"
+
+#~ msgid "Length:"
+#~ msgstr "Довжина:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Відступ: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Довжина: %1 пк"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "Орієнтація лінійки"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Чи будуть видимими кнопки обертання"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "Чи буде видимою кнопка закриття"

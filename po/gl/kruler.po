@@ -1,0 +1,390 @@
+# translation of kruler.po to galician
+# Tradución de kruler.po ó galego
+# Copyright (C) 2003, 2004, 2007 Free Software Foundation, Inc.
+# Gonzalo H. Castilla <ttxzgl@yahoo.es>, 2003, 2004.
+# mvillarino <mvillarino@users.sourceforge.net>, 2007.
+# Marce Villarino <mvillarino@kde-espana.es>, 2009.
+# Marce Villarino <mvillarino@kde-espana.es>, 2012, 2014.
+# Xosé <xosecalvo@gmail.com>, 2012.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kruler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2019-11-17 09:22+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.03.70\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, kde-format
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr "Active esta opción para manter a xanela por riba doutras."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr "Sempre encima"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "Cor do fondo:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "Fonte:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "Mostrar a icona da bandexa"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "KRuler"
+
+#: klineal.cpp:94
+#, kde-format
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"É unha ferramenta para medir distancias de píxeles na pantalla. É moi útil "
+"para traballar na construción de diálogos, páxinas web etc."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr "Rotar"
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "Cambiar de e&scala"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "Da dereita á esquerda"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "Centrar na orixe"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "Desprazamento…"
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "Porcentaxe"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "&Opacidade"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "Da esquerda á dereita"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "Da cima ao fondo"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "Do fondo á cima"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "Cambiar de escala o desprazamento"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "Desprazamento:"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "Aparencia"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr "%1 px"
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "A cor de fondo da regra."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "A lonxitude da regra."
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "A fonte dos textos da escala da regra."
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr "Regra horizontal"
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "A dirección da regra"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "O desprazamento respecto da orixe"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "É a escala relativa da regra (porcentaxe)"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "É unha icona da bandexa empregada"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "Opacidade da xanela"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr "Sempre encima"
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "Regra de pantalla de KDE"
+
+#: main.cpp:34
+#, kde-format
+msgid "A screen ruler by KDE"
+msgstr "Unha regra de pantalla por KDE"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"© 2000 - 2008, Till Krech\n"
+"© 2009, Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "Mathias Soeken"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Mantedor"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "Till Krech"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "Antigo mantedor e desenvolvedor"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "Gunnstein Lye"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "Conversión inicial a KDE 2"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Gonzalo H. Castilla, Marce Villarino,\n"
+"Xosé Calvo"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"ttxzgl@yahoo.es, mvillarino@users.sourceforge.net,\n"
+"xosecalvo@gmail.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Se activa esta opción, a xanela móvese empregando as operacións do xestor "
+#~ "de xanelas."
+
+#~ msgid "Native moving"
+#~ msgstr "Movemento nativo"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Está activo o movemento nativo (posibelmente xanelas ondulantes)"
+
+#~ msgid "KRuler"
+#~ msgstr "KRuler"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "Mostrar os botóns de xiro"
+
+#~ msgid "Show close button"
+#~ msgstr "Mostrar o botón de pechar"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "Isto é a distancia actual medida en píxeles."
+
+#~ msgid ""
+#~ "This is the current color in hexadecimal rgb representation as you may "
+#~ "use it in HTML or as a QColor name. The rectangles background shows the "
+#~ "color of the pixel inside the little square at the end of the line cursor."
+#~ msgstr ""
+#~ "Esta é a cor en código RGB hexadecimal. Pode empregala en HTML ou como un "
+#~ "nome de QColor. O rectángulo do fondo mostra a cor do píxel que está "
+#~ "baixo do pequeno círculo do cursor."
+
+#~ msgid "Turn Left"
+#~ msgstr "Xirar á esquerda"
+
+#~ msgid "Turn Right"
+#~ msgstr "Xirar á dereita"
+
+#~ msgid "&Orientation"
+#~ msgstr "&Orientación"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "&Norte"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "&Leste"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "&Sur"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "&Oeste"
+
+#~ msgid "&Turn Right"
+#~ msgstr "Xirar á &dereita"
+
+#~ msgid "Turn &Left"
+#~ msgstr "Xirar á &esquerda"
+
+#~ msgid "&Length"
+#~ msgstr "&Lonxitude"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "&Curta"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "&Mediana"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "&Longa"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "&Anchura da pantalla"
+
+#~ msgid "Length..."
+#~ msgstr "Lonxitude…"
+
+#~ msgid "Copy Color"
+#~ msgstr "Copiar a cor"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "&Altura da pantalla"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "Lonxitude da regra"
+
+#~ msgid "Length:"
+#~ msgstr "Lonxitude:"
+
+#~ msgid "Offset: %1"
+#~ msgstr "Desprazamento: %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "Lonxitude: %1 px"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "A orientación da regra"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "Son visíbeis os botóns de xirar"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "É visíbel o botón de pechar"

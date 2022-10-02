@@ -1,0 +1,380 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Chetan Khona <chetan@kompkin.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"PO-Revision-Date: 2013-03-28 15:17+0530\n"
+"Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:23
+#, fuzzy, kde-format
+#| msgid ""
+#| "If this option is enabled, the window is being moved using the operations "
+#| "from the window manager."
+msgid ""
+"If this option is enabled, the window is being kept above other windows."
+msgstr ""
+"जर हा पर्याय कार्यान्वित केला तर चौकट हलविण्याकरिता चौकट व्यवस्थापकाची क्रिया वापरली "
+"जाईल."
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
+#: cfg_advanced.ui:26
+#, kde-format
+msgid "Always on top"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: cfg_appearance.ui:20
+#, kde-format
+msgid "Background color:"
+msgstr "पार्श्वभूमीचा रंग :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: cfg_appearance.ui:30
+#, kde-format
+msgid "Font:"
+msgstr "फॉन्ट :"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#: cfg_appearance.ui:40
+#, kde-format
+msgid "Show tray icon"
+msgstr "ट्रे चिन्ह दर्शवा"
+
+#: klineal.cpp:90
+#, kde-format
+msgctxt "@title:window"
+msgid "KRuler"
+msgstr "के-रुलर"
+
+#: klineal.cpp:94
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is a tool to measure pixel distances and colors on the screen. It is "
+#| "useful for working on layouts of dialogs, web pages etc."
+msgid ""
+"This is a tool to measure pixel distances on the screen. It is useful for "
+"working on layouts of dialogs, web pages etc."
+msgstr ""
+"स्क्रीन वरील पिक्सेल अंतर व रंग मोजण्याचे हे साधन आहे. संवादाची रचना, वेब पाने इ. वर काम "
+"करताना हे उपयोगी आहे."
+
+#: klineal.cpp:120
+#, kde-format
+msgid "Rotate"
+msgstr ""
+
+#: klineal.cpp:123
+#, kde-format
+msgid "&Scale"
+msgstr "प्रमाण (&S)"
+
+#: klineal.cpp:124 klineal.cpp:347
+#, kde-format
+msgid "Right to Left"
+msgstr "उजवीकडुन डावीकडे"
+
+#: klineal.cpp:126
+#, kde-format
+msgid "Center Origin"
+msgstr "मध्य उगम"
+
+#: klineal.cpp:129
+#, kde-format
+msgid "Offset..."
+msgstr "ऑफसेट..."
+
+#: klineal.cpp:133
+#, kde-format
+msgid "Percentage"
+msgstr "टक्के"
+
+#: klineal.cpp:141
+#, kde-format
+msgid "O&pacity"
+msgstr "अपारदर्शकता (&P)"
+
+#: klineal.cpp:347
+#, kde-format
+msgid "Left to Right"
+msgstr "डावीकडुन उजवीकडे"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Bottom to Top"
+msgstr "खालून वर"
+
+#: klineal.cpp:349
+#, kde-format
+msgid "Top to Bottom"
+msgstr "वरुन खाली"
+
+#: klineal.cpp:394
+#, kde-format
+msgctxt "@title:window"
+msgid "Scale Offset"
+msgstr "प्रमाण ऑफसेट"
+
+#: klineal.cpp:395
+#, kde-format
+msgid "Offset:"
+msgstr "ऑफसेट :"
+
+#: klineal.cpp:425
+#, kde-format
+msgid "Appearance"
+msgstr "दर्शनीयता"
+
+#: klineal.cpp:433
+#, kde-format
+msgid "Advanced"
+msgstr "प्रगत"
+
+#: klineal.cpp:529
+#, kde-format
+msgid "%1 px"
+msgstr ""
+
+#: klineal.cpp:536
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#. i18n: ectx: label, entry (BgColor), group (StoredSettings)
+#: kruler.kcfg:11
+#, kde-format
+msgid "Background color of the ruler."
+msgstr "मोजपट्टीचा पार्श्वभूमीचा रंग."
+
+#. i18n: ectx: label, entry (Length), group (StoredSettings)
+#: kruler.kcfg:15
+#, kde-format
+msgid "Length of the ruler."
+msgstr "मोजपट्टीची लांबी"
+
+#. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
+#: kruler.kcfg:19
+#, kde-format
+msgid "Font of the text on the ruler scale."
+msgstr "मोजपट्टीवरील पाठ्याचा फॉन्ट"
+
+#. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
+#: kruler.kcfg:23
+#, kde-format
+msgid "Horizontal ruler"
+msgstr ""
+
+#. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
+#: kruler.kcfg:27
+#, kde-format
+msgid "Direction of the ruler"
+msgstr "कलाची दिशा"
+
+#. i18n: ectx: label, entry (Offset), group (StoredSettings)
+#: kruler.kcfg:31
+#, kde-format
+msgid "Offset of the origin"
+msgstr "उगमाचा ऑफसेट"
+
+#. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
+#: kruler.kcfg:35
+#, kde-format
+msgid "Is the scale of the ruler relative (percentage)"
+msgstr "पट्टीचे प्रमाण सापेक्ष (टक्केवारी) आहे का"
+
+#. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
+#: kruler.kcfg:39
+#, kde-format
+msgid "Is a tray icon used"
+msgstr "ट्रे चिन्ह वापरले आहे का"
+
+#. i18n: ectx: label, entry (Opacity), group (StoredSettings)
+#: kruler.kcfg:43
+#, kde-format
+msgid "Opacity of the window"
+msgstr "चौकटीची अपारदर्शकता"
+
+#. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
+#: kruler.kcfg:47
+#, kde-format
+msgid "Is always on top"
+msgstr ""
+
+#: krulersystemtray.cpp:19 main.cpp:32
+#, kde-format
+msgid "KDE Screen Ruler"
+msgstr "केडीई स्क्रीन मोजपट्टी"
+
+#: main.cpp:34
+#, fuzzy, kde-format
+#| msgid "A screen ruler for KDE"
+msgid "A screen ruler by KDE"
+msgstr "केडीई करिता स्क्रीन मोजपट्टी"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
+msgstr ""
+"(c) 2000 - 2008, टिल क्रेच\n"
+"(c) 2009, माथिआस सोकेन"
+
+#: main.cpp:37
+#, kde-format
+msgid "Mathias Soeken"
+msgstr "माथिआस सोकेन"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "पालक"
+
+#: main.cpp:38
+#, kde-format
+msgid "Till Krech"
+msgstr "टिल क्रेच"
+
+#: main.cpp:38
+#, kde-format
+msgid "Former Maintainer and Developer"
+msgstr "पूर्वीचा पालक व विकासकर्ता"
+
+#: main.cpp:39
+#, kde-format
+msgid "Gunnstein Lye"
+msgstr "गनस्टैन लाय"
+
+#: main.cpp:39
+#, kde-format
+msgid "Initial port to KDE 2"
+msgstr "केडीई 2 करिता सुरुवातीचे पोर्ट"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "चेतन खोना"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "chetan@kompkin.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "जर हा पर्याय कार्यान्वित केला तर चौकट हलविण्याकरिता चौकट व्यवस्थापकाची क्रिया "
+#~ "वापरली जाईल."
+
+#~ msgid "Native moving"
+#~ msgstr "स्थानिक हलविणे"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "स्थानिक हलविणे (कदाचित थरथरणाऱ्या चौकटी) सक्रिय आहे का"
+
+#~ msgid "KRuler"
+#~ msgstr "के-रुलर"
+
+#~ msgid "Show rotation buttons"
+#~ msgstr "फिरविण्याचे बटन दर्शवा"
+
+#~ msgid "Show close button"
+#~ msgstr "बंद करण्याचे बटन दर्शवा"
+
+#~ msgid "This is the current distance measured in pixels."
+#~ msgstr "पिक्सेलमध्ये मापलेले हे वर्तमान अंतर आहे."
+
+#~ msgid "Turn Left"
+#~ msgstr "डावीकडे वळा"
+
+#~ msgid "Turn Right"
+#~ msgstr "उजवीकडे वळा"
+
+#~ msgid "&Orientation"
+#~ msgstr "कल (&O)"
+
+#~ msgctxt "Turn Kruler North"
+#~ msgid "&North"
+#~ msgstr "उत्तर (&N)"
+
+#~ msgctxt "Turn Kruler East"
+#~ msgid "&East"
+#~ msgstr "पूर्व (&E)"
+
+#~ msgctxt "Turn Kruler South"
+#~ msgid "&South"
+#~ msgstr "दक्षिण (&S)"
+
+#~ msgctxt "Turn Kruler West"
+#~ msgid "&West"
+#~ msgstr "पश्चिम (&W)"
+
+#~ msgid "&Turn Right"
+#~ msgstr "उजवीकडे वळा (&T)"
+
+#~ msgid "Turn &Left"
+#~ msgstr "डावीकडे वळा (&L)"
+
+#~ msgid "&Length"
+#~ msgstr "लांबी (&L)"
+
+#~ msgctxt "Make Kruler Height Short"
+#~ msgid "&Short"
+#~ msgstr "लहान (&S)"
+
+#~ msgctxt "Make Kruler Height Medium"
+#~ msgid "&Medium"
+#~ msgstr "मध्यम (&M)"
+
+#~ msgctxt "Make Kruler Height Tall"
+#~ msgid "&Tall"
+#~ msgstr "उंच (&T)"
+
+#~ msgid "&Full Screen Width"
+#~ msgstr "पूर्ण स्क्रीन रुंदी (&F)"
+
+#~ msgid "Length..."
+#~ msgstr "लांबी..."
+
+#~ msgid "Copy Color"
+#~ msgstr "रंग प्रत करा"
+
+#~ msgid "&Full Screen Height"
+#~ msgstr "पूर्ण स्क्रीन उंची (&F)"
+
+#~ msgctxt "@title:window"
+#~ msgid "Ruler Length"
+#~ msgstr "मोजपट्टी लांबी"
+
+#~ msgid "Length:"
+#~ msgstr "लांबी :"
+
+#~ msgid "Offset: %1"
+#~ msgstr "ऑफसेट %1"
+
+#~ msgid "Length: %1 px"
+#~ msgstr "लांबी : %1 px"
+
+#~ msgid "Orientation of the ruler"
+#~ msgstr "मोजपट्टीचा कल"
+
+#~ msgid "Are the rotate buttons visible"
+#~ msgstr "फिरविण्याचे बटन दृष्यमान आहेत का"
+
+#~ msgid "Is the close button visible"
+#~ msgstr "बंद करण्याचे बटन दृष्यमान आहे का"
