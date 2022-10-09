@@ -67,8 +67,8 @@ msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
-"Esta és una eina per a mesurar les distàncies entre píxels a la pantalla. És "
-"útil per a treballar amb les disposicions dels diàlegs, pàgines web, etc."
+"Esta és una eina per a mesurar les distàncies entre píxels en la pantalla. "
+"És útil per a treballar amb les disposicions dels diàlegs, pàgines web, etc."
 
 #: klineal.cpp:120
 #, kde-format
@@ -271,16 +271,3 @@ msgstr "Josep M. Ferrer"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
-
-#~ msgid ""
-#~ "If this option is enabled, the window is being moved using the operations "
-#~ "from the window manager."
-#~ msgstr ""
-#~ "Si esta opció està activada, la finestra es mourà emprant les operacions "
-#~ "des del gestor de finestres."
-
-#~ msgid "Native moving"
-#~ msgstr "Moviment natiu"
-
-#~ msgid "Is native moving (possibly wobbling windows) active"
-#~ msgstr "Si està actiu el moviment natiu (possiblement finestres sacsades)"
