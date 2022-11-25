@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-27 00:44+0000\n"
-"PO-Revision-Date: 2022-09-28 12:23+0200\n"
+"PO-Revision-Date: 2022-11-24 09:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
@@ -61,6 +61,8 @@ msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
+"ეს პროგრამაა ეკრანზე ორ პიქსელს შორის მანძილის გასაზომად. გამოსადეგია "
+"ფანჯრების განლაგების, ვებგვერდების და ა.შ."
 
 #: klineal.cpp:120
 #, kde-format
@@ -183,7 +185,7 @@ msgstr "საწყისის წანაცვლება"
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr ""
+msgstr "სახაზავის მასშტაბი (პროცენტებში)"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
@@ -250,7 +252,7 @@ msgstr "Gunnstein Lye"
 #: main.cpp:39
 #, kde-format
 msgid "Initial port to KDE 2"
-msgstr ""
+msgstr "საწყისი პორტი KDE2-ზე"
 
 #: main.cpp:40
 #, kde-format
