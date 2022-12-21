@@ -85,7 +85,6 @@ KLineal::KLineal( QWidget *parent )
 
   setAttribute( Qt::WA_TranslucentBackground );
   KWindowSystem::setType( winId(), NET::Override );   // or NET::Normal
-  KWindowSystem::setState( winId(), NET::KeepAbove );
 
   setWindowTitle( i18nc( "@title:window", "KRuler" ) );
 
