@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"POT-Creation-Date: 2022-12-22 00:44+0000\n"
 "PO-Revision-Date: 2017-07-18 13:04+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
@@ -54,13 +54,13 @@ msgstr "Letur:"
 msgid "Show tray icon"
 msgstr "Sýna táknmynd í kerfisbakka"
 
-#: klineal.cpp:90
+#: klineal.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KReglustika"
 
-#: klineal.cpp:94
+#: klineal.cpp:93
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -69,83 +69,83 @@ msgstr ""
 "Þetta er tól til að mæla fjarlægð milli punkta og lit þeirra. Tólið er "
 "þægilegt til útlitshönnunar forrita, vefsíða og fleira."
 
-#: klineal.cpp:120
+#: klineal.cpp:119
 #, kde-format
 msgid "Rotate"
 msgstr "Snúa"
 
-#: klineal.cpp:123
+#: klineal.cpp:122
 #, kde-format
 msgid "&Scale"
 msgstr "&Kvarði"
 
-#: klineal.cpp:124 klineal.cpp:347
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "Hægri til vinstri"
 
-#: klineal.cpp:126
+#: klineal.cpp:125
 #, kde-format
 msgid "Center Origin"
 msgstr "Miðja upphafspunkt"
 
-#: klineal.cpp:129
+#: klineal.cpp:128
 #, kde-format
 msgid "Offset..."
 msgstr "Hliðrun..."
 
-#: klineal.cpp:133
+#: klineal.cpp:132
 #, kde-format
 msgid "Percentage"
 msgstr "Prósenta"
 
-#: klineal.cpp:141
+#: klineal.cpp:140
 #, kde-format
 msgid "O&pacity"
 msgstr "Ó&gagnsæi"
 
-#: klineal.cpp:347
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "Vinstri til hægri"
 
-#: klineal.cpp:349
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Neðan og upp"
 
-#: klineal.cpp:349
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Ofan og niður"
 
-#: klineal.cpp:394
+#: klineal.cpp:393
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Hliðrun kvarða"
 
-#: klineal.cpp:395
+#: klineal.cpp:394
 #, kde-format
 msgid "Offset:"
 msgstr "Hliðrun:"
 
-#: klineal.cpp:425
+#: klineal.cpp:424
 #, kde-format
 msgid "Appearance"
 msgstr "Útlit"
 
-#: klineal.cpp:433
+#: klineal.cpp:432
 #, kde-format
 msgid "Advanced"
 msgstr "Nánar"
 
-#: klineal.cpp:529
+#: klineal.cpp:528
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:536
+#: klineal.cpp:535
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

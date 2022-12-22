@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegraphics-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-27 00:44+0000\n"
+"POT-Creation-Date: 2022-12-22 00:44+0000\n"
 "PO-Revision-Date: 2022-11-14 14:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -56,13 +56,13 @@ msgstr "Yazıtipi:"
 msgid "Show tray icon"
 msgstr "Sistem tepsisi simgesini göster"
 
-#: klineal.cpp:90
+#: klineal.cpp:89
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "K Cetvel"
 
-#: klineal.cpp:94
+#: klineal.cpp:93
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -71,83 +71,83 @@ msgstr ""
 "Bu araç ekrandaki pikseller arası uzaklıkları ölçmeye yarar. Web "
 "sayfalarında ve diyaloglarda katmanlar vb. ile çalışırken faydalıdır."
 
-#: klineal.cpp:120
+#: klineal.cpp:119
 #, kde-format
 msgid "Rotate"
 msgstr "Döndür"
 
-#: klineal.cpp:123
+#: klineal.cpp:122
 #, kde-format
 msgid "&Scale"
 msgstr "&Ölçekle"
 
-#: klineal.cpp:124 klineal.cpp:347
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "Sağdan Sola"
 
-#: klineal.cpp:126
+#: klineal.cpp:125
 #, kde-format
 msgid "Center Origin"
 msgstr "Başnoktayı Ortala"
 
-#: klineal.cpp:129
+#: klineal.cpp:128
 #, kde-format
 msgid "Offset..."
 msgstr "Göreli Konum..."
 
-#: klineal.cpp:133
+#: klineal.cpp:132
 #, kde-format
 msgid "Percentage"
 msgstr "Yüzde"
 
-#: klineal.cpp:141
+#: klineal.cpp:140
 #, kde-format
 msgid "O&pacity"
 msgstr "&Matlık"
 
-#: klineal.cpp:347
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "Soldan Sağa"
 
-#: klineal.cpp:349
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Aşağıdan Yukarıya"
 
-#: klineal.cpp:349
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Yukarıdan Aşağıya"
 
-#: klineal.cpp:394
+#: klineal.cpp:393
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Yerleşimi Ölçekle"
 
-#: klineal.cpp:395
+#: klineal.cpp:394
 #, kde-format
 msgid "Offset:"
 msgstr "Göreli Konum:"
 
-#: klineal.cpp:425
+#: klineal.cpp:424
 #, kde-format
 msgid "Appearance"
 msgstr "Görünüş"
 
-#: klineal.cpp:433
+#: klineal.cpp:432
 #, kde-format
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: klineal.cpp:529
+#: klineal.cpp:528
 #, kde-format
 msgid "%1 px"
 msgstr "%1 piksel"
 
-#: klineal.cpp:536
+#: klineal.cpp:535
 #, kde-format
 msgid "%1%"
 msgstr "%​%1"
