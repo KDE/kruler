@@ -136,7 +136,7 @@ KLineal::KLineal(QWidget *parent)
     QMenu *opacityMenu = new QMenu(i18n("O&pacity"), this);
     QWidgetAction *opacityAction = new QWidgetAction(this);
     QSlider *slider = new QSlider(this);
-    slider->setMinimum(30);
+    slider->setMinimum(15);
     slider->setMaximum(255);
     slider->setSingleStep(1);
     slider->setOrientation(Qt::Horizontal);
