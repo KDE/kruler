@@ -11,12 +11,12 @@
 #include <KActionCollection>
 #include <KLocalizedString>
 
-KRulerSystemTray::KRulerSystemTray( const QString& iconName, QWidget *parent, KActionCollection *actions)
-  : KStatusNotifierItem( parent )
+KRulerSystemTray::KRulerSystemTray(const QString &iconName, QWidget *parent, KActionCollection *actions)
+    : KStatusNotifierItem(parent)
 {
-  setIconByName( iconName );
-  setStatus(KStatusNotifierItem::Active);
-  setToolTip( iconName, i18n( "KDE Screen Ruler" ), QString() );
-  QMenu *cm = contextMenu();
-  cm->addAction( actions->action( QStringLiteral( "preferences" ) ) );
+    setIconByName(iconName);
+    setStatus(KStatusNotifierItem::Active);
+    setToolTip(iconName, i18n("KDE Screen Ruler"), QString());
+    QMenu *cm = contextMenu();
+    cm->addAction(actions->action(QStringLiteral("preferences")));
 }

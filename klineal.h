@@ -18,91 +18,96 @@ class QMenu;
 class KActionCollection;
 class KRulerSystemTray;
 
-class KLineal : public QWidget {
-  Q_OBJECT
+class KLineal : public QWidget
+{
+    Q_OBJECT
 
 public:
-  explicit KLineal( QWidget *parent = nullptr );
-  ~KLineal() override;
+    explicit KLineal(QWidget *parent = nullptr);
+    ~KLineal() override;
 
-  void move( int x, int y );
-  void move( const QPoint &p );
-  QPoint pos() const;
-  int x() const;
-  int y() const;
+    void move(int x, int y);
+    void move(const QPoint &p);
+    QPoint pos() const;
+    int x() const;
+    int y() const;
 
 protected:
-  void keyPressEvent( QKeyEvent *e ) override;
-  void leaveEvent( QEvent *e ) override;
-  void mousePressEvent( QMouseEvent *e ) override;
-  void mouseMoveEvent( QMouseEvent *e ) override;
-  void wheelEvent( QWheelEvent *e ) override;
-  void paintEvent( QPaintEvent *e ) override;
+    void keyPressEvent(QKeyEvent *e) override;
+    void leaveEvent(QEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
+    void wheelEvent(QWheelEvent *e) override;
+    void paintEvent(QPaintEvent *e) override;
 
-  void createSystemTray();
+    void createSystemTray();
 
 private:
-  void createCrossCursor();
-  QAction* addAction( QMenu *menu, const QIcon& icon, const QString& text,
-                      const QObject* receiver, const char* member,
-                      const QKeySequence &shortcut, const QString& name );
-  void drawScale( QPainter &painter );
-  void drawBackground( QPainter &painter );
-  void drawScaleText( QPainter &painter, int x, const QString &text );
-  void drawScaleTick( QPainter &painter, int x, int length );
-  void drawResizeHandle( QPainter &painter, Qt::Edge edge );
-  void drawIndicatorOverlay( QPainter &painter, int xy );
-  void drawIndicatorText( QPainter &painter, int xy );
-  void updateScaleDirectionMenuItem();
+    void createCrossCursor();
+    QAction *addAction(QMenu *menu,
+                       const QIcon &icon,
+                       const QString &text,
+                       const QObject *receiver,
+                       const char *member,
+                       const QKeySequence &shortcut,
+                       const QString &name);
+    void drawScale(QPainter &painter);
+    void drawBackground(QPainter &painter);
+    void drawScaleText(QPainter &painter, int x, const QString &text);
+    void drawScaleTick(QPainter &painter, int x, int length);
+    void drawResizeHandle(QPainter &painter, Qt::Edge edge);
+    void drawIndicatorOverlay(QPainter &painter, int xy);
+    void drawIndicatorText(QPainter &painter, int xy);
+    void updateScaleDirectionMenuItem();
 
-  QRect beginRect() const;
-  QRect endRect() const;
-  Qt::CursorShape resizeCursor() const;
-  bool nativeMove() const;
-  void startNativeMove( QMouseEvent *e );
-  void stopNativeMove( QMouseEvent *e );
-  QString indicatorText() const;
+    QRect beginRect() const;
+    QRect endRect() const;
+    Qt::CursorShape resizeCursor() const;
+    bool nativeMove() const;
+    void startNativeMove(QMouseEvent *e);
+    void stopNativeMove(QMouseEvent *e);
+    QString indicatorText() const;
 
-  QCursor mCrossCursor;
-  QPoint mLastClickPos;
-  QPoint mDragOffset;
-  bool mHorizontal = false;
-  QMenu *mMenu = nullptr;
-  QAction *mCloseAction = nullptr;
-  QAction *mScaleDirectionAction = nullptr;
-  QAction *mCenterOriginAction = nullptr;
-  QAction *mOffsetAction = nullptr;
-  QColor mColor;
-  QFont mScaleFont;
-  bool mAlwaysOnTopLayer = false;
-  bool mClicked = false;
-  bool mLeftToRight = false;
-  int mOffset = 0;
-  bool mRelativeScale = false;
-  KActionCollection *mActionCollection = nullptr;
-  int mOpacity = 0;
-  KRulerSystemTray *mTrayIcon = nullptr;
-  bool mWayland;
+    QCursor mCrossCursor;
+    QPoint mLastClickPos;
+    QPoint mDragOffset;
+    bool mHorizontal = false;
+    QMenu *mMenu = nullptr;
+    QAction *mCloseAction = nullptr;
+    QAction *mScaleDirectionAction = nullptr;
+    QAction *mCenterOriginAction = nullptr;
+    QAction *mOffsetAction = nullptr;
+    QColor mColor;
+    QFont mScaleFont;
+    bool mAlwaysOnTopLayer = false;
+    bool mClicked = false;
+    bool mLeftToRight = false;
+    int mOffset = 0;
+    bool mRelativeScale = false;
+    KActionCollection *mActionCollection = nullptr;
+    int mOpacity = 0;
+    KRulerSystemTray *mTrayIcon = nullptr;
+    bool mWayland;
 
-  void setHorizontal( bool horizontal );
+    void setHorizontal(bool horizontal);
 
-  int length() const;
-  QPoint localCursorPos() const;
-  qreal pixelRatio() const;
+    int length() const;
+    QPoint localCursorPos() const;
+    qreal pixelRatio() const;
 
 public Q_SLOTS:
-  void rotate();
-  void showMenu();
-  void switchDirection();
-  void centerOrigin();
-  void slotOffset();
-  void slotOpacity( int value );
-  void slotKeyBindings();
-  void slotPreferences();
-  void switchRelativeScale( bool checked );
-  void saveSettings();
-  void slotClose();
-  void slotQuit();
-  void loadConfig();
+    void rotate();
+    void showMenu();
+    void switchDirection();
+    void centerOrigin();
+    void slotOffset();
+    void slotOpacity(int value);
+    void slotKeyBindings();
+    void slotPreferences();
+    void switchRelativeScale(bool checked);
+    void saveSettings();
+    void slotClose();
+    void slotQuit();
+    void loadConfig();
 };
 #endif

@@ -14,7 +14,7 @@ class KActionCollection;
 class KRulerSystemTray : public KStatusNotifierItem
 {
 public:
-  KRulerSystemTray( const QString &iconName, QWidget *parent, KActionCollection *actions );
+    KRulerSystemTray(const QString &iconName, QWidget *parent, KActionCollection *actions);
 };
 
 #endif
