@@ -144,6 +144,7 @@ KLineal::KLineal(QWidget *parent)
     // Show ticks so that the slider is a bit taller, thus easier to grab
     slider->setTickPosition(QSlider::TicksBothSides);
     slider->setTickInterval(30);
+    slider->setMinimumWidth(200);
     connect(slider, &QSlider::valueChanged, this, &KLineal::slotOpacity);
     opacityAction->setDefaultWidget(slider);
     opacityMenu->addAction(opacityAction);
