@@ -149,9 +149,9 @@ KLineal::KLineal(QWidget *parent)
     opacityMenu->addAction(opacityAction);
     mMenu->addMenu(opacityMenu);
 
-    QAction *keyBindings = mActionCollection->addAction(KStandardAction::KeyBindings, this, SLOT(slotKeyBindings()));
+    QAction *keyBindings = KStandardAction::keyBindings(this, &KLineal::slotKeyBindings, mActionCollection);
     mMenu->addAction(keyBindings);
-    QAction *preferences = mActionCollection->addAction(KStandardAction::Preferences, this, SLOT(slotPreferences()));
+    QAction *preferences = KStandardAction::preferences(this, &KLineal::slotPreferences, mActionCollection);
     mMenu->addAction(preferences);
     mMenu->addSeparator();
     mMenu->addMenu((new KHelpMenu(this, KAboutData::applicationData(), true))->menu());
@@ -160,7 +160,7 @@ KLineal::KLineal(QWidget *parent)
         createSystemTray();
     }
 
-    QAction *quit = mActionCollection->addAction(KStandardAction::Quit, qApp, SLOT(quit()));
+    QAction *quit = KStandardAction::quit(qApp, &QGuiApplication::quit, mActionCollection);
     mMenu->addAction(quit);
 
     mActionCollection->associateWidget(this);
