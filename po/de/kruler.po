@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:44+0000\n"
+"POT-Creation-Date: 2023-01-08 00:56+0000\n"
 "PO-Revision-Date: 2017-06-19 09:50+0100\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -56,7 +56,7 @@ msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KDE-Bildschirmlineal"
 
-#: klineal.cpp:93
+#: klineal.cpp:94
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -66,7 +66,7 @@ msgstr ""
 "können. Es hilft z. B. bei Arbeiten an Webseiten-Layouts oder bei der Arbeit "
 "an Dialogen."
 
-#: klineal.cpp:119
+#: klineal.cpp:120
 #, kde-format
 msgid "Rotate"
 msgstr "Drehen"
@@ -76,73 +76,73 @@ msgstr "Drehen"
 msgid "&Scale"
 msgstr "&Skala"
 
-#: klineal.cpp:123 klineal.cpp:346
+#: klineal.cpp:123 klineal.cpp:345
 #, kde-format
 msgid "Right to Left"
 msgstr "Rechts nach links"
 
-#: klineal.cpp:125
+#: klineal.cpp:124
 #, kde-format
 msgid "Center Origin"
 msgstr "Ursprung zentriert"
 
-#: klineal.cpp:128
+#: klineal.cpp:126
 #, kde-format
 msgid "Offset..."
 msgstr "Versatz ..."
 
-#: klineal.cpp:132
+#: klineal.cpp:129
 #, kde-format
 msgid "Percentage"
 msgstr "Prozent"
 
-#: klineal.cpp:140
+#: klineal.cpp:136
 #, kde-format
 msgid "O&pacity"
 msgstr "&Durchsichtigkeit"
 
-#: klineal.cpp:346
+#: klineal.cpp:345
 #, kde-format
 msgid "Left to Right"
 msgstr "Links nach rechts"
 
-#: klineal.cpp:348
+#: klineal.cpp:347
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Von unten nach oben"
 
-#: klineal.cpp:348
+#: klineal.cpp:347
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Von oben nach unten"
 
-#: klineal.cpp:393
+#: klineal.cpp:390
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Skalenversatz"
 
-#: klineal.cpp:394
+#: klineal.cpp:390
 #, kde-format
 msgid "Offset:"
 msgstr "Versatz:"
 
-#: klineal.cpp:424
+#: klineal.cpp:419
 #, kde-format
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: klineal.cpp:432
+#: klineal.cpp:427
 #, kde-format
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: klineal.cpp:528
+#: klineal.cpp:521
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:535
+#: klineal.cpp:528
 #, kde-format
 msgid "%1%"
 msgstr "%1 %"
@@ -207,17 +207,17 @@ msgstr "Undurchsichtigkeit des Fensters"
 msgid "Is always on top"
 msgstr "Ist immer im Vordergrund"
 
-#: krulersystemtray.cpp:19 main.cpp:32
+#: krulersystemtray.cpp:19 main.cpp:33
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE-Bildschirmlineal"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "Ein Bildschirmlineal von KDE"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -226,43 +226,43 @@ msgstr ""
 "© 2000–2008, Till Krech\n"
 "© 2009, Mathias Soeken"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Maintainer"
 msgstr "Betreuer"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Früherer Betreuer und Entwickler"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Ursprüngliche Portierung nach KDE 2"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Winter"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

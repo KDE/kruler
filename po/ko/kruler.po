@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:44+0000\n"
+"POT-Creation-Date: 2023-01-08 00:56+0000\n"
 "PO-Revision-Date: 2020-04-21 00:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -54,7 +54,7 @@ msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:93
+#: klineal.cpp:94
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -63,7 +63,7 @@ msgstr ""
 "이 도구는 화면에서 픽셀 사이 거리를 정확하게 재는 데 사용합니다. 대화 상자의 "
 "레이아웃이나 웹 페이지 제작에 도움을 줍니다."
 
-#: klineal.cpp:119
+#: klineal.cpp:120
 #, kde-format
 msgid "Rotate"
 msgstr "회전"
@@ -73,73 +73,73 @@ msgstr "회전"
 msgid "&Scale"
 msgstr "눈금(&S)"
 
-#: klineal.cpp:123 klineal.cpp:346
+#: klineal.cpp:123 klineal.cpp:345
 #, kde-format
 msgid "Right to Left"
 msgstr "오른쪽에서 왼쪽으로"
 
-#: klineal.cpp:125
+#: klineal.cpp:124
 #, kde-format
 msgid "Center Origin"
 msgstr "중심 방향"
 
-#: klineal.cpp:128
+#: klineal.cpp:126
 #, kde-format
 msgid "Offset..."
 msgstr "위치..."
 
-#: klineal.cpp:132
+#: klineal.cpp:129
 #, kde-format
 msgid "Percentage"
 msgstr "백분율"
 
-#: klineal.cpp:140
+#: klineal.cpp:136
 #, kde-format
 msgid "O&pacity"
 msgstr "투명도(&P)"
 
-#: klineal.cpp:346
+#: klineal.cpp:345
 #, kde-format
 msgid "Left to Right"
 msgstr "왼쪽에서 오른쪽으로"
 
-#: klineal.cpp:348
+#: klineal.cpp:347
 #, kde-format
 msgid "Bottom to Top"
 msgstr "아래에서 위로"
 
-#: klineal.cpp:348
+#: klineal.cpp:347
 #, kde-format
 msgid "Top to Bottom"
 msgstr "위에서 아래로"
 
-#: klineal.cpp:393
+#: klineal.cpp:390
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "눈금 위치"
 
-#: klineal.cpp:394
+#: klineal.cpp:390
 #, kde-format
 msgid "Offset:"
 msgstr "위치:"
 
-#: klineal.cpp:424
+#: klineal.cpp:419
 #, kde-format
 msgid "Appearance"
 msgstr "모양"
 
-#: klineal.cpp:432
+#: klineal.cpp:427
 #, kde-format
 msgid "Advanced"
 msgstr "고급"
 
-#: klineal.cpp:528
+#: klineal.cpp:521
 #, kde-format
 msgid "%1 px"
 msgstr "%1픽셀"
 
-#: klineal.cpp:535
+#: klineal.cpp:528
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
@@ -204,17 +204,17 @@ msgstr "창의 투명도"
 msgid "Is always on top"
 msgstr "항상 위에 있음"
 
-#: krulersystemtray.cpp:19 main.cpp:32
+#: krulersystemtray.cpp:19 main.cpp:33
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE 화면 자"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "KDE 화면 자"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -223,43 +223,43 @@ msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "이전 관리자 및 개발자"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "KDE 2용 최초 포트"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

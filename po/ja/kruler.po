@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:44+0000\n"
+"POT-Creation-Date: 2023-01-08 00:56+0000\n"
 "PO-Revision-Date: 2014-09-28 22:50-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -62,7 +62,7 @@ msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:93
+#: klineal.cpp:94
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is a tool to measure pixel distances and colors on the screen. It is "
@@ -74,7 +74,7 @@ msgstr ""
 "これはスクリーン上のピクセル距離と色を測定するツールです。ダイアログやウェブ"
 "ページのレイアウト作業などに便利です。"
 
-#: klineal.cpp:119
+#: klineal.cpp:120
 #, kde-format
 msgid "Rotate"
 msgstr ""
@@ -84,73 +84,73 @@ msgstr ""
 msgid "&Scale"
 msgstr "目盛(&S)"
 
-#: klineal.cpp:123 klineal.cpp:346
+#: klineal.cpp:123 klineal.cpp:345
 #, kde-format
 msgid "Right to Left"
 msgstr "右から左へ"
 
-#: klineal.cpp:125
+#: klineal.cpp:124
 #, kde-format
 msgid "Center Origin"
 msgstr ""
 
-#: klineal.cpp:128
+#: klineal.cpp:126
 #, kde-format
 msgid "Offset..."
 msgstr "オフセット..."
 
-#: klineal.cpp:132
+#: klineal.cpp:129
 #, kde-format
 msgid "Percentage"
 msgstr "パーセンテージ"
 
-#: klineal.cpp:140
+#: klineal.cpp:136
 #, kde-format
 msgid "O&pacity"
 msgstr "不透明度(&P)"
 
-#: klineal.cpp:346
+#: klineal.cpp:345
 #, kde-format
 msgid "Left to Right"
 msgstr "左から右へ"
 
-#: klineal.cpp:348
+#: klineal.cpp:347
 #, kde-format
 msgid "Bottom to Top"
 msgstr "下から上へ"
 
-#: klineal.cpp:348
+#: klineal.cpp:347
 #, kde-format
 msgid "Top to Bottom"
 msgstr "上から下へ"
 
-#: klineal.cpp:393
+#: klineal.cpp:390
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "目盛のオフセット"
 
-#: klineal.cpp:394
+#: klineal.cpp:390
 #, kde-format
 msgid "Offset:"
 msgstr "オフセット:"
 
-#: klineal.cpp:424
+#: klineal.cpp:419
 #, kde-format
 msgid "Appearance"
 msgstr "外観"
 
-#: klineal.cpp:432
+#: klineal.cpp:427
 #, kde-format
 msgid "Advanced"
 msgstr "詳細"
 
-#: klineal.cpp:528
+#: klineal.cpp:521
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:535
+#: klineal.cpp:528
 #, kde-format
 msgid "%1%"
 msgstr ""
@@ -215,18 +215,18 @@ msgstr "ウィンドウの不透明度"
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:32
+#: krulersystemtray.cpp:19 main.cpp:33
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE スクリーンルーラー"
 
-#: main.cpp:34
+#: main.cpp:35
 #, fuzzy, kde-format
 #| msgid "A screen ruler for KDE"
 msgid "A screen ruler by KDE"
 msgstr "KDE のスクリーンルーラー"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -235,43 +235,43 @@ msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Maintainer"
 msgstr "メンテナ"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "以前のメンテナ、開発者"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:39
+#: main.cpp:40
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "最初の KDE2 への移植"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Noboru Sinohara"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
