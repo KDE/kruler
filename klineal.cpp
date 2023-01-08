@@ -60,6 +60,7 @@ static const int LARGE_TICK_SIZE = 18;
 static const qreal TICK_OPACITY = 0.3;
 
 static const int THICKNESS = 70;
+static const int RULER_MAX_LENGTH = 10000;
 
 static const qreal OVERLAY_OPACITY = 0.1;
 static const qreal OVERLAY_BORDER_OPACITY = 0.3;
@@ -88,8 +89,6 @@ KLineal::KLineal(QWidget *parent)
 
     setWindowTitle(i18nc("@title:window", "KRuler"));
 
-    setMinimumSize(THICKNESS, THICKNESS);
-    setMaximumSize(8000, 8000);
     setWhatsThis(
         i18n("This is a tool to measure pixel distances on the screen. "
              "It is useful for working on layouts of dialogs, web pages etc."));
@@ -97,18 +96,12 @@ KLineal::KLineal(QWidget *parent)
 
     mColor = RulerSettings::self()->bgColor();
     mScaleFont = RulerSettings::self()->scaleFont();
-    int len = RulerSettings::self()->length();
+    int restoreLength = RulerSettings::self()->length();
     mHorizontal = RulerSettings::self()->horizontal();
     mLeftToRight = RulerSettings::self()->leftToRight();
     mOffset = RulerSettings::self()->offset();
     mRelativeScale = RulerSettings::self()->relativeScale();
     mAlwaysOnTopLayer = RulerSettings::self()->alwaysOnTop();
-
-    if (mHorizontal) {
-        resize(QSize(len, THICKNESS));
-    } else {
-        resize(QSize(THICKNESS, len));
-    }
 
     createCrossCursor();
 
@@ -171,6 +164,10 @@ KLineal::KLineal(QWidget *parent)
 
     setWindowFlags(mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint : Qt::FramelessWindowHint);
 
+    QSize restoreSize(restoreLength, THICKNESS);
+    resize(mHorizontal ? restoreSize : restoreSize.transposed());
+    setMinimumSize(THICKNESS, THICKNESS);
+    setMaximumSize(RULER_MAX_LENGTH, RULER_MAX_LENGTH);
     setHorizontal(mHorizontal);
 }
 
@@ -282,7 +279,14 @@ void KLineal::setHorizontal(bool horizontal)
 {
     QRect r = frameGeometry();
     if (mHorizontal != horizontal) {
+        // relax restrictions before resizing
+        setMaximumSize(RULER_MAX_LENGTH, RULER_MAX_LENGTH);
         r.setSize(r.size().transposed());
+        if (horizontal) {
+            setMaximumHeight(THICKNESS);
+        } else {
+            setMaximumWidth(THICKNESS);
+        }
     }
     mHorizontal = horizontal;
     QPoint center = mLastClickPos;
