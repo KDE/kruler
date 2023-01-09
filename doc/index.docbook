@@ -54,7 +54,7 @@
 measure pixel distances on your screen. It is useful for working on layout
 of dialogs, web pages &etc;</para>
 
-<para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Graphics</guisubmenu> 
+<para>To start &kruler;, choose <menuchoice><guimenu>Applications</guimenu><guisubmenu>Utilities</guisubmenu>
 <guisubmenu>More Applications</guisubmenu>
 <guimenuitem>Screen Ruler</guimenuitem></menuchoice> from your application menu.</para>
 
