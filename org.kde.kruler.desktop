@@ -149,6 +149,7 @@ Name[x-test]=xxKRulerxx
 Name[zh_CN]=KRuler
 Name[zh_HK]=KRuler
 Name[zh_TW]=KRuler 尺規
+Comment=Pixel measuring tool for screens
 X-DocPath=kruler/index.html
 Exec=kruler
 Type=Application
