@@ -69,17 +69,17 @@
 >&kruler; est une application très simple, n'ayant qu'un seul but dans la vie : mesurer des distances en pixels sur votre écran. Ceci est utile pour travailler sur des dispositions de boîtes de dialogue, des pages Internet, &etc;</para>
 
 <para
->Pour démarrer &kruler;, veuillez choisir <menuchoice
+>To start &kruler;, choose <menuchoice
 ><guimenu
 >Applications</guimenu
 ><guisubmenu
->Graphisme</guisubmenu
-><guisubmenu
->Plus d'applications</guisubmenu
-><guimenuitem
->Règle d'écran</guimenuitem
+>Utilities</guisubmenu
+> <guisubmenu
+>More Applications</guisubmenu
+> <guimenuitem
+>Screen Ruler</guimenuitem
 ></menuchoice
-> depuis votre menu d'applications.</para>
+> from your application menu.</para>
 
 <screenshot>
 <screeninfo
