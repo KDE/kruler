@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-08 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:55+0000\n"
 "PO-Revision-Date: 2010-12-17 21:59+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -82,7 +82,7 @@ msgstr ""
 msgid "&Scale"
 msgstr "ขีดบอก&ระยะ"
 
-#: klineal.cpp:123 klineal.cpp:345
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "จากขวาไปซ้าย"
@@ -107,49 +107,49 @@ msgstr "ร้อยละ"
 msgid "O&pacity"
 msgstr "ความ&ทึบแสง"
 
-#: klineal.cpp:345
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "จากซ้ายไปขวา"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "จากล่างขึ้นบน"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "จากบนลงล่าง"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, fuzzy, kde-format
 #| msgid "Scale Offset"
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "ระยะเหลื่อมขีดบอกระยะ"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgid "Offset:"
 msgstr "ระยะเหลื่อม:"
 
-#: klineal.cpp:419
+#: klineal.cpp:420
 #, kde-format
 msgid "Appearance"
 msgstr "รูปลักษณ์"
 
-#: klineal.cpp:427
+#: klineal.cpp:428
 #, kde-format
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: klineal.cpp:521
+#: klineal.cpp:522
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:528
+#: klineal.cpp:529
 #, kde-format
 msgid "%1%"
 msgstr ""

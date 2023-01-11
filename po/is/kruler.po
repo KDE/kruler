@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-08 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:55+0000\n"
 "PO-Revision-Date: 2017-07-18 13:04+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
@@ -79,7 +79,7 @@ msgstr "Snúa"
 msgid "&Scale"
 msgstr "&Kvarði"
 
-#: klineal.cpp:123 klineal.cpp:345
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "Hægri til vinstri"
@@ -104,48 +104,48 @@ msgstr "Prósenta"
 msgid "O&pacity"
 msgstr "Ó&gagnsæi"
 
-#: klineal.cpp:345
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "Vinstri til hægri"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Neðan og upp"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Ofan og niður"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Hliðrun kvarða"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgid "Offset:"
 msgstr "Hliðrun:"
 
-#: klineal.cpp:419
+#: klineal.cpp:420
 #, kde-format
 msgid "Appearance"
 msgstr "Útlit"
 
-#: klineal.cpp:427
+#: klineal.cpp:428
 #, kde-format
 msgid "Advanced"
 msgstr "Nánar"
 
-#: klineal.cpp:521
+#: klineal.cpp:522
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:528
+#: klineal.cpp:529
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

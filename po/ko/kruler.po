@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-08 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:55+0000\n"
 "PO-Revision-Date: 2020-04-21 00:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -73,7 +73,7 @@ msgstr "회전"
 msgid "&Scale"
 msgstr "눈금(&S)"
 
-#: klineal.cpp:123 klineal.cpp:345
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "오른쪽에서 왼쪽으로"
@@ -98,48 +98,48 @@ msgstr "백분율"
 msgid "O&pacity"
 msgstr "투명도(&P)"
 
-#: klineal.cpp:345
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "왼쪽에서 오른쪽으로"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "아래에서 위로"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "위에서 아래로"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "눈금 위치"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgid "Offset:"
 msgstr "위치:"
 
-#: klineal.cpp:419
+#: klineal.cpp:420
 #, kde-format
 msgid "Appearance"
 msgstr "모양"
 
-#: klineal.cpp:427
+#: klineal.cpp:428
 #, kde-format
 msgid "Advanced"
 msgstr "고급"
 
-#: klineal.cpp:521
+#: klineal.cpp:522
 #, kde-format
 msgid "%1 px"
 msgstr "%1픽셀"
 
-#: klineal.cpp:528
+#: klineal.cpp:529
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

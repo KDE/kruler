@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-08 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:55+0000\n"
 "PO-Revision-Date: 2013-03-28 15:17+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "&Scale"
 msgstr "प्रमाण (&S)"
 
-#: klineal.cpp:123 klineal.cpp:345
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "उजवीकडुन डावीकडे"
@@ -106,48 +106,48 @@ msgstr "टक्के"
 msgid "O&pacity"
 msgstr "अपारदर्शकता (&P)"
 
-#: klineal.cpp:345
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "डावीकडुन उजवीकडे"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "खालून वर"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "वरुन खाली"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "प्रमाण ऑफसेट"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgid "Offset:"
 msgstr "ऑफसेट :"
 
-#: klineal.cpp:419
+#: klineal.cpp:420
 #, kde-format
 msgid "Appearance"
 msgstr "दर्शनीयता"
 
-#: klineal.cpp:427
+#: klineal.cpp:428
 #, kde-format
 msgid "Advanced"
 msgstr "प्रगत"
 
-#: klineal.cpp:521
+#: klineal.cpp:522
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:528
+#: klineal.cpp:529
 #, kde-format
 msgid "%1%"
 msgstr ""

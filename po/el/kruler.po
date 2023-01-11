@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-08 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:55+0000\n"
 "PO-Revision-Date: 2017-09-15 17:53+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -80,7 +80,7 @@ msgstr "Περιστροφή"
 msgid "&Scale"
 msgstr "&Κλίμακα"
 
-#: klineal.cpp:123 klineal.cpp:345
+#: klineal.cpp:123 klineal.cpp:346
 #, kde-format
 msgid "Right to Left"
 msgstr "Από δεξιά προς αριστερά"
@@ -105,48 +105,48 @@ msgstr "Ποσοστό"
 msgid "O&pacity"
 msgstr "Α&διαφάνεια:"
 
-#: klineal.cpp:345
+#: klineal.cpp:346
 #, kde-format
 msgid "Left to Right"
 msgstr "Από αριστερά προς δεξιά"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Από τη βαη προς την κορυφή"
 
-#: klineal.cpp:347
+#: klineal.cpp:348
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Από την κορυφή προς τη βάση"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Μετατόπιση κλίμακας"
 
-#: klineal.cpp:390
+#: klineal.cpp:391
 #, kde-format
 msgid "Offset:"
 msgstr "Μετατόπιση:"
 
-#: klineal.cpp:419
+#: klineal.cpp:420
 #, kde-format
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: klineal.cpp:427
+#: klineal.cpp:428
 #, kde-format
 msgid "Advanced"
 msgstr "Προχωρημένα"
 
-#: klineal.cpp:521
+#: klineal.cpp:522
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:528
+#: klineal.cpp:529
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

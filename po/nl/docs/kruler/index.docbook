@@ -72,14 +72,14 @@
 >Om &kruler; te starten, kiest u <menuchoice
 ><guimenu
 >Toepassingen</guimenu
-><guimenu
->Grafisch</guimenu
 ><guisubmenu
+>Hulpprogramma's</guisubmenu
+> <guisubmenu
 >Meer toepassingen</guisubmenu
 ><guimenuitem
->KDE Schermliniaal</guimenuitem
+>Schermliniaal</guimenuitem
 ></menuchoice
-> uit uw menu Toepassingen</para>
+> uit uw toepassingenmenu</para>
 
 <screenshot>
 <screeninfo
