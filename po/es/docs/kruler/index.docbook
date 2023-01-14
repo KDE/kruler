@@ -111,11 +111,11 @@
 >&kruler; es una aplicación muy sencilla, con un único objetivo: medir distancias entre píxeles de su pantalla. Es útil para trabajar en diseños de diálogos, páginas web, &etc;</para>
 
 <para
->Para iniciar &kruler;, abra <menuchoice
+>Para lanzar &kruler;, seleccione <menuchoice
 ><guimenu
 >Aplicaciones</guimenu
 ><guisubmenu
->Gráficos</guisubmenu
+>Utilidades</guisubmenu
 > <guisubmenu
 >Más aplicaciones</guisubmenu
 > <guimenuitem
