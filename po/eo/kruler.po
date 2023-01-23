@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-11 00:55+0000\n"
+"POT-Creation-Date: 2023-01-23 00:55+0000\n"
 "PO-Revision-Date: 2007-11-27 23:23+0100\n"
 "Last-Translator: Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -48,13 +48,13 @@ msgstr "Tiparo:"
 msgid "Show tray icon"
 msgstr "Montru agordotraban piktogramon"
 
-#: klineal.cpp:89
+#: klineal.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:94
+#: klineal.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is a tool to measure pixel distances and colors on the screen. It is "
@@ -66,84 +66,84 @@ msgstr ""
 "Jen ilo por mezuri la rastrumerajn distancojn kaj kolorojn sur la ekrano. "
 "Tio estas utila ĉe laboro pri dialogaspekto, retpaĝoj ktp."
 
-#: klineal.cpp:120
+#: klineal.cpp:113
 #, kde-format
 msgid "Rotate"
 msgstr ""
 
-#: klineal.cpp:122
+#: klineal.cpp:115
 #, kde-format
 msgid "&Scale"
 msgstr "&Skali"
 
-#: klineal.cpp:123 klineal.cpp:346
+#: klineal.cpp:116 klineal.cpp:350
 #, kde-format
 msgid "Right to Left"
 msgstr "Dekstra al Liva"
 
-#: klineal.cpp:124
+#: klineal.cpp:117
 #, kde-format
 msgid "Center Origin"
 msgstr ""
 
-#: klineal.cpp:126
+#: klineal.cpp:119
 #, kde-format
 msgid "Offset..."
 msgstr ""
 
-#: klineal.cpp:129
+#: klineal.cpp:122
 #, kde-format
 msgid "Percentage"
 msgstr "Elcentaĵo"
 
-#: klineal.cpp:136
+#: klineal.cpp:129
 #, kde-format
 msgid "O&pacity"
 msgstr ""
 
-#: klineal.cpp:346
+#: klineal.cpp:350
 #, kde-format
 msgid "Left to Right"
 msgstr "Liva al Dekstra"
 
-#: klineal.cpp:348
+#: klineal.cpp:352
 #, kde-format
 msgid "Bottom to Top"
 msgstr ""
 
-#: klineal.cpp:348
+#: klineal.cpp:352
 #, kde-format
 msgid "Top to Bottom"
 msgstr ""
 
-#: klineal.cpp:391
+#: klineal.cpp:395
 #, fuzzy, kde-format
 #| msgid "Offset:"
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Pozicio:"
 
-#: klineal.cpp:391
+#: klineal.cpp:395
 #, kde-format
 msgid "Offset:"
 msgstr "Pozicio:"
 
-#: klineal.cpp:420
+#: klineal.cpp:424
 #, kde-format
 msgid "Appearance"
 msgstr "Aspekto"
 
-#: klineal.cpp:428
+#: klineal.cpp:432
 #, kde-format
 msgid "Advanced"
 msgstr "Plie"
 
-#: klineal.cpp:522
+#: klineal.cpp:526
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:529
+#: klineal.cpp:533
 #, kde-format
 msgid "%1%"
 msgstr ""
