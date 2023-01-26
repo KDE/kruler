@@ -24,21 +24,28 @@ include(FeatureSummary)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Notifications
     WindowSystem
     XmlGui
 )
-find_package(KF5DocTools ${KF5_MIN_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -57,7 +64,7 @@ if (NOT APPLE)
     endif()
 endif()
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2
+ecm_set_disabled_deprecation_versions(QT 6.4
      KF 5.101.0
     )
 
@@ -96,11 +103,11 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-kruler.png")
 ecm_add_app_icon(kruler ICONS ${ICONS_SRCS})
 
 target_link_libraries(kruler
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::Notifications
-    KF5::WindowSystem
-    KF5::XmlGui
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::Notifications
+    KF${KF_MAJOR_VERSION}::WindowSystem
+    KF${KF_MAJOR_VERSION}::XmlGui
 )
 if (KRULER_HAVE_X11)
     target_link_libraries(kruler
