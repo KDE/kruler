@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:55+0000\n"
+"POT-Creation-Date: 2023-01-27 00:56+0000\n"
 "PO-Revision-Date: 2018-08-04 16:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
@@ -212,17 +212,17 @@ msgstr "Leihoaren opakotasuna"
 msgid "Is always on top"
 msgstr "Beti dago gain-gainean"
 
-#: krulersystemtray.cpp:19 main.cpp:33
+#: krulersystemtray.cpp:19 main.cpp:35
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDEren pantailako erregela"
 
-#: main.cpp:35
+#: main.cpp:37
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "KDEk egindako pantailako erregela bat"
 
-#: main.cpp:37
+#: main.cpp:39
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -231,43 +231,43 @@ msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantentzailea"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Haiserako mantentzaile eta garatzailea"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Hasierako KDE 2-rako moldaketa"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ion Gaztañaga, Marcos Goyenetxe"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:55+0000\n"
+"POT-Creation-Date: 2023-01-27 00:56+0000\n"
 "PO-Revision-Date: 2011-07-31 00:05+0200\n"
 "Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -211,18 +211,18 @@ msgstr "Az ablak áttetszősége"
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:33
+#: krulersystemtray.cpp:19 main.cpp:35
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE képernyővonalzó"
 
-#: main.cpp:35
+#: main.cpp:37
 #, fuzzy, kde-format
 #| msgid "A screen ruler for KDE"
 msgid "A screen ruler by KDE"
 msgstr "Képernyővonalzó a KDE-hez"
 
-#: main.cpp:37
+#: main.cpp:39
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -231,43 +231,43 @@ msgstr ""
 "(c) Till Krech, 2000-2008.\n"
 "(c) Mathias Soeken, 2009."
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr "Karbantartó"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Korábbi karbantartó és fejlesztő"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Az első KDE 2 alá írt változat"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Szántó Tamás"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

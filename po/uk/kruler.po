@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:55+0000\n"
+"POT-Creation-Date: 2023-01-27 00:56+0000\n"
 "PO-Revision-Date: 2017-06-15 07:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -212,17 +212,17 @@ msgstr "Непрозорість вікна"
 msgid "Is always on top"
 msgstr "Завжди згори"
 
-#: krulersystemtray.cpp:19 main.cpp:33
+#: krulersystemtray.cpp:19 main.cpp:35
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "Лінійка екрана KDE"
 
-#: main.cpp:35
+#: main.cpp:37
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "Екранна лінійка від KDE"
 
-#: main.cpp:37
+#: main.cpp:39
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -231,43 +231,43 @@ msgstr ""
 "© 2000 - 2008, Till Krech\n"
 "© 2009, Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Колишній супровідник і розробник"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Перший порт до KDE 2"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Andriy Rysin"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

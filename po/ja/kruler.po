@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:55+0000\n"
+"POT-Creation-Date: 2023-01-27 00:56+0000\n"
 "PO-Revision-Date: 2014-09-28 22:50-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -215,18 +215,18 @@ msgstr "ウィンドウの不透明度"
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:33
+#: krulersystemtray.cpp:19 main.cpp:35
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE スクリーンルーラー"
 
-#: main.cpp:35
+#: main.cpp:37
 #, fuzzy, kde-format
 #| msgid "A screen ruler for KDE"
 msgid "A screen ruler by KDE"
 msgstr "KDE のスクリーンルーラー"
 
-#: main.cpp:37
+#: main.cpp:39
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -235,43 +235,43 @@ msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:38
+#: main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr "メンテナ"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "以前のメンテナ、開発者"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "最初の KDE2 への移植"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Noboru Sinohara"
 
-#: main.cpp:41
+#: main.cpp:43
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
