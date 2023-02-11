@@ -63,14 +63,11 @@ private:
     QRect beginRect() const;
     QRect endRect() const;
     Qt::CursorShape resizeCursor() const;
-    bool nativeMove() const;
-    void startNativeMove(QMouseEvent *e);
-    void stopNativeMove(QMouseEvent *e);
-    QString indicatorText() const;
+    QString indicatorText(int xy) const;
 
     QCursor mCrossCursor;
-    QPoint mLastClickPos;
-    QPoint mDragOffset;
+    QPoint mCursorPos; // cached cursor pos used between painEvent <-> mouseMoveEvents
+    QPoint mLastClickGlobalPos;
     bool mHorizontal = false;
     QMenu *mMenu = nullptr;
     QAction *mCloseAction = nullptr;
@@ -80,7 +77,7 @@ private:
     QColor mColor;
     QFont mScaleFont;
     bool mAlwaysOnTopLayer = false;
-    bool mClicked = false;
+    bool middleClicked = false;
     bool mLeftToRight = false;
     int mOffset = 0;
     bool mRelativeScale = false;
@@ -92,7 +89,6 @@ private:
     void setHorizontal(bool horizontal);
 
     int length() const;
-    QPoint localCursorPos() const;
     qreal pixelRatio() const;
 
 public Q_SLOTS:
@@ -107,7 +103,6 @@ public Q_SLOTS:
     void switchRelativeScale(bool checked);
     void saveSettings();
     void slotClose();
-    void slotQuit();
     void loadConfig();
 };
 #endif

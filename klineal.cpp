@@ -160,7 +160,7 @@ KLineal::KLineal(QWidget *parent)
     mActionCollection->associateWidget(this);
     mActionCollection->readSettings();
 
-    mLastClickPos = geometry().topLeft() + QPoint(width() / 2, height() / 2);
+    mLastClickGlobalPos = geometry().topLeft() + QPoint(width() / 2, height() / 2);
 
     setWindowFlags(mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint : Qt::FramelessWindowHint);
 
@@ -225,16 +225,6 @@ void KLineal::slotClose()
     hide();
 }
 
-void KLineal::slotQuit()
-{
-    qApp->quit();
-}
-
-void KLineal::move(int x, int y)
-{
-    move(QPoint(x, y));
-}
-
 void KLineal::move(const QPoint &p)
 {
     setGeometry(QRect(p, size()));
@@ -243,16 +233,6 @@ void KLineal::move(const QPoint &p)
 QPoint KLineal::pos() const
 {
     return frameGeometry().topLeft();
-}
-
-int KLineal::x() const
-{
-    return pos().x();
-}
-
-int KLineal::y() const
-{
-    return pos().y();
 }
 
 void KLineal::drawBackground(QPainter &painter)
@@ -289,11 +269,11 @@ void KLineal::setHorizontal(bool horizontal)
         }
     }
     mHorizontal = horizontal;
-    QPoint center = mLastClickPos;
+    QPoint center = mLastClickGlobalPos;
 
-    if (mClicked) {
-        center = mLastClickPos;
-        mClicked = false;
+    if (middleClicked) {
+        center = mLastClickGlobalPos;
+        middleClicked = false;
     } else {
         center = r.topLeft() + QPoint(width() / 2, height() / 2);
     }
@@ -504,13 +484,6 @@ int KLineal::length() const
     return mHorizontal ? width() : height();
 }
 
-QPoint KLineal::localCursorPos() const
-{
-    // For some reason mapFromGlobal( QCursor::pos() ) thinks the ruler is at 0, 0 at startup.
-    // compute the position ourselves to avoid that.
-    return QCursor::pos() - pos();
-}
-
 inline qreal KLineal::pixelRatio() const
 {
     if (mWayland || !windowHandle())
@@ -518,14 +491,13 @@ inline qreal KLineal::pixelRatio() const
     return windowHandle()->devicePixelRatio();
 }
 
-QString KLineal::indicatorText() const
+QString KLineal::indicatorText(int xy) const
 {
-    int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
     if (!mRelativeScale) {
         int len = mLeftToRight ? xy + 1 : length() - xy;
         return i18n("%1 px", qRound(len * pixelRatio()));
     } else {
-        int len = (xy * 100.f) / length();
+        int len = (xy * 100) / length();
 
         if (!mLeftToRight) {
             len = 100 - len;
@@ -586,33 +558,33 @@ void KLineal::leaveEvent(QEvent *e)
 /**
  * overwritten for dragging and context menu
  */
-void KLineal::mousePressEvent(QMouseEvent *inEvent)
+void KLineal::mousePressEvent(QMouseEvent *e)
 {
-    mLastClickPos = QCursor::pos();
-
-    QRect gr = geometry();
-    mDragOffset = mLastClickPos - gr.topLeft();
-    if (inEvent->button() == Qt::LeftButton) {
-        if (beginRect().contains(mDragOffset)) {
+    if (e->button() == Qt::LeftButton) {
+        if (beginRect().contains(mCursorPos)) {
             windowHandle()->startSystemResize(mHorizontal ? Qt::LeftEdge : Qt::TopEdge);
-        } else if (endRect().contains(mDragOffset)) {
+        } else if (endRect().contains(mCursorPos)) {
             windowHandle()->startSystemResize(mHorizontal ? Qt::RightEdge : Qt::BottomEdge);
         } else {
             windowHandle()->startSystemMove();
         }
-    } else if (inEvent->button() == Qt::MiddleButton) {
-        mClicked = true;
+    } else if (e->button() == Qt::MiddleButton) {
+        middleClicked = true;
+        mLastClickGlobalPos = QCursor::pos();
         rotate();
-    } else if (inEvent->button() == Qt::RightButton) {
+    } else if (e->button() == Qt::RightButton) {
         showMenu();
     }
 }
 
-void KLineal::mouseMoveEvent(QMouseEvent *inEvent)
+void KLineal::mouseMoveEvent(QMouseEvent *e)
 {
-    Q_UNUSED(inEvent);
-    QPoint cpos = localCursorPos();
-    if (beginRect().contains(cpos) || endRect().contains(cpos)) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    mCursorPos = e->pos();
+#else
+    mCursorPos = e->position().toPoint();
+#endif
+    if (beginRect().contains(mCursorPos) || endRect().contains(mCursorPos)) {
         setCursor(resizeCursor());
     } else {
         setCursor(mCrossCursor);
@@ -799,7 +771,7 @@ void KLineal::drawIndicatorOverlay(QPainter &painter, int xy)
 
 void KLineal::drawIndicatorText(QPainter &painter, int xy)
 {
-    QString text = indicatorText();
+    QString text = indicatorText(xy);
     painter.setFont(font());
     QFontMetrics fm = QFontMetrics(font());
     int tx, ty;
@@ -836,9 +808,9 @@ void KLineal::drawIndicatorText(QPainter &painter, int xy)
 /**
  * actually draws the ruler
  */
-void KLineal::paintEvent(QPaintEvent *inEvent)
+void KLineal::paintEvent(QPaintEvent *e)
 {
-    Q_UNUSED(inEvent);
+    Q_UNUSED(e);
 
     QPainter painter(this);
     drawBackground(painter);
@@ -847,7 +819,7 @@ void KLineal::paintEvent(QPaintEvent *inEvent)
     drawResizeHandle(painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge);
     drawResizeHandle(painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge);
     if (underMouse()) {
-        int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+        int xy = mHorizontal ? mCursorPos.x() : mCursorPos.y();
         drawIndicatorOverlay(painter, xy);
         drawIndicatorText(painter, xy);
     }
