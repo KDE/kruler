@@ -35,7 +35,6 @@ protected:
   void keyPressEvent( QKeyEvent *e ) override;
   void leaveEvent( QEvent *e ) override;
   void mousePressEvent( QMouseEvent *e ) override;
-  void mouseReleaseEvent( QMouseEvent *e ) override;
   void mouseMoveEvent( QMouseEvent *e ) override;
   void wheelEvent( QWheelEvent *e ) override;
   void paintEvent( QPaintEvent *e ) override;
@@ -59,21 +58,10 @@ private:
   QRect beginRect() const;
   QRect endRect() const;
   Qt::CursorShape resizeCursor() const;
-  bool nativeMove() const;
-  void startNativeMove( QMouseEvent *e );
-  void stopNativeMove( QMouseEvent *e );
   QString indicatorText() const;
 
-  enum RulerState {
-    StateNone,
-    StateMove,
-    StateBegin,
-    StateEnd
-  };
   QCursor mCrossCursor;
-  RulerState mRulerState = StateNone;
-  QPoint mLastClickPos;
-  QPoint mDragOffset;
+  QPoint mLastCursorPos;
   bool mHorizontal = false;
   QMenu *mMenu = nullptr;
   QAction *mCloseAction = nullptr;
@@ -94,9 +82,7 @@ private:
 
   void setHorizontal( bool horizontal );
 
-  bool isResizing() const;
   int length() const;
-  QPoint localCursorPos() const;
   qreal pixelRatio() const;
 
 public Q_SLOTS:

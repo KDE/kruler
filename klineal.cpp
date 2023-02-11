@@ -171,7 +171,7 @@ KLineal::KLineal( QWidget *parent )
   mActionCollection->associateWidget( this );
   mActionCollection->readSettings();
 
-  mLastClickPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
+  mLastCursorPos = geometry().topLeft() + QPoint( width() / 2, height() / 2 );
 
   setWindowFlags( mAlwaysOnTopLayer ? Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint
                                     : Qt::FramelessWindowHint );
@@ -286,10 +286,10 @@ void KLineal::setHorizontal( bool horizontal )
     r.setSize( r.size().transposed() );
   }
   mHorizontal = horizontal;
-  QPoint center = mLastClickPos;
+  QPoint center = mLastCursorPos;
 
   if ( mClicked ) {
-    center = mLastClickPos;
+    center = mLastCursorPos;
     mClicked = false;
   } else {
     center = r.topLeft() + QPoint( width() / 2, height() / 2 );
@@ -423,15 +423,6 @@ void KLineal::slotPreferences()
   appearanceConfig.setupUi( appearanceConfigWidget );
   dialog->addPage( appearanceConfigWidget, i18n( "Appearance" ), QStringLiteral( "preferences-desktop-default-applications" ) );
 
-#ifdef KRULER_HAVE_X11
-  // Advanced page only contains the "Native moving" and "Always on top" settings, disable when not running on X11
-  if ( QX11Info::isPlatformX11() ) {
-    Ui::ConfigAdvanced advancedConfig;
-    QWidget *advancedConfigWidget = new QWidget( dialog );
-    advancedConfig.setupUi( advancedConfigWidget );
-    dialog->addPage( advancedConfigWidget, i18n( "Advanced" ), QStringLiteral( "preferences-other" ) );
-  }
-#endif
 
   connect(dialog, &KConfigDialog::settingsChanged, this, &KLineal::loadConfig);
   dialog->exec();
@@ -501,21 +492,9 @@ void KLineal::showMenu()
   mMenu->popup( pos );
 }
 
-bool KLineal::isResizing() const
-{
-  return mouseGrabber() == this && ( mRulerState == StateBegin || mRulerState == StateEnd );
-}
-
 int KLineal::length() const
 {
   return mHorizontal ? width() : height();
-}
-
-QPoint KLineal::localCursorPos() const
-{
-  // For some reason mapFromGlobal( QCursor::pos() ) thinks the ruler is at 0, 0 at startup.
-  // compute the position ourselves to avoid that.
-  return QCursor::pos() - pos();
 }
 
 inline qreal KLineal::pixelRatio() const
@@ -527,7 +506,7 @@ inline qreal KLineal::pixelRatio() const
 
 QString KLineal::indicatorText() const
 {
-  int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+  int xy = mHorizontal ? mLastCursorPos.x() : mLastCursorPos.y();
   if ( !mRelativeScale ) {
     int len = mLeftToRight ? xy + 1 : length() - xy;
     return i18n( "%1 px", qRound(len*pixelRatio()) );
@@ -592,39 +571,13 @@ void KLineal::leaveEvent( QEvent *e )
 
 void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
 {
-  Q_UNUSED( inEvent );
-
-  if ( mRulerState >= StateMove ) {
-    if ( mouseGrabber() != this ) {
-      return;
-    }
-    if ( mRulerState == StateMove ) {
-      move( QCursor::pos() - mDragOffset );
-    } else if ( mRulerState == StateBegin ) {
-      QRect r = geometry();
-      if ( mHorizontal ) {
-        r.setLeft( QCursor::pos().x() - mDragOffset.x() );
-      } else {
-        r.setTop( QCursor::pos().y() - mDragOffset.y() );
-      }
-      setGeometry( r );
-    } else if ( mRulerState == StateEnd ) {
-      QPoint end = QCursor::pos() + mDragOffset - pos();
-      QSize size = mHorizontal
-        ? QSize( end.x(), height() )
-        : QSize( width(), end.y() );
-      resize( size );
-    }
+  mLastCursorPos = inEvent->pos();
+  if ( beginRect().contains( mLastCursorPos ) || endRect().contains( mLastCursorPos) ) {
+    setCursor( resizeCursor() );
   } else {
-    QPoint cpos = localCursorPos();
-    mRulerState = StateNone;
-    if ( beginRect().contains( cpos ) || endRect().contains( cpos) ) {
-      setCursor( resizeCursor() );
-    } else {
-      setCursor( mCrossCursor );
-    }
-    update();
+    setCursor( mCrossCursor );
   }
+  update();
 }
 
 /**
@@ -632,82 +585,23 @@ void KLineal::mouseMoveEvent( QMouseEvent *inEvent )
  */
 void KLineal::mousePressEvent( QMouseEvent *inEvent )
 {
-  mLastClickPos = QCursor::pos();
+  mLastCursorPos = inEvent->pos();
 
-  QRect gr = geometry();
-  mDragOffset = mLastClickPos - gr.topLeft();
   if ( inEvent->button() == Qt::LeftButton ) {
-    if ( mRulerState < StateMove ) {
-      if ( beginRect().contains( mDragOffset ) ) {
-        mRulerState = StateBegin;
-        grabMouse( resizeCursor() );
-      } else if ( endRect().contains( mDragOffset ) ) {
-        mDragOffset = gr.bottomRight() - mLastClickPos;
-        mRulerState = StateEnd;
-        grabMouse( resizeCursor() );
-      } else {
-        if ( nativeMove() ) {
-          startNativeMove( inEvent );
-        } else {
-          mRulerState = StateMove;
-          grabMouse( Qt::SizeAllCursor );
-        }
-      }
+    if ( beginRect().contains( mLastCursorPos )) {
+      auto edge = mHorizontal ? Qt::LeftEdge : Qt::TopEdge;
+      window()->windowHandle()->startSystemResize(edge);
+    } else if (endRect().contains( mLastCursorPos )) {
+      auto edge = mHorizontal ? Qt::RightEdge : Qt::BottomEdge;
+      window()->windowHandle()->startSystemResize(edge);
+    } else {
+      window()->windowHandle()->startSystemMove();
     }
   } else if ( inEvent->button() == Qt::MiddleButton ) {
     mClicked = true;
     rotate();
   } else if ( inEvent->button() == Qt::RightButton ) {
     showMenu();
-  }
-}
-
-#ifdef KRULER_HAVE_X11
-bool KLineal::nativeMove() const
-{
-  return QX11Info::isPlatformX11() && RulerSettings::self()->nativeMoving();
-}
-
-void KLineal::startNativeMove( QMouseEvent *inEvent )
-{
-  xcb_ungrab_pointer( QX11Info::connection(), QX11Info::appTime() );
-  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::Move );
-}
-
-void KLineal::stopNativeMove( QMouseEvent *inEvent )
-{
-  NETRootInfo wm_root( QX11Info::connection(), NET::WMMoveResize );
-  wm_root.moveResizeRequest( winId(), inEvent->globalX(), inEvent->globalY(), NET::MoveResizeCancel );
-}
-#else
-bool KLineal::nativeMove() const
-{
-  return false;
-}
-
-void KLineal::startNativeMove( QMouseEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-}
-
-void KLineal::stopNativeMove( QMouseEvent *inEvent )
-{
-  Q_UNUSED( inEvent );
-}
-#endif
-
-/**
- * overwritten for dragging
- */
-void KLineal::mouseReleaseEvent( QMouseEvent *inEvent )
-{
-  if ( mRulerState != StateNone ) {
-    mRulerState = StateNone;
-    releaseMouse();
-    saveSettings();
-  } else if ( nativeMove() ) {
-    stopNativeMove( inEvent );
   }
 }
 
@@ -936,8 +830,8 @@ void KLineal::paintEvent(QPaintEvent *inEvent )
 
   drawResizeHandle( painter, mHorizontal ? Qt::LeftEdge : Qt::TopEdge );
   drawResizeHandle( painter, mHorizontal ? Qt::RightEdge : Qt::BottomEdge );
-  if ( underMouse() && !isResizing() ) {
-    int xy = mHorizontal ? localCursorPos().x() : localCursorPos().y();
+  if ( underMouse() ) {
+    int xy = mHorizontal ? mLastCursorPos.x() : mLastCursorPos.y();
     drawIndicatorOverlay( painter, xy );
     drawIndicatorText( painter, xy );
   }
