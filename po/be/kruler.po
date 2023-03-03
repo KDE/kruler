@@ -1,16 +1,12 @@
-# translation of kruler.po to Belarusian
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
 # Darafei Praliaskouski <komzpa@licei2.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: kruler\n"
+"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:56+0000\n"
-"PO-Revision-Date: 2007-07-27 16:23+0300\n"
+"PO-Revision-Date: 2023-03-02 15:01\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
-"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language-Team: Belarusian\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +15,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
+"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
+"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Language: be\n"
+"X-Crowdin-File: /main/be/kruler/kruler.po\n"
+"X-Crowdin-File-ID: 8257\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
@@ -26,36 +27,37 @@ msgstr ""
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
 msgstr ""
+"Калі гэты параметр уключаны, акно будзе знаходзіцца па-над іншымі вокнамі."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:26
 #, kde-format
 msgid "Always on top"
-msgstr ""
+msgstr "Заўсёды наверсе"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: cfg_appearance.ui:20
 #, kde-format
 msgid "Background color:"
-msgstr ""
+msgstr "Колер фону:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: cfg_appearance.ui:30
 #, kde-format
 msgid "Font:"
-msgstr ""
+msgstr "Шрыфт:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
 #: cfg_appearance.ui:40
 #, kde-format
 msgid "Show tray icon"
-msgstr ""
+msgstr "Паказваць значок на прасторы апавяшчэнняў"
 
 #: klineal.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
-msgstr ""
+msgstr "KRuler"
 
 #: klineal.cpp:93
 #, kde-format
@@ -63,159 +65,159 @@ msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
+"Гэта інструмент для вымярэння адлегласці на экране ў пікселях. Гэта карысна "
+"для працы над макетамі дыялогавых акон, вэб-старонак і г. д."
 
 #: klineal.cpp:113
 #, kde-format
 msgid "Rotate"
-msgstr ""
+msgstr "Павярнуць"
 
 #: klineal.cpp:115
 #, kde-format
 msgid "&Scale"
-msgstr ""
+msgstr "&Шкала"
 
 #: klineal.cpp:116 klineal.cpp:350
 #, kde-format
 msgid "Right to Left"
-msgstr ""
+msgstr "Справа ўлева"
 
 #: klineal.cpp:117
 #, kde-format
 msgid "Center Origin"
-msgstr ""
+msgstr "Ад цэнтра"
 
 #: klineal.cpp:119
 #, kde-format
 msgid "Offset..."
-msgstr ""
+msgstr "Зрух..."
 
 #: klineal.cpp:122
 #, kde-format
 msgid "Percentage"
-msgstr ""
+msgstr "Адсотак"
 
 #: klineal.cpp:129
 #, kde-format
 msgid "O&pacity"
-msgstr ""
+msgstr "П&разрыстасць"
 
 #: klineal.cpp:350
 #, kde-format
 msgid "Left to Right"
-msgstr ""
+msgstr "Злева ўправа"
 
 #: klineal.cpp:352
 #, kde-format
 msgid "Bottom to Top"
-msgstr ""
+msgstr "Знізу ўверх"
 
 #: klineal.cpp:352
 #, kde-format
 msgid "Top to Bottom"
-msgstr ""
+msgstr "Зверху ўніз"
 
 #: klineal.cpp:395
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
-msgstr ""
+msgstr "Зрух шкалы"
 
 #: klineal.cpp:395
 #, kde-format
 msgid "Offset:"
-msgstr ""
+msgstr "Зрух:"
 
 #: klineal.cpp:424
 #, kde-format
 msgid "Appearance"
-msgstr ""
+msgstr "Выгляд"
 
 #: klineal.cpp:432
 #, kde-format
 msgid "Advanced"
-msgstr ""
+msgstr "Дадатковыя налады"
 
 #: klineal.cpp:526
 #, kde-format
 msgid "%1 px"
-msgstr ""
+msgstr "%1 px"
 
 #: klineal.cpp:533
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
 #, kde-format
 msgid "Background color of the ruler."
-msgstr ""
+msgstr "Колер фону лінейкі."
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
-#, fuzzy, kde-format
-#| msgid "&Orientation"
+#, kde-format
 msgid "Length of the ruler."
-msgstr "&Арыентацыя"
+msgstr "Даўжыня лінейкі."
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
 #, kde-format
 msgid "Font of the text on the ruler scale."
-msgstr ""
+msgstr "Шрыфт тэксту на шкале лінейкі."
 
 #. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr ""
+msgstr "Гарызантальная лінейка"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
-#, fuzzy, kde-format
-#| msgid "&Orientation"
+#, kde-format
 msgid "Direction of the ruler"
-msgstr "&Арыентацыя"
+msgstr "Кірунак лінейкі"
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
 #, kde-format
 msgid "Offset of the origin"
-msgstr ""
+msgstr "Зрух ад цэнтра"
 
 #. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr ""
+msgstr "Ці адносная шкала лінейкі (у адсотках)"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
 #, kde-format
 msgid "Is a tray icon used"
-msgstr ""
+msgstr "Ці выкарыстоўваецца значок на прасторы апавяшчэнняў"
 
 #. i18n: ectx: label, entry (Opacity), group (StoredSettings)
 #: kruler.kcfg:43
 #, kde-format
 msgid "Opacity of the window"
-msgstr ""
+msgstr "Непразрыстасць акна"
 
 #. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
 #: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
-msgstr ""
+msgstr "Ці заўсёды наверсе"
 
 #: krulersystemtray.cpp:19 main.cpp:35
 #, kde-format
 msgid "KDE Screen Ruler"
-msgstr ""
+msgstr "Экранная лінейка KDE"
 
 #: main.cpp:37
 #, kde-format
 msgid "A screen ruler by KDE"
-msgstr ""
+msgstr "Экранная лінейка ад KDE"
 
 #: main.cpp:39
 #, kde-format
@@ -223,48 +225,50 @@ msgid ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 msgstr ""
+"(c) 2000 - 2008, Till Krech\n"
+"(c) 2009, Mathias Soeken"
 
 #: main.cpp:40
 #, kde-format
 msgid "Mathias Soeken"
-msgstr ""
+msgstr "Mathias Soeken"
 
 #: main.cpp:40
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Суправаджальнік"
 
 #: main.cpp:41
 #, kde-format
 msgid "Till Krech"
-msgstr ""
+msgstr "Till Krech"
 
 #: main.cpp:41
 #, kde-format
 msgid "Former Maintainer and Developer"
-msgstr ""
+msgstr "Былы суправаджальнік і распрацоўнік"
 
 #: main.cpp:42
 #, kde-format
 msgid "Gunnstein Lye"
-msgstr ""
+msgstr "Gunnstein Lye"
 
 #: main.cpp:42
 #, kde-format
 msgid "Initial port to KDE 2"
-msgstr ""
+msgstr "Пачатковы перанос на KDE 2"
 
 #: main.cpp:43
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Дарафей Праляскоўскі"
+msgstr "Дарафей Праляскоўскі, Antikruk"
 
 #: main.cpp:43
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "komzpa@licei2.com"
+msgstr "komzpa@licei2.com, nashtlumach@gmail.com"
 
 #~ msgid "&Orientation"
 #~ msgstr "&Арыентацыя"
