@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>KRuler</name>
   <name xml:lang="ar">مسطرة ك</name>
+  <name xml:lang="be">KRuler</name>
   <name xml:lang="bg">KRuler</name>
   <name xml:lang="ca">KRuler</name>
   <name xml:lang="ca-valencia">KRuler</name>
@@ -45,6 +46,7 @@
   <name xml:lang="zh-TW">KRuler</name>
   <summary>Screen Ruler</summary>
   <summary xml:lang="ar">مسطرة الشاشة</summary>
+  <summary xml:lang="be">Экранная лінейка</summary>
   <summary xml:lang="bg">Линийка за измерване на екрана</summary>
   <summary xml:lang="ca">Regle de la pantalla</summary>
   <summary xml:lang="ca-valencia">Regle de la pantalla</summary>
@@ -86,6 +88,7 @@
   <description>
     <p>KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
     <p xml:lang="ar">مسطر ك هو مسطرة على الشاشة لقياس البكسل. ضع 0 عند نقطة البداية وقم بقياس مسافة البكسل الدقيقة بين نقطة البداية والمؤشر.</p>
+    <p xml:lang="be">KRuler - гэта экранная лінейка для вымярэння пікселяў. Размясціце 0 у пачатковай пункце і вымерайце дакладную адлегласць у пікселях паміж пачатковым пунктам і курсорам.</p>
     <p xml:lang="bg">KRuler е екранна линийка за измерване на пиксели. Позиционирайте нулата върху началната позиция и измерете точното разстояние между нея и курсора.</p>
     <p xml:lang="ca">El KRuler és un regle a la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
     <p xml:lang="ca-valencia">KRuler és un regle en la pantalla que permet mesurar píxels. Situeu el 0 al punt d'inici i mesureu la distància precisa en píxels entre el punt d'inici i el cursor.</p>
