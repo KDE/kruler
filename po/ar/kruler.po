@@ -213,12 +213,12 @@ msgstr "دائما فوق"
 #: krulersystemtray.cpp:19 main.cpp:35
 #, kde-format
 msgid "KDE Screen Ruler"
-msgstr "مسطرة الشاشة كدي"
+msgstr "مسطرة الشاشة كِيدِي"
 
 #: main.cpp:37
 #, kde-format
 msgid "A screen ruler by KDE"
-msgstr "مسطرة شاشة لكدي"
+msgstr "مسطرة شاشة لكِيدِي"
 
 #: main.cpp:39
 #, kde-format
@@ -257,7 +257,7 @@ msgstr "Gunnstein Lye"
 #: main.cpp:42
 #, kde-format
 msgid "Initial port to KDE 2"
-msgstr "النقل المبدئي إلى كدي 2"
+msgstr "النقل المبدئي إلى كِيدِي 2"
 
 #: main.cpp:43
 #, kde-format
