@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-09 00:44+0000\n"
 "PO-Revision-Date: 2012-02-01 03:39+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -80,7 +80,7 @@ msgstr ""
 msgid "&Scale"
 msgstr "&Шәкілі"
 
-#: klineal.cpp:116 klineal.cpp:350
+#: klineal.cpp:116 klineal.cpp:330
 #, kde-format
 msgid "Right to Left"
 msgstr "Оңнан солға"
@@ -105,48 +105,48 @@ msgstr "Пайызы"
 msgid "O&pacity"
 msgstr "М&олдірлік"
 
-#: klineal.cpp:350
+#: klineal.cpp:330
 #, kde-format
 msgid "Left to Right"
 msgstr "Солдан оңға"
 
-#: klineal.cpp:352
+#: klineal.cpp:332
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Төменнен жоғарға"
 
-#: klineal.cpp:352
+#: klineal.cpp:332
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Жоғардан төменге"
 
-#: klineal.cpp:395
+#: klineal.cpp:375
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Шәкілінің шегінісі"
 
-#: klineal.cpp:395
+#: klineal.cpp:375
 #, kde-format
 msgid "Offset:"
 msgstr "Шегінісі"
 
-#: klineal.cpp:424
+#: klineal.cpp:404
 #, kde-format
 msgid "Appearance"
 msgstr "Көрінісі"
 
-#: klineal.cpp:432
+#: klineal.cpp:412
 #, kde-format
 msgid "Advanced"
 msgstr "Косымша"
 
-#: klineal.cpp:526
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:533
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:56+0000\n"
+"POT-Creation-Date: 2023-03-09 00:44+0000\n"
 "PO-Revision-Date: 2011-07-22 16:57+0200\n"
 "Last-Translator: Marko Dimjašević <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "&Scale"
 msgstr "&Mjerilo"
 
-#: klineal.cpp:116 klineal.cpp:350
+#: klineal.cpp:116 klineal.cpp:330
 #, kde-format
 msgid "Right to Left"
 msgstr "S desna nalijevo"
@@ -112,48 +112,48 @@ msgstr "Postotak"
 msgid "O&pacity"
 msgstr "Ne&prozirnost"
 
-#: klineal.cpp:350
+#: klineal.cpp:330
 #, kde-format
 msgid "Left to Right"
 msgstr "S lijeva nadesno"
 
-#: klineal.cpp:352
+#: klineal.cpp:332
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Od dna prema vrhu"
 
-#: klineal.cpp:352
+#: klineal.cpp:332
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Od vrha prema dnu"
 
-#: klineal.cpp:395
+#: klineal.cpp:375
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Pomak mjerila"
 
-#: klineal.cpp:395
+#: klineal.cpp:375
 #, kde-format
 msgid "Offset:"
 msgstr "Pomak:"
 
-#: klineal.cpp:424
+#: klineal.cpp:404
 #, kde-format
 msgid "Appearance"
 msgstr "Izgled"
 
-#: klineal.cpp:432
+#: klineal.cpp:412
 #, kde-format
 msgid "Advanced"
 msgstr "Napredno"
 
-#: klineal.cpp:526
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:533
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr ""
