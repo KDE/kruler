@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-09 00:44+0000\n"
-"PO-Revision-Date: 2007-11-27 23:23+0100\n"
-"Last-Translator: Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>\n"
+"PO-Revision-Date: 2023-03-25 16:19+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -55,16 +55,11 @@ msgid "KRuler"
 msgstr "KRuler"
 
 #: klineal.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a tool to measure pixel distances and colors on the screen. It is "
-#| "useful for working on layouts of dialogs, web pages etc."
+#, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
-"Jen ilo por mezuri la rastrumerajn distancojn kaj kolorojn sur la ekrano. "
-"Tio estas utila ĉe laboro pri dialogaspekto, retpaĝoj ktp."
 
 #: klineal.cpp:113
 #, kde-format
@@ -117,11 +112,10 @@ msgid "Top to Bottom"
 msgstr ""
 
 #: klineal.cpp:375
-#, fuzzy, kde-format
-#| msgid "Offset:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
-msgstr "Pozicio:"
+msgstr ""
 
 #: klineal.cpp:375
 #, kde-format
@@ -150,17 +144,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
-#, fuzzy, kde-format
-#| msgid "Background color:"
+#, kde-format
 msgid "Background color of the ruler."
-msgstr "Fona koloro:"
+msgstr ""
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
-#, fuzzy, kde-format
-#| msgid "&Orientation"
+#, kde-format
 msgid "Length of the ruler."
-msgstr "&Orientiĝo"
+msgstr ""
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
@@ -176,10 +168,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
-#, fuzzy, kde-format
-#| msgid "&Orientation"
+#, kde-format
 msgid "Direction of the ruler"
-msgstr "&Orientiĝo"
+msgstr ""
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
@@ -195,10 +186,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
-#, fuzzy, kde-format
-#| msgid "Show tray icon"
+#, kde-format
 msgid "Is a tray icon used"
-msgstr "Montru agordotraban piktogramon"
+msgstr ""
 
 #. i18n: ectx: label, entry (Opacity), group (StoredSettings)
 #: kruler.kcfg:43
@@ -218,10 +208,9 @@ msgid "KDE Screen Ruler"
 msgstr "KDEa Ekranliniilo"
 
 #: main.cpp:37
-#, fuzzy, kde-format
-#| msgid "A screen ruler for the K Desktop Environment"
+#, kde-format
 msgid "A screen ruler by KDE"
-msgstr "Ekranliniilo por KDE."
+msgstr ""
 
 #: main.cpp:39
 #, kde-format
@@ -271,115 +260,3 @@ msgstr "Wolfram Diestel,Heiko Evermann"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wolfram@steloj.de,heiko@evermann.de"
-
-#~ msgid "KRuler"
-#~ msgstr "KRuler"
-
-#~ msgid "This is the current distance measured in pixels."
-#~ msgstr "Jen la aktuala distancoj mezurita laŭ rastrumeroj."
-
-#~ msgid ""
-#~ "This is the current color in hexadecimal rgb representation as you may "
-#~ "use it in HTML or as a QColor name. The rectangles background shows the "
-#~ "color of the pixel inside the little square at the end of the line cursor."
-#~ msgstr ""
-#~ "Tio estas la aktuala koloro en deksesuma RVB-formo kiel vi povus uzi ĝin "
-#~ "en HTML aŭ kiel QColor-nomo. La fono de la rektangulo montras la koloron "
-#~ "de la rastrumero ene de la kvadrateto, troviĝanta ĉe la fino de la "
-#~ "liniokursilo."
-
-#, fuzzy
-#~| msgid "Turn &Left"
-#~ msgid "Turn Left"
-#~ msgstr "Turni ma&ldekstren"
-
-#, fuzzy
-#~| msgid "&Turn Right"
-#~ msgid "Turn Right"
-#~ msgstr "&Turni dekstren"
-
-#~ msgid "&Orientation"
-#~ msgstr "&Orientiĝo"
-
-#~ msgctxt "Turn Kruler North"
-#~ msgid "&North"
-#~ msgstr "&Nordo"
-
-#~ msgctxt "Turn Kruler East"
-#~ msgid "&East"
-#~ msgstr "&Oriento"
-
-#~ msgctxt "Turn Kruler South"
-#~ msgid "&South"
-#~ msgstr "&Sudo"
-
-#~ msgctxt "Turn Kruler West"
-#~ msgid "&West"
-#~ msgstr "O&kcidento"
-
-#~ msgid "&Turn Right"
-#~ msgstr "&Turni dekstren"
-
-#~ msgid "Turn &Left"
-#~ msgstr "Turni ma&ldekstren"
-
-#~ msgid "&Length"
-#~ msgstr "&Longeco"
-
-#~ msgctxt "Make Kruler Height Short"
-#~ msgid "&Short"
-#~ msgstr "Mal&longa"
-
-#~ msgctxt "Make Kruler Height Medium"
-#~ msgid "&Medium"
-#~ msgstr "&Meza"
-
-#~ msgctxt "Make Kruler Height Tall"
-#~ msgid "&Tall"
-#~ msgstr "&Granda"
-
-#~ msgid "&Full Screen Width"
-#~ msgstr "&Plena ekrangrandeco"
-
-#, fuzzy
-#~| msgid "&Length"
-#~ msgid "Length..."
-#~ msgstr "&Longeco"
-
-#, fuzzy
-#~| msgid "&Choose Color..."
-#~ msgid "Copy Color"
-#~ msgstr "&Elekti koloron..."
-
-#~ msgid "&Full Screen Height"
-#~ msgstr "&Plena ekrangrandeco"
-
-#, fuzzy
-#~| msgid "&Length"
-#~ msgctxt "@title:window"
-#~ msgid "Ruler Length"
-#~ msgstr "&Longeco"
-
-#, fuzzy
-#~| msgid "&Length"
-#~ msgid "Length:"
-#~ msgstr "&Longeco"
-
-#, fuzzy
-#~| msgid "&Length"
-#~ msgid "Length: %1 px"
-#~ msgstr "&Longeco"
-
-#, fuzzy
-#~| msgid "&Orientation"
-#~ msgid "Orientation of the ruler"
-#~ msgstr "&Orientiĝo"
-
-#~ msgid "Choose &Font..."
-#~ msgstr "Elekti &tiparon..."
-
-#~ msgid "(c) 2000, Till Krech"
-#~ msgstr "(c) 2000, Till Krech"
-
-#~ msgid "Programming"
-#~ msgstr "Programado"
