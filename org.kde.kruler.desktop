@@ -179,6 +179,7 @@ Comment[ta]=திரையில் காட்டப்படுபவற்�
 Comment[tr]=Ekranlar için piksel ölçüm aracı
 Comment[uk]=Засіб вимірювання у пікселях на екрані
 Comment[x-test]=xxPixel measuring tool for screensxx
+Comment[zh_CN]=屏幕像素测量工具
 X-DocPath=kruler/index.html
 Exec=kruler
 Type=Application
