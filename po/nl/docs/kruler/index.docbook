@@ -69,17 +69,17 @@
 >&kruler; is een erg eenvoudig programma, met slechts één doel in het leven: pixelafstanden op uw scherm te meten. Het is bedoeld om te helpen bij het werken met de opmaak van dialogen, webpagina's &etc;</para>
 
 <para
->To start &kruler;, choose <menuchoice
+>Om &kruler; te starten, kiest u <menuchoice
 ><guimenu
->Applications</guimenu
+>Toepassingen</guimenu
 ><guisubmenu
->Graphics</guisubmenu
+>Hulpprogramma's</guisubmenu
 > <guisubmenu
->More Applications</guisubmenu
-> <guimenuitem
->Screen Ruler</guimenuitem
+>Meer toepassingen</guisubmenu
+><guimenuitem
+>Schermliniaal</guimenuitem
 ></menuchoice
-> from your application menu.</para>
+> uit uw toepassingenmenu</para>
 
 <screenshot>
 <screeninfo
