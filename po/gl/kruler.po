@@ -52,7 +52,7 @@ msgstr "Fonte:"
 #: cfg_appearance.ui:40
 #, kde-format
 msgid "Show tray icon"
-msgstr "Mostrar a icona da bandexa"
+msgstr "Amosar a icona da bandexa"
 
 #: klineal.cpp:90
 #, kde-format
