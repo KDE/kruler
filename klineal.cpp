@@ -824,3 +824,5 @@ void KLineal::paintEvent(QPaintEvent *e)
         drawIndicatorText(painter, xy);
     }
 }
+
+#include "moc_klineal.cpp"
