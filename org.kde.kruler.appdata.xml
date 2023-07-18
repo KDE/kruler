@@ -14,7 +14,6 @@
   <name xml:lang="de">KRuler</name>
   <name xml:lang="el">KRuler</name>
   <name xml:lang="en-GB">KRuler</name>
-  <name xml:lang="eo">KRuler</name>
   <name xml:lang="es">KRuler</name>
   <name xml:lang="et">KRuler</name>
   <name xml:lang="eu">KRuler</name>
@@ -56,7 +55,6 @@
   <summary xml:lang="de">Bildschirmlineal</summary>
   <summary xml:lang="el">Κανόνας οθόνης</summary>
   <summary xml:lang="en-GB">Screen Ruler</summary>
-  <summary xml:lang="eo">Ekranmezurilo</summary>
   <summary xml:lang="es">Regla para la pantalla</summary>
   <summary xml:lang="et">Ekraani joonlaud</summary>
   <summary xml:lang="eu">Pantailako erregela</summary>
@@ -98,7 +96,6 @@
     <p xml:lang="de">KRuler ist ein Bildschirmlineal zu Messen von Pixeln. Setzen Sie den Ursprung des Lineals auf den Startpunkt und messen Sie dann den genauen Abstand zum Cursor.</p>
     <p xml:lang="el">Το KRuler είναι ένας κανόνας οθόνης για τη μέτρηση εικονοστοιχείων. Τοποθετείτε το 0 στο αρχικό σημείο της επιλογής σας και μετράτε με ακρίβεια την απόσταση ανάμεσα στο αρχικό σημείο και το δρομέα.</p>
     <p xml:lang="en-GB">KRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.</p>
-    <p xml:lang="eo">KRuler estas surekrana mezurilo por mezuri pikselojn. Metu la 0 ĉe via komenca punkto kaj mezuru la precizan pikselan distancon inter la komenca punkto kaj via kursoro.</p>
     <p xml:lang="es">KRuler es una regla para la pantalla que permite medir píxeles. Sitúe el 0 en el punto de inicio y mida con precisión la distancia en píxeles entre el punto de inicio y el cursor.</p>
     <p xml:lang="et">KRuler on ekraani joonlaud pikslite ülemõõtmiseks. Paiguta 0 sinna, kust soovid alustada, ja mõõda täpne vahemaa pikslites nullpunktist kursorini.</p>
     <p xml:lang="eu">KRuler pantailako erregela bat da, pixelak neurtzeko erabilia. Kokatu 0 zure abiapuntuan eta neurtu honen eta kurtsorearen arteko pixel-tartea zehaztasunez.</p>
