@@ -133,10 +133,15 @@
   <url type="homepage">https://www.kde.org/applications/graphics/kruler/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kruler</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kruler&amp;source=appdata</url>
+  <url type="vcs-browser">https://invent.kde.org/graphics/kruler</url>
   <provides>
     <binary>kruler</binary>
   </provides>
+  <requires>
+    <internet>offline-only</internet>
+  </requires>
   <project_group>KDE</project_group>
+  <developer_name>The KDE Community</developer_name>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
