@@ -142,6 +142,12 @@
   </requires>
   <project_group>KDE</project_group>
   <developer_name>The KDE Community</developer_name>
+  <developer_name xml:lang="ca">La comunitat KDE</developer_name>
+  <developer_name xml:lang="eo">La KDE-Komunumo</developer_name>
+  <developer_name xml:lang="nl">De KDE-gemeenschap</developer_name>
+  <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
+  <developer_name xml:lang="uk">Спільнота KDE</developer_name>
+  <developer_name xml:lang="x-test">xxThe KDE Communityxx</developer_name>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
