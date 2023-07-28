@@ -197,7 +197,7 @@ void KLineal::createSystemTray()
     mMenu->addAction(mCloseAction);
 
     if (!mTrayIcon) {
-        mTrayIcon = new KRulerSystemTray(QStringLiteral("kruler"), this, mActionCollection);
+        mTrayIcon = new KRulerSystemTray(QStringLiteral("kruler-symbolic"), this, mActionCollection);
         mTrayIcon->setCategory(KStatusNotifierItem::ApplicationStatus);
     }
 }
