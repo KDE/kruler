@@ -142,8 +142,12 @@
   </requires>
   <project_group>KDE</project_group>
   <developer_name>The KDE Community</developer_name>
+  <developer_name xml:lang="bg">Общността на KDE</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
+  <developer_name xml:lang="cs">Komunita KDE</developer_name>
   <developer_name xml:lang="eo">La KDE-Komunumo</developer_name>
+  <developer_name xml:lang="it">La comunità KDE</developer_name>
+  <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="nl">De KDE-gemeenschap</developer_name>
   <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
