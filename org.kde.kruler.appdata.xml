@@ -62,7 +62,7 @@
   <summary xml:lang="eu">Pantailako erregela</summary>
   <summary xml:lang="fi">Näyttöviivain</summary>
   <summary xml:lang="fr">Règle d'écran</summary>
-  <summary xml:lang="gl">Regra de pantalla</summary>
+  <summary xml:lang="gl">Regra de pantalla.</summary>
   <summary xml:lang="ia">Regula de schermo</summary>
   <summary xml:lang="id">Penggaris Layar</summary>
   <summary xml:lang="is">Skjáreglustika</summary>
@@ -104,7 +104,7 @@
     <p xml:lang="eu">KRuler pantailako erregela bat da, pixelak neurtzeko erabilia. Kokatu 0 zure abiapuntuan eta neurtu honen eta kurtsorearen arteko pixel-tartea zehaztasunez.</p>
     <p xml:lang="fi">KRuler on kuvapisteiden mittaamiseen tarkoitettu näyttöviivain. Sijoita 0 alkupisteen kohdalle ja mittaa sen ja osoittimen välinen etäisyys kuvapisteinä.</p>
     <p xml:lang="fr">KRuler est une règle d'écran permettant de mesurer des pixels. Positionnez le 0 sur le point de départ pour mesurer la distance précise entre le point de départ et votre curseur.</p>
-    <p xml:lang="gl">KRuler é unha regra de pantalla para medir píxeles. Coloque o 0 no punto inicial e mida a distancia en píxeles precisa do punto inicial ao cursor.</p>
+    <p xml:lang="gl">KRuler é unha regra de pantalla para medir píxeles. Coloque o 0 no punto de partida e mida a distancia en píxeles precisa do punto inicial ao cursor.</p>
     <p xml:lang="ia">KRuler es un regula de schermo per mesurar pixeles. Tu positiona le 0 a tu puncto initial e mesura le distantia de pixel precise intra le puncto initial e tu cursor.</p>
     <p xml:lang="id">KRuler adalah sebuah penggaris pada layar untuk mengukur pixel. Posisi 0 di titik pemulaian dan mengukur jarak presisi pixel antara titik pemulaian dan kursor Anda.</p>
     <p xml:lang="is">KReglustika er skjáreglustika til að mæla mynddíla á skjá. Staðsettu 0 á upphafspunkti og mældu nákvæma vegalengd í mynddílum milli upphafspunktsins og bendilsins.</p>
@@ -146,9 +146,13 @@
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
   <developer_name xml:lang="eo">La KDE-Komunumo</developer_name>
+  <developer_name xml:lang="gl">Comunidade KDE</developer_name>
   <developer_name xml:lang="it">La comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="nl">De KDE-gemeenschap</developer_name>
+  <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
+  <developer_name xml:lang="pt-BR">A comunidade KDE</developer_name>
+  <developer_name xml:lang="sl">Skupnost KDE</developer_name>
   <developer_name xml:lang="tr">KDE Topluluğu</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxThe KDE Communityxx</developer_name>
