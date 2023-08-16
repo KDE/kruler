@@ -44,6 +44,11 @@ find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     WindowSystem
     XmlGui
 )
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
+endif()
+
 find_package(KF${KF_MAJOR_VERSION}DocTools ${KF5_MIN_VERSION})
 set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
@@ -118,6 +123,10 @@ if (KRULER_HAVE_X11)
     elseif (TARGET Qt6::Gui)
         target_link_libraries(kruler Qt6::GuiPrivate) # qtx11extras_p.h
     endif()
+endif()
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(kruler KF6::StatusNotifierItem)
 endif()
 
 install(TARGETS kruler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
