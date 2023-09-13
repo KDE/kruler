@@ -63,7 +63,7 @@ configure_file(krulerconfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
 
 add_subdirectory( pics )
 
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
     add_subdirectory(doc)
 endif()
 
