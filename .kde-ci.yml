@@ -11,12 +11,3 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kxmlgui': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
-
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5', 'Android/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/knotifications': '@stable'
-    'frameworks/kwindowsystem': '@stable'
-    'frameworks/kxmlgui': '@stable'

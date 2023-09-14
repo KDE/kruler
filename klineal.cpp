@@ -35,12 +35,8 @@
 #include "krulerconfig.h"
 
 #ifdef KRULER_HAVE_X11
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QX11Info>
-#else
-#include <private/qtx11extras_p.h>
-#endif
 #include <netwm.h>
+#include <private/qtx11extras_p.h>
 #endif
 
 #include "kruler.h"
@@ -579,11 +575,7 @@ void KLineal::mousePressEvent(QMouseEvent *e)
 
 void KLineal::mouseMoveEvent(QMouseEvent *e)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    mCursorPos = e->pos();
-#else
     mCursorPos = e->position().toPoint();
-#endif
     if (beginRect().contains(mCursorPos) || endRect().contains(mCursorPos)) {
         setCursor(resizeCursor());
     } else {

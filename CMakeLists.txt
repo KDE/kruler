@@ -8,8 +8,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kruler VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.91.0")
+set(QT_MIN_VERSION "6.5.0")
+set(KF5_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -24,20 +24,13 @@ include(FeatureSummary)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.5.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Widgets
 )
 
-find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Notifications
@@ -45,12 +38,10 @@ find_package(KF${KF_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
-endif()
+find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
-find_package(KF${KF_MAJOR_VERSION}DocTools ${KF5_MIN_VERSION})
-set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
+find_package(KF6DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -59,18 +50,11 @@ if (NOT APPLE)
     if (NOT WITHOUT_X11)
         find_package(XCB COMPONENTS XCB)
         set (KRULER_HAVE_X11 ${XCB_FOUND})
-        if (XCB_FOUND)
-            if (QT_MAJOR_VERSION STREQUAL "5")
-                find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED X11Extras)
-            else()
-                # qtx11extras_p.h is in Qt6Gui, which implied by the Qt6Gui above
-            endif()
-        endif()
     endif()
 endif()
 
 ecm_set_disabled_deprecation_versions(QT 6.5
-     KF 5.101.0
+     KF 5.240.0
     )
 
 add_definitions(-DTRANSLATION_DOMAIN="kruler")
@@ -108,11 +92,11 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-kruler.png")
 ecm_add_app_icon(kruler ICONS ${ICONS_SRCS})
 
 target_link_libraries(kruler
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::Notifications
-    KF${KF_MAJOR_VERSION}::WindowSystem
-    KF${KF_MAJOR_VERSION}::XmlGui
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::Notifications
+    KF6::WindowSystem
+    KF6::XmlGui
 )
 if (KRULER_HAVE_X11)
     target_link_libraries(kruler
@@ -125,9 +109,7 @@ if (KRULER_HAVE_X11)
     endif()
 endif()
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(kruler KF6::StatusNotifierItem)
-endif()
+target_link_libraries(kruler KF6::StatusNotifierItem)
 
 install(TARGETS kruler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -137,7 +119,7 @@ install( FILES kruler.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES move.wav  DESTINATION  ${KDE_INSTALL_DATADIR}/kruler/sounds )
 
 ki18n_install(po)
-if (KF5DocTools_FOUND)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
 endif()
 

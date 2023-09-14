@@ -9,9 +9,6 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
 #include <QCommandLineParser>
 
 #include "klineal.h"
@@ -20,16 +17,7 @@
 
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     QApplication app(argc, argv);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Kdelibs4ConfigMigrator migrate(QStringLiteral("kruler"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("krulerrc") << QStringLiteral("kruler.notifyrc"));
-    migrate.setUiFiles(QStringList() << QStringLiteral("krulerui.rc"));
-    migrate.migrate();
-#endif
 
     KAboutData aboutData(QStringLiteral("kruler"),
                          i18n("KDE Screen Ruler"),
