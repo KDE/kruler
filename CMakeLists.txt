@@ -9,9 +9,9 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 project(kruler VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF5_MIN_VERSION "5.240.0")
+set(KF_MIN_VERSION "5.240.0")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -30,7 +30,7 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF6 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Notifications
@@ -40,7 +40,7 @@ find_package(KF6 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
-find_package(KF6DocTools ${KF5_MIN_VERSION})
+find_package(KF6DocTools ${KF_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
@@ -98,15 +98,11 @@ target_link_libraries(kruler
     KF6::WindowSystem
     KF6::XmlGui
 )
-if (KRULER_HAVE_X11)
+if(KRULER_HAVE_X11)
     target_link_libraries(kruler
         ${XCB_LIBRARIES}
+        Qt6::GuiPrivate
     )
-    if (TARGET Qt5::X11Extras)
-        target_link_libraries(kruler Qt5::X11Extras)
-    elseif (TARGET Qt6::Gui)
-        target_link_libraries(kruler Qt6::GuiPrivate) # qtx11extras_p.h
-    endif()
 endif()
 
 target_link_libraries(kruler KF6::StatusNotifierItem)
