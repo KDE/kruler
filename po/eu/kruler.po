@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 00:44+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2018-08-04 16:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
@@ -55,13 +55,13 @@ msgstr "Letra-tipoa:"
 msgid "Show tray icon"
 msgstr "Erakutsi erretiluaren ikonoa"
 
-#: klineal.cpp:90
+#: klineal.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:93
+#: klineal.cpp:89
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -71,83 +71,83 @@ msgstr ""
 "Baliagarria da antolamenduekin lan egiteko, elkarrizketa-koadroetan, web-"
 "orriekin, etb."
 
-#: klineal.cpp:113
+#: klineal.cpp:109
 #, kde-format
 msgid "Rotate"
 msgstr "Biratu"
 
-#: klineal.cpp:115
+#: klineal.cpp:111
 #, kde-format
 msgid "&Scale"
 msgstr "&Eskala"
 
-#: klineal.cpp:116 klineal.cpp:330
+#: klineal.cpp:112 klineal.cpp:326
 #, kde-format
 msgid "Right to Left"
 msgstr "Eskuinetik ezkerrera"
 
-#: klineal.cpp:117
+#: klineal.cpp:113
 #, kde-format
 msgid "Center Origin"
 msgstr "Zentruaren jatorria"
 
-#: klineal.cpp:119
+#: klineal.cpp:115
 #, kde-format
 msgid "Offset..."
 msgstr "Desplazamendua..."
 
-#: klineal.cpp:122
+#: klineal.cpp:118
 #, kde-format
 msgid "Percentage"
 msgstr "Ehunekoa"
 
-#: klineal.cpp:129
+#: klineal.cpp:125
 #, kde-format
 msgid "O&pacity"
 msgstr "O&pakutasuna"
 
-#: klineal.cpp:330
+#: klineal.cpp:326
 #, kde-format
 msgid "Left to Right"
 msgstr "Ezkerretik eskuinera"
 
-#: klineal.cpp:332
+#: klineal.cpp:328
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Behetik gora"
 
-#: klineal.cpp:332
+#: klineal.cpp:328
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Goitik behera"
 
-#: klineal.cpp:375
+#: klineal.cpp:371
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Eskalaren desplazamendua"
 
-#: klineal.cpp:375
+#: klineal.cpp:371
 #, kde-format
 msgid "Offset:"
 msgstr "Desplazamendua:"
 
-#: klineal.cpp:404
+#: klineal.cpp:400
 #, kde-format
 msgid "Appearance"
 msgstr "Itxura"
 
-#: klineal.cpp:412
+#: klineal.cpp:408
 #, kde-format
 msgid "Advanced"
 msgstr "Aurreratua"
 
-#: klineal.cpp:498
+#: klineal.cpp:494
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:505
+#: klineal.cpp:501
 #, kde-format
 msgid "%1%"
 msgstr "%%1"
@@ -212,17 +212,17 @@ msgstr "Leihoaren opakotasuna"
 msgid "Is always on top"
 msgstr "Beti dago gain-gainean"
 
-#: krulersystemtray.cpp:19 main.cpp:35
+#: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDEren pantailako erregela"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "KDEk egindako pantailako erregela bat"
 
-#: main.cpp:39
+#: main.cpp:27
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -231,43 +231,43 @@ msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
-#: main.cpp:40
+#: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:40
+#: main.cpp:28
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantentzailea"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Haiserako mantentzaile eta garatzailea"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Hasierako KDE 2-rako moldaketa"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ion Gaztañaga, Marcos Goyenetxe"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

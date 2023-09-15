@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-10-14 02:59+0200\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2017-06-18 23:13+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -23,29 +23,15 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_NativeMoving)
-#: cfg_advanced.ui:23
-#, kde-format
-msgid ""
-"If this option is enabled, the window is being moved using the operations "
-"from the window manager."
-msgstr "Ако је укључено, прозор се може померати операцијама менаџера прозора."
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_NativeMoving)
-#: cfg_advanced.ui:26
-#, kde-format
-msgid "Native moving"
-msgstr "Самосвојно померање"
-
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:33
+#: cfg_advanced.ui:23
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
 msgstr "Ако је укључено, прозор се држи изнад осталих прозора."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:36
+#: cfg_advanced.ui:26
 #, kde-format
 msgid "Always on top"
 msgstr "Увек на врху"
@@ -68,13 +54,13 @@ msgstr "Фонт:"
 msgid "Show tray icon"
 msgstr "Иконица системске касете"
 
-#: klineal.cpp:89
+#: klineal.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "К‑лењир"
 
-#: klineal.cpp:93
+#: klineal.cpp:89
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -83,88 +69,88 @@ msgstr ""
 "Ова алатка се користи за мерење растојања у пикселима на екрану. Може бити "
 "веома корисно за рад на распореду дијалога, веб страница, итд."
 
-#: klineal.cpp:119
+#: klineal.cpp:109
 #, kde-format
 msgid "Rotate"
 msgstr "Ротирај"
 
-#: klineal.cpp:122
+#: klineal.cpp:111
 #, kde-format
 msgid "&Scale"
 msgstr "&Скала"
 
 # >> @item:inmenu Scale
-#: klineal.cpp:123 klineal.cpp:345
+#: klineal.cpp:112 klineal.cpp:326
 #, kde-format
 msgid "Right to Left"
 msgstr "здесна улево"
 
 # >> @item:inmenu Scale
-#: klineal.cpp:125
+#: klineal.cpp:113
 #, kde-format
 msgid "Center Origin"
 msgstr "од средишта"
 
 # >> @item:inmenu Scale
-#: klineal.cpp:128
+#: klineal.cpp:115
 #, kde-format
 msgid "Offset..."
 msgstr "помак..."
 
 # >> @item:inmenu Scale
-#: klineal.cpp:132
+#: klineal.cpp:118
 #, kde-format
 msgid "Percentage"
 msgstr "процентуална"
 
-#: klineal.cpp:140
+#: klineal.cpp:125
 #, kde-format
 msgid "O&pacity"
 msgstr "&Непрозирност"
 
-#: klineal.cpp:345
+#: klineal.cpp:326
 #, kde-format
 msgid "Left to Right"
 msgstr "слева удесно"
 
-#: klineal.cpp:347
+#: klineal.cpp:328
 #, kde-format
 msgid "Bottom to Top"
 msgstr "одоздо нагоре"
 
-#: klineal.cpp:347
+#: klineal.cpp:328
 #, kde-format
 msgid "Top to Bottom"
 msgstr "одозго надоле"
 
-#: klineal.cpp:392
+#: klineal.cpp:371
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Помак скале"
 
-#: klineal.cpp:393
+#: klineal.cpp:371
 #, kde-format
 msgid "Offset:"
 msgstr "Помак:"
 
-#: klineal.cpp:423
+#: klineal.cpp:400
 #, kde-format
 msgid "Appearance"
 msgstr "Изглед"
 
-#: klineal.cpp:431
+#: klineal.cpp:408
 #, kde-format
 msgid "Advanced"
 msgstr "Напредно"
 
 # well-spelled: пикс
-#: klineal.cpp:525
+#: klineal.cpp:494
 #, kde-format
 msgid "%1 px"
 msgstr "%1 пикс."
 
-#: klineal.cpp:532
+#: klineal.cpp:501
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
@@ -223,29 +209,23 @@ msgstr "Да ли се системска иконица користи"
 msgid "Opacity of the window"
 msgstr "Непрозирност прозора"
 
-#. i18n: ectx: label, entry (NativeMoving), group (StoredSettings)
-#: kruler.kcfg:47
-#, kde-format
-msgid "Is native moving (possibly wobbling windows) active"
-msgstr "Да ли је самосвојно померање (могући лелујави прозори) активно"
-
 #. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
-#: kruler.kcfg:51
+#: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
 msgstr "Увек је на врху"
 
-#: krulersystemtray.cpp:28 main.cpp:37
+#: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "К‑лењир"
 
-#: main.cpp:39
+#: main.cpp:25
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "Екрански лењир из КДЕ‑а"
 
-#: main.cpp:41
+#: main.cpp:27
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -254,44 +234,56 @@ msgstr ""
 "© 2000—2008, Тил Крех\n"
 "© 2009, Матијас Секен"
 
-#: main.cpp:42
+#: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Матијас Секен"
 
-#: main.cpp:42
+#: main.cpp:28
 #, kde-format
 msgid "Maintainer"
 msgstr "Одржавалац"
 
-#: main.cpp:43
+#: main.cpp:29
 #, kde-format
 msgid "Till Krech"
 msgstr "Тил Крех"
 
-#: main.cpp:43
+#: main.cpp:29
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Бивши програмер"
 
-#: main.cpp:44
+#: main.cpp:30
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Гунстејн Лије"
 
-#: main.cpp:44
+#: main.cpp:30
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Почетни пренос на КДЕ 2"
 
-#: main.cpp:45
+#: main.cpp:31
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Милош Пузовић,Часлав Илић,Зоран Олујић"
 
-#: main.cpp:45
+#: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "m.puzovic@etoncollege.org.uk,caslav.ilic@gmx.net,olujicz@gmail.com"
+
+#~ msgid ""
+#~ "If this option is enabled, the window is being moved using the operations "
+#~ "from the window manager."
+#~ msgstr ""
+#~ "Ако је укључено, прозор се може померати операцијама менаџера прозора."
+
+#~ msgid "Native moving"
+#~ msgstr "Самосвојно померање"
+
+#~ msgid "Is native moving (possibly wobbling windows) active"
+#~ msgstr "Да ли је самосвојно померање (могући лелујави прозори) активно"

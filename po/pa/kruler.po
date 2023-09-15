@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 00:44+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2010-01-27 08:38+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -48,98 +48,98 @@ msgstr "ਫੋਂਟ:"
 msgid "Show tray icon"
 msgstr "ਟਰੇ ਆਈਕਾਨ ਵੇਖੋ"
 
-#: klineal.cpp:90
+#: klineal.cpp:86
 #, fuzzy, kde-format
 #| msgid "KRuler"
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "ਕੇ-ਰੂਲਰ"
 
-#: klineal.cpp:93
+#: klineal.cpp:89
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
 
-#: klineal.cpp:113
+#: klineal.cpp:109
 #, kde-format
 msgid "Rotate"
 msgstr ""
 
-#: klineal.cpp:115
+#: klineal.cpp:111
 #, kde-format
 msgid "&Scale"
 msgstr "ਸਕੇਲ(&S)"
 
-#: klineal.cpp:116 klineal.cpp:330
+#: klineal.cpp:112 klineal.cpp:326
 #, kde-format
 msgid "Right to Left"
 msgstr "ਸੱਜੇ ਤੋਂ ਖੱਬੇ"
 
-#: klineal.cpp:117
+#: klineal.cpp:113
 #, kde-format
 msgid "Center Origin"
 msgstr "ਸੈਂਟਰ ਖਿੱਤਾ"
 
-#: klineal.cpp:119
+#: klineal.cpp:115
 #, kde-format
 msgid "Offset..."
 msgstr "ਆਫਸੈੱਟ..."
 
-#: klineal.cpp:122
+#: klineal.cpp:118
 #, kde-format
 msgid "Percentage"
 msgstr "ਫੀਸਦੀ"
 
-#: klineal.cpp:129
+#: klineal.cpp:125
 #, kde-format
 msgid "O&pacity"
 msgstr "ਬਲੌਰੀਪਨ(&p)"
 
-#: klineal.cpp:330
+#: klineal.cpp:326
 #, kde-format
 msgid "Left to Right"
 msgstr "ਖੱਬੇ ਤੋਂ ਸੱਜੇ"
 
-#: klineal.cpp:332
+#: klineal.cpp:328
 #, kde-format
 msgid "Bottom to Top"
 msgstr "ਹੇਠਾਂ ਤੋਂ ਉੱਤੇ"
 
-#: klineal.cpp:332
+#: klineal.cpp:328
 #, kde-format
 msgid "Top to Bottom"
 msgstr "ਉੱਤੇ ਤੋਂ ਹੇਠਾਂ"
 
-#: klineal.cpp:375
+#: klineal.cpp:371
 #, fuzzy, kde-format
 #| msgid "Scale Offset"
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "ਸਕੇਲ ਆਫਸੈੱਟ"
 
-#: klineal.cpp:375
+#: klineal.cpp:371
 #, kde-format
 msgid "Offset:"
 msgstr "ਆਫਸੈੱਟ:"
 
-#: klineal.cpp:404
+#: klineal.cpp:400
 #, kde-format
 msgid "Appearance"
 msgstr "ਦਿੱਖ"
 
-#: klineal.cpp:412
+#: klineal.cpp:408
 #, kde-format
 msgid "Advanced"
 msgstr "ਤਕਨੀਕੀ"
 
-#: klineal.cpp:498
+#: klineal.cpp:494
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:505
+#: klineal.cpp:501
 #, kde-format
 msgid "%1%"
 msgstr ""
@@ -205,18 +205,18 @@ msgstr ""
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:35
+#: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE ਸਕਰੀਨ ਰੂਲਰ"
 
-#: main.cpp:37
+#: main.cpp:25
 #, fuzzy, kde-format
 #| msgid "A screen ruler for the K Desktop Environment"
 msgid "A screen ruler by KDE"
 msgstr "ਕੇ ਡੈਸਕਟਾਪ ਇੰਵਾਇਰਨਮੈਂਟ ਲਈ ਸਕਰੀਨ ਰੂਲਰ ਹੈ।"
 
-#: main.cpp:39
+#: main.cpp:27
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -225,43 +225,43 @@ msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
-#: main.cpp:40
+#: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
 msgstr ""
 
-#: main.cpp:40
+#: main.cpp:28
 #, kde-format
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 00:44+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2013-03-28 15:17+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -53,13 +53,13 @@ msgstr "फॉन्ट :"
 msgid "Show tray icon"
 msgstr "ट्रे चिन्ह दर्शवा"
 
-#: klineal.cpp:90
+#: klineal.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "के-रुलर"
 
-#: klineal.cpp:93
+#: klineal.cpp:89
 #, fuzzy, kde-format
 #| msgid ""
 #| "This is a tool to measure pixel distances and colors on the screen. It is "
@@ -71,83 +71,83 @@ msgstr ""
 "स्क्रीन वरील पिक्सेल अंतर व रंग मोजण्याचे हे साधन आहे. संवादाची रचना, वेब पाने इ. वर काम "
 "करताना हे उपयोगी आहे."
 
-#: klineal.cpp:113
+#: klineal.cpp:109
 #, kde-format
 msgid "Rotate"
 msgstr ""
 
-#: klineal.cpp:115
+#: klineal.cpp:111
 #, kde-format
 msgid "&Scale"
 msgstr "प्रमाण (&S)"
 
-#: klineal.cpp:116 klineal.cpp:330
+#: klineal.cpp:112 klineal.cpp:326
 #, kde-format
 msgid "Right to Left"
 msgstr "उजवीकडुन डावीकडे"
 
-#: klineal.cpp:117
+#: klineal.cpp:113
 #, kde-format
 msgid "Center Origin"
 msgstr "मध्य उगम"
 
-#: klineal.cpp:119
+#: klineal.cpp:115
 #, kde-format
 msgid "Offset..."
 msgstr "ऑफसेट..."
 
-#: klineal.cpp:122
+#: klineal.cpp:118
 #, kde-format
 msgid "Percentage"
 msgstr "टक्के"
 
-#: klineal.cpp:129
+#: klineal.cpp:125
 #, kde-format
 msgid "O&pacity"
 msgstr "अपारदर्शकता (&P)"
 
-#: klineal.cpp:330
+#: klineal.cpp:326
 #, kde-format
 msgid "Left to Right"
 msgstr "डावीकडुन उजवीकडे"
 
-#: klineal.cpp:332
+#: klineal.cpp:328
 #, kde-format
 msgid "Bottom to Top"
 msgstr "खालून वर"
 
-#: klineal.cpp:332
+#: klineal.cpp:328
 #, kde-format
 msgid "Top to Bottom"
 msgstr "वरुन खाली"
 
-#: klineal.cpp:375
+#: klineal.cpp:371
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "प्रमाण ऑफसेट"
 
-#: klineal.cpp:375
+#: klineal.cpp:371
 #, kde-format
 msgid "Offset:"
 msgstr "ऑफसेट :"
 
-#: klineal.cpp:404
+#: klineal.cpp:400
 #, kde-format
 msgid "Appearance"
 msgstr "दर्शनीयता"
 
-#: klineal.cpp:412
+#: klineal.cpp:408
 #, kde-format
 msgid "Advanced"
 msgstr "प्रगत"
 
-#: klineal.cpp:498
+#: klineal.cpp:494
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:505
+#: klineal.cpp:501
 #, kde-format
 msgid "%1%"
 msgstr ""
@@ -212,18 +212,18 @@ msgstr "चौकटीची अपारदर्शकता"
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:35
+#: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "केडीई स्क्रीन मोजपट्टी"
 
-#: main.cpp:37
+#: main.cpp:25
 #, fuzzy, kde-format
 #| msgid "A screen ruler for KDE"
 msgid "A screen ruler by KDE"
 msgstr "केडीई करिता स्क्रीन मोजपट्टी"
 
-#: main.cpp:39
+#: main.cpp:27
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -232,43 +232,43 @@ msgstr ""
 "(c) 2000 - 2008, टिल क्रेच\n"
 "(c) 2009, माथिआस सोकेन"
 
-#: main.cpp:40
+#: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "माथिआस सोकेन"
 
-#: main.cpp:40
+#: main.cpp:28
 #, kde-format
 msgid "Maintainer"
 msgstr "पालक"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "Till Krech"
 msgstr "टिल क्रेच"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "पूर्वीचा पालक व विकासकर्ता"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "गनस्टैन लाय"
 
-#: main.cpp:42
+#: main.cpp:30
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "केडीई 2 करिता सुरुवातीचे पोर्ट"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "चेतन खोना"
 
-#: main.cpp:43
+#: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
