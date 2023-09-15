@@ -34,11 +34,11 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Notifications
+    StatusNotifierItem
     WindowSystem
     XmlGui
 )
 
-find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 
 find_package(KF6DocTools ${KF_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
@@ -97,6 +97,7 @@ target_link_libraries(kruler
     KF6::Notifications
     KF6::WindowSystem
     KF6::XmlGui
+    KF6::StatusNotifierItem
 )
 if(KRULER_HAVE_X11)
     target_link_libraries(kruler
@@ -104,8 +105,6 @@ if(KRULER_HAVE_X11)
         Qt6::GuiPrivate
     )
 endif()
-
-target_link_libraries(kruler KF6::StatusNotifierItem)
 
 install(TARGETS kruler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
