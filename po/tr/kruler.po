@@ -89,12 +89,12 @@ msgstr "Sağdan Sola"
 #: klineal.cpp:113
 #, kde-format
 msgid "Center Origin"
-msgstr "Başnoktayı Ortala"
+msgstr "Orjine Ortala"
 
 #: klineal.cpp:115
 #, kde-format
 msgid "Offset..."
-msgstr "Göreli Konum..."
+msgstr "Ofset..."
 
 #: klineal.cpp:118
 #, kde-format
@@ -125,12 +125,12 @@ msgstr "Yukarıdan Aşağıya"
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
-msgstr "Yerleşimi Ölçekle"
+msgstr "Ölçek Ofseti"
 
 #: klineal.cpp:371
 #, kde-format
 msgid "Offset:"
-msgstr "Göreli Konum:"
+msgstr "Ofset:"
 
 #: klineal.cpp:400
 #, kde-format
@@ -145,7 +145,7 @@ msgstr "Gelişmiş"
 #: klineal.cpp:494
 #, kde-format
 msgid "%1 px"
-msgstr "%1 piksel"
+msgstr "%1 pks"
 
 #: klineal.cpp:501
 #, kde-format
@@ -229,12 +229,12 @@ msgid ""
 "(c) 2009, Mathias Soeken"
 msgstr ""
 "(c) 2000 - 2008, Till Krech\n"
-"(c) 2009, Mathias Soeken"
+"(c) 2009, Mathias Söken"
 
 #: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
-msgstr "Mathias Soeken"
+msgstr "Mathias Söken"
 
 #: main.cpp:28
 #, kde-format
@@ -272,16 +272,3 @@ msgstr "Tuncay YENİAY, Emir SARI"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tuncayyeniay@mynet.com, emir_sari@icloud.com"
-
-#~ msgid ""
-#~ "If this option is enabled, the window is being moved using the operations "
-#~ "from the window manager."
-#~ msgstr ""
-#~ "Eğer bu seçenek etkinleştirilirse pencereler pencere yöneticisinden gelen "
-#~ "yönergelere göre taşınır."
-
-#~ msgid "Native moving"
-#~ msgstr "Doğal taşıma"
-
-#~ msgid "Is native moving (possibly wobbling windows) active"
-#~ msgstr "Doğal taşıma (muhtemelen sallanan pencereler) etkin"
