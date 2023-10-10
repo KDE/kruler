@@ -147,7 +147,7 @@
 >Puede cambiar el tamaño de la regla moviendo el ratón sobre el asa de los bordes derecho o izquierdo de &kruler; (los bordes superior o inferior cuando está orientada verticalmente), manteniendo pulsado el &LMB; y arrastrando el asa.</para>
 
 <para
->Usted puede cambiar la orientación de dos maneras distintas:</para>
+>Puede cambiar la orientación de dos maneras distintas:</para>
 
 <simplelist>
 <member
@@ -225,17 +225,17 @@
 <term>
 <menuchoice>
 <guimenuitem
->Configurar accesos rápidos...</guimenuitem>
+>Configurar los atajos de teclado...</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
 <para
 >El diálogo <guilabel
->Configurar accesos rápidos</guilabel
-> le permite asignar accesos rápidos a las acciones de &kruler; y configurar los accesos rápidos ya asignados.</para>
+>Configurar atajos de teclado</guilabel
+> le permite asignar atajos de teclado a las acciones de &kruler; y configurar los atajos de teclado ya asignados.</para>
 <para
 >Para más información, lea la sección sobre los <ulink url="help:/fundamentals/config.html#shortcuts"
->Accesos rápidos</ulink
+>Atajos de teclado</ulink
 > de los fundamentos de &kde;. </para>
 </listitem>
 </varlistentry>
