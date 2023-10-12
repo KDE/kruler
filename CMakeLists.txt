@@ -59,7 +59,7 @@ ecm_set_disabled_deprecation_versions(QT 6.5
 
 add_definitions(-DTRANSLATION_DOMAIN="kruler")
 
-configure_file(krulerconfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
+configure_file(krulerconfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
 
 add_subdirectory( pics )
 
