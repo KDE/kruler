@@ -35,6 +35,7 @@
 #include "krulerconfig.h"
 
 #ifdef KRULER_HAVE_X11
+#include <KX11Extras>
 #include <netwm.h>
 #include <private/qtx11extras_p.h>
 #endif
@@ -81,7 +82,11 @@ KLineal::KLineal(QWidget *parent)
     mWayland = KWindowSystem::isPlatformWayland();
 
     setAttribute(Qt::WA_TranslucentBackground);
-    KWindowSystem::setType(winId(), NET::Override); // or NET::Normal
+#ifdef KRULER_HAVE_X11
+    if (KWindowSystem::isPlatformX11()) {
+        KX11Extras::setType(winId(), NET::Override); // or NET::Normal
+    }
+#endif
 
     setWindowTitle(i18nc("@title:window", "KRuler"));
 
