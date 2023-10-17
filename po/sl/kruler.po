@@ -2,7 +2,7 @@
 # Translation of kruler.po to Slovenian
 # SLOVENIAN TRANSLATION OF KRULER.
 # Copyright (C) 2001, 2003, 2004, 2005 Free Software Foundation, Inc.
-# $Id: kruler.po 1660204 2023-09-15 02:08:55Z scripty $
+# $Id: kruler.po 1662450 2023-10-17 02:02:20Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:53+0000\n"
+"POT-Creation-Date: 2023-10-17 01:39+0000\n"
 "PO-Revision-Date: 2017-06-17 08:48+0100\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -56,13 +56,13 @@ msgstr "Pisava:"
 msgid "Show tray icon"
 msgstr "Ikona v sistemski vrstici"
 
-#: klineal.cpp:86
+#: klineal.cpp:91
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:89
+#: klineal.cpp:94
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -71,83 +71,83 @@ msgstr ""
 "S tem orodjem lahko merite razdalje na vašem zaslonu (v slikovnih točkah). "
 "Uporabno je za izdelavo pogovornih oken, spletnih strani, itd."
 
-#: klineal.cpp:109
+#: klineal.cpp:114
 #, kde-format
 msgid "Rotate"
 msgstr "Zavrti"
 
-#: klineal.cpp:111
+#: klineal.cpp:116
 #, kde-format
 msgid "&Scale"
 msgstr "&Merilo"
 
-#: klineal.cpp:112 klineal.cpp:326
+#: klineal.cpp:117 klineal.cpp:331
 #, kde-format
 msgid "Right to Left"
 msgstr "Z desne proti levi"
 
-#: klineal.cpp:113
+#: klineal.cpp:118
 #, kde-format
 msgid "Center Origin"
 msgstr "Postavi izhodišče na sredino"
 
-#: klineal.cpp:115
+#: klineal.cpp:120
 #, kde-format
 msgid "Offset..."
 msgstr "Odmik ..."
 
-#: klineal.cpp:118
+#: klineal.cpp:123
 #, kde-format
 msgid "Percentage"
 msgstr "Odstotek"
 
-#: klineal.cpp:125
+#: klineal.cpp:130
 #, kde-format
 msgid "O&pacity"
 msgstr "M&otnost"
 
-#: klineal.cpp:326
+#: klineal.cpp:331
 #, kde-format
 msgid "Left to Right"
 msgstr "Z leve proti desni"
 
-#: klineal.cpp:328
+#: klineal.cpp:333
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Z dna proti vrhu"
 
-#: klineal.cpp:328
+#: klineal.cpp:333
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Z vrha proti dnu"
 
-#: klineal.cpp:371
+#: klineal.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Odmik merila"
 
-#: klineal.cpp:371
+#: klineal.cpp:376
 #, kde-format
 msgid "Offset:"
 msgstr "Odmik:"
 
-#: klineal.cpp:400
+#: klineal.cpp:405
 #, kde-format
 msgid "Appearance"
 msgstr "Videz"
 
-#: klineal.cpp:408
+#: klineal.cpp:413
 #, kde-format
 msgid "Advanced"
 msgstr "Napredno"
 
-#: klineal.cpp:494
+#: klineal.cpp:499
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:501
+#: klineal.cpp:506
 #, kde-format
 msgid "%1%"
 msgstr "%1 %"
