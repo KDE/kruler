@@ -15,206 +15,203 @@ msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-17 01:39+0000\n"
-"PO-Revision-Date: 2017-05-16 07:02-0400\n"
+"PO-Revision-Date: 2023-10-23 15:31+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
-msgstr ""
+msgstr "אם אפשרות זו פעילה, החלון יישאר מרחף מעל חלונות אחרים."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:26
 #, kde-format
 msgid "Always on top"
-msgstr ""
+msgstr "תמיד מרחף"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: cfg_appearance.ui:20
 #, kde-format
 msgid "Background color:"
-msgstr ""
+msgstr "צבע רקע:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: cfg_appearance.ui:30
 #, kde-format
 msgid "Font:"
-msgstr ""
+msgstr "גופן:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
 #: cfg_appearance.ui:40
 #, kde-format
 msgid "Show tray icon"
-msgstr ""
+msgstr "הצגת סמל במגש"
 
 #: klineal.cpp:91
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
 #: klineal.cpp:94
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a tool to measure pixel distances and colors on the screen. It is "
-#| "useful for working on layouts of dialogs, web pages etc."
+#, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
-"זהו כלי למדידת צבעים ומרחקים בפיקסלים על גבי המסך. הוא שימושי לעבודה על "
-"עיצוב של תיבות דו־שיח, אתרי אינטרנט וכו'."
+"כלי זה משמש למדידת צבעים ומרחקים בפיקסלים על גבי המסך. הוא שימושי לעבודה על "
+"עיצוב של חלוניות, אתרי אינטרנט וכו׳."
 
 #: klineal.cpp:114
 #, kde-format
 msgid "Rotate"
-msgstr ""
+msgstr "הטיה"
 
 #: klineal.cpp:116
 #, kde-format
 msgid "&Scale"
-msgstr ""
+msgstr "&קנה מידה"
 
 #: klineal.cpp:117 klineal.cpp:331
 #, kde-format
 msgid "Right to Left"
-msgstr ""
+msgstr "מימין לשמאל"
 
 #: klineal.cpp:118
 #, kde-format
 msgid "Center Origin"
-msgstr ""
+msgstr "מקור מרכז"
 
 #: klineal.cpp:120
 #, kde-format
 msgid "Offset..."
-msgstr ""
+msgstr "היסט…"
 
 #: klineal.cpp:123
 #, kde-format
 msgid "Percentage"
-msgstr ""
+msgstr "אחוז"
 
 #: klineal.cpp:130
 #, kde-format
 msgid "O&pacity"
-msgstr ""
+msgstr "&אטימות"
 
 #: klineal.cpp:331
 #, kde-format
 msgid "Left to Right"
-msgstr ""
+msgstr "משמאל לימין"
 
 #: klineal.cpp:333
 #, kde-format
 msgid "Bottom to Top"
-msgstr ""
+msgstr "מלמטה למעלה"
 
 #: klineal.cpp:333
 #, kde-format
 msgid "Top to Bottom"
-msgstr ""
+msgstr "מלמעלה למטה"
 
 #: klineal.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
-msgstr ""
+msgstr "היסט קנה מידה"
 
 #: klineal.cpp:376
 #, kde-format
 msgid "Offset:"
-msgstr ""
+msgstr "היסט:"
 
 #: klineal.cpp:405
 #, kde-format
 msgid "Appearance"
-msgstr ""
+msgstr "מראה"
 
 #: klineal.cpp:413
 #, kde-format
 msgid "Advanced"
-msgstr ""
+msgstr "מתקדם"
 
 #: klineal.cpp:499
 #, kde-format
 msgid "%1 px"
-msgstr ""
+msgstr "%1 פיקסלים"
 
 #: klineal.cpp:506
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
 #, kde-format
 msgid "Background color of the ruler."
-msgstr ""
+msgstr "צבע רקע הסרגל."
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
-#, fuzzy, kde-format
+#, kde-format
 msgid "Length of the ruler."
-msgstr "&כיוון"
+msgstr "אורך הסרגל."
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
 #, kde-format
 msgid "Font of the text on the ruler scale."
-msgstr ""
+msgstr "גופן הכתב על קנה המידה של הסרגל."
 
 #. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr ""
+msgstr "סרגל אופקי"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Direction of the ruler"
-msgstr "&כיוון"
+msgstr "כיוון הסרגל"
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
 #, kde-format
 msgid "Offset of the origin"
-msgstr ""
+msgstr "היסט המקור"
 
 #. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr ""
+msgstr "האם קנה המידה של הסרגל הוא יחסי (באחוזים)"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
 #, kde-format
 msgid "Is a tray icon used"
-msgstr ""
+msgstr "האם להשתמש בסמל במגש"
 
 #. i18n: ectx: label, entry (Opacity), group (StoredSettings)
 #: kruler.kcfg:43
 #, kde-format
 msgid "Opacity of the window"
-msgstr ""
+msgstr "אטימות החלון"
 
 #. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
 #: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
-msgstr ""
+msgstr "תמיד מרחף"
 
 #: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
@@ -222,9 +219,9 @@ msgid "KDE Screen Ruler"
 msgstr "סרגל המסך של KDE"
 
 #: main.cpp:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "A screen ruler by KDE"
-msgstr "סרגל מסך לסביבת שולחן העבודה KDE."
+msgstr "סרגל מסך מבית KDE"
 
 #: main.cpp:27
 #, kde-format
@@ -232,31 +229,33 @@ msgid ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 msgstr ""
+"(c) 2000‏ - 2008, טיל קרק\n"
+"(c) 2009, מתיאס סוקן"
 
 #: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
-msgstr ""
+msgstr "מתיאס סוקן"
 
 #: main.cpp:28
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "מתחזק"
 
 #: main.cpp:29
 #, kde-format
 msgid "Till Krech"
-msgstr ""
+msgstr "טיל קרק"
 
 #: main.cpp:29
 #, kde-format
 msgid "Former Maintainer and Developer"
-msgstr ""
+msgstr "מתחזק ומתכנת קודם"
 
 #: main.cpp:30
 #, kde-format
 msgid "Gunnstein Lye"
-msgstr ""
+msgstr "לאי גנסטיין"
 
 #: main.cpp:30
 #, kde-format
