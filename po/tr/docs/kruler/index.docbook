@@ -1,0 +1,352 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Turkish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>&kruler; El kitabı</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2017-06-14</date>
+<releaseinfo
+>5.0 (Uygulamalar 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; ekrandaki nesneleri ölçmek için kullanılabilir. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>K Cetvel</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+
+<para
+>&kruler; tek amacı olan basit bir uygulamadır. Ekranınızdaki piksel mesafelerini ölçmek içindir. Şunlar üzerinde çalışırken yararlıdır: iletişim kutuları, web sayfaları &etc;</para>
+
+<para
+>&kruler;'i başlatmak için sistem menünüzden <menuchoice
+><guimenu
+>Uygulamalar</guimenu
+><guisubmenu
+>İzlenceler</guisubmenu
+> <guisubmenu
+>Daha Fazla Uygulama</guisubmenu
+> <guimenuitem
+>Ekran Cetveli</guimenuitem
+></menuchoice
+> yolunu izleyin.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>&kruler; üzerinde &LMB; ile tıklandığında, imleci dört oklu bir şekle döndürür ve &kruler;'i ekranda hareket ettirebilmenize olanak sağlar.</para>
+
+<para
+>Farenizi &kruler; üzerine getirdiğinizde, imleciniz kırmızı oka dönüşür. İmleci hareket ettirdikçe, &kruler; imlecin asıl noktasından ne kadar uzakta olduğunu gösterir. </para>
+
+<para
+>Cetveli &kruler;'in sol ve sağ tarafında bulunan tutaçları kullanıp &LMB; ile basılı tutarak ve sürükleyerek yeniden boyutlandırabilirsiniz (dikey olduğunda üst ve alt uçlardan).</para>
+
+<para
+>Yönlendirmeyi iki farklı yolla değiştirebilirsiniz:</para>
+
+<simplelist>
+<member
+>&MMB; ile tıklamak, cetveli yatay yönden dikey yöne doğru değiştirir</member>
+<member
+>Bağlam menüsü ayrıntıları; bir sonraki bölüme bakın</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Menü Başvurusu</title>
+
+<para
+>&RMB; ile tıklamak; takip eden girişler ile birlikte cetveldeki bağlam menüsünü açar:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Döndür</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>&kruler;'i dikeyden yatay yöne çevirir.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Ölçek</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Bu seçenek, cetvel ölçeğini <guilabel
+>Sağdan Sola</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Orjine Ortala</guilabel
+> (<keycap
+>C</keycap
+>), <guilabel
+>Ofset</guilabel
+> (<keycap
+>O</keycap
+>) ve <guilabel
+>Yüzde</guilabel
+> olarak ayarlamanıza olanak tanır.</para>
+<para
+>Fare tekerleği ile ofseti değiştirmek, &LMB; ile basılı tutarken olanaklıdır.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Matlık</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Bu menü, &kruler;'in matlığını değiştirmek için bir kaydırıcı görüntüler.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Kısayolları Yapılandır...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+><guilabel
+>Kısayolları Yapılandır</guilabel
+> iletişim kutusu, &kruler; eylemlerine kısayollar atamaya ve halihazırda atanmış kısayolları yapılandırmanıza izin verir.</para>
+<para
+>Daha fazla bilgi için &kde; Temelleri'ndeki <ulink url="help:/fundamentals/config.html#shortcuts"
+>Kısayollar</ulink
+> bölümüne bakın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>&kruler; Uygulamasını Yapılandır...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>&kruler;'in ayarlar iletişim kutusu</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;'ın ayarlar iletişim kutusu</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>Bu iletişim kutusunda arka plan rengini ve yazıtipini değiştirebilir ve tepsi simgesini etkinleştirebilirsiniz.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Kapat</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&kruler;'ı <action
+>gizler</action
+>. Sistem tepsisi simgesi kullanılarak yeniden gösterilebilir. Bu bağlam menüsü ögesi, yalnızca <link linkend="settings-dialog"
+>ayarlar iletişim kutusundaki</link
+><guilabel
+>Sistem tepsisi simgesini göster</guilabel
+> etkinse gösterilir.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Çık</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+>&kruler;'den <action
+>çıkar</action
+></para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler;'de temel &kde; <guimenu
+>Yardım</guimenu
+> menü ögesi vardır; daha fazla bilgi için &kde; Temelleri'nin <ulink url="help:/fundamentals/menus.html#menus-help"
+>Yardım Menüsü</ulink
+> bölümüne bakın. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Klavye Kullanımı</title>
+
+<para
+>Cetveli ok düğmelerini kullanarak hareket ettirebilirsiniz.</para>
+
+<para
+>Fare imlecini ve dolayısıyla cetvel göstergesini &Alt; düğmesini basılı tutup ok düğmelerini kullanarak hareket ettirebilirsiniz.</para>
+
+<para
+>Daha hızlı hareket etmek için bunlardan birini yaparken &Shift; düğmesini basılı tutun.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Emeği Geçenler ve Lisans</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Telif hakkı 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Telif Hakkı 2009 Mathias Söken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>&kde; 2 aktarımı için Gunnstein Lye'e (<email
+>gl@ez.no</email
+>) teşekkürler</para>
+
+<para
+>Belgelendirme telif hakkı  &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Çeviri: Emir SARI <email
+>emir_sari@icloud.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
