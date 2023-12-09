@@ -84,7 +84,6 @@ private:
     KActionCollection *mActionCollection = nullptr;
     int mOpacity = 0;
     KRulerSystemTray *mTrayIcon = nullptr;
-    bool mWayland;
 
     void setHorizontal(bool horizontal);
 

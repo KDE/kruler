@@ -75,12 +75,6 @@ static const int CURSOR_SIZE = 15; // Must be an odd number
 KLineal::KLineal(QWidget *parent)
     : QWidget(parent)
 {
-    // In Wayland, clients cannot currently query a fractional pixel ratio. To
-    // avoid showing a wrong value, we do not remap virtualized values and
-    // simply return 1 in the pixelRatio() method. This logic can be removed
-    // once Wayland fills the gap.
-    mWayland = KWindowSystem::isPlatformWayland();
-
     setAttribute(Qt::WA_TranslucentBackground);
 #ifdef KRULER_HAVE_X11
     if (KWindowSystem::isPlatformX11()) {
@@ -487,7 +481,7 @@ int KLineal::length() const
 
 inline qreal KLineal::pixelRatio() const
 {
-    if (mWayland || !windowHandle())
+    if (!windowHandle())
         return 1;
     return windowHandle()->devicePixelRatio();
 }
