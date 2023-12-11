@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-17 01:39+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2017-06-27 21:37+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -51,96 +51,96 @@ msgstr "字型"
 msgid "Show tray icon"
 msgstr "顯示系統匣圖示"
 
-#: klineal.cpp:91
+#: klineal.cpp:85
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:94
+#: klineal.cpp:88
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr "這是一個量測螢幕像素距離的工具。在對話框、網頁設計等排版時非常有用。"
 
-#: klineal.cpp:114
+#: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
 msgstr "旋轉"
 
-#: klineal.cpp:116
+#: klineal.cpp:110
 #, kde-format
 msgid "&Scale"
 msgstr "刻度(&S)"
 
-#: klineal.cpp:117 klineal.cpp:331
+#: klineal.cpp:111 klineal.cpp:325
 #, kde-format
 msgid "Right to Left"
 msgstr "右到左"
 
-#: klineal.cpp:118
+#: klineal.cpp:112
 #, kde-format
 msgid "Center Origin"
 msgstr "原點置中"
 
-#: klineal.cpp:120
+#: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
 msgstr "位移..."
 
-#: klineal.cpp:123
+#: klineal.cpp:117
 #, kde-format
 msgid "Percentage"
 msgstr "百分比"
 
-#: klineal.cpp:130
+#: klineal.cpp:124
 #, kde-format
 msgid "O&pacity"
 msgstr "不透明度(&P)"
 
-#: klineal.cpp:331
+#: klineal.cpp:325
 #, kde-format
 msgid "Left to Right"
 msgstr "左到右"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Bottom to Top"
 msgstr "下到上"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Top to Bottom"
 msgstr "上到下"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "刻度位移"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgid "Offset:"
 msgstr "Offset："
 
-#: klineal.cpp:405
+#: klineal.cpp:399
 #, kde-format
 msgid "Appearance"
 msgstr "外觀"
 
-#: klineal.cpp:413
+#: klineal.cpp:407
 #, kde-format
 msgid "Advanced"
 msgstr "進階"
 
-#: klineal.cpp:499
+#: klineal.cpp:493
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:506
+#: klineal.cpp:500
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

@@ -1,5 +1,5 @@
 # translation of kruler.po to Polish
-# Version: $Revision: 1662450 $
+# Version: $Revision: 1667024 $
 # translation of kruler.po to
 # Copyright (C) 2002,2003, 2004, 2007, 2009 Free Software Foundation, Inc.
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-17 01:39+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2022-01-08 09:19+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -54,13 +54,13 @@ msgstr "Czcionka:"
 msgid "Show tray icon"
 msgstr "Pokaż ikonę na tacce systemowej"
 
-#: klineal.cpp:91
+#: klineal.cpp:85
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KLinijka"
 
-#: klineal.cpp:94
+#: klineal.cpp:88
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -69,83 +69,83 @@ msgstr ""
 "Narzędzie do mierzenia odległości na ekranie. Przydatne przy pracy nad "
 "projektowaniem okienek dialogowych, stron WWW itd."
 
-#: klineal.cpp:114
+#: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
 msgstr "Obróć"
 
-#: klineal.cpp:116
+#: klineal.cpp:110
 #, kde-format
 msgid "&Scale"
 msgstr "&Skala"
 
-#: klineal.cpp:117 klineal.cpp:331
+#: klineal.cpp:111 klineal.cpp:325
 #, kde-format
 msgid "Right to Left"
 msgstr "Z lewej do prawej"
 
-#: klineal.cpp:118
+#: klineal.cpp:112
 #, kde-format
 msgid "Center Origin"
 msgstr "Wyśrodkuj początek"
 
-#: klineal.cpp:120
+#: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
 msgstr "Przesunięcie..."
 
-#: klineal.cpp:123
+#: klineal.cpp:117
 #, kde-format
 msgid "Percentage"
 msgstr "Procent"
 
-#: klineal.cpp:130
+#: klineal.cpp:124
 #, kde-format
 msgid "O&pacity"
 msgstr "Nie&przezroczystość"
 
-#: klineal.cpp:331
+#: klineal.cpp:325
 #, kde-format
 msgid "Left to Right"
 msgstr "Z lewej do prawej"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Z dołu do góry"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Z góry na dół"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Przesunięcie skali"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgid "Offset:"
 msgstr "Przesunięcie:"
 
-#: klineal.cpp:405
+#: klineal.cpp:399
 #, kde-format
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: klineal.cpp:413
+#: klineal.cpp:407
 #, kde-format
 msgid "Advanced"
 msgstr "Rozszerzone"
 
-#: klineal.cpp:499
+#: klineal.cpp:493
 #, kde-format
 msgid "%1 px"
 msgstr "%1 piks."
 
-#: klineal.cpp:506
+#: klineal.cpp:500
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

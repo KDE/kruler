@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-17 01:39+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2010-01-27 08:38+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -48,98 +48,98 @@ msgstr "ਫੋਂਟ:"
 msgid "Show tray icon"
 msgstr "ਟਰੇ ਆਈਕਾਨ ਵੇਖੋ"
 
-#: klineal.cpp:91
+#: klineal.cpp:85
 #, fuzzy, kde-format
 #| msgid "KRuler"
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "ਕੇ-ਰੂਲਰ"
 
-#: klineal.cpp:94
+#: klineal.cpp:88
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
 
-#: klineal.cpp:114
+#: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
 msgstr ""
 
-#: klineal.cpp:116
+#: klineal.cpp:110
 #, kde-format
 msgid "&Scale"
 msgstr "ਸਕੇਲ(&S)"
 
-#: klineal.cpp:117 klineal.cpp:331
+#: klineal.cpp:111 klineal.cpp:325
 #, kde-format
 msgid "Right to Left"
 msgstr "ਸੱਜੇ ਤੋਂ ਖੱਬੇ"
 
-#: klineal.cpp:118
+#: klineal.cpp:112
 #, kde-format
 msgid "Center Origin"
 msgstr "ਸੈਂਟਰ ਖਿੱਤਾ"
 
-#: klineal.cpp:120
+#: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
 msgstr "ਆਫਸੈੱਟ..."
 
-#: klineal.cpp:123
+#: klineal.cpp:117
 #, kde-format
 msgid "Percentage"
 msgstr "ਫੀਸਦੀ"
 
-#: klineal.cpp:130
+#: klineal.cpp:124
 #, kde-format
 msgid "O&pacity"
 msgstr "ਬਲੌਰੀਪਨ(&p)"
 
-#: klineal.cpp:331
+#: klineal.cpp:325
 #, kde-format
 msgid "Left to Right"
 msgstr "ਖੱਬੇ ਤੋਂ ਸੱਜੇ"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Bottom to Top"
 msgstr "ਹੇਠਾਂ ਤੋਂ ਉੱਤੇ"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Top to Bottom"
 msgstr "ਉੱਤੇ ਤੋਂ ਹੇਠਾਂ"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, fuzzy, kde-format
 #| msgid "Scale Offset"
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "ਸਕੇਲ ਆਫਸੈੱਟ"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgid "Offset:"
 msgstr "ਆਫਸੈੱਟ:"
 
-#: klineal.cpp:405
+#: klineal.cpp:399
 #, kde-format
 msgid "Appearance"
 msgstr "ਦਿੱਖ"
 
-#: klineal.cpp:413
+#: klineal.cpp:407
 #, kde-format
 msgid "Advanced"
 msgstr "ਤਕਨੀਕੀ"
 
-#: klineal.cpp:499
+#: klineal.cpp:493
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:506
+#: klineal.cpp:500
 #, kde-format
 msgid "%1%"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-17 01:39+0000\n"
+"POT-Creation-Date: 2023-12-11 01:34+0000\n"
 "PO-Revision-Date: 2022-09-27 18:12+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -51,13 +51,13 @@ msgstr "Font:"
 msgid "Show tray icon"
 msgstr "Tampilkan ikon baki"
 
-#: klineal.cpp:91
+#: klineal.cpp:85
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
-#: klineal.cpp:94
+#: klineal.cpp:88
 #, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
@@ -66,83 +66,83 @@ msgstr ""
 "Ini adalah alat untuk mengukur jarak pixel pada layar. Itu berguna untuk "
 "bekerja pada tataletak dialog, halaman web dll."
 
-#: klineal.cpp:114
+#: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
 msgstr "Rotasikan"
 
-#: klineal.cpp:116
+#: klineal.cpp:110
 #, kde-format
 msgid "&Scale"
 msgstr "&Skala"
 
-#: klineal.cpp:117 klineal.cpp:331
+#: klineal.cpp:111 klineal.cpp:325
 #, kde-format
 msgid "Right to Left"
 msgstr "Kanan ke Kiri"
 
-#: klineal.cpp:118
+#: klineal.cpp:112
 #, kde-format
 msgid "Center Origin"
 msgstr "Pusat Asal"
 
-#: klineal.cpp:120
+#: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
 msgstr "Ofset..."
 
-#: klineal.cpp:123
+#: klineal.cpp:117
 #, kde-format
 msgid "Percentage"
 msgstr "Persentase"
 
-#: klineal.cpp:130
+#: klineal.cpp:124
 #, kde-format
 msgid "O&pacity"
 msgstr "Opasitas"
 
-#: klineal.cpp:331
+#: klineal.cpp:325
 #, kde-format
 msgid "Left to Right"
 msgstr "Kiri ke Kanan"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Bawah ke Atas"
 
-#: klineal.cpp:333
+#: klineal.cpp:327
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Atas ke Bawah"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Ofset Skala"
 
-#: klineal.cpp:376
+#: klineal.cpp:370
 #, kde-format
 msgid "Offset:"
 msgstr "Ofset:"
 
-#: klineal.cpp:405
+#: klineal.cpp:399
 #, kde-format
 msgid "Appearance"
 msgstr "Penampilan"
 
-#: klineal.cpp:413
+#: klineal.cpp:407
 #, kde-format
 msgid "Advanced"
 msgstr "Tingkat-lanjut"
 
-#: klineal.cpp:499
+#: klineal.cpp:493
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:506
+#: klineal.cpp:500
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
