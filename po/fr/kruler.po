@@ -6,7 +6,7 @@
 # Matthieu Robin <kde@macolu.org>, 2002, 2004.
 # CAULIER Gilles <caulier.gilles@free.fr>, 2003.
 # Bruno Patri <bruno.patri@gmail.com>, 2007, 2009, 2010.
-# xavier <xavier.besnard@neuf.fr>, 2013, 2021.
+# Xavier Besnard <xavier.besnard@kde.org>, 2013, 2021.
 # Yoann Laissus <yoann.laissus@gmail.com>, 2018.
 #
 msgid ""
