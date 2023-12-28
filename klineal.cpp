@@ -405,7 +405,12 @@ void KLineal::slotPreferences()
         QWidget *advancedConfigWidget = new QWidget(dialog);
         advancedConfig.setupUi(advancedConfigWidget);
         dialog->addPage(advancedConfigWidget, i18n("Advanced"), QStringLiteral("preferences-other"));
+        dialog->setFaceType(KConfigDialog::List);
+    } else {
+        dialog->setFaceType(KConfigDialog::Plain);
     }
+#else
+    dialog->setFaceType(KConfigDialog::Plain);
 #endif
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &KLineal::loadConfig);

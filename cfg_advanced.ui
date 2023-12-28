@@ -14,9 +14,6 @@
    <property name="fieldGrowthPolicy" >
     <enum>QFormLayout::ExpandingFieldsGrow</enum>
    </property>
-   <property name="margin" >
-    <number>0</number>
-   </property>
    <item row="2" column="1" >
     <widget class="QCheckBox" name="kcfg_AlwaysOnTop" >
      <property name="toolTip" >
