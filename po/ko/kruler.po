@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2020-04-21 00:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "X-Generator: Lokalize 19.04.3\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:23
+#: cfg_advanced.ui:20
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
 msgstr "이 옵션을 사용하면 항상 다른 창 위에 둡니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:26
+#: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
 msgstr "항상 위"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: cfg_appearance.ui:20
+#: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
 msgstr "배경색:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: cfg_appearance.ui:30
+#: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
 msgstr "글꼴:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#: cfg_appearance.ui:40
+#: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
 msgstr "트레이 아이콘 표시"
@@ -134,12 +134,12 @@ msgstr "모양"
 msgid "Advanced"
 msgstr "고급"
 
-#: klineal.cpp:493
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr "%1픽셀"
 
-#: klineal.cpp:500
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

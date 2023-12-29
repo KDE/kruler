@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2018-08-04 16:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-doc@kde.org>\n"
@@ -25,32 +25,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:23
+#: cfg_advanced.ui:20
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
 msgstr "Aukera hau gaitzen bada, leihoa beste leihoen gainean mantenduko da."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:26
+#: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
 msgstr "Beti gain-gainean"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: cfg_appearance.ui:20
+#: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
 msgstr "Atzeko planoko kolorea:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: cfg_appearance.ui:30
+#: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
 msgstr "Letra-tipoa:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#: cfg_appearance.ui:40
+#: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
 msgstr "Erakutsi erretiluaren ikonoa"
@@ -142,12 +142,12 @@ msgstr "Itxura"
 msgid "Advanced"
 msgstr "Aurreratua"
 
-#: klineal.cpp:493
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:500
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr "%%1"

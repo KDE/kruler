@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2022-11-27 06:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -19,32 +19,32 @@ msgstr ""
 "X-Generator: Poedit 3.2\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:23
+#: cfg_advanced.ui:20
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
 msgstr "თუ ეს ჩართულია, ფანჯარა სხვა ფანჯრების ზემოთ იქნება ნაჩვენები."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:26
+#: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
 msgstr "ყოველთვის ყველა ფანჯარაზე ზემოდან"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: cfg_appearance.ui:20
+#: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
 msgstr "ფონის ფერი:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: cfg_appearance.ui:30
+#: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
 msgstr "ფონტი:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#: cfg_appearance.ui:40
+#: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
 msgstr "სისტემის კუთხეში ხატულის ჩვენება"
@@ -135,12 +135,12 @@ msgstr "გარემოს იერსახე"
 msgid "Advanced"
 msgstr "დამატებითი"
 
-#: klineal.cpp:493
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:500
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

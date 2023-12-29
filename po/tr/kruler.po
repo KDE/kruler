@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegraphics-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2022-11-14 14:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "X-Generator: Lokalize 22.08.3\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:23
+#: cfg_advanced.ui:20
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
@@ -33,25 +33,25 @@ msgstr ""
 "Bu seçenek etkinleştirilirse pencere diğer pencerelerin üstünde tutulur."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:26
+#: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
 msgstr "Her zaman üstte"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: cfg_appearance.ui:20
+#: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
 msgstr "Arka plan rengi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: cfg_appearance.ui:30
+#: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
 msgstr "Yazıtipi:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#: cfg_appearance.ui:40
+#: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
 msgstr "Sistem tepsisi simgesini göster"
@@ -142,12 +142,12 @@ msgstr "Görünüş"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: klineal.cpp:493
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr "%1 pks"
 
-#: klineal.cpp:500
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr "%​%1"

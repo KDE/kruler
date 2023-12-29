@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2011-08-25 10:43+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:23
+#: cfg_advanced.ui:20
 #, fuzzy, kde-format
 #| msgid ""
 #| "If this option is enabled, the window is being moved using the operations "
@@ -28,25 +28,25 @@ msgid ""
 msgstr "මෙම අභිප්‍රේතය සක්‍රීය නම්, කවුළුව ගෙනයනු ලබන්නේ කවුළු පාලක මෙහෙයුම් මගිනි."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:26
+#: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: cfg_appearance.ui:20
+#: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
 msgstr "පසුබිම් වර්ණය:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: cfg_appearance.ui:30
+#: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
 msgstr "අකුර:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#: cfg_appearance.ui:40
+#: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
 msgstr "තැටි අයිකනය පෙන්වන්න"
@@ -140,12 +140,12 @@ msgstr "පෙනුම"
 msgid "Advanced"
 msgstr "උසස්"
 
-#: klineal.cpp:493
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:500
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr ""

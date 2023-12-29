@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-11 01:34+0000\n"
+"POT-Creation-Date: 2023-12-29 01:36+0000\n"
 "PO-Revision-Date: 2010-11-26 11:10+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Language: km-KH\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:23
+#: cfg_advanced.ui:20
 #, fuzzy, kde-format
 #| msgid ""
 #| "If this option is enabled, the window is being moved using the operations "
@@ -28,25 +28,25 @@ msgstr ""
 "ប្រសិនបើ​​​បើក​ជម្រើស​នេះ បង្អួច​ដែល​កំពុង​ត្រូវ​បាន​ផ្លាស់ទី​ ដោយ​ប្រើ​សញ្ញា​ប្រមាណវិធី​​ពី​កម្មវិធី​គ្រប់គ្រង​បង្អួច ។"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
-#: cfg_advanced.ui:26
+#: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: cfg_appearance.ui:20
+#: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
 msgstr "ពណ៌​ផ្ទៃ​ខាងក្រោយ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: cfg_appearance.ui:30
+#: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
 msgstr "ពូម្ពអក្សរ ៖"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#: cfg_appearance.ui:40
+#: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
 msgstr "បង្ហាញ​រូបតំណាង​ថាស​ប្រព័ន្ធ"
@@ -140,12 +140,12 @@ msgstr "រូបរាង"
 msgid "Advanced"
 msgstr "កម្រិតខ្ពស់"
 
-#: klineal.cpp:493
+#: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:500
+#: klineal.cpp:505
 #, kde-format
 msgid "%1%"
 msgstr ""
