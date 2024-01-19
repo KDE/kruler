@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
 
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kruler")));
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
     parser.process(app);
