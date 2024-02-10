@@ -206,7 +206,7 @@
 >Kısayolları Yapılandır</guilabel
 > iletişim kutusu, &kruler; eylemlerine kısayollar atamaya ve halihazırda atanmış kısayolları yapılandırmanıza izin verir.</para>
 <para
->Daha fazla bilgi için &kde; Temelleri'ndeki <ulink url="help:/fundamentals/config.html#shortcuts"
+>Daha fazla bilgi için &kde; Temelleri’ndeki <ulink url="help:/fundamentals/config.html#shortcuts"
 >Kısayollar</ulink
 > bölümüne bakın. </para>
 </listitem>
@@ -288,9 +288,9 @@
 </varlistentry>
 </variablelist>
 <para
->&kruler;'de temel &kde; <guimenu
+>&kruler;’de temel &kde; <guimenu
 >Yardım</guimenu
-> menü ögesi vardır; daha fazla bilgi için &kde; Temelleri'nin <ulink url="help:/fundamentals/menus.html#menus-help"
+> menü ögesi vardır; daha fazla bilgi için &kde; Temelleri’nin <ulink url="help:/fundamentals/menus.html#menus-help"
 >Yardım Menüsü</ulink
 > bölümüne bakın. </para>
 
@@ -327,7 +327,7 @@
 ></para>
 
 <para
->&kde; 2 aktarımı için Gunnstein Lye'e (<email
+>&kde; 2 aktarımı için Gunnstein Lye’e (<email
 >gl@ez.no</email
 >) teşekkürler</para>
 
