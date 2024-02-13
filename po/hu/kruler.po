@@ -1,37 +1,35 @@
 #
 # Tamas Szanto <tszanto@interware.hu>, 2000.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-29 01:36+0000\n"
-"PO-Revision-Date: 2011-07-31 00:05+0200\n"
-"Last-Translator: Kristóf Kiszel <ulysses@kubuntu.org>\n"
+"PO-Revision-Date: 2024-02-12 11:19+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:20
-#, fuzzy, kde-format
-#| msgid ""
-#| "If this option is enabled, the window is being moved using the operations "
-#| "from the window manager."
+#, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
 msgstr ""
-"Ha ez be van jelölve, az ablak elmozgatása az ablakkezelőn keresztül törénik."
+"Ha ez az opció engedélyezve van, az ablakot a többi ablak felett tartja."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
-msgstr ""
+msgstr "Legyen mindig felül"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: cfg_appearance.ui:17
@@ -58,22 +56,18 @@ msgid "KRuler"
 msgstr "KRuler"
 
 #: klineal.cpp:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a tool to measure pixel distances and colors on the screen. It is "
-#| "useful for working on layouts of dialogs, web pages etc."
+#, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
-"Ez az eszköz a képernyőn történő távolságmérésre (képpontban) és "
-"színmeghatározásra alkalmas. Hasznos lehet párbeszédablakok vagy weboldalak "
-"készítésénél."
+"Ez az eszköz a képernyőn történő távolságmérésre (képpontban)  alkalmas. "
+"Hasznos lehet párbeszédablakok vagy weboldalak készítésénél."
 
 #: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
-msgstr ""
+msgstr "Forgatás"
 
 #: klineal.cpp:110
 #, kde-format
@@ -144,12 +138,12 @@ msgstr "Speciális"
 #: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
-msgstr ""
+msgstr "%1 képpont"
 
 #: klineal.cpp:505
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
@@ -173,7 +167,7 @@ msgstr "A vonalzó beosztásának betűtípusa."
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr ""
+msgstr "Vízszintes vonalzó"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
@@ -209,7 +203,7 @@ msgstr "Az ablak áttetszősége"
 #: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
-msgstr ""
+msgstr "Mindig felül van-e"
 
 #: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
@@ -217,10 +211,9 @@ msgid "KDE Screen Ruler"
 msgstr "KDE képernyővonalzó"
 
 #: main.cpp:25
-#, fuzzy, kde-format
-#| msgid "A screen ruler for KDE"
+#, kde-format
 msgid "A screen ruler by KDE"
-msgstr "Képernyővonalzó a KDE-hez"
+msgstr "Képernyővonalzó a KDE-től"
 
 #: main.cpp:27
 #, kde-format
