@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
+# Raghavendra Kamath <raghu@raghukamath.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-29 01:36+0000\n"
-"PO-Revision-Date: 2007-12-27 17:12+0530\n"
-"Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
-"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2024-02-18 19:00+0530\n"
+"Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
+"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
@@ -23,35 +24,34 @@ msgstr ""
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
-msgstr ""
+msgstr "यदि यह विकल्प सक्षम है, तो विंडो को अन्य विंडो के ऊपर रखा जा रहा है।"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
-msgstr ""
+msgstr "हमेशा ऊपर"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
-msgstr ""
+msgstr "पृष्ठभूमि का रंग :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
-msgstr ""
+msgstr "फ़ॉन्ट :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
 #: cfg_appearance.ui:37
 #, kde-format
 msgid "Show tray icon"
-msgstr ""
+msgstr "ट्रे प्रतीक दिखाएँ"
 
 #: klineal.cpp:85
-#, fuzzy, kde-format
-#| msgid "KRuler"
+#, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "के-रूलर"
@@ -62,160 +62,159 @@ msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
+"यह स्क्रीन पर पिक्सेल की दूरी मापने का एक उपकरण है। यह डायलॉग, वेब पेज आदि के अभिन्यास "
+"पर काम करने के लिए उपयोगी है।"
 
 #: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
-msgstr ""
+msgstr "घुमाएँ"
 
 #: klineal.cpp:110
 #, kde-format
 msgid "&Scale"
-msgstr ""
+msgstr "पैमाना (&S)"
 
 #: klineal.cpp:111 klineal.cpp:325
 #, kde-format
 msgid "Right to Left"
-msgstr ""
+msgstr "दाएं से बाएं"
 
 #: klineal.cpp:112
 #, kde-format
 msgid "Center Origin"
-msgstr ""
+msgstr "केंद्र मूल"
 
 #: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
-msgstr ""
+msgstr "ऑफसेट..."
 
 #: klineal.cpp:117
 #, kde-format
 msgid "Percentage"
-msgstr ""
+msgstr "प्रतिशत"
 
 #: klineal.cpp:124
 #, kde-format
 msgid "O&pacity"
-msgstr ""
+msgstr "अपारदर्शिता (&p)"
 
 #: klineal.cpp:325
 #, kde-format
 msgid "Left to Right"
-msgstr ""
+msgstr "बाएं से दायां"
 
 #: klineal.cpp:327
 #, kde-format
 msgid "Bottom to Top"
-msgstr ""
+msgstr "नीचे से शीर्ष तक"
 
 #: klineal.cpp:327
 #, kde-format
 msgid "Top to Bottom"
-msgstr ""
+msgstr "नीचे से ऊपर"
 
 #: klineal.cpp:370
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
-msgstr ""
+msgstr "स्केल ऑफसेट"
 
 #: klineal.cpp:370
 #, kde-format
 msgid "Offset:"
-msgstr ""
+msgstr "ऑफसेट :"
 
 #: klineal.cpp:399
 #, kde-format
 msgid "Appearance"
-msgstr ""
+msgstr "दिखावट"
 
 #: klineal.cpp:407
 #, kde-format
 msgid "Advanced"
-msgstr ""
+msgstr "उन्नत"
 
 #: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
-msgstr ""
+msgstr "%1 px"
 
 #: klineal.cpp:505
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
 #, kde-format
 msgid "Background color of the ruler."
-msgstr ""
+msgstr "मापक की पृष्ठभूमि का रंग."
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
-#, fuzzy, kde-format
-#| msgid "&Orientation"
+#, kde-format
 msgid "Length of the ruler."
-msgstr "दिशा-स्थिति (&O)"
+msgstr "मापक की लंबाई"
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
 #, kde-format
 msgid "Font of the text on the ruler scale."
-msgstr ""
+msgstr "मापक पर पाठ का फ़ॉन्ट ।"
 
 #. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr ""
+msgstr "क्षैतिज मापक"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
-#, fuzzy, kde-format
-#| msgid "&Orientation"
+#, kde-format
 msgid "Direction of the ruler"
-msgstr "दिशा-स्थिति (&O)"
+msgstr "मापक की दिशा"
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
 #, kde-format
 msgid "Offset of the origin"
-msgstr ""
+msgstr "मूल बिंदु का ऑफसेट"
 
 #. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr ""
+msgstr "क्या रूलर का पैमाना सापेक्ष है (प्रतिशत) ?"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
 #, kde-format
 msgid "Is a tray icon used"
-msgstr ""
+msgstr "क्या ट्रे प्रतीक का उपयोग किया गया है"
 
 #. i18n: ectx: label, entry (Opacity), group (StoredSettings)
 #: kruler.kcfg:43
 #, kde-format
 msgid "Opacity of the window"
-msgstr ""
+msgstr "विंडो की अपारदर्शिता"
 
 #. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
 #: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
-msgstr ""
+msgstr "हमेशा ऊपर रहता है।"
 
 #: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
 msgid "KDE Screen Ruler"
-msgstr "केडीई स्क्रीन रूलर"
+msgstr "केडीई स्क्रीन मापक"
 
 #: main.cpp:25
-#, fuzzy, kde-format
-#| msgid "A screen ruler for the K Desktop Environment"
+#, kde-format
 msgid "A screen ruler by KDE"
-msgstr "के डेस्कटॉप एनवायरनमेंट के लिए स्क्रीन रूलर."
+msgstr "केडीई द्वारा एक स्क्रीन मापक"
 
 #: main.cpp:27
 #, kde-format
@@ -223,16 +222,18 @@ msgid ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 msgstr ""
+"(c) २०००-२००८, टिल क्रेच\n"
+"(c) २००९, मथैयस सोकेन"
 
 #: main.cpp:28
 #, kde-format
 msgid "Mathias Soeken"
-msgstr ""
+msgstr "मथैयस सोकेन"
 
 #: main.cpp:28
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "प्रबंधक"
 
 #: main.cpp:29
 #, kde-format
@@ -242,7 +243,7 @@ msgstr "टिल क्रेच"
 #: main.cpp:29
 #, kde-format
 msgid "Former Maintainer and Developer"
-msgstr ""
+msgstr "पूर्व प्रबंधक और डेवलपर"
 
 #: main.cpp:30
 #, kde-format
@@ -258,13 +259,13 @@ msgstr "केडीई 2 में आरंभिक पोर्ट"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "रविशंकर श्रीवास्तव, जी. करूणाकर"
+msgstr "रविशंकर श्रीवास्तव, जी. करूणाकर, आकाश कुमार, राघवेंद्र कामत"
 
 #: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "raviratlami@aol.in,"
+msgstr "raviratlami@aol.in, meakash7902@gmail.com, raghu@raghukamath.com"
 
 #~ msgid "KRuler"
 #~ msgstr "के-रूलर"
