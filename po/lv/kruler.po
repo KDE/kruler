@@ -5,39 +5,35 @@
 #
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2007, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-29 01:36+0000\n"
-"PO-Revision-Date: 2009-05-27 20:24+0300\n"
-"Last-Translator: Viesturs Zariņš <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-04-05 16:14+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:20
-#, fuzzy, kde-format
-#| msgid ""
-#| "If this option is enabled, the window is being moved using the operations "
-#| "from the window manager."
+#, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
-msgstr ""
-"Ja šis ir ieslēgts, logs tiks pārvietots izmantojot logu pārvaldnieka "
-"darbības"
+msgstr "Ja šī opcija ir ieslēgta, logs tiek turēts virs citiem logiem."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
-msgstr ""
+msgstr "Vienmēr augšpusē"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: cfg_appearance.ui:17
@@ -58,28 +54,24 @@ msgid "Show tray icon"
 msgstr "Rādīt sistēmas ikonu"
 
 #: klineal.cpp:85
-#, fuzzy, kde-format
-#| msgid "KRuler"
+#, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
 msgstr "KRuler"
 
 #: klineal.cpp:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is a tool to measure pixel distances and colors on the screen. It is "
-#| "useful for working on layouts of dialogs, web pages etc."
+#, kde-format
 msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
-"Šis ir rīks attāluma mērīšanai pikseļos un krāsu noteikšanai uz ekrāna. Tas "
-"noder darbam ar dialogu, tīmekļa lapu u.c. noformējumiem."
+"Šis ir rīks attāluma mērīšanai pikseļos. Tas noder darbam ar logu, tīmekļa "
+"lapu u.c. noformējumu."
 
 #: klineal.cpp:108
 #, kde-format
 msgid "Rotate"
-msgstr ""
+msgstr "Pagriezt"
 
 #: klineal.cpp:110
 #, kde-format
@@ -89,7 +81,7 @@ msgstr "&Mērogs"
 #: klineal.cpp:111 klineal.cpp:325
 #, kde-format
 msgid "Right to Left"
-msgstr "No kreisā uz labo"
+msgstr "No kreisās uz labo"
 
 #: klineal.cpp:112
 #, kde-format
@@ -127,8 +119,7 @@ msgid "Top to Bottom"
 msgstr "No augšas uz leju"
 
 #: klineal.cpp:370
-#, fuzzy, kde-format
-#| msgid "Scale Offset"
+#, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Mēroga nobīde"
@@ -151,42 +142,42 @@ msgstr "Paplašināti"
 #: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
-msgstr ""
+msgstr "%1 px"
 
 #: klineal.cpp:505
 #, kde-format
 msgid "%1%"
-msgstr ""
+msgstr "%1 %"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
 #, kde-format
 msgid "Background color of the ruler."
-msgstr "Mērlentas fona krāsa."
+msgstr "Lineāla fona krāsa."
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
 #, kde-format
 msgid "Length of the ruler."
-msgstr "Mērlentas garums."
+msgstr "Lineāla garums."
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
 #, kde-format
 msgid "Font of the text on the ruler scale."
-msgstr "Mērlentas iedaļu teksta fonts."
+msgstr "Lineāla iedaļu teksta fonts."
 
 #. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr ""
+msgstr "Horizontāls lineāls"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
 #, kde-format
 msgid "Direction of the ruler"
-msgstr "Mērlentas virziens"
+msgstr "Lineāla virziens"
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
@@ -198,13 +189,13 @@ msgstr "Nobīde no sākuma"
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr "Ir mērlentas relatīvais mērogs (procentos)"
+msgstr "Vai lineāla mērogs ir relatīvs (procentuāli)"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
 #, kde-format
 msgid "Is a tray icon used"
-msgstr "Ir vai lieto sistēmas ikonu"
+msgstr "Vai lieto sistēmas ikonu"
 
 #. i18n: ectx: label, entry (Opacity), group (StoredSettings)
 #: kruler.kcfg:43
@@ -216,18 +207,17 @@ msgstr "Loga necaurspīdīgums"
 #: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
-msgstr ""
+msgstr "Vai vienmēr ir virs logiem"
 
 #: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
 msgid "KDE Screen Ruler"
-msgstr "KDE ekrāna mērlenta"
+msgstr "KDE ekrāna lineāls"
 
 #: main.cpp:25
-#, fuzzy, kde-format
-#| msgid "A screen ruler for the K Desktop Environment"
+#, kde-format
 msgid "A screen ruler by KDE"
-msgstr "Ekrāna mērlenta K Darbvirsmas videi"
+msgstr "KDE izstrādāts ekrāna lineāls"
 
 #: main.cpp:27
 #, kde-format
@@ -235,7 +225,7 @@ msgid ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 msgstr ""
-"(c) 2000 - 2008, Till Krech\n"
+"(c) 2000—2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 
 #: main.cpp:28
@@ -272,13 +262,15 @@ msgstr "Sākotnējā pārnešana uz KDE 2"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andris Maziks, Anita Reitere, Viesturs Zariņš"
+msgstr "Andris Maziks, Anita Reitere, Viesturs Zariņš, Toms Trasūns"
 
 #: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andris.m@delfi.lv, nita@cc.lv, viesturs.zarins@mii.lu.lv"
+msgstr ""
+"andris.m@delfi.lv, nita@cc.lv, viesturs.zarins@mii.lu.lv, toms."
+"trasuns@posteo.net"
 
 #~ msgid ""
 #~ "If this option is enabled, the window is being moved using the operations "
