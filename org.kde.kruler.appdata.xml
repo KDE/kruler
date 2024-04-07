@@ -30,6 +30,7 @@
   <name xml:lang="it">KRuler</name>
   <name xml:lang="ka">KRuler</name>
   <name xml:lang="ko">KRuler</name>
+  <name xml:lang="lv">KRuler</name>
   <name xml:lang="nl">KRuler</name>
   <name xml:lang="nn">KRuler</name>
   <name xml:lang="pl">KLinijka</name>
@@ -74,6 +75,7 @@
   <summary xml:lang="it">Righello per lo schermo</summary>
   <summary xml:lang="ka">ეკრანის სახაზავი</summary>
   <summary xml:lang="ko">화면 자</summary>
+  <summary xml:lang="lv">Ekrāna lineāls</summary>
   <summary xml:lang="nl">Schermliniaal</summary>
   <summary xml:lang="nn">Skjermlinjal</summary>
   <summary xml:lang="pl">Linijka ekranowa</summary>
@@ -118,6 +120,7 @@
     <p xml:lang="it">KRuler è un righello a schermo che misura i pixel. Posiziona lo 0 nel punto iniziale e misura la distanza precisa in pixel tra il punto iniziale e il puntatore del mouse.</p>
     <p xml:lang="ka">KRuler ეკრანის სახაზავია პიქსელების გასაზომად. დაადეთ ნული საწყის წერტილს და გაზომეთ ზუსტი პიქსელების დაშორება საწყის წერტილსა და თქვენს კურსორს შორის.</p>
     <p xml:lang="ko">KRuler는 픽셀을 측정하는 화면 자입니다. 시작 지점을 영점으로 설정한 다음 시작 지점과 커서 사이의 거리를 픽셀 단위로 잽니다.</p>
+    <p xml:lang="lv">„KRuler“ ir ekrānā redzams lineāls pikseļu mērīšanai. Novietojiet nulles atzīmi sākuma punktā un izmēriet precīzu attālumu starp pikseļiem starp sākuma punktu un kursoru.</p>
     <p xml:lang="nl">KRuler is een schermliniaal voor het meten van pixels. Positioneer de 0 aan uw beginpunt en meet de precieze pixelafstand tussen het beginpunt en uw cursor.</p>
     <p xml:lang="nn">KRuler er ein skjermlinjal for måling av pikselavstandar. Plasser 0-merket der du vil måla frå og mål den nøyaktige pikselavstanden frå nullpunktet til peikaren.</p>
     <p xml:lang="pl">KLinijka jest ekranową linijką do mierzenia pikseli. Umieść miejsce 0 na punkcie początkowym i mierz precyzyjnie odległość pomiędzy punktem początkowym i twoim wskaźnikiem.</p>
@@ -169,6 +172,7 @@
   <developer_name xml:lang="it">La comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
+  <developer_name xml:lang="lv">KDE kopiena</developer_name>
   <developer_name xml:lang="nl">De KDE-gemeenschap</developer_name>
   <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
