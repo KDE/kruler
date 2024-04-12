@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KRuler</name>
+  <launchable type="desktop-id">org.kde.kruler.desktop</launchable>
   <name xml:lang="ar">مسطرة ك</name>
   <name xml:lang="ast">KRuler</name>
   <name xml:lang="be">KRuler</name>
@@ -187,6 +188,7 @@
   <developer_name xml:lang="zh-TW">KDE 社群</developer_name>
   <screenshots>
     <screenshot type="default">
+      <caption>Main application window</caption>
       <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
     </screenshot>
   </screenshots>
