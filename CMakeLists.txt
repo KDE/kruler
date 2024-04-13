@@ -56,7 +56,7 @@ endif()
 ecm_set_disabled_deprecation_versions(QT 6.5
      KF 5.240.0
     )
-
+add_definitions(-DQT_NO_CONTEXTLESS_CONNECT)
 add_definitions(-DTRANSLATION_DOMAIN="kruler")
 
 configure_file(krulerconfig.h.in ${CMAKE_CURRENT_BINARY_DIR}/krulerconfig.h)
