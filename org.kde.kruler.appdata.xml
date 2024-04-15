@@ -189,6 +189,12 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main application window</caption>
+      <caption xml:lang="ca">Finestra principal de l'aplicació</caption>
+      <caption xml:lang="ca-valencia">Finestra principal de l'aplicació</caption>
+      <caption xml:lang="eu">Aplikazioaren leiho nagusia</caption>
+      <caption xml:lang="pl">Główne okno aplikacji</caption>
+      <caption xml:lang="sl">Glavno okno aplikacije</caption>
+      <caption xml:lang="tr">Ana uygulama penceresi</caption>
       <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
     </screenshot>
   </screenshots>
