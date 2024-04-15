@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-29 01:36+0000\n"
-"PO-Revision-Date: 2024-03-30 19:38\n"
+"PO-Revision-Date: 2024-04-14 19:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -22,19 +22,19 @@ msgstr ""
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
-msgstr "如果启用此选项，窗口将保持在其他窗口之上。"
+msgstr "如果启用此选项，标尺窗口将在其他窗口上方显示。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
 #, kde-format
 msgid "Always on top"
-msgstr "常居顶端"
+msgstr "置顶显示"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
-msgstr "背景颜色："
+msgstr "背景色："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: cfg_appearance.ui:27
@@ -52,7 +52,7 @@ msgstr "显示托盘图标"
 #, kde-format
 msgctxt "@title:window"
 msgid "KRuler"
-msgstr "直尺"
+msgstr "KRuler 屏幕标尺"
 
 #: klineal.cpp:88
 #, kde-format
@@ -60,8 +60,8 @@ msgid ""
 "This is a tool to measure pixel distances on the screen. It is useful for "
 "working on layouts of dialogs, web pages etc."
 msgstr ""
-"这是一个用来测量屏幕上的像素距离的工具。这对于确定对话框的布局、制作网页等等"
-"都很有用。"
+"一款用于测量屏幕上的像素距离的工具。它可以用于辅助对话框布局设计和网页设计等"
+"用途。"
 
 #: klineal.cpp:108
 #, kde-format
@@ -137,7 +137,7 @@ msgstr "高级"
 #: klineal.cpp:498
 #, kde-format
 msgid "%1 px"
-msgstr "%1 px"
+msgstr "%1 像素"
 
 #: klineal.cpp:505
 #, kde-format
@@ -148,7 +148,7 @@ msgstr "%1%"
 #: kruler.kcfg:11
 #, kde-format
 msgid "Background color of the ruler."
-msgstr "标尺的背景颜色。"
+msgstr "标尺的背景色。"
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
@@ -160,25 +160,25 @@ msgstr "标尺的长度。"
 #: kruler.kcfg:19
 #, kde-format
 msgid "Font of the text on the ruler scale."
-msgstr "标尺刻度上的文本字体。"
+msgstr "标尺刻度文字的字体。"
 
 #. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr "水平尺"
+msgstr "水平标尺"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
 #, kde-format
 msgid "Direction of the ruler"
-msgstr "标尺方位"
+msgstr "标尺方向"
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
 #, kde-format
 msgid "Offset of the origin"
-msgstr "起始偏移量"
+msgstr "标尺原点偏移量"
 
 #. i18n: ectx: label, entry (RelativeScale), group (StoredSettings)
 #: kruler.kcfg:35
@@ -196,13 +196,13 @@ msgstr "是否使用托盘图标"
 #: kruler.kcfg:43
 #, kde-format
 msgid "Opacity of the window"
-msgstr "窗口透明度"
+msgstr "窗口不透明度"
 
 #. i18n: ectx: label, entry (AlwaysOnTop), group (StoredSettings)
 #: kruler.kcfg:47
 #, kde-format
 msgid "Is always on top"
-msgstr "是否常居顶端"
+msgstr "是否置顶显示标尺"
 
 #: krulersystemtray.cpp:19 main.cpp:23
 #, kde-format
@@ -212,7 +212,7 @@ msgstr "KDE 屏幕标尺"
 #: main.cpp:25
 #, kde-format
 msgid "A screen ruler by KDE"
-msgstr "KDE 的屏幕标尺"
+msgstr "KDE 的屏幕标尺应用"
 
 #: main.cpp:27
 #, kde-format
@@ -251,16 +251,16 @@ msgstr "Gunnstein Lye"
 #: main.cpp:30
 #, kde-format
 msgid "Initial port to KDE 2"
-msgstr "移植到 KDE 2"
+msgstr "移植到 KDE 2 的前期工作"
 
 #: main.cpp:31
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国"
+msgstr "Guo Yunhe, Tyson Tan"
 
 #: main.cpp:31
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org"
+msgstr "i@guoyunhe.me, tds00@qq.com"
