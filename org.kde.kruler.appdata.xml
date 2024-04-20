@@ -189,6 +189,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main application window</caption>
+      <caption xml:lang="ar">نافذة التطبيق الرئيسة</caption>
       <caption xml:lang="bg">Главният прозорец на програмата</caption>
       <caption xml:lang="ca">Finestra principal de l'aplicació</caption>
       <caption xml:lang="ca-valencia">Finestra principal de l'aplicació</caption>
