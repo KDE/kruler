@@ -208,6 +208,7 @@
       <caption xml:lang="uk">Основне вікно програми</caption>
       <caption xml:lang="x-test">xxMain application windowxx</caption>
       <caption xml:lang="zh-CN">主应用程序窗口</caption>
+      <caption xml:lang="zh-TW">應用程式主視窗</caption>
       <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
     </screenshot>
   </screenshots>
