@@ -27,9 +27,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
-msgstr ""
-"Si se selecciona esta opció, la finestra es mantindrà sobre les altres "
-"finestres."
+msgstr "Si està marcada, la finestra es mantindrà sobre les altres finestres."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
@@ -93,7 +91,7 @@ msgstr "Centra l'origen"
 #: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
-msgstr "Desplaçament..."
+msgstr "Desplaçament…"
 
 #: klineal.cpp:117
 #, kde-format
