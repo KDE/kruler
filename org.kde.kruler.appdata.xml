@@ -160,6 +160,7 @@
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
+  <developer_name xml:lang="en-GB">The KDE Community</developer_name>
   <developer_name xml:lang="eo">La KDE-Komunumo</developer_name>
   <developer_name xml:lang="es">La comunidad KDE</developer_name>
   <developer_name xml:lang="eu">KDE komunitatea</developer_name>
@@ -195,6 +196,7 @@
       <caption xml:lang="ca-valencia">Finestra principal de l'aplicació</caption>
       <caption xml:lang="cs">Hlavní okno aplikace</caption>
       <caption xml:lang="de">Programm-Hauptfenster</caption>
+      <caption xml:lang="en-GB">Main application window</caption>
       <caption xml:lang="eo">Aplikaĵa ĉeffenestro</caption>
       <caption xml:lang="es">Ventana principal de la aplicación</caption>
       <caption xml:lang="eu">Aplikazioaren leiho nagusia</caption>
