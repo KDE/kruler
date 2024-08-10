@@ -8,6 +8,7 @@
 #include <QApplication>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 #include <QCommandLineParser>
 
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
     aboutData.addCredit(i18n("Gunnstein Lye"), i18n("Initial port to KDE 2"), QStringLiteral("gl@ez.no"));
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
 
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kruler")));
     QCommandLineParser parser;

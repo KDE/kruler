@@ -37,6 +37,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     StatusNotifierItem
     WindowSystem
     XmlGui
+    Crash
 )
 
 
@@ -98,6 +99,7 @@ target_link_libraries(kruler
     KF6::WindowSystem
     KF6::XmlGui
     KF6::StatusNotifierItem
+    KF6::Crash
 )
 if(KRULER_HAVE_X11)
     target_link_libraries(kruler
