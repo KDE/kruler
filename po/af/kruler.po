@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-08-11 00:38+0000\n"
 "PO-Revision-Date: 2002-11-07 11:33+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -209,60 +209,60 @@ msgstr ""
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:23
+#: krulersystemtray.cpp:19 main.cpp:24
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "Kde Skerm Liniaal"
 
-#: main.cpp:25
+#: main.cpp:26
 #, fuzzy, kde-format
 msgid "A screen ruler by KDE"
 msgstr "'n skerm liniaal vir die K Werkskerm Omgewing."
 
-#: main.cpp:27
+#: main.cpp:28
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 msgstr ""
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Mathias Soeken"
 msgstr ""
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Till Krech"
 msgstr ""
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr ""
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr ""
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Aanvanklike poort na Kde 2"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "WEB-Vertaler (http://kde.af.org.za)"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

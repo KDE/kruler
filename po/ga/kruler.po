@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegraphics/kruler.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-08-11 00:38+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -206,18 +206,18 @@ msgstr ""
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:23
+#: krulersystemtray.cpp:19 main.cpp:24
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "Rialóir Scáileáin KDE"
 
-#: main.cpp:25
+#: main.cpp:26
 #, fuzzy, kde-format
 #| msgid "A screen ruler for KDE"
 msgid "A screen ruler by KDE"
 msgstr "Rialóir scáileáin le haghaidh KDE"
 
-#: main.cpp:27
+#: main.cpp:28
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -226,43 +226,43 @@ msgstr ""
 "© 2000 - 2008, Till Krech\n"
 "© 2009, Mathias Soeken"
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Mathias Soeken"
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Maintainer"
 msgstr "Cothaitheoir"
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Till Krech"
 msgstr "Till Krech"
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr ""
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunnstein Lye"
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Bunleagan le haghaidh KDE 2"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

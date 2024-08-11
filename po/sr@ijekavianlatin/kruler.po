@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-08-11 00:38+0000\n"
 "PO-Revision-Date: 2017-06-18 23:13+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -215,17 +215,17 @@ msgstr "Neprozirnost prozora"
 msgid "Is always on top"
 msgstr "Uvek je na vrhu"
 
-#: krulersystemtray.cpp:19 main.cpp:23
+#: krulersystemtray.cpp:19 main.cpp:24
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "K‑lenjir"
 
-#: main.cpp:25
+#: main.cpp:26
 #, kde-format
 msgid "A screen ruler by KDE"
 msgstr "Ekranski lenjir iz KDE‑a"
 
-#: main.cpp:27
+#: main.cpp:28
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
@@ -234,43 +234,43 @@ msgstr ""
 "© 2000—2008, Til Kreh\n"
 "© 2009, Matijas Seken"
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Mathias Soeken"
 msgstr "Matijas Seken"
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Maintainer"
 msgstr "Održavalac"
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Till Krech"
 msgstr "Til Kreh"
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr "Bivši programer"
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr "Gunstejn Lije"
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "Početni prenos na KDE 2"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Miloš Puzović,Časlav Ilić,Zoran Olujić"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"

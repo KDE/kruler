@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:36+0000\n"
+"POT-Creation-Date: 2024-08-11 00:38+0000\n"
 "PO-Revision-Date: 2004-08-14 12:35+0530\n"
 "Last-Translator: I. Felix <ifelix25@yahoo.co.in>\n"
 "Language-Team: TAMIL <tamilinix@yahoogroups.com>\n"
@@ -210,61 +210,61 @@ msgstr ""
 msgid "Is always on top"
 msgstr ""
 
-#: krulersystemtray.cpp:19 main.cpp:23
+#: krulersystemtray.cpp:19 main.cpp:24
 #, kde-format
 msgid "KDE Screen Ruler"
 msgstr "KDE திரை அளவுப்பலகை"
 
-#: main.cpp:25
+#: main.cpp:26
 #, fuzzy, kde-format
 #| msgid "A screen ruler for the K Desktop Environment"
 msgid "A screen ruler by KDE"
 msgstr "கே மேல்மேசைச் சூழலுக்கான ஒரு திரை அளவுக்கோல்"
 
-#: main.cpp:27
+#: main.cpp:28
 #, kde-format
 msgid ""
 "(c) 2000 - 2008, Till Krech\n"
 "(c) 2009, Mathias Soeken"
 msgstr ""
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Mathias Soeken"
 msgstr ""
 
-#: main.cpp:28
+#: main.cpp:29
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Till Krech"
 msgstr ""
 
-#: main.cpp:29
+#: main.cpp:30
 #, kde-format
 msgid "Former Maintainer and Developer"
 msgstr ""
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Gunnstein Lye"
 msgstr ""
 
-#: main.cpp:30
+#: main.cpp:31
 #, kde-format
 msgid "Initial port to KDE 2"
 msgstr "KDE2 க்குரிய ஆரம்ப முகப்பு"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "தி. லெட்சுமணன்"
 
-#: main.cpp:31
+#: main.cpp:32
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
