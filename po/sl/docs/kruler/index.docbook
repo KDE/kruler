@@ -1,0 +1,352 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>Priročnik za &kruler;</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>Andrej</firstname
+> <surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@moj.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>14.06.2017</date>
+<releaseinfo
+>5.0 (Applications 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kruler; se lahko uporablja za merjenje predmetov na zaslonu. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KRuler</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&kruler; je zelo preprosta aplikacija z enim samim ciljem. Meritirazdalje slikovnih pik na vašem zaslonu. Uporaben je za delo na postavitvipogovornih oken, spletnih strani itd.</para>
+
+<para
+>Za zagon &kruler; izberite <menuchoice
+><guimenu
+>Aplikacije</guimenu
+><guisubmenu
+>Pripomočki</guisubmenu
+> <guisubmenu
+>Več aplikacij</guisubmenu
+> <guimenuitem
+>Zaslonsko ravnilo</guimenuitem
+></menuchoice
+> iz vašegamenija aplikacij.</para>
+
+<screenshot>
+<screeninfo
+>&kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Klik z &LMB; na &kruler;ju bo spremenil  kazalko v ikono roke in vam omogočil vleko &kruler;ja po zaslonu.</para>
+
+<para
+>Ko premaknete miško nad &kruler;, bo vaš kazalec preoblikoval v rdečo puščico. Ko premikate kazalec, bo &kruler; prikazal, kako daleč od izvora je trenutno kazalec. </para>
+
+<para
+>Ravnilu lahko spremenite velikost tako, da miško premaknete čez ročaj na levi oz.desni rob &kruler; (zgornji ali spodnji rob, ko je usmerjen navpično), držite &LMB; in povlečete ročaj.</para>
+
+<para
+>Usmerjenost lahko spremenite na dva različna načina:</para>
+
+<simplelist>
+<member
+>Klik na &MMB; preklopi ravnilo iz navpične v vodoravno orientacijo</member>
+<member
+>Z uporabo kontekstnega menija, opisanega v naslednjem poglavju</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Referenca menija</title>
+
+<para
+>S klikom z &RMB; se na ravnilu prikaže kontekstni meni z naslednji vnosi:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Zasukaj</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Preklopi &kruler; iz navpične v vodoravno orientacijo.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Lestvica</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Ta možnost vam omogoča, da nastavite lestvico ravnila na <guilabel
+>Od desne proti levi</guilabel
+> (<keycap
+>D</keycap
+>), <guilabel
+>Izvorni center</guilabel
+>(<keycap
+>C</keycap
+>), <guilabel
+>Odmik</guilabel
+> (<keycap
+>O</keycap
+>) in<guilabel
+>Odstotek</guilabel
+>.</para>
+<para
+>Spreminjanje odmika z miškinim kolescem je možno tudi, ko držite &LMB;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Neprosojnost</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Ta element menija prikaže drsnik za spreminjanje neprosojnosti &kruler;.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>Konfiguriraj bližnjice...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>Pogovorno okno <guilabel
+>Konfiguriraj bližnjico</guilabel
+> vam omogoča dodelitevbližnjice do dejanj &kruler; in konfiguriranja že dodeljenih bližnjic.</para>
+<para
+>Za več informacij preberite razdelek o <ulink url="help:/fundamentals/config.html#shortcuts"
+>Bližnjice</ulink
+> datoteke Osnove &kde;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>Konfiguriraj &kruler;...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>Pogovorno okno z nastavitvami &kruler;</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Pogovorno okno z nastavitvami &kruler;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>V tem pogovornem oknu lahko spremenite barvo ozadja in pisavo ter omogočiteikono pladnja.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Zapri</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Skrije</action
+> &kruler;. Ponovno ga lahko prikažete z ikono vsistemskem pladnju. Kontekstni meni prikaže ta element samo, ko je označeno <guilabel
+>Pokaži ikono pladnja</guilabel
+> v  <link linkend="settings-dialog"
+>pogovornem oknu z nastavitvami</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>Zapusti</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>Zapusti</action
+> &kruler;</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>&kruler; ima skupno &kde; <guimenu
+>Pomoč</guimenu
+> element menija za večinformacij preberite razdelek o <ulink url="help:/fundamentals/menus.html#menus-help"
+>Meni Pomoč</ulink
+> v Osnovah &kde;. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Ravnanje s tipkovnico</title>
+
+<para
+>Ravnilo lahko premikate s puščičnimi tipkami.</para>
+
+<para
+>Kazalec miške in s tem indikator lahko premaknete tako, da držite &Alt; s puščičnimi gumbi.</para>
+
+<para
+>Držite &Shift; medtem ko pritiskate eno od tipk za hitrejše premikanje.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Zasluge in licence</title>
+
+<para
+>&kruler;</para>
+
+<para
+>Copyright 2000, 2001 Till Krech <email
+>till@snafu.de</email
+></para>
+<para
+>Copyright 2009 Mathias Soeken <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>Zahvale gredo Gunnstein Lye <email
+>gl@ez.no</email
+> za prvoten prenos v &kde; 2</para>
+
+<para
+>Dokumentacija Copyright &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>Prevod: Andrej Vernekar<email
+>andrej.vernekar@moj.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
