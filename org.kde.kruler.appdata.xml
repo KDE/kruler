@@ -155,6 +155,9 @@
   <developer id="kde.org">
     <name translate="no">KDE</name>
   </developer>
+  <custom>
+    <value key="KDE::supporters">Ofnuts</value>
+  </custom>
   <screenshots>
     <screenshot type="default">
       <caption>Main application window</caption>
