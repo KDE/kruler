@@ -143,7 +143,13 @@ KLineal::KLineal(QWidget *parent)
     QAction *preferences = KStandardAction::preferences(this, &KLineal::slotPreferences, mActionCollection);
     mMenu->addAction(preferences);
     mMenu->addSeparator();
+#if KXMLGUI_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    auto helpMenu = new KHelpMenu(this, KAboutData::applicationData());
+    helpMenu->setShowWhatsThis(true);
+    mMenu->addMenu(helpMenu->menu());
+#else
     mMenu->addMenu((new KHelpMenu(this, KAboutData::applicationData(), true))->menu());
+#endif
     mMenu->addSeparator();
     if (RulerSettings::self()->trayIcon()) {
         createSystemTray();
