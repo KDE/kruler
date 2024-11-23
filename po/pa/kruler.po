@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:38+0000\n"
+"POT-Creation-Date: 2024-11-23 00:39+0000\n"
 "PO-Revision-Date: 2010-01-27 08:38+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -72,7 +72,7 @@ msgstr ""
 msgid "&Scale"
 msgstr "ਸਕੇਲ(&S)"
 
-#: klineal.cpp:111 klineal.cpp:325
+#: klineal.cpp:111 klineal.cpp:331
 #, kde-format
 msgid "Right to Left"
 msgstr "ਸੱਜੇ ਤੋਂ ਖੱਬੇ"
@@ -97,49 +97,49 @@ msgstr "ਫੀਸਦੀ"
 msgid "O&pacity"
 msgstr "ਬਲੌਰੀਪਨ(&p)"
 
-#: klineal.cpp:325
+#: klineal.cpp:331
 #, kde-format
 msgid "Left to Right"
 msgstr "ਖੱਬੇ ਤੋਂ ਸੱਜੇ"
 
-#: klineal.cpp:327
+#: klineal.cpp:333
 #, kde-format
 msgid "Bottom to Top"
 msgstr "ਹੇਠਾਂ ਤੋਂ ਉੱਤੇ"
 
-#: klineal.cpp:327
+#: klineal.cpp:333
 #, kde-format
 msgid "Top to Bottom"
 msgstr "ਉੱਤੇ ਤੋਂ ਹੇਠਾਂ"
 
-#: klineal.cpp:370
+#: klineal.cpp:376
 #, fuzzy, kde-format
 #| msgid "Scale Offset"
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "ਸਕੇਲ ਆਫਸੈੱਟ"
 
-#: klineal.cpp:370
+#: klineal.cpp:376
 #, kde-format
 msgid "Offset:"
 msgstr "ਆਫਸੈੱਟ:"
 
-#: klineal.cpp:399
+#: klineal.cpp:405
 #, kde-format
 msgid "Appearance"
 msgstr "ਦਿੱਖ"
 
-#: klineal.cpp:407
+#: klineal.cpp:413
 #, kde-format
 msgid "Advanced"
 msgstr "ਤਕਨੀਕੀ"
 
-#: klineal.cpp:498
+#: klineal.cpp:504
 #, kde-format
 msgid "%1 px"
 msgstr ""
 
-#: klineal.cpp:505
+#: klineal.cpp:511
 #, kde-format
 msgid "%1%"
 msgstr ""

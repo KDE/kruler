@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:38+0000\n"
+"POT-Creation-Date: 2024-11-23 00:39+0000\n"
 "PO-Revision-Date: 2023-09-14 23:27+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -75,7 +75,7 @@ msgstr "Rotacii"
 msgid "&Scale"
 msgstr "&Skali"
 
-#: klineal.cpp:111 klineal.cpp:325
+#: klineal.cpp:111 klineal.cpp:331
 #, kde-format
 msgid "Right to Left"
 msgstr "Dekstra al Liva"
@@ -100,48 +100,48 @@ msgstr "Elcentaĵo"
 msgid "O&pacity"
 msgstr "O&pakeco"
 
-#: klineal.cpp:325
+#: klineal.cpp:331
 #, kde-format
 msgid "Left to Right"
 msgstr "Liva al Dekstra"
 
-#: klineal.cpp:327
+#: klineal.cpp:333
 #, kde-format
 msgid "Bottom to Top"
 msgstr "Malsupre al Supre"
 
-#: klineal.cpp:327
+#: klineal.cpp:333
 #, kde-format
 msgid "Top to Bottom"
 msgstr "Supre al Malsupre"
 
-#: klineal.cpp:370
+#: klineal.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Skala Deŝovo"
 
-#: klineal.cpp:370
+#: klineal.cpp:376
 #, kde-format
 msgid "Offset:"
 msgstr "Pozicio:"
 
-#: klineal.cpp:399
+#: klineal.cpp:405
 #, kde-format
 msgid "Appearance"
 msgstr "Aspekto"
 
-#: klineal.cpp:407
+#: klineal.cpp:413
 #, kde-format
 msgid "Advanced"
 msgstr "Plie"
 
-#: klineal.cpp:498
+#: klineal.cpp:504
 #, kde-format
 msgid "%1 px"
 msgstr "%1 px"
 
-#: klineal.cpp:505
+#: klineal.cpp:511
 #, kde-format
 msgid "%1%"
 msgstr "%1%"

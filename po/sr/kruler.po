@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:38+0000\n"
+"POT-Creation-Date: 2024-11-23 00:39+0000\n"
 "PO-Revision-Date: 2017-06-18 23:13+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -80,7 +80,7 @@ msgid "&Scale"
 msgstr "&Скала"
 
 # >> @item:inmenu Scale
-#: klineal.cpp:111 klineal.cpp:325
+#: klineal.cpp:111 klineal.cpp:331
 #, kde-format
 msgid "Right to Left"
 msgstr "здесна улево"
@@ -108,49 +108,49 @@ msgstr "процентуална"
 msgid "O&pacity"
 msgstr "&Непрозирност"
 
-#: klineal.cpp:325
+#: klineal.cpp:331
 #, kde-format
 msgid "Left to Right"
 msgstr "слева удесно"
 
-#: klineal.cpp:327
+#: klineal.cpp:333
 #, kde-format
 msgid "Bottom to Top"
 msgstr "одоздо нагоре"
 
-#: klineal.cpp:327
+#: klineal.cpp:333
 #, kde-format
 msgid "Top to Bottom"
 msgstr "одозго надоле"
 
-#: klineal.cpp:370
+#: klineal.cpp:376
 #, kde-format
 msgctxt "@title:window"
 msgid "Scale Offset"
 msgstr "Помак скале"
 
-#: klineal.cpp:370
+#: klineal.cpp:376
 #, kde-format
 msgid "Offset:"
 msgstr "Помак:"
 
-#: klineal.cpp:399
+#: klineal.cpp:405
 #, kde-format
 msgid "Appearance"
 msgstr "Изглед"
 
-#: klineal.cpp:407
+#: klineal.cpp:413
 #, kde-format
 msgid "Advanced"
 msgstr "Напредно"
 
 # well-spelled: пикс
-#: klineal.cpp:498
+#: klineal.cpp:504
 #, kde-format
 msgid "%1 px"
 msgstr "%1 пикс."
 
-#: klineal.cpp:505
+#: klineal.cpp:511
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
