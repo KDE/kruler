@@ -37,6 +37,7 @@
   <name xml:lang="pt">KRuler</name>
   <name xml:lang="pt-BR">KRuler</name>
   <name xml:lang="ru">KRuler</name>
+  <name xml:lang="sa">के नियमाः</name>
   <name xml:lang="sk">KRuler</name>
   <name xml:lang="sl">KRuler</name>
   <name xml:lang="sr">К‑лењир</name>
@@ -83,6 +84,7 @@
   <summary xml:lang="pt">Régua do Ecrã</summary>
   <summary xml:lang="pt-BR">Régua de tela</summary>
   <summary xml:lang="ru">Экранная линейка</summary>
+  <summary xml:lang="sa">स्क्रीन शासक</summary>
   <summary xml:lang="sk">Pravítko obrazovky</summary>
   <summary xml:lang="sl">Zaslonsko ravnilo</summary>
   <summary xml:lang="sr">Екрански лењир</summary>
@@ -128,6 +130,7 @@
     <p xml:lang="pt">O KRuler é uma régua no ecrã para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exacta em pixels entre o ponto inicial e o seu cursor.</p>
     <p xml:lang="pt-BR">KRuler é uma régua de tela para medir pontos (pixels). Posicione o 0 (zero) no seu ponto inicial e meça a distância exata em pixels entre o ponto inicial e o seu cursor.</p>
     <p xml:lang="ru">KRuler — это экранная линейка для измерения расстояния между точками. Расположите нулевую отметку линейки в исходной точке и измерьте расстояние в пикселах от этой точки до курсора.</p>
+    <p xml:lang="sa">KRuler इति पिक्सेल-मापनार्थं पर्दा-उपरि शासकः अस्ति । 0 इत्येतत् स्वस्य आरम्भबिन्दौ स्थापयित्वा आरम्भबिन्दुस्य कर्सरस्य च मध्ये सटीकं पिक्सेल-अन्तरं मापयन्तु ।</p>
     <p xml:lang="sk">KRuler je pravítko na obrazovke na meranie pixelov. Poloha na 0 pri vašom začiatočnom bode a meranie presnej bodovej vzdialenosti medzi počiatočným bodom a vašim kurzorom.</p>
     <p xml:lang="sl">KRuler je zaslonsko ravnilo za merjenje slikovnih točk. Z njim lahko izmerite natančno razdaljo med izbrano točko in trenutnim položajem vaše miškine kazalke.</p>
     <p xml:lang="sr">К‑лењир је екрански лењир за мерење пиксела. Поставите 0 у жељену почетну тачку и измерите тачно пикселско растојање између те тачке и показивача.</p>
@@ -187,6 +190,7 @@
       <caption xml:lang="pl">Główne okno aplikacji</caption>
       <caption xml:lang="pt-BR">Janela principal do aplicativo</caption>
       <caption xml:lang="ru">Основное окно приложения</caption>
+      <caption xml:lang="sa">मुख्य अनुप्रयोगविण्डो</caption>
       <caption xml:lang="sl">Glavno okno aplikacije</caption>
       <caption xml:lang="sv">Programmets huvudfönster</caption>
       <caption xml:lang="tr">Ana uygulama penceresi</caption>
