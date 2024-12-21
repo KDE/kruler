@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-23 00:39+0000\n"
-"PO-Revision-Date: 2024-12-13 20:20+0530\n"
+"PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -37,13 +37,13 @@ msgstr "सदा उपरि"
 #: cfg_appearance.ui:17
 #, kde-format
 msgid "Background color:"
-msgstr "पृष्ठभूमिवर्णः : १."
+msgstr "पृष्ठभूमिवर्णः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: cfg_appearance.ui:27
 #, kde-format
 msgid "Font:"
-msgstr "फन्ट् : १."
+msgstr "फन्ट् :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
 #: cfg_appearance.ui:37
@@ -125,7 +125,7 @@ msgstr "स्केल ऑफसेट"
 #: klineal.cpp:376
 #, kde-format
 msgid "Offset:"
-msgstr "ऑफसेट् : १."
+msgstr "ऑफसेट् :"
 
 #: klineal.cpp:405
 #, kde-format
@@ -145,7 +145,7 @@ msgstr "%1 px"
 #: klineal.cpp:511
 #, kde-format
 msgid "%1%"
-msgstr "%1% २."
+msgstr "%1%"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
@@ -187,7 +187,7 @@ msgstr "उत्पत्तिस्य विक्षेपः"
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr "किं शासकस्य स्केलः सापेक्षः (प्रतिशतः) २."
+msgstr "किं शासकस्य स्केलः सापेक्षः (प्रतिशतः)"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
