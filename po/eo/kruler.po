@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:38+0000\n"
-"PO-Revision-Date: 2023-09-14 23:27+0100\n"
+"PO-Revision-Date: 2025-02-12 07:00+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -150,31 +150,31 @@ msgstr "%1%"
 #: kruler.kcfg:11
 #, kde-format
 msgid "Background color of the ruler."
-msgstr "Fona koloro de la reganto."
+msgstr "Fona koloro de la mezurilo."
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
 #, kde-format
 msgid "Length of the ruler."
-msgstr "Longo de la reganto."
+msgstr "Longo de la mezurilo."
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
 #, kde-format
 msgid "Font of the text on the ruler scale."
-msgstr "Tiparo de la teksto sur la regulskalo."
+msgstr "Tiparo de la teksto sur la mezurilskalo."
 
 #. i18n: ectx: label, entry (Horizontal), group (StoredSettings)
 #: kruler.kcfg:23
 #, kde-format
 msgid "Horizontal ruler"
-msgstr "Horizontala regulo"
+msgstr "Horizontala mezurilo"
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
 #, kde-format
 msgid "Direction of the ruler"
-msgstr "Direkto de la reganto"
+msgstr "Direkto de la mezurilo"
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
@@ -186,7 +186,7 @@ msgstr "Deŝovo de la origino"
 #: kruler.kcfg:35
 #, kde-format
 msgid "Is the scale of the ruler relative (percentage)"
-msgstr "Ĉu la skalo de la reganto estas relativa (procento)"
+msgstr "Ĉu la skalo de la mezurilo estas relativa (procento)"
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
@@ -214,7 +214,7 @@ msgstr "KDEa Ekranliniilo"
 #: main.cpp:26
 #, kde-format
 msgid "A screen ruler by KDE"
-msgstr "Ekranregulo de KDE"
+msgstr "Ekranmezurilo de KDE"
 
 #: main.cpp:28
 #, kde-format
