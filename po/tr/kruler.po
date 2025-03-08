@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kdegraphics-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-23 00:39+0000\n"
-"PO-Revision-Date: 2025-01-26 13:16+0300\n"
+"PO-Revision-Date: 2025-03-07 23:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -239,7 +239,7 @@ msgstr "Mathias Söken"
 #: main.cpp:29
 #, kde-format
 msgid "Maintainer"
-msgstr "Projeyi Sürdüren"
+msgstr "Bakımcı"
 
 #: main.cpp:30
 #, kde-format
@@ -249,7 +249,7 @@ msgstr "Till Krech"
 #: main.cpp:30
 #, kde-format
 msgid "Former Maintainer and Developer"
-msgstr "Eski Projeyi Sürdüren ve Geliştirici"
+msgstr "Önceki bakımcı ve geliştirici"
 
 #: main.cpp:31
 #, kde-format
