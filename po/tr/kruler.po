@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kdegraphics-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-23 00:39+0000\n"
-"PO-Revision-Date: 2025-03-07 23:42+0300\n"
+"PO-Revision-Date: 2025-03-18 14:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:20
@@ -259,7 +259,7 @@ msgstr "Gunnstein Lye"
 #: main.cpp:31
 #, kde-format
 msgid "Initial port to KDE 2"
-msgstr "KDE 2 başlangıç aktarımı"
+msgstr "İlk KDE 2 geçişi"
 
 #: main.cpp:32
 #, kde-format
