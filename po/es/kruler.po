@@ -1,15 +1,16 @@
-# translation of kruler.po to Spanish
-# Copyright (C) 2004, 2007 Free Software Foundation, Inc.
+# Spanish translations for kruler.po package.
+# Copyright (C) 2004-2025 This file is copyright:
+# This file is distributed under the same license as the kruler package.
 #
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2004.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2007, 2009, 2010, 2011, 2015, 2016, 2017.
-# Javier Viñal <fjvinal@gmail.com>, 2013.
+# SPDX-FileCopyrightText: 2004 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2007, 2009, 2010, 2011, 2015, 2016, 2017, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2013 Javier Viñal <fjvinal@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-23 00:39+0000\n"
-"PO-Revision-Date: 2017-06-16 22:14+0100\n"
+"PO-Revision-Date: 2025-05-18 14:16+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -91,7 +92,7 @@ msgstr "Centrar origen"
 #: klineal.cpp:114
 #, kde-format
 msgid "Offset..."
-msgstr "Desplazamiento..."
+msgstr "Desplazamiento…"
 
 #: klineal.cpp:117
 #, kde-format
@@ -269,120 +270,3 @@ msgstr "Eloy Cuadra,Pablo de Vicente,Miguel Revilla Rodríguez"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net,pvicentea@nexo.es,yo@miguelrevilla.com"
-
-#~ msgid ""
-#~ "If this option is enabled, the window is being moved using the operations "
-#~ "from the window manager."
-#~ msgstr ""
-#~ "Si esta opción está activada, la ventana se mueve usando las operaciones "
-#~ "del gestor de ventanas."
-
-#~ msgid "Native moving"
-#~ msgstr "Movimiento nativo"
-
-#~ msgid "Is native moving (possibly wobbling windows) active"
-#~ msgstr ""
-#~ "Especifica si está activado el movimiento nativo (posiblemente ventanas "
-#~ "gelatinosas)"
-
-#~ msgid "KRuler"
-#~ msgstr "KRuler"
-
-#~ msgid "Show rotation buttons"
-#~ msgstr "Mostrar botones de rotación"
-
-#~ msgid "Show close button"
-#~ msgstr "Mostrar botón de cierre"
-
-#~ msgid "This is the current distance measured in pixels."
-#~ msgstr "Esta es la distancia actual medida en píxeles."
-
-#~ msgid ""
-#~ "This is the current color in hexadecimal rgb representation as you may "
-#~ "use it in HTML or as a QColor name. The rectangles background shows the "
-#~ "color of the pixel inside the little square at the end of the line cursor."
-#~ msgstr ""
-#~ "Este es el color actual representado en RGB hexadecimal tal y como se "
-#~ "puede utilizar en HTML o como nombre de QColor. El fondo de los "
-#~ "rectángulos muestra el color del píxel dentro del cuadradito al final del "
-#~ "cursor de la línea."
-
-#~ msgid "Turn Left"
-#~ msgstr "Girar a la izquierda"
-
-#~ msgid "Turn Right"
-#~ msgstr "Girar a la derecha"
-
-#~ msgid "&Orientation"
-#~ msgstr "&Orientación"
-
-#~ msgctxt "Turn Kruler North"
-#~ msgid "&North"
-#~ msgstr "&Norte"
-
-#~ msgctxt "Turn Kruler East"
-#~ msgid "&East"
-#~ msgstr "&Este"
-
-#~ msgctxt "Turn Kruler South"
-#~ msgid "&South"
-#~ msgstr "&Sur"
-
-#~ msgctxt "Turn Kruler West"
-#~ msgid "&West"
-#~ msgstr "&Oeste"
-
-#~ msgid "&Turn Right"
-#~ msgstr "&Girar a la derecha"
-
-#~ msgid "Turn &Left"
-#~ msgstr "Girar a la &izquierda"
-
-#~ msgid "&Length"
-#~ msgstr "&Longitud"
-
-#~ msgctxt "Make Kruler Height Short"
-#~ msgid "&Short"
-#~ msgstr "&Encoger"
-
-#~ msgctxt "Make Kruler Height Medium"
-#~ msgid "&Medium"
-#~ msgstr "&Media"
-
-#~ msgctxt "Make Kruler Height Tall"
-#~ msgid "&Tall"
-#~ msgstr "&Alargar"
-
-#~ msgid "&Full Screen Width"
-#~ msgstr "Anchura de pantalla &completa"
-
-#~ msgid "Length..."
-#~ msgstr "Longitud..."
-
-#~ msgid "Copy Color"
-#~ msgstr "Copiar color"
-
-#~ msgid "&Full Screen Height"
-#~ msgstr "Altura de p&antalla completa"
-
-#~ msgctxt "@title:window"
-#~ msgid "Ruler Length"
-#~ msgstr "Longitud de la regla"
-
-#~ msgid "Length:"
-#~ msgstr "Longitud:"
-
-#~ msgid "Offset: %1"
-#~ msgstr "Desplazamiento: %1"
-
-#~ msgid "Length: %1 px"
-#~ msgstr "Longitud: %1 px"
-
-#~ msgid "Orientation of the ruler"
-#~ msgstr "Orientación de la regla"
-
-#~ msgid "Are the rotate buttons visible"
-#~ msgstr "Visibilidad de los botones de rotación"
-
-#~ msgid "Is the close button visible"
-#~ msgstr "Visibilidad del botón de cierre"
