@@ -27,7 +27,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "If this option is enabled, the window is being kept above other windows."
-msgstr "إذا فعل هذا الخيار ، ستكون النافذة فوق جميع النوافذ دائما."
+msgstr "إذا فعل هذا الخيار، ستكون النافذة فوق جميع النوافذ دائما."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:23
