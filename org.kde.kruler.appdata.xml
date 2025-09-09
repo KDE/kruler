@@ -47,7 +47,6 @@
   <name xml:lang="sv">Kruler</name>
   <name xml:lang="tr">K Cetvel</name>
   <name xml:lang="uk">KRuler</name>
-  <name xml:lang="x-test">xxKRulerxx</name>
   <name xml:lang="zh-CN">KRuler 屏幕标尺</name>
   <name xml:lang="zh-TW">KRuler</name>
   <launchable type="desktop-id">org.kde.kruler.desktop</launchable>
@@ -94,7 +93,6 @@
   <summary xml:lang="sv">Skärmlinjal</summary>
   <summary xml:lang="tr">Ekran Cetveli</summary>
   <summary xml:lang="uk">Екранна лінійка</summary>
-  <summary xml:lang="x-test">xxScreen Rulerxx</summary>
   <summary xml:lang="zh-CN">屏幕标尺工具</summary>
   <summary xml:lang="zh-TW">螢幕尺規</summary>
   <description>
@@ -140,7 +138,6 @@
     <p xml:lang="sv">Kruler är en skärmlinjal för att mäta bildpunkter. Placera nollan på startpunkten och mät det exakta avståndet i bildpunkter mellan startpunkten och pekaren.</p>
     <p xml:lang="tr">K Cetvel, pikselleri ölçmek için ekran üstü bir cetveldir. 0’ı başlangıç noktanızda konumlandırın ve başlangıç noktası ile imleciniz arasındaki kesin piksel uzaklığını ölçün.</p>
     <p xml:lang="uk">KRuler — екранна лінійка для вимірювання відстаней у пікселях. Розташуйте нульову позначку у початковій точці вимірювання і виміряйте відстань між початковою точкою та вказівником миші.</p>
-    <p xml:lang="x-test">xxKRuler is an on-screen ruler for measuring pixels. Position the 0 at your starting point and measure the precise pixel distance between the starting point and your cursor.xx</p>
     <p xml:lang="zh-CN">KRuler 是一款用于测量屏幕像素距离的虚拟标尺工具。先将标尺的 0 位放置在测量起点，然后移动鼠标光标，即可测量起点和光标之间的精确像素距离。</p>
     <p xml:lang="zh-TW">KRuler 是一個用以測量像素的，在螢幕上顯示的直尺。在您的起始點標記為 0 並測量出您的起始點到游標的精確像素距離。</p>
   </description>
@@ -196,7 +193,6 @@
       <caption xml:lang="sv">Programmets huvudfönster</caption>
       <caption xml:lang="tr">Ana uygulama penceresi</caption>
       <caption xml:lang="uk">Основне вікно програми</caption>
-      <caption xml:lang="x-test">xxMain application windowxx</caption>
       <caption xml:lang="zh-CN">主应用程序窗口</caption>
       <caption xml:lang="zh-TW">應用程式主視窗</caption>
       <image>https://cdn.kde.org/screenshots/kruler/kruler.png</image>
