@@ -148,7 +148,7 @@ msgstr "%1 px"
 #: klineal.cpp:511
 #, kde-format
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
