@@ -66,7 +66,7 @@
 >Introduction</title>
 
 <para
->&kruler; est une application très simple, n'ayant qu'un seul but dans la vie : mesurer des distances en pixels sur votre écran. Ceci est utile pour travailler sur des dispositions de boîtes de dialogue, des pages Internet, &etc;</para>
+>&kruler; est une application très simple, n'ayant qu'un seul but dans la vie : mesurer des distances en pixels sur votre écran. Ceci est utile pour travailler sur des dispositions de boites de dialogue, des pages Internet, &etc;</para>
 
 <para
 >Pour démarrer &kruler;, veuillez choisir <menuchoice
@@ -188,7 +188,7 @@
 </term>
 <listitem>
 <para
->La boîte de dialogue <guilabel
+>La boite de dialogue <guilabel
 >Configurer les raccourcis claviers</guilabel
 > vous permet d'assigner des raccourcis aux actions de &kruler;, et de configurer les raccourcis déjà assignés.</para>
 <para
@@ -222,7 +222,7 @@
 </screenshot>
 </para>
 <para
->Dans cette boîte de dialogue, vous pouvez modifier la couleur d'arrière plan et la police, activer l'icône de la boîte à miniatures.</para>
+>Dans cette boite de dialogue, vous pouvez modifier la couleur d'arrière plan et la police, activer l'icône de la boite à miniatures.</para>
 </listitem>
 </varlistentry>
 
@@ -244,8 +244,8 @@
 <para
 ><action
 >Masque</action
-> &kruler;. Il peut être affiché de nouveau en utilisant l'icône de la boîte à miniatures. Le menu contextuel n'affiche cet élément que lorsque <guilabel
->Afficher dans la boîte à miniatures</guilabel
+> &kruler;. Il peut être affiché de nouveau en utilisant l'icône de la boite à miniatures. Le menu contextuel n'affiche cet élément que lorsque <guilabel
+>Afficher dans la boite à miniatures</guilabel
 > est coché dans la <link linkend="settings-dialog"
 >Boîte de dialogue de configuration</link
 >.</para>
