@@ -2,7 +2,7 @@
 # Translation of kruler.po to Slovenian
 # SLOVENIAN TRANSLATION OF KRULER.
 # Copyright (C) 2001, 2003, 2004, 2005 Free Software Foundation, Inc.
-# $Id: kruler.po 1695756 2024-11-23 01:16:23Z scripty $
+# $Id: kruler.po 1723120 2025-11-17 15:24:07Z scripty $
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kruler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-23 00:39+0000\n"
+"POT-Creation-Date: 2025-11-17 14:39+0000\n"
 "PO-Revision-Date: 2017-06-17 08:48+0100\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
