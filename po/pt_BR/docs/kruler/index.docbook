@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kruler;">
   <!ENTITY % Brazilian-Portuguese "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
@@ -68,9 +67,9 @@
 </copyright>
 
 <date
->15/05/2015</date>
+>14/06/2017</date>
 <releaseinfo
->Applications 15.04</releaseinfo>
+>5.0 (Applications 17.08)</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -95,14 +94,14 @@
 >Introdução</title>
 
 <para
->O &kruler; é um aplicativo muito simples, com apenas um objetivo na vida. Medir distâncias dos pixels e cores na sua tela. É útil para trabalhar com leiaute de diálogos, páginas Web, &etc;</para>
+>O &kruler; é um aplicativo muito simples, com apenas um objetivo na vida. Medir distâncias dos pixels na sua tela. É útil para trabalhar com layout de diálogos, sites, &etc;</para>
 
 <para
 >Para iniciar o &kruler;, escolha a opção <menuchoice
 ><guimenu
 >Aplicativos</guimenu
 > <guisubmenu
->Gráficos</guisubmenu
+>Utilitários</guisubmenu
 > <guisubmenu
 >Mais aplicativos</guisubmenu
 ><guimenuitem
@@ -128,22 +127,17 @@
 >Clicar com o &LMB; no &kruler; mudará o cursor para um ícone em forma de cruz com quatro pontas, permitindo-lhe arrastá-lo pela tela.</para>
 
 <para
->Quando mover o mouse sobre o &kruler;, o seu cursor mudará para uma seta mais longa, com um círculo numa das extremidades. À medida que mover o cursor, o &kruler; mostrará quão longe do ponto marcado como <guilabel
->0</guilabel
-> está o círculo no fim do cursor. O &kruler; irá também mostrar o código da cor em &HTML;, para a cor que se encontra sob o círculo. Isto é muito útil para extrair cores de uma imagem. Se mover o mouse de tal forma que o cursor da seta não toque mais no &kruler;, o cursor voltará ao normal, permitindo-lhe continuar trabalhando com os seus outros aplicativos.</para>
+>Ao mover o cursor sobre o &kruler;, ele se transformará em uma seta vermelha. Conforme você move o cursor, o &kruler; exibirá a distância atual do cursor em relação à origem. </para>
 
 <para
->Você pode alterar a orientação de três formas diferentes:</para>
+>Você pode redimensionar a régua movendo o mouse sobre a alça nas bordas esquerda ou direita do &kruler; (as bordas superior ou inferior quando ela está orientada verticalmente), mantendo pressionado o &LMB; e arrastando a alça.</para>
+
+<para
+>Você pode alterar a orientação de duas formas diferentes:</para>
 
 <simplelist>
 <member
 >Clicando com o &MMB; irá mudar a régua da direção vertical para a horizontal</member>
-<member
->Clicando nos botões de rotação, poderá rodar 90 graus para a esquerda ou para a direita. Se os botões de rotação não estiverem visíveis na régua, habilite-os com a opção <guilabel
->Mostrar botões de rotação</guilabel
-> no <link linkend="settings-dialog"
->diálogo de configurações</link
-></member>
 <member
 >Usando o menu de contexto descrito no próximo capítulo</member>
 </simplelist>
@@ -161,235 +155,13 @@
 <varlistentry>
 <term>
 <menuchoice>
-<guisubmenu
->Orientação</guisubmenu>
+<guimenuitem
+>Girar</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
 <para
->Este submenu contém as entradas que lhe permitem alterar a orientação do &kruler;</para>
-
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->N</keycap
-> </shortcut
-> <guisubmenu
->Orientação</guisubmenu
-> <guimenuitem
->Norte</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Gira o &kruler; de modo que a régua esteja na horizontal e as medidas estejam no topo (ao Norte) da régua</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->E</keycap
-> </shortcut
-> <guisubmenu
->Orientação</guisubmenu
-> <guimenuitem
->Leste</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Gira o &kruler; de modo que a régua esteja na vertical e as medidas estejam à direita (a Leste) da régua</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->S</keycap
-> </shortcut
-> <guisubmenu
->Orientação</guisubmenu
-> <guimenuitem
->Sul</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Gira o &kruler; de modo que a régua esteja na horizontal e as medidas estejam abaixo (ao Sul) da régua</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->W</keycap
-> </shortcut
-> <guisubmenu
->Orientação</guisubmenu
-> <guimenuitem
->Oeste</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Gira o &kruler; de modo que a régua esteja na vertical e as medidas estejam à esquerda (a Oeste) da régua</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->R</keycap
-> </shortcut
-> <guisubmenu
->Orientação</guisubmenu
-> <guimenuitem
->Girar à direita</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Gira a régua 90 graus para a direita. Por exemplo, se estiver virada para o Sul, ela será girada para o Oeste.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->R</keycap
-> </shortcut
-> <guisubmenu
->Orientação</guisubmenu
-> <guimenuitem
->Girar à esquerda</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Gira a régua 90 graus para a esquerda. Por exemplo, se estiver virada para o Oeste, ela será girada para o Sul.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guisubmenu
->Comprimento</guisubmenu>
-</menuchoice>
-</term>
-<listitem>
-<para
->Este submenu contém as entradas que lhe permitem alterar o comprimento do &kruler;</para>
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-><keycombo action="simul"
->&Ctrl; <keycap
->S</keycap
-></keycombo
-> </shortcut
-> <guisubmenu
->Comprimento</guisubmenu
-> <guimenuitem
->Curto</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Torna o &kruler; curto - com cerca de 385 pixels de comprimento.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->M</keycap
-></keycombo
-> </shortcut
-> <guisubmenu
->Comprimento</guisubmenu
-> <guimenuitem
->Médio</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Deixa o &kruler; com comprimento médio - cerca de 640 pixels de comprimento.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->T</keycap
-></keycombo
-> </shortcut
-> <guisubmenu
->Comprimento</guisubmenu
-> <guimenuitem
->Alto</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Torna o &kruler; longo - cerca de 960 pixels de comprimento.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->F</keycap
-></keycombo
-> </shortcut
-> <guisubmenu
->Comprimento</guisubmenu
-> <guimenuitem
->Largura da tela</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Deixa o &kruler; com o mesmo tamanho que a largura da sua tela.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><guisubmenu
->Comprimento</guisubmenu
-> <guimenuitem
->Comprimento...</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Abre um diálogo para digitar o tamanho em pixels.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<para
->Além disso, você pode alterar o tamanho e mover o lado direito da régua com a roda do mouse. Se mantiver pressionada a tecla &Shift;, irá mudar o lado oposto. </para>
-
+>Alterna entre a orientação vertical e horizontal do &kruler;.</para>
 </listitem>
 </varlistentry>
 
@@ -478,26 +250,7 @@
 </screenshot>
 </para>
 <para
->Neste diálogo, você pode alterar a cor do plano de fundo e da fonte, habilitar a rotação e fechar os botões na régua, ativando o ícone da área de notificação.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->C</keycap
-></keycombo
-> </shortcut
-> <guimenuitem
->Copiar cor</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Copia o código de cor em &HTML; da cor atualmente sob o círculo para a área de transferência.</para>
+>Neste diálogo, você pode alterar a cor do plano de fundo e da fonte e ativar o ícone da área de notificação.</para>
 </listitem>
 </varlistentry>
 
@@ -551,10 +304,24 @@
 <para
 >O &kruler; tem os itens de menu <guimenu
 >Ajuda</guimenu
-> comuns no &kde; Para mais informações, leia a seção <ulink url="help:/fundamentals/ui.html#menus-help"
+> comuns no &kde; Para mais informações, leia a seção <ulink url="help:/fundamentals/menus.html#menus-help"
 >Menu Ajuda</ulink
 > do Fundamentos do &kde;. </para>
 
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Utilização do teclado</title>
+
+<para
+>Você pode mover a régua usando as teclas de seta.</para>
+
+<para
+>Você pode mover o cursor do mouse e, portanto, o indicador, mantendo pressionada a tecla &Alt; e usando as teclas de seta.</para>
+
+<para
+>Mantenha pressionadas a tecla &Shift; enquanto realiza uma dessas ações para se mover mais rapidamente.</para>
 </chapter>
 
 <chapter id="credits-and-license">
@@ -587,8 +354,7 @@
 > e André Marcelo Alvarenga <email
 >alvarenga@kde.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index; 
 </book>
