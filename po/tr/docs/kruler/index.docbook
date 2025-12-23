@@ -53,7 +53,7 @@
 </copyright>
 
 <date
->2017-06-14</date>
+>2017‒06‒14</date>
 <releaseinfo
 >5.0 (Uygulamalar 17.08)</releaseinfo>
 
@@ -83,7 +83,7 @@
 >&kruler; tek amacı olan basit bir uygulamadır. Ekranınızdaki piksel mesafelerini ölçmek içindir. Şunlar üzerinde çalışırken yararlıdır: iletişim kutuları, web sayfaları &etc;</para>
 
 <para
->&kruler;'i başlatmak için sistem menünüzden <menuchoice
+>&kruler;’i başlatmak için sistem menünüzden <menuchoice
 ><guimenu
 >Uygulamalar</guimenu
 ><guisubmenu
@@ -110,13 +110,13 @@
 </screenshot>
 
 <para
->&kruler; üzerinde &LMB; ile tıklandığında, imleci dört oklu bir şekle döndürür ve &kruler;'i ekranda hareket ettirebilmenize olanak sağlar.</para>
+>&kruler; üzerinde &LMB; ile tıklandığında, imleci dört oklu bir şekle döndürür ve &kruler;’i ekranda hareket ettirebilmenize olanak sağlar.</para>
 
 <para
 >Farenizi &kruler; üzerine getirdiğinizde, imleciniz kırmızı oka dönüşür. İmleci hareket ettirdikçe, &kruler; imlecin asıl noktasından ne kadar uzakta olduğunu gösterir. </para>
 
 <para
->Cetveli &kruler;'in sol ve sağ tarafında bulunan tutaçları kullanıp &LMB; ile basılı tutarak ve sürükleyerek yeniden boyutlandırabilirsiniz (dikey olduğunda üst ve alt uçlardan).</para>
+>Cetveli &kruler;’in sol ve sağ tarafında bulunan tutaçları kullanıp &LMB; ile basılı tutarak ve sürükleyerek yeniden boyutlandırabilirsiniz (dikey olduğunda üst ve alt uçlardan).</para>
 
 <para
 >Yönlendirmeyi iki farklı yolla değiştirebilirsiniz:</para>
@@ -147,7 +147,7 @@
 </term>
 <listitem>
 <para
->&kruler;'i dikeyden yatay yöne çevirir.</para>
+>&kruler;’i dikeyden yatay yöne çevirir.</para>
 </listitem>
 </varlistentry>
 
@@ -189,7 +189,7 @@
 </term>
 <listitem>
 <para
->Bu menü, &kruler;'in matlığını değiştirmek için bir kaydırıcı görüntüler.</para>
+>Bu menü, &kruler;’in matlığını değiştirmek için bir sürgü görüntüler.</para>
 </listitem>
 </varlistentry>
 
@@ -197,7 +197,7 @@
 <term>
 <menuchoice>
 <guimenuitem
->Kısayolları Yapılandır...</guimenuitem>
+>Kısayolları Yapılandır…</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
@@ -216,21 +216,21 @@
 <term>
 <menuchoice>
 <guimenuitem
->&kruler; Uygulamasını Yapılandır...</guimenuitem>
+>&kruler; Uygulamasını Yapılandır…</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
 <para>
 <screenshot>
 <screeninfo
->&kruler;'in ayarlar iletişim kutusu</screeninfo>
+>&kruler;’in ayarlar iletişim kutusu</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="kruler-settings.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->&kruler;'ın ayarlar iletişim kutusu</phrase>
+>&kruler;’ın ayarlar iletişim kutusu</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -256,7 +256,7 @@
 </term>
 <listitem>
 <para
->&kruler;'ı <action
+>&kruler;’ı <action
 >gizler</action
 >. Sistem tepsisi simgesi kullanılarak yeniden gösterilebilir. Bu bağlam menüsü ögesi, yalnızca <link linkend="settings-dialog"
 >ayarlar iletişim kutusundaki</link
@@ -281,7 +281,7 @@
 </term>
 <listitem>
 <para
->&kruler;'den <action
+>&kruler;’den <action
 >çıkar</action
 ></para>
 </listitem>
