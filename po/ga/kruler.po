@@ -144,17 +144,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (BgColor), group (StoredSettings)
 #: kruler.kcfg:11
-#, fuzzy, kde-format
-#| msgid "Background color:"
+#, kde-format
 msgid "Background color of the ruler."
-msgstr "Dath an chúlra:"
+msgstr ""
 
 #. i18n: ectx: label, entry (Length), group (StoredSettings)
 #: kruler.kcfg:15
-#, fuzzy, kde-format
-#| msgid "Orientation of the ruler"
+#, kde-format
 msgid "Length of the ruler."
-msgstr "Treoshuíomh an rialóra"
+msgstr ""
 
 #. i18n: ectx: label, entry (ScaleFont), group (StoredSettings)
 #: kruler.kcfg:19
@@ -170,10 +168,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (LeftToRight), group (StoredSettings)
 #: kruler.kcfg:27
-#, fuzzy, kde-format
-#| msgid "Orientation of the ruler"
+#, kde-format
 msgid "Direction of the ruler"
-msgstr "Treoshuíomh an rialóra"
+msgstr ""
 
 #. i18n: ectx: label, entry (Offset), group (StoredSettings)
 #: kruler.kcfg:31
@@ -189,10 +186,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (TrayIcon), group (StoredSettings)
 #: kruler.kcfg:39
-#, fuzzy, kde-format
-#| msgid "Show tray icon"
+#, kde-format
 msgid "Is a tray icon used"
-msgstr "Taispeáin deilbhín sa tráidire"
+msgstr ""
 
 #. i18n: ectx: label, entry (Opacity), group (StoredSettings)
 #: kruler.kcfg:43
@@ -212,10 +208,9 @@ msgid "KDE Screen Ruler"
 msgstr "Rialóir Scáileáin KDE"
 
 #: main.cpp:26
-#, fuzzy, kde-format
-#| msgid "A screen ruler for KDE"
+#, kde-format
 msgid "A screen ruler by KDE"
-msgstr "Rialóir scáileáin le haghaidh KDE"
+msgstr ""
 
 #: main.cpp:28
 #, kde-format
@@ -267,74 +262,3 @@ msgstr "Séamus Ó Ciardhuáin,Kevin Scannell"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "seoc@iolfree.ie,kscanne@gmail.com"
-
-#~ msgid "KRuler"
-#~ msgstr "KRuler"
-
-#~ msgid "Turn Left"
-#~ msgstr "Cas Ar Dheis"
-
-#~ msgid "Turn Right"
-#~ msgstr "Cas Ar Clé"
-
-#~ msgid "&Orientation"
-#~ msgstr "Tre&oshuíomh"
-
-#~ msgctxt "Turn Kruler North"
-#~ msgid "&North"
-#~ msgstr "&Tuaisceart"
-
-#~ msgctxt "Turn Kruler East"
-#~ msgid "&East"
-#~ msgstr "&Oirthear"
-
-#~ msgctxt "Turn Kruler South"
-#~ msgid "&South"
-#~ msgstr "&Deisceart"
-
-#~ msgctxt "Turn Kruler West"
-#~ msgid "&West"
-#~ msgstr "&Iarthar"
-
-#~ msgid "&Length"
-#~ msgstr "&Fad"
-
-#~ msgctxt "Make Kruler Height Short"
-#~ msgid "&Short"
-#~ msgstr "&Gearr"
-
-#~ msgctxt "Make Kruler Height Medium"
-#~ msgid "&Medium"
-#~ msgstr "&Measartha"
-
-#~ msgctxt "Make Kruler Height Tall"
-#~ msgid "&Tall"
-#~ msgstr "&Ard"
-
-#~ msgid "Length..."
-#~ msgstr "Fad..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Ruler Length"
-#~ msgstr "Fad an Rialóra"
-
-#~ msgid "Length:"
-#~ msgstr "Fad:"
-
-#~ msgid "Offset: %1"
-#~ msgstr "Fritháireamh: %1"
-
-#~ msgid "Length: %1 px"
-#~ msgstr "Fad: %1 pct"
-
-#~ msgid "Orientation of the ruler"
-#~ msgstr "Treoshuíomh an rialóra"
-
-#~ msgid "Choose &Font..."
-#~ msgstr "Roghnai&gh Cló..."
-
-#~ msgid "(c) 2000, Till Krech"
-#~ msgstr "© 2000, Till Krech"
-
-#~ msgid "Programming"
-#~ msgstr "Ríomhchlárú"
