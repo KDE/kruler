@@ -46,6 +46,7 @@
   <name xml:lang="sr-ijekavianlatin">K‑lenjir</name>
   <name xml:lang="sv">Kruler</name>
   <name xml:lang="tr">K Cetvel</name>
+  <name xml:lang="ug">K سىزغۇچ</name>
   <name xml:lang="uk">KRuler</name>
   <name xml:lang="zh-CN">KRuler 屏幕标尺</name>
   <name xml:lang="zh-TW">KRuler</name>
@@ -92,6 +93,7 @@
   <summary xml:lang="sr-ijekavianlatin">Ekranski lenjir</summary>
   <summary xml:lang="sv">Skärmlinjal</summary>
   <summary xml:lang="tr">Ekran Cetveli</summary>
+  <summary xml:lang="ug">ئېكران سىزغۇچ</summary>
   <summary xml:lang="uk">Екранна лінійка</summary>
   <summary xml:lang="zh-CN">屏幕标尺工具</summary>
   <summary xml:lang="zh-TW">螢幕尺規</summary>
@@ -191,6 +193,7 @@
       <caption xml:lang="sl">Glavno okno aplikacije</caption>
       <caption xml:lang="sv">Programmets huvudfönster</caption>
       <caption xml:lang="tr">Ana uygulama penceresi</caption>
+      <caption xml:lang="ug">ئاساسىي پىروگرامما كۆزنىكى</caption>
       <caption xml:lang="uk">Основне вікно програми</caption>
       <caption xml:lang="zh-CN">主应用程序窗口</caption>
       <caption xml:lang="zh-TW">應用程式主視窗</caption>
