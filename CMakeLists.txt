@@ -119,6 +119,7 @@ install( PROGRAMS org.kde.kruler.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 install( FILES org.kde.kruler.appdata.xml    DESTINATION  ${KDE_INSTALL_METAINFODIR} )
 install( FILES kruler.notifyrc  DESTINATION  ${KDE_INSTALL_KNOTIFYRCDIR} )
 install( FILES move.wav  DESTINATION  ${KDE_INSTALL_DATADIR}/kruler/sounds )
+install( FILES kruler.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR} )
 
 ki18n_install(po)
 if (KF6DocTools_FOUND)
