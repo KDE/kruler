@@ -108,7 +108,7 @@
 >Einleitung</title>
 
 <para
->&kruler; ist eine sehr einfache Anwendung mit nur einem Ziel: Abstände von Pixeln auf dem Bildschirm zu messen. Es hilft z. B. bei Arbeiten an Webseiten-Layouts oder bei der Arbeit an Dialogen &etc;</para>
+>&kruler; ist eine sehr einfache Anwendung mit nur einem Ziel: Abstände von Pixeln auf dem Bildschirm zu messen. Es hilft z. B. bei Arbeiten an Webseiten-Layouts oder bei der Arbeit an Dialogen &etc;</para>
 
 <para
 >Um &kruler; zu starten, wählen Sie <menuchoice
@@ -155,7 +155,7 @@
 <member
 >Klicken Sie mit der &MMBn; auf das Lineal, um zwischen der vertikalen und horizontalen Ausrichtung zu wechseln.</member>
 <member
->Benutzen Sie das Kontextmenü, wie im nächsten Kapitel beschrieben.</member>
+>Verwenden Sie das Kontextmenü, wie im nächsten Kapitel beschrieben.</member>
 </simplelist>
 
 </chapter>
@@ -320,7 +320,7 @@
 </varlistentry>
 </variablelist>
 <para
->&kruler; benutzt die bekannten &kde;-Einträge im Menü <guimenu
+>&kruler; verwendet die bekannten &kde;-Einträge im Menü <guimenu
 >Hilfe</guimenu
 >, weitere Informationen dazu finden Sie im Abschnitt über das Menü <ulink url="help:/fundamentals/menus.html#menus-help"
 >Hilfe</ulink
@@ -336,7 +336,7 @@
 >Sie können das Lineal mit den Pfeiltasten verschieben.</para>
 
 <para
->Sie können den Mauszeiger und damit die Anzeige verschieben, indem Sie die Taste &Alt; drücken und die Pfeiltasten benutzen.</para>
+>Sie können den Mauszeiger und damit die Anzeige verschieben, indem Sie die Taste &Alt; drücken und die Pfeiltasten verwenden.</para>
 
 <para
 >Drücken Sie dabei zusätzlich die &Shift;taste, um die Bewegung zu beschleunigen.</para>

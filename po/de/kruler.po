@@ -63,7 +63,7 @@ msgid ""
 "working on layouts of dialogs, web pages etc."
 msgstr ""
 "Dies ist ein Werkzeug, mit dem Abstände auf dem Bildschirm gemessen werden "
-"können. Es hilft z. B. bei Arbeiten an Webseiten-Layouts oder bei der Arbeit "
+"können. Es hilft z. B. bei Arbeiten an Webseiten-Layouts oder bei der Arbeit "
 "an Dialogen."
 
 #: klineal.cpp:108
