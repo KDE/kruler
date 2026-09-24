@@ -1,7 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kruler;">
-  <!ENTITY package "kdegraphics">
   <!ENTITY % Russian "INCLUDE"
 > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
@@ -11,7 +9,7 @@
 
 <bookinfo>
 <title
->Руководство &kruler;</title>
+>Руководство пользователя &kruler;</title>
 
 <authorgroup>
 <author
@@ -69,9 +67,9 @@
 </copyright>
 
 <date
->24 июня 2013 г.</date>
+>14 июня 2017 г.</date>
 <releaseinfo
->&kde; 4.11</releaseinfo>
+>5.0 (Приложения KDE 17.08)</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -96,14 +94,14 @@
 >Введение</title>
 
 <para
->&kruler; &mdash; очень простое приложение, созданное лишь для того, чтобы измерять расстояния в пикселах и определять цвета на экране. Это полезно для работы с макетами диалоговых окон, веб-страниц и тому подобного.</para>
+>&kruler; &mdash; очень простое приложение, созданное лишь для того, чтобы измерять расстояния в пикселах на экране. Это полезно для работы с макетами диалоговых окон, веб-страниц и тому подобного.</para>
 
 <para
 >Чтобы запустить &kruler;, выберите в меню запуска приложений <menuchoice
 ><guimenu
 >Приложения</guimenu
 ><guisubmenu
->Графика</guisubmenu
+>Служебные</guisubmenu
 > <guisubmenu
 >Дополнительные приложения</guisubmenu
 > <guimenuitem
@@ -129,24 +127,17 @@
 >При нажатии и удерживании левой кнопки мыши на &kruler; указатель примет вид креста с четырьмя стрелками, и вы сможете перемещать &kruler; по экрану.</para>
 
 <para
->Когда мышь находится над линейкой, курсор принимает форму удлинённой стрелки, с кружком в начале. При перемещении курсора &kruler; будет отображать расстояние между нулевой отметкой (<guilabel
->0</guilabel
->) и кружком, а также <acronym
->HTML</acronym
->-код цвета пиксела, находящегося в кружке. Это помогает получить код цвета из какого-либо изображения. Если курсор не касается линейки, он принимает обычную форму, что позволяет вам работать с другими приложениями.</para>
+>При наведении мыши на &kruler; указатель примет вид красной стрелки. При перемещении указателя &kruler; показывает расстояние от начала отсчёта до его текущего положения. </para>
 
 <para
->Вы можете поменять ориентацию линейки тремя различными способами:</para>
+>Чтобы изменить размер линейки, наведите указатель мыши на маркер на левом или правом краю &kruler; (на верхнем или нижнем краю, если линейка расположена вертикально), нажмите и удерживайте &LMB;, а затем перетащите маркер.</para>
+
+<para
+>Ориентацию линейки можно изменить двумя различными способами:</para>
 
 <simplelist>
 <member
 >При нажатии средней кнопкой мыши на линейке меняется её ориентация с вертикальной на горизонтальную или наоборот</member>
-<member
->С помощью нажатия кнопок поворота, для поворотов на 90 градусов влево или вправо. Если кнопки вращения не показаны на линейке, вы можете их включить, используя параметр <guilabel
->Показывать кнопки вращения</guilabel
-> в <link linkend="settings-dialog"
->окне настройки &kruler;</link
-></member>
 <member
 >Используя команды из контекстного меню. Это меню описано в следующей главе.</member>
 </simplelist>
@@ -164,235 +155,13 @@
 <varlistentry>
 <term>
 <menuchoice>
-<guisubmenu
->Ориентация</guisubmenu>
+<guimenuitem
+>Повернуть</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
 <para
->Это подменю включает команды, с помощью которых вы можете повернуть линейку &kruler;.</para>
-
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->N</keycap
-> </shortcut
-> <guisubmenu
->Ориентация</guisubmenu
-> <guimenuitem
->Север</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Повернуть линейку шкалой вверх</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->E</keycap
-> </shortcut
-> <guisubmenu
->Ориентация</guisubmenu
-> <guimenuitem
->Восток</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Повернуть линейку шкалой вправо</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->S</keycap
-> </shortcut
-> <guisubmenu
->Ориентация</guisubmenu
-> <guimenuitem
->Юг</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Повернуть линейку шкалой вниз</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->W</keycap
-> </shortcut
-> <guisubmenu
->Ориентация</guisubmenu
-> <guimenuitem
->Запад</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Повернуть линейку шкалой влево</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->R</keycap
-> </shortcut
-> <guisubmenu
->Ориентация</guisubmenu
-> <guimenuitem
->Повернуть вправо</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Повернуть линейку по часовой стрелке.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycap
->L</keycap
-> </shortcut
-> <guisubmenu
->Ориентация</guisubmenu
-> <guimenuitem
->Повернуть влево</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Повернуть линейку против часовой стрелки.</para>
-</listitem>
-</varlistentry>
-</variablelist>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice>
-<guisubmenu
->Длина</guisubmenu>
-</menuchoice>
-</term>
-<listitem>
-<para
->С помощью команд этого подменю вы можете изменить длину линейки &kruler;.</para>
-<variablelist>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-><keycombo action="simul"
-> &Ctrl;<keycap
->S</keycap
-></keycombo
-></shortcut
-> <guisubmenu
->Длина</guisubmenu
-> <guimenuitem
->Короткая</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Линейка &kruler; станет короткой &mdash; около 385 пикселов.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->M</keycap
-></keycombo
-></shortcut
-> <guisubmenu
->Длина</guisubmenu
-> <guimenuitem
->Средняя</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->&kruler; примет среднюю длину &mdash; около 640 пикселов.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->T</keycap
-></keycombo
-></shortcut
-> <guisubmenu
->Длина</guisubmenu
-> <guimenuitem
->Длинная</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->&kruler; примет длину около 960 пикселов.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->F</keycap
-></keycombo
-></shortcut
-> <guisubmenu
->Длина</guisubmenu
-> <guimenuitem
->По ширине экрана</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->&kruler; примет длину экрана.</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
-<menuchoice
-><guisubmenu
->Длина</guisubmenu
-> <guimenuitem
->Длина...</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Откроет окно для ввода размера в пикселах</para>
-</listitem>
-</varlistentry>
-</variablelist>
-<para
->Также, вы можете менять длину, двигая правую границу линейки вращением колесика мыши. Удерживание клавиши &Shift; позволяет двигать противоположную границу. </para>
-
+>Меняет ориентацию &kruler; с вертикальной на горизонтальную.</para>
 </listitem>
 </varlistentry>
 
@@ -481,26 +250,7 @@
 </screenshot>
 </para>
 <para
->В этом окне вы можете менять цвет фона и шрифт, включить показ кнопок вращения и закрытия и добавить значок приложения в системный лоток.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>
-<menuchoice
-><shortcut
-> <keycombo action="simul"
->&Ctrl;<keycap
->C</keycap
-></keycombo
-> </shortcut
-> <guimenuitem
->Скопировать цвет</guimenuitem
-> </menuchoice>
-</term>
-<listitem>
-<para
->Копирует в буфер обмена &HTML;-код цвета пиксела, находящегося в кружке.</para>
+>В этом окне можно изменить цвет фона и шрифт, а также включить значок в системном лотке.</para>
 </listitem>
 </varlistentry>
 
@@ -552,12 +302,26 @@
 </varlistentry>
 </variablelist>
 <para
->В меню &kruler; содержится общее для всех приложений KDE подменю <guimenu
+>В меню &kruler; содержится общий для всех приложений &kde; пункт меню <guimenu
 >Справка</guimenu
->, для получения дополнительной информации читайте раздел о <ulink url="help:/fundamentals/ui.html#menus-help"
+>, для получения дополнительной информации читайте раздел о <ulink url="help:/fundamentals/menus.html#menus-help"
 >Меню «Справка»</ulink
 > в «Основах &kde;». </para>
 
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>Управление с клавиатуры</title>
+
+<para
+>Линейку можно перемещать клавишами со стрелками.</para>
+
+<para
+>Чтобы переместить указатель мыши, а вместе с ним и индикатор, нажимайте клавиши со стрелками, удерживая &Alt;.</para>
+
+<para
+>Чтобы перемещать быстрее, дополнительно удерживайте &Shift;.</para>
 </chapter>
 
 <chapter id="credits-and-license">
@@ -592,18 +356,7 @@
 >Дополнение перевода: Алексей Баранов <email
 >aleksei.ee@gmail.com</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
-
-<appendix id="installation">
-<title
->Установка</title>
-
-&install.intro.documentation;
-
-&install.compile.documentation;
-
-</appendix>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index; 
 </book>
