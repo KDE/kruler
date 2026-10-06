@@ -46,6 +46,7 @@
   <name xml:lang="sr-ijekavian">К‑лењир</name>
   <name xml:lang="sr-ijekavianlatin">K‑lenjir</name>
   <name xml:lang="sv">Kruler</name>
+  <name xml:lang="ta">கேரூலர்</name>
   <name xml:lang="tr">K Cetvel</name>
   <name xml:lang="ug">K سىزغۇچ</name>
   <name xml:lang="uk">KRuler</name>
@@ -139,8 +140,8 @@
     <p xml:lang="sl">KRuler je zaslonsko ravnilo za merjenje slikovnih točk. Z njim lahko izmerite natančno razdaljo med izbrano točko in trenutnim položajem vaše miškine kazalke.</p>
     <p xml:lang="sr">К‑лењир је екрански лењир за мерење пиксела. Поставите 0 у жељену почетну тачку и измерите тачно пикселско растојање између те тачке и показивача.</p>
     <p xml:lang="sr-Latn">K‑lenjir je ekranski lenjir za merenje piksela. Postavite 0 u željenu početnu tačku i izmerite tačno pikselsko rastojanje između te tačke i pokazivača.</p>
-    <p xml:lang="sr-ijekavian">К‑лењир је екрански лењир за мерење пиксела. Поставите 0 у жељену почетну тачку и измерите тачно пикселско растојање између те тачке и показивача.</p>
-    <p xml:lang="sr-ijekavianlatin">K‑lenjir je ekranski lenjir za merenje piksela. Postavite 0 u željenu početnu tačku i izmerite tačno pikselsko rastojanje između te tačke i pokazivača.</p>
+    <p xml:lang="sr-ijekavian">К‑лењир је екрански лењир за мјерење пиксела. Поставите 0 у жељену почетну тачку и измјерите тачно пикселско растојање између те тачке и показивача.</p>
+    <p xml:lang="sr-ijekavianlatin">K‑lenjir je ekranski lenjir za mjerenje piksela. Postavite 0 u željenu početnu tačku i izmjerite tačno pikselsko rastojanje između te tačke i pokazivača.</p>
     <p xml:lang="sv">Kruler är en skärmlinjal för att mäta bildpunkter. Placera nollan på startpunkten och mät det exakta avståndet i bildpunkter mellan startpunkten och pekaren.</p>
     <p xml:lang="tr">K Cetvel, pikselleri ölçmek için ekran üstü bir cetveldir. 0’ı başlangıç noktanızda konumlandırın ve başlangıç noktası ile imleciniz arasındaki kesin piksel uzaklığını ölçün.</p>
     <p xml:lang="uk">KRuler — екранна лінійка для вимірювання відстаней у пікселях. Розташуйте нульову позначку у початковій точці вимірювання і виміряйте відстань між початковою точкою та вказівником миші.</p>
@@ -195,6 +196,10 @@
       <caption xml:lang="sa">मुख्य अनुप्रयोगविण्डो</caption>
       <caption xml:lang="sk">Hlavné okno aplikácie</caption>
       <caption xml:lang="sl">Glavno okno aplikacije</caption>
+      <caption xml:lang="sr">Главни прозор програма</caption>
+      <caption xml:lang="sr-Latn">Glavni prozor programa</caption>
+      <caption xml:lang="sr-ijekavian">Главни прозор програма</caption>
+      <caption xml:lang="sr-ijekavianlatin">Glavni prozor programa</caption>
       <caption xml:lang="sv">Programmets huvudfönster</caption>
       <caption xml:lang="tr">Ana uygulama penceresi</caption>
       <caption xml:lang="ug">ئاساسىي پىروگرامما كۆزنىكى</caption>
