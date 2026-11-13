@@ -1,0 +1,352 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kruler" lang="&language;">
+
+<bookinfo>
+<title
+>دليل مسطرة ك</title>
+
+<authorgroup>
+<author
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+> <address
+><email
+>&Lauri.Watts.mail;</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>&Lauri.Watts;</holder>
+</copyright>
+
+<date
+>2017-06-14</date>
+<releaseinfo
+>5.0 (تطبيقات 17.08)</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>يمكن استخدام مسطرة ك لقياس الأشياء على الشاشة. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>مسطرة ك</keyword>
+<keyword
+>kdegraphics</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+
+<para
+>مسطرة ك تطبيق بسيط جدًا، له هدف وحيد في الحياة: قياس المسافات بالبكسل على شاشتك. إنه مفيد للعمل على تخطيط الحوارات وصفحات الويب وغيرها.</para>
+
+<para
+>لبدء مسطرة ك، اختر <menuchoice
+><guimenu
+>التطبيقات</guimenu
+><guisubmenu
+>الأدوات المساعدة</guisubmenu
+> <guisubmenu
+>المزيد من التطبيقات</guisubmenu
+> <guimenuitem
+>مسطرة الشاشة</guimenuitem
+></menuchoice
+> من قائمة التطبيقات.</para>
+
+<screenshot>
+<screeninfo
+>مسطرة ك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>مسطرة ك</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>النقر بزر الفأرة الأيسر على مسطرة ك يحول المؤشر إلى تقاطع بأربعة أسهم ويتيح لك سحب مسطرة ك حول الشاشة.</para>
+
+<para
+>عند تحريك الفأرة فوق مسطرة ك، يتحول المؤشر إلى سهم أحمر. أثناء تحريك المؤشر، يعرض مسطرة ك بُعد المؤشر الحالي عن نقطة الأصل. </para>
+
+<para
+>يمكنك تغيير حجم المسطرة بتحريك الفأرة فوق المقبض على الحواف اليسرى أو اليمنى لـ مسطرة ك (الحواف العلوية أو السفلية عند توجيهها عموديًا)، مع الضغط باستمرار على زر الفأرة الأيسر وسحب المقبض.</para>
+
+<para
+>يمكنك تغيير الاتجاه بطريقتين مختلفتين:</para>
+
+<simplelist>
+<member
+>النقر بزر الفأرة الأوسط يبدّل المسطرة من الاتجاه العمودي إلى الأفقي</member>
+<member
+>باستخدام قائمة السياق، الموصوفة في الفصل التالي</member>
+</simplelist>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>مرجع القائمة</title>
+
+<para
+>النقر بزر الفأرة الأيمن على المسطرة يظهر قائمة سياق، تحتوي على الإدخالات التالية:</para>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>دوّر</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>يبدّل مسطرة ك من الاتجاه العمودي إلى الأفقي.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>حجّم</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>يتيح لك هذا الخيار ضبط مقياس المسطرة إلى <guilabel
+>من اليمين إلى اليسار</guilabel
+> (<keycap
+>D</keycap
+>)، <guilabel
+>نقطة الأصل المركزية</guilabel
+> (<keycap
+>C</keycap
+>)، <guilabel
+>الإزاحة</guilabel
+> (<keycap
+>O</keycap
+>) و<guilabel
+>النسبة المئوية</guilabel
+>.</para>
+<para
+>تغيير الإزاحة عبر عجلة الفأرة ممكن أيضًا عند الضغط باستمرار على زر الفأرة الأيسر.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>حجّم</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>يعرض عنصر القائمة هذا شريط تمرير لتغيير شفافية مسطرة ك.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenuitem
+>اضبط الاختصارات...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para
+>يتيح لك حوار <guilabel
+>ضبط الاختصار</guilabel
+> تعيين اختصارات لإجراءات مسطرة ك، وضبط الاختصارات المعينة بالفعل.</para>
+<para
+>لمزيد من المعلومات، اقرأ القسم حول <ulink url="help:/fundamentals/config.html#shortcuts"
+>الاختصارات</ulink
+> من أساسيات كيدي. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id= "settings-dialog">
+<term>
+<menuchoice>
+<guimenuitem
+>ضبط مسطرة ك…</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para>
+<screenshot>
+<screeninfo
+>حوار إعدادات مسطرة ك</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kruler-settings.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>حوار إعدادات مسطرة ك</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</para>
+<para
+>في هذا الحوار يمكنك تغيير لون الخلفية والخط وتمكين أيقونة العلبة.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+> 
+<menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenuitem
+>إغلاق</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>يخفي</action
+> مسطرة ك. يمكن إظهاره مرة أخرى باستخدام الأيقونة في علبة النظام. تعرض قائمة السياق هذا العنصر فقط عند تحديد <guilabel
+>إظهار أيقونة العلبة</guilabel
+> في <link linkend="settings-dialog"
+>حوار الإعدادات</link
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice>
+</term>
+<listitem>
+<para
+><action
+>يُنهي</action
+> مسطرة ك</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para
+>يحتوي مسطرة ك على عنصر القائمة المشترك <guimenu
+>مساعدة</guimenu
+> في كيدي، لمزيد من المعلومات اقرأ القسم حول <ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> من أساسيات كيدي. </para>
+
+</chapter>
+
+<chapter id="keyboard-handling">
+<title
+>معالجة لوحة المفاتيح</title>
+
+<para
+>يمكنك تحريك المسطرة باستخدام أزرار الأسهم.</para>
+
+<para
+>يمكنك تحريك مؤشر الفأرة، وبالتالي المؤشر، بالضغط باستمرار على &Alt; واستخدام أزرار الأسهم.</para>
+
+<para
+>اضغط باستمرار على &Shift; أثناء فعل أحد هذين للتحرك بشكل أسرع.</para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>مسطرة ك</para>
+
+<para
+>حقوق النشر 2000، 2001 تيل كريش <email
+>till@snafu.de</email
+></para>
+<para
+>حقوق النشر 2009 ماثياس سوكين <email
+>msoeken@tzi.de</email
+></para>
+
+<para
+>الشكر لجونستين لاي <email
+>gl@ez.no</email
+> على النقل الأولي إلى كيدي 2</para>
+
+<para
+>حقوق النشر للتوثيق &Lauri.Watts; &Lauri.Watts.mail;</para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
