@@ -2,7 +2,7 @@
 # Translation of kruler.po to Slovenian
 # SLOVENIAN TRANSLATION OF KRULER.
 # Copyright (C) 2001, 2003, 2004, 2005 Free Software Foundation, Inc.
-# $Id: kruler.po 1723087 2025-11-17 12:44:32Z scripty $
+# $Id$
 # $Source$
 #
 # Roman Maurer <roman.maurer@amis.net>, 2001.
