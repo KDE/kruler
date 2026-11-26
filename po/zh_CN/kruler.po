@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kruler/kruler.pot\n"
-"X-Crowdin-File-ID: 44879\n"
+"X-Crowdin-File: /kf6-stable/messages/kruler/kruler.pot\n"
+"X-Crowdin-File-ID: 50780\n"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_AlwaysOnTop)
 #: cfg_advanced.ui:20
